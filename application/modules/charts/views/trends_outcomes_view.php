@@ -39,7 +39,7 @@
             }, { // Secondary yAxis
                 gridLineWidth: 0,
                 title: {
-                    text: 'Tests',
+                    text: '<?= lang('label.tests')?>',
                     style: {
                         color: '#4572A7'
                     }

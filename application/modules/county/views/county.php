@@ -9,7 +9,7 @@
         // Initiate the chart
         $('#counties_map').highcharts('Map', {
                 title: {
-                text: "Kenya"
+                text: "<?=lang('label_country');?>"
             },
              legend: {
                 enabled: true

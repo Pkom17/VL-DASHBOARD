@@ -73,12 +73,12 @@
 			    var error_check = check_error_date_range(from, to);
 			    
 			    if (!error_check) {
-				    $("#genderGrp").html("<div>Loading...</div>"); 
-			        $("#ageGrp").html("<div>Loading...</div>"); 
-					$("#justification").html("<div>Loading...</div>");
-					$("#regimen").html("<div>Loading...</div>");
-					$("#sampleType").html("<div>Loading...</div>");
-					$("#sites_listing").html("<center><div class='loader'>Loading...</div></center>");
+				    $("#genderGrp").html("<div><?=lang('label.loading')?></div>"); 
+			        $("#ageGrp").html("<div><?=lang('label.loading')?></div>"); 
+					$("#justification").html("<div><?=lang('label.loading')?></div>");
+					$("#regimen").html("<div><?=lang('label.loading')?></div>");
+					$("#sampleType").html("<div><?=lang('label.loading')?></div>");
+					$("#sites_listing").html("<center><div class='loader'><?=lang('label.loading')?></div></center>");
 
 					$.get("<?php echo base_url('partner/check_partner_select')?>", function(data) {
 			 			data = "<?php echo json_decode("+data+")?>";
@@ -99,12 +99,12 @@
 	
 	function date_filter(criteria, id)
  	{
- 		$("#genderGrp").html("<div>Loading...</div>"); 
-        $("#ageGrp").html("<div>Loading...</div>"); 
-		$("#justification").html("<div>Loading...</div>");
-		$("#regimen").html("<div>Loading...</div>");
-		$("#sampleType").html("<div>Loading...</div>");
-		$("#sites_listing").html("<center><div class='loader'>Loading...</div></center>");
+ 		$("#genderGrp").html("<div><?=lang('label.loading')?></div>"); 
+        $("#ageGrp").html("<div><?=lang('label.loading')?></div>"); 
+		$("#justification").html("<div><?=lang('label.loading')?></div>");
+		$("#regimen").html("<div><?=lang('label.loading')?></div>");
+		$("#sampleType").html("<div><?=lang('label.loading')?></div>");
+		$("#sites_listing").html("<center><div class='loader'><?=lang('label.loading')?></div></center>");
 
  		if (criteria === "monthly") {
  			year = null;

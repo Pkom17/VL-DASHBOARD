@@ -35,7 +35,7 @@
 	        	});
 
 	        	// alert(data);
-	        	$('#heading').html('Sub-Counties Outcomes <div class="display_date"></div>');
+	        	$('#heading').html('<?=lang('label.county_outcomes')?> <div class="display_date"></div>');
 
 		        $("#county").html("<center><div class='loader'></div></center>");
 				$("#county_sites").html("<center><div class='loader'></div></center>");

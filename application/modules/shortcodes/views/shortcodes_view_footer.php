@@ -42,8 +42,8 @@
 	        	});
 
 	        	// alert(data);
-	        	$('#requests').html('County Sites Outcomes <div class="display_date"></div>');
-	        	$("#counties").html("<div>Loading...</div>");
+	        	$('#requests').html('<?=lang('label.county_sites_outcomes')?> <div class="display_date"></div>');
+	        	$("#counties").html("<div><?=lang('label.loading')?></div>");
 	        	$("#subcounties").html("<center><div class='loader'></div></center>");
 		        $("#facilities").html("<center><div class='loader'></div></center>");
 				$("#partners").html("<center><div class='loader'></div></center>");
@@ -75,7 +75,7 @@
 		    var error_check = check_error_date_range(from, to);
 		    
 		    if (!error_check) {
-			    $("#requests").html("<div>Loading...</div>");
+			    $("#requests").html("<div><?=lang('label.loading')?></div>");
 		 		$("#counties").html("<center><div class='loader'></div></center>");
 		 		$("#subcounties").html("<center><div class='loader'></div></center>"); 
 				$("#facilities").html("<center><div class='loader'></div></center>");
@@ -117,7 +117,7 @@
 			
 		});
  		
-		$("#requests").html("<div>Loading...</div>");
+		$("#requests").html("<div><?=lang('label.loading')?></div>");
  		$("#counties").html("<center><div class='loader'></div></center>");
  		$("#subcounties").html("<center><div class='loader'></div></center>"); 
 		$("#facilities").html("<center><div class='loader'></div></center>");

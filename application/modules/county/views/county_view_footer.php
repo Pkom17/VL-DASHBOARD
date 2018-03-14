@@ -51,7 +51,7 @@
 	        		$("#first").show();
 					$("#second").hide();
 
-					$('#heading').html('Counties Outcomes <div class="display_date"></div>');
+					$('#heading').html('<?=lang('label.counties_outcomes')?> <div class="display_date"></div>');
 
 	        		$("#county").html("<center><div class='loader'></div></center>");
 					$("#county").load("<?php echo base_url('charts/summaries/county_outcomes');?>");
@@ -66,7 +66,7 @@
 
 					// $("#county_sites").empty();
 
-					$('#heading').html('Sub-Counties Outcomes <div class="display_date"></div>');
+					$('#heading').html('<?=lang('label.sub-counties_outcomes')?> <div class="display_date"></div>');
 
 					$("#subcounty").html("<center><div class='loader'></div></center>");
 					$("#subcounty").load("<?php echo base_url('charts/county/subcounty_outcomes');?>/"+null+"/"+null+"/"+county);
@@ -111,7 +111,7 @@
 						$("#first").show();
 						$("#second").hide();
 
-						$('#heading').html('Counties Outcomes <div class="display_date"></div>');
+						$('#heading').html('<?=lang('label.counties_outcomes')?> <div class="display_date"></div>');
 
 						$("#county").html("<center><div class='loader'></div></center>"); 
 		 				$("#county").load("<?php echo base_url('charts/summaries/county_outcomes'); ?>/"+from[1]+"/"+from[0]+"/"+to[1]+"/"+to[0]);
@@ -124,7 +124,7 @@
 						$("#second").show();
 						$("#first").hide();
 
-						$('#heading').html('Sub-Counties Outcomes <div class="display_date"></div>');
+						$('#heading').html('<?=lang('label.sub-counties_outcomes')?> <div class="display_date"></div>');
 
 						$("#subcounty").html("<center><div class='loader'></div></center>"); 
 		 				$("#subcounty").load("<?php echo base_url('charts/county/subcounty_outcomes'); ?>/"+from[1]+"/"+from[0]+"/"+county+"/"+to[1]+"/"+to[0]);
@@ -180,7 +180,7 @@
 				$("#first").show();
 				$("#second").hide();
 
-				$('#heading').html('Counties Outcomes <div class="display_date"></div>');
+				$('#heading').html('<?=lang('label.counties_outcomes')?> <div class="display_date"></div>');
 
 				$("#county").html("<center><div class='loader'></div></center>"); 
  				$("#county").load("<?php echo base_url('charts/summaries/county_outcomes'); ?>/"+year+"/"+month);
@@ -193,7 +193,7 @@
 				$("#second").show();
 				$("#first").hide();
 
-				$('#heading').html('Sub-Counties Outcomes <div class="display_date"></div>');
+				$('#heading').html('<?=lang('label.sub-counties_outcomes')?> <div class="display_date"></div>');
 
 				$("#subcounty").html("<center><div class='loader'></div></center>"); 
  				$("#subcounty").load("<?php echo base_url('charts/county/subcounty_outcomes'); ?>/"+year+"/"+month);

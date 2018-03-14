@@ -5,11 +5,11 @@
 			// console.log(mail);
 			$.get("<?php echo base_url();?>/contacts/validate_email/"+mail, function(data){
 				if (data==0) {
-					$("#error_div").html("<div style='color:red;'>Enter a valid email!</div>");
-					$("#submit").attr("disabled","true");
+					$("#error_div").html("<div style='color:red;'><?=lang('label.contact_enter_valid_email')?> </div>");
+					$("#btnSubmit").attr("disabled","true");
 				} else {
 					$("#error_div").html("");
-					$("#submit").removeAttr("disabled");
+					$("#btnSubmit").removeAttr("disabled");
 				}
 			});
 
@@ -36,13 +36,13 @@
 					if (data==0) {
 						// Error occured the email was not sent
 						setTimeout(function(){
-						  $("#loading").html("<div style='color:red;' style='height:36px;'>Error occured, the email was not sent!</div>");
+						  $("#loading").html("<div style='color:red;' style='height:36px;'><?=lang('label.contact_error_mail_not_sent')?> </div>");
 						}, 2000);
 						// console.log("Error occured, the email was not sent");
 					} else {
 						// Email sent very well
 						setTimeout(function(){
-						  $("#loading").html("<div style='color:green;' style='height:36px;'>Email sent successfully!</div>");
+						  $("#loading").html("<div style='color:green;' style='height:36px;'><?=lang('label.contact_mail_sent')?></div>");
 						}, 2000);
 						// console.log("Email sent successfully");
 					}

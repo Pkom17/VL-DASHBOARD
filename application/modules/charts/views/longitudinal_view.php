@@ -1,16 +1,16 @@
 <div  style="margin-left:2em;">
     <p>
-     Patients on Art as at March, 31 2017 - <?php echo number_format($trends['total_patients']) ; ?> <br />
-     Total Unique Patients Tested - <?php echo number_format($trends['unique_patients']) ; ?> <br />
+     <?=lang('label.table_patients_on_art_date')?> - <?php echo number_format($trends['total_patients']) ; ?> <br />
+     <?=lang('label.total_un_patients_tested')?> - <?php echo number_format($trends['unique_patients']) ; ?> <br />
 
         <?php  
             for ($i=0; $i < $trends['size']; $i++) { 
-                echo "No of patients with " . $trends['categories'][$i] . " tests - " . number_format($trends['outcomes'][0]['data'][$i]) . "<br />";
+                echo lang('label.no_patients_with')." " . $trends['categories'][$i] .  lang('label.tests')." - " . number_format($trends['outcomes'][0]['data'][$i]) . "<br />";
             }
 
         ?>
-    Total tests - <?php echo number_format($trends['total_tests']) ; ?> <br />
-    Coverage - <?php echo number_format($trends['coverage']) ; ?>% <br />
+     <?php echo lang('label.total_tests_').' - '.number_format($trends['total_tests']) ; ?> <br />
+    <?=lang('label.table_coverage')?> - <?php echo number_format($trends['coverage']) ; ?>% <br />
     </p>
 
     <div id="<?php echo $div_name; ?>">
@@ -38,7 +38,7 @@
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Tests'
+                    text: '<?=lang('label.tests');?>'
                 },
                 stackLabels: {
                     rotation: 0,

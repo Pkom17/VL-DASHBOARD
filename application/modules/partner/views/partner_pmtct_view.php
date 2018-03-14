@@ -14,8 +14,8 @@
 <center>
 	<div id="age_dropdown">
 		<select class="btn btn-primary js-example-basic-single" style="background-color: #C5EFF7;" id="partner_pmtct" name="partner_pmtct">
-	        <option value="0" disabled="true" selected="true">Select PMTCT:</option>
-            <option value="NA">All PMTCT</option>
+	        <option value="0" disabled="true" selected="true"><?=lang('label.select_PMTCT')?></option>
+            <option value="NA"><?=lang('label.all_PMTCT')?></option>
             <!-- <optgroup value="Counties"> -->
             <?php echo $pmtcts; ?>
 	        <!-- </optgroup> -->
@@ -27,7 +27,7 @@
 	<div class="col-md-12 col-sm-12 col-xs-12">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
-		  	Partners Outcomes (Routine VL) <div class="display_date"></div>
+		  	<?=lang('label.partners_outcomes_Routine_VL')?> <div class="display_date"></div>
 		  </div>
 		  <div class="panel-body" id="partner_div">
 		    <center><div class="loader"></div></center>
@@ -39,7 +39,7 @@
 	<div class="col-md-6 col-sm-12 col-xs-12">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
-		  	PMTCT Outcomes <div class="display_date"></div>
+		  	<?=lang('label.PMTCT_outcomes')?> <div class="display_date"></div>
 		  </div>
 		  <div class="panel-body" id="pmtct_outcomes_div">
 		    <center><div class="loader"></div></center>
@@ -49,7 +49,7 @@
 	<div class="col-md-6 col-sm-12 col-xs-12">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
-		  	PMTCT Suppression Outcomes <div class="display_date"></div>
+		  	<?=lang('label.PMTCT_suppression_outcomes')?> <div class="display_date"></div>
 		  </div>
 		  <div class="panel-body" id="pmtct_sup_outcomes_div">
 		    <center><div class="loader"></div></center>
@@ -61,7 +61,7 @@
 	<div class="col-md-12 col-sm-12 col-xs-12">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
-		  	PMTCT Supperssion  (Routine VL) <div class="display_date"></div>
+		  	<?=lang('label.PMTCT_suppression_Routine_VL')?> <div class="display_date"></div>
 		  </div>
 		  <div class="panel-body" id="pmtct_suppression_div">
 		    <center><div class="loader"></div></center>
@@ -71,7 +71,7 @@
 	<div class="col-md-12 col-sm-12 col-xs-12">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
-		  	VL Outcomes <div class="display_date"></div>
+		  	<?=lang('label.vl_outcomes')?> <div class="display_date"></div>
 		  </div>
 		  <div class="panel-body" id="pmtct_vl_outcomes_div">
 		    <center><div class="loader"></div></center>
@@ -111,7 +111,7 @@
 	<div class="col-md-12 col-sm-12 col-xs-12">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
-		  	Partners PMTCT Outcomes (Routine VL) <div class="display_date"></div>
+		  	<?=lang('label.partners_PMTCT_outcomes_Routine_VL')?> <div class="display_date"></div>
 		  </div>
 		  <div class="panel-body" id="pmtct_counties_outcomes_div">
 		    <center><div class="loader"></div></center>
@@ -123,7 +123,7 @@
 	<div class="col-md-12 col-sm-12 col-xs-12">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
-		  	PMTCT Supperssion  (Routine VL) <div class="display_date"></div>
+		  	<?=lang('label.PMTCT_suppression_Routine_VL')?> <div class="display_date"></div>
 		  </div>
 		  <div class="panel-body" id="pmtct_suppression_all_div">
 		    <center><div class="loader"></div></center>
@@ -133,7 +133,7 @@
 	<div class="col-md-12 col-sm-12 col-xs-12">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
-		  	VL Outcomes <div class="display_date"></div>
+		  	<?=lang('label.vl_outcomes')?> <div class="display_date"></div>
 		  </div>
 		  <div class="panel-body" id="pmtct_vl_outcomes_all_div">
 		    <center><div class="loader"></div></center>

@@ -1,5 +1,5 @@
 <div class="row">
-  <div style="color:red;"><center>Click on Year(s) on legend to view only for the year(s) selected</center></div>
+  <div style="color:red;"><center><?=lang('label.click_on_selected')?></center></div>
   <div id="stacked_graph" class="col-md-12">
 
   </div>

@@ -65,7 +65,7 @@
 			$.get("<?= @base_url('county/check_county_select');?>", function(data){
 				county = JSON.parse(data);
 				if (county == 0) {
-					alert("Select a county first");
+					alert("<?=  lang('alert_select_county')?>");
 				}else {
 					if (em == "NA") {
 						$("#first").hide();

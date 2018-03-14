@@ -69,7 +69,7 @@
                 valueDecimale: 0,
                 headerFormat: '<table class="tip"><caption>{point.key}</caption>'+'<tbody>',
                 pointFormat: '<tr><th style="color:{series.color}">{series.name}:</th>'+'<td style="text-align:right">{point.y}</td></tr>',
-                footerFormat: '<tr><th>Total:</th>'+'<td style="text-align:right"><b>{point.total}</b></td></tr>'+'</tbody></table>'
+                footerFormat: '<tr><th>'.<?=lang('label.total_')?>.'</th>'+'<td style="text-align:right"><b>{point.total}</b></td></tr>'+'</tbody></table>'
                 // formatter: function() {
                 // 	return this.value;
                 // }

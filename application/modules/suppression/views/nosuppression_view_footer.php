@@ -36,17 +36,17 @@
 					
 	        	});
 	        	
-	        	$("#notification").html("<div>Loading...</div>");
-				$("#genderGrp").html("<div>Loading...</div>");
-				$("#ageGrp").html("<div>Loading...</div>");
-				$("#countys").html("<div>Loading...</div>");
-				$("#justification").html("<div>Loading...</div>");
-				$("#gender").html("<div>Loading...</div>");
-				$("#age").html("<div>Loading...</div>");
-				$("#countiesGraph").html("<div>Loading...</div>");
-				$("#partners").html("<div>Loading...</div>");
-				$("#subcounty").html("<div>Loading...</div>");
-				$("#facilities").html("<div>Loading...</div>");
+	        	$("#notification").html("<div><?=  lang('label.loading')?></div>");
+				$("#genderGrp").html("<div><?=  lang('label.loading')?></div>");
+				$("#ageGrp").html("<div><?=  lang('label.loading')?></div>");
+				$("#countys").html("<div><?=  lang('label.loading')?></div>");
+				$("#justification").html("<div><?=  lang('label.loading')?></div>");
+				$("#gender").html("<div><?=  lang('label.loading')?></div>");
+				$("#age").html("<div><?=  lang('label.loading')?></div>");
+				$("#countiesGraph").html("<div><?=  lang('label.loading')?></div>");
+				$("#partners").html("<div><?=  lang('label.loading')?></div>");
+				$("#subcounty").html("<div><?=  lang('label.loading')?></div>");
+				$("#facilities").html("<div><?=  lang('label.loading')?></div>");
 
 				if(data!=""){
 	        		data = JSON.parse(data);
@@ -84,17 +84,17 @@
 		    var error_check = check_error_date_range(from, to);
 		    // alert(error_check);
 		    if (!error_check) {
-			    $("#notification").html("<div>Loading...</div>");
-				$("#genderGrp").html("<div>Loading...</div>");
-				$("#ageGrp").html("<div>Loading...</div>");
-				$("#countys").html("<div>Loading...</div>");
-				$("#justification").html("<div>Loading...</div>");
-				$("#gender").html("<div>Loading...</div>");
-				$("#age").html("<div>Loading...</div>");
-				$("#countiesGraph").html("<div>Loading...</div>");
-				$("#partners").html("<div>Loading...</div>");
-				$("#subcounty").html("<div>Loading...</div>");
-				$("#facilities").html("<div>Loading...</div>");
+			    $("#notification").html("<div><?=  lang('label.loading')?></div>");
+				$("#genderGrp").html("<div><?=  lang('label.loading')?></div>");
+				$("#ageGrp").html("<div><?=  lang('label.loading')?></div>");
+				$("#countys").html("<div><?=  lang('label.loading')?></div>");
+				$("#justification").html("<div><?=  lang('label.loading')?></div>");
+				$("#gender").html("<div><?=  lang('label.loading')?></div>");
+				$("#age").html("<div><?=  lang('label.loading')?></div>");
+				$("#countiesGraph").html("<div><?=  lang('label.loading')?></div>");
+				$("#partners").html("<div><?=  lang('label.loading')?></div>");
+				$("#subcounty").html("<div><?=  lang('label.loading')?></div>");
+				$("#facilities").html("<div><?=  lang('label.loading')?></div>");
 
 				$("#notification").load("<?php echo base_url('charts/nonsuppression/notification');?>/"+from[1]+"/"+from[0]+"/"+null+"/"+to[1]+"/"+to[0]);
 				$("#genderGrp").load("<?php echo base_url('charts/nonsuppression/gender_group');?>/"+from[1]+"/"+from[0]+"/"+null+"/"+null+"/"+to[1]+"/"+to[0]);
@@ -135,17 +135,17 @@
 			
 		});
  		
- 		$("#notification").html("<div>Loading...</div>");
-		$("#genderGrp").html("<div>Loading...</div>");
-		$("#ageGrp").html("<div>Loading...</div>");
-		$("#countys").html("<div>Loading...</div>");
-		$("#justification").html("<div>Loading...</div>");
-		$("#gender").html("<div>Loading...</div>");
-		$("#age").html("<div>Loading...</div>");
-		$("#countiesGraph").html("<div>Loading...</div>");
-		$("#partners").html("<div>Loading...</div>");
-		$("#subcounty").html("<div>Loading...</div>");
-		$("#facilities").html("<div>Loading...</div>");
+ 		$("#notification").html("<div><?=  lang('label.loading')?></div>");
+		$("#genderGrp").html("<div><?=  lang('label.loading')?></div>");
+		$("#ageGrp").html("<div><?=  lang('label.loading')?></div>");
+		$("#countys").html("<div><?=  lang('label.loading')?></div>");
+		$("#justification").html("<div><?=  lang('label.loading')?></div>");
+		$("#gender").html("<div><?=  lang('label.loading')?></div>");
+		$("#age").html("<div><?=  lang('label.loading')?></div>");
+		$("#countiesGraph").html("<div><?=  lang('label.loading')?></div>");
+		$("#partners").html("<div><?=  lang('label.loading')?></div>");
+		$("#subcounty").html("<div><?=  lang('label.loading')?></div>");
+		$("#facilities").html("<div><?=  lang('label.loading')?></div>");
 
 		$("#notification").load("<?php echo base_url('charts/nonsuppression/notification');?>/"+year+"/"+month);
 		$("#genderGrp").load("<?php echo base_url('charts/nonsuppression/gender_group');?>/"+year+"/"+month);
@@ -168,15 +168,15 @@
     		$("#breadcrum").html(data);
     	});
 
-		$("#genderGrp").html("<div>Loading...</div>"); 
-    	$("#ageGrp").html("<div>Loading...</div>"); 
-		$("#justification").html("<div>Loading...</div>");
-		$("#regimen").html("<div>Loading...</div>");
-		$("#sampleType").html("<div>Loading...</div>");
-		$("#countys").html("<div>Loading...</div>");
-		$("#partners").html("<div>Loading...</div>");
-		$("#subcounty").html("<div>Loading...</div>");
-		$("#facilities").html("<div>Loading...</div>");
+		$("#genderGrp").html("<div><?=  lang('label.loading')?></div>"); 
+    	$("#ageGrp").html("<div><?=  lang('label.loading')?></div>"); 
+		$("#justification").html("<div><?=  lang('label.loading')?></div>");
+		$("#regimen").html("<div><?=  lang('label.loading')?></div>");
+		$("#sampleType").html("<div><?=  lang('label.loading')?></div>");
+		$("#countys").html("<div><?=  lang('label.loading')?></div>");
+		$("#partners").html("<div><?=  lang('label.loading')?></div>");
+		$("#subcounty").html("<div><?=  lang('label.loading')?></div>");
+		$("#facilities").html("<div><?=  lang('label.loading')?></div>");
 		
 		$("#notification").load("<?php echo base_url('charts/nonsuppression/notification');?>/"+null+"/"+null+"/"+data);
  		$("#genderGrp").load("<?php echo base_url('charts/nonsuppression/gender_group');?>/"+null+"/"+null+"/"+data);

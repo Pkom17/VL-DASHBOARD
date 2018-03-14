@@ -24,7 +24,7 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Partners Outcomes <div class="display_date"></div>
+			  <?=lang('label.partners_outcomes')?> <div class="display_date"></div>
 			</div>
 		  	<div class="panel-body" id="partnerOutcomes">
 		  		<center><div class="loader"></div></center>
@@ -37,7 +37,7 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  County Outcomes <div class="display_date"></div>
+			  <?=lang('label.county_outcomes')?> <div class="display_date"></div>
 			</div>
 		  	<div class="panel-body" id="partnerCountyOutcomes">
 		  		<center><div class="loader"></div></center>
@@ -48,7 +48,7 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Partner Counties <div class="display_date"></div>
+			  <?=lang('label.partners_counties')?> <div class="display_date"></div>
 			</div>
 		  	<div class="panel-body" id="partnerCounties">
 		  		<center><div class="loader"></div></center>

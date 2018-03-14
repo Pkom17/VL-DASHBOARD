@@ -177,13 +177,13 @@
 		if(all == 0){
 			localStorage.setItem("my_var", 1);
 			all=1;
-			$("#samples_heading").html('Testing Trends for All Tests');
+			$("#samples_heading").html('<?=lang('label.testing_trends_for_all_tests')?>');
 
 		}
 		else{
 			localStorage.setItem("my_var", 0);
 			all=0;
-			$("#samples_heading").html('Testing Trends for Routine VL');
+			$("#samples_heading").html('<?=lang('label.testing_trends_for_routine_VL')?>');
 		}
 		$.get("<?php echo base_url();?>county/check_subcounty_select", function (data) {
 			data = $.parseJSON(data);

@@ -118,9 +118,9 @@ class Baseline_model extends MY_Model
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($result);die();
 
-		$data['outcomes'][0]['name'] = "Not Suppressed";
-		$data['outcomes'][1]['name'] = "Suppressed";
-		$data['outcomes'][2]['name'] = "Suppression";
+		$data['outcomes'][0]['name'] = lang('label.not_suppressed_');
+		$data['outcomes'][1]['name'] =  lang('label.suppressed_');
+		$data['outcomes'][2]['name'] = lang('label.suppression');
 
 		$data['outcomes'][0]['type'] = "column";
 		$data['outcomes'][1]['type'] = "column";
@@ -198,25 +198,25 @@ class Baseline_model extends MY_Model
 		// echo "<pre>";print_r($result);die();
 		
 		// echo "<pre>";print_r($result);die();
-		$data['ageGnd'][0]['name'] = 'Tests';
+		$data['ageGnd'][0]['name'] = lang('label.tests');
  
 		foreach ($result as $key => $value) {
-			$data['categories'][0] = "Less 2";
+			$data['categories'][0] = lang('label.less2');
 			$data["ageGnd"][0]["data"][0] = (int) $value['less2'];
 
-			$data['categories'][1] = "2-9";
+			$data['categories'][1] = lang('label.less9');
 			$data["ageGnd"][0]["data"][1] = (int) $value['less9'];
 
-			$data['categories'][2] = "10-14";
+			$data['categories'][2] = lang('label.less14');
 			$data["ageGnd"][0]["data"][2] = (int) $value['less14'];
 
-			$data['categories'][3] = "15-19";
+			$data['categories'][3] = lang('label.less19');
 			$data["ageGnd"][0]["data"][3] = (int) $value['less19'];
 
-			$data['categories'][4] = "20-24";
+			$data['categories'][4] = lang('label.less24');
 			$data["ageGnd"][0]["data"][4] = (int) $value['less24'];
 
-			$data['categories'][5] = "25+";
+			$data['categories'][5] =  lang('label.over25');
 			$data["ageGnd"][0]["data"][5] = (int) $value['over25'];
 		}
 		// die();
@@ -271,16 +271,16 @@ class Baseline_model extends MY_Model
 		// echo "<pre>";print_r($result);die();
 		
 		// echo "<pre>";print_r($result);die();
-		$data['gender'][0]['name'] = 'Tests';
+		$data['gender'][0]['name'] = lang('label.tests');
  
 		foreach ($result as $key => $value) {
-			$data['categories'][0] = "No Gender";
+			$data['categories'][0] = lang('label.no_gender');
 			$data["gender"][0]["data"][0] = (int) $value['nogendertest'];
 
-			$data['categories'][1] = "Male";
+			$data['categories'][1] = lang('label.male');
 			$data["gender"][0]["data"][1] = (int) $value['maletest'];
 
-			$data['categories'][2] = "Female";
+			$data['categories'][2] = lang('label.male');
 			$data["gender"][0]["data"][2] = (int) $value['femaletest'];
 		}
 		// die();
@@ -335,16 +335,16 @@ class Baseline_model extends MY_Model
 		// echo "<pre>";print_r($result);die();
 		
 		// echo "<pre>";print_r($result);die();
-		$data['county_outcomes'][0]['name'] = 'Tests';
+		$data['county_outcomes'][0]['name'] = lang('label.tests');
  
 		foreach ($result as $key => $value) {
-			$data['categories'][0] = "EDTA";
+			$data['categories'][0] = lang('label.sample_type_EDTA');
 			$data["county_outcomes"][0]["data"][0] = (int) $value['edta'];
 
-			$data['categories'][1] = "DBS";
+			$data['categories'][1] = lang('label.sample_type_DBS');
 			$data["county_outcomes"][0]["data"][1] = (int) $value['dbs'];
 
-			$data['categories'][2] = "Plasma";
+			$data['categories'][2] = lang('label.sample_type_plasma');
 			$data["county_outcomes"][0]["data"][2] = (int) $value['plasma'];
 		}
 		// die();
