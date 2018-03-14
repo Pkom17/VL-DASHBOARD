@@ -396,7 +396,7 @@ $lang['label.labs_routine_vls_result.outcomes']        = "Résultat de Routine d
 $lang['label.labs_samples.rejections']        = "Rejets d'échantillons";
 
 //application/modules/live/views/live_view.php
-$lang['label.date']        = "Date ";
+$lang['label.date']        = "Date: ";
 $lang['label.live_viralload']        = "Charge Virale";
 $lang['label.live_last.update']        = "Dernière mise à jour";
 $lang['label.live_year_date_month.date']        = "Année courante/Mois actuel";
