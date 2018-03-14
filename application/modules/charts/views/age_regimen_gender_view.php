@@ -17,7 +17,7 @@
                     yAxis: {
                         min: 0,
                         title: {
-                            text: 'Tests'
+                            text: '<?=lang('label.tests')?>'
                         },
                         stackLabels: {
                             rotation: 0,

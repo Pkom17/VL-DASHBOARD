@@ -55,7 +55,7 @@
 			<div class="col-md-7">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-					  By Gender <div class="display_date"></div>
+					 <?=lang('label.by_gender')?> <div class="display_date"></div>
 					</div>
 				  	<div class="panel-body" id="genderGrp">
 				  		<center><div class="loader"></div></center>
@@ -65,7 +65,7 @@
 			<div class="col-md-5">
 				<div class="panel panel-default">
 					<div class="panel-heading">
-					  By Age <div class="display_date"></div>
+					  <?=lang('label.by_age')?> <div class="display_date"></div>
 					</div>
 				  	<div class="panel-body" id="ageGrp">
 					  		<center><div class="loader"></div></center>
@@ -80,7 +80,7 @@
 				<!-- Begining of Justification -->
 				<div class="panel panel-default">
 					<div class="panel-heading">
-						By Justification <div class="display_date"></div>
+						<?=lang('label.by_justification')?> <div class="display_date"></div>
 					</div>
 					  <div class="panel-body">
 					  	<div class="row" id="justification">
@@ -94,7 +94,7 @@
 				<!-- Begining of Sample Types -->
 				<div class="panel panel-default">
 						<div class="panel-heading">
-							By Sample Types <div class="display_date"></div>
+							<?=lang('label.by_sample_types')?> <div class="display_date"></div>
 						</div>
 					  <div class="panel-body">
 					  	<div class="row" id="sampleType">
@@ -113,7 +113,7 @@
 		
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			 	Facility <div class="display_date"></div>
+			 	<?=lang('label.facility')?> <div class="display_date"></div>
 			</div>
 			<div class="panel-body" id="sites_listing">
 				<center><div class="loader"></div></center>
@@ -123,7 +123,7 @@
 		<!-- Begining of Regimen -->
 		<div class="panel panel-default">
 				<div class="panel-heading">
-					By Regimen <div class="display_date"></div>
+					<?=lang('label.by_regimen')?> <div class="display_date"></div>
 				</div>
 			  <div class="panel-body">
 			  	<div class="row" id="regimen">

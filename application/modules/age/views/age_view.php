@@ -3,7 +3,7 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			    Age Outcomes <div class="display_date"></div>
+			  <?= lang('label.age_outcomes'); ?> <div class="display_date"></div>
 			  </div>
 			  <div class="panel-body" id="age_outcomes">
 			    <center><div class="loader"></div></center>
@@ -17,7 +17,7 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			    Testing Trends <div class="display_range"></div>
+			    <?= lang('label.testing_trends'); ?> <div class="display_range"></div>
 			  </div>
 			  <div class="panel-body" id="samples">
 			    <center><div class="loader"></div></center>
@@ -29,7 +29,7 @@
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	VL Outcomes <div class="display_date" ></div>
+			  	<?= lang('label.vl_outcomes'); ?><div class="display_date" ></div>
 			  </div>
 			  <div class="panel-body" id="vlOutcomes">
 			  	<center><div class="loader"></div></center>
@@ -40,7 +40,7 @@
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	Gender <div class="display_date" ></div>
+			  	<?= lang('label.gender'); ?> <div class="display_date" ></div>
 			  </div>
 			  <div class="panel-body" id="gender">
 			  	<center><div class="loader"></div></center>
@@ -53,7 +53,7 @@
 		<div class="col-md-3 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	Counties <div class="display_date" ></div>
+			  	<?= lang('label.counties'); ?> <div class="display_date" ></div>
 			  </div>
 			  <div class="panel-body" id="countiesAge">
 			  	<center><div class="loader"></div></center>
@@ -64,7 +64,7 @@
 		<div class="col-md-3 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	Partners <div class="display_date" ></div>
+			  	<?= lang('label.partners'); ?> <div class="display_date" ></div>
 			  </div>
 			  <div class="panel-body" id="partnersAge">
 			  	<center><div class="loader"></div></center>
@@ -75,7 +75,7 @@
 		<div class="col-md-3 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	Sub-counties <div class="display_date" ></div>
+			  	<?= lang('label.sub_counties'); ?><div class="display_date" ></div>
 			  </div>
 			  <div class="panel-body" id="subcountiesAge">
 			  	<center><div class="loader"></div></center>
@@ -86,7 +86,7 @@
 		<div class="col-md-3 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	Facilities <div class="display_date" ></div>
+			  	<?= lang('label.facilities'); ?> <div class="display_date" ></div>
 			  </div>
 			  <div class="panel-body" id="facilitiesAge">
 			  	<center><div class="loader"></div></center>
@@ -100,7 +100,7 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading" id="heading">
-			  	County Outcomes <div class="display_date"></div>
+			  	<?= lang('label.county_outcomes'); ?><div class="display_date"></div>
 			  </div>
 			  <div class="panel-body" id="county">
 			    <center><div class="loader"></div></center>

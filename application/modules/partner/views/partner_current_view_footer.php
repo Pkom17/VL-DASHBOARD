@@ -14,25 +14,25 @@
 			$(".display_current_range").html(data);
     	});
 
-		$("#countys").html("<div>Loading...</div>");
-		$("#partners").html("<div>Loading...</div>");
-		$("#subcounty").html("<div>Loading...</div>");
-		$("#facilities").html("<div>Loading...</div>");
+		$("#countys").html("<div><?=lang('label.loading')?></div>");
+		$("#partners").html("<div><?=lang('label.loading')?></div>");
+		$("#subcounty").html("<div><?=lang('label.loading')?></div>");
+		$("#facilities").html("<div><?=lang('label.loading')?></div>");
 
-		$("#countys_g").html("<div>Loading...</div>");
-		$("#partners_g").html("<div>Loading...</div>");
-		$("#subcounty_g").html("<div>Loading...</div>");
-		$("#facilities_g").html("<div>Loading...</div>");
+		$("#countys_g").html("<div><?=lang('label.loading')?></div>");
+		$("#partners_g").html("<div><?=lang('label.loading')?></div>");
+		$("#subcounty_g").html("<div><?=lang('label.loading')?></div>");
+		$("#facilities_g").html("<div><?=lang('label.loading')?></div>");
 
-		$("#countys_a").html("<div>Loading...</div>");
-		$("#partners_a").html("<div>Loading...</div>");
-		$("#subcounty_a").html("<div>Loading...</div>");
-		$("#facilities_a").html("<div>Loading...</div>");
+		$("#countys_a").html("<div><?=lang('label.loading')?></div>");
+		$("#partners_a").html("<div><?=lang('label.loading')?></div>");
+		$("#subcounty_a").html("<div><?=lang('label.loading')?></div>");
+		$("#facilities_a").html("<div><?=lang('label.loading')?></div>");
 
-		$("#countys_na").html("<div>Loading...</div>");
-		$("#partners_na").html("<div>Loading...</div>");
-		$("#subcounty_na").html("<div>Loading...</div>");
-		$("#facilities_na").html("<div>Loading...</div>");
+		$("#countys_na").html("<div><?=lang('label.loading')?></div>");
+		$("#partners_na").html("<div><?=lang('label.loading')?></div>");
+		$("#subcounty_na").html("<div><?=lang('label.loading')?></div>");
+		$("#facilities_na").html("<div><?=lang('label.loading')?></div>");
 
 		$("#current_sup").load("<?php echo base_url('charts/summaries/current_suppression'); ?>");
 		$("#current_sup_gender").load("<?php echo base_url('charts/summaries/current_gender/0/3/1000'); ?>");
@@ -88,21 +88,21 @@
 	        	$("#current_sup_gender").html("<center><div class='loader'></div></center>");
 	        	$("#current_sup_age").html("<center><div class='loader'></div></center>");
 
-				$("#countys").html("<div>Loading...</div>");
-				$("#subcounty").html("<div>Loading...</div>");
-				$("#facilities").html("<div>Loading...</div>");	
+				$("#countys").html("<div><?=lang('label.loading')?></div>");
+				$("#subcounty").html("<div><?=lang('label.loading')?></div>");
+				$("#facilities").html("<div><?=lang('label.loading')?></div>");	
 
-				$("#countys_g").html("<div>Loading...</div>");
-				$("#subcounty_g").html("<div>Loading...</div>");
-				$("#facilities_g").html("<div>Loading...</div>");
+				$("#countys_g").html("<div><?=lang('label.loading')?></div>");
+				$("#subcounty_g").html("<div><?=lang('label.loading')?></div>");
+				$("#facilities_g").html("<div><?=lang('label.loading')?></div>");
 
-				$("#countys_a").html("<div>Loading...</div>");
-				$("#subcounty_a").html("<div>Loading...</div>");
-				$("#facilities_a").html("<div>Loading...</div>");
+				$("#countys_a").html("<div><?=lang('label.loading')?></div>");
+				$("#subcounty_a").html("<div><?=lang('label.loading')?></div>");
+				$("#facilities_a").html("<div><?=lang('label.loading')?></div>");
 
-				$("#countys_na").html("<div>Loading...</div>");
-				$("#subcounty_na").html("<div>Loading...</div>");
-				$("#facilities_na").html("<div>Loading...</div>");	
+				$("#countys_na").html("<div><?=lang('label.loading')?></div>");
+				$("#subcounty_na").html("<div><?=lang('label.loading')?></div>");
+				$("#facilities_na").html("<div><?=lang('label.loading')?></div>");	
 
 				$("#countys").load("<?php echo base_url('charts/summaries/county_listing/1/3');?>/"+data);
 				$("#subcounty").load("<?php echo base_url('charts/summaries/subcounty_listing/2/3');?>/"+data);

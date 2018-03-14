@@ -31,12 +31,12 @@
 		    var error_check = check_error_date_range(from, to);
 		    
 		    if (!error_check) {
-			    $("#lab_perfomance_stats").html("<div>Loading...</div>"); 
-		 		$("#rejected").html("<div>Loading...</div>"); 
-				$("#test_trends").html("<div>Loading...</div>");
-				$("#samples").html("<div>Loading...</div>");
-				$("#ttime").html("<div>Loading...</div>");
-				$("#results").html("<div>Loading...</div>");
+			    $("#lab_perfomance_stats").html("<div><?=lang('label.loading')?></div>"); 
+		 		$("#rejected").html("<div><?=lang('label.loading')?></div>"); 
+				$("#test_trends").html("<div><?=lang('label.loading')?></div>");
+				$("#samples").html("<div><?=lang('label.loading')?></div>");
+				$("#ttime").html("<div><?=lang('label.loading')?></div>");
+				$("#results").html("<div><?=lang('label.loading')?></div>");
 
 				$("#rejected").load("<?php echo base_url();?>charts/labs/rejection_trends/"+from[1]);
 				$("#test_trends").load("<?php echo base_url('charts/labs/testing_trends');?>/"+from[1]);
@@ -86,7 +86,7 @@
 	        	$("#graphs").load("<?php echo base_url();?>charts/labs/lab_trends/"+em);
 				
 			}
-			$("#lab_rejections").html("<div>Loading...</div>");
+			$("#lab_rejections").html("<div><?=lang('label.loading')?></div>");
 			$("#lab_rejections").load("<?php echo base_url();?>charts/labs/rejections/"+em);
 			
 	    });
@@ -120,16 +120,16 @@
 		});
 
 
-		$("#lab_summary").html("<div>Loading...</div>");
-		$("#lab_rejections").html("<div>Loading...</div>");
+		$("#lab_summary").html("<div><?=lang('label.loading')?></div>");
+		$("#lab_rejections").html("<div><?=lang('label.loading')?></div>");
  		
  		
- 		$("#lab_perfomance_stats").html("<div>Loading...</div>"); 
- 		$("#rejected").html("<div>Loading...</div>"); 
-		$("#test_trends").html("<div>Loading...</div>");
-		$("#samples").html("<div>Loading...</div>");
-		$("#ttime").html("<div>Loading...</div>");
-		$("#results").html("<div>Loading...</div>");
+ 		$("#lab_perfomance_stats").html("<div><?=lang('label.loading')?></div>"); 
+ 		$("#rejected").html("<div><?=lang('label.loading')?></div>"); 
+		$("#test_trends").html("<div><?=lang('label.loading')?></div>");
+		$("#samples").html("<div><?=lang('label.loading')?></div>");
+		$("#ttime").html("<div><?=lang('label.loading')?></div>");
+		$("#results").html("<div><?=lang('label.loading')?></div>");
 
 		var em = localStorage.getItem("my_lab");
 		$("#lab_summary").load("<?php echo base_url();?>charts/labs/summary/"+em+"/"+year);

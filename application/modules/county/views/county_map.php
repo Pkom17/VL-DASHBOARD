@@ -1,11 +1,11 @@
 <div class="col-md-12" id ="buttons">
     
-        <button onclick="retrieve_map('Tests', 'counties_tests', '');">Tests</button>
-        <button onclick="retrieve_map('Suppressed', 'counties_suppressed', '%');">Suppressed</button>
-        <button  onclick="retrieve_map('Non Suppressed', 'counties_non_suppressed', '%');">Non Suppressed</button>
-        <button onclick="retrieve_map('Rejected', 'counties_rejects', '%');">Rejected</button>
-        <button onclick="retrieve_map('Pregnant Mothers', 'counties_pregnant', '');">Preganant mothers</button>
-        <button onclick="retrieve_map('Lactating Mothers', 'counties_lactating', '');">Lactating mothers</button>
+        <button onclick="retrieve_map('<?=lang('label.tests')?>', 'counties_tests', '');"><?=lang('label.tests')?></button>
+        <button onclick="retrieve_map('<?=lang('label.suppressed')?>', 'counties_suppressed', '%');"><?=lang('label.suppressed')?></button>
+        <button  onclick="retrieve_map('<?=lang('label.non_suppressed')?>', 'counties_non_suppressed', '%');"><?=lang('label.non_suppressed')?></button>
+        <button onclick="retrieve_map('<?=lang('label.rejected')?>', 'counties_rejects', '%');"><?=lang('label.rejected')?></button>
+        <button onclick="retrieve_map('<?=lang('label.preganant_mothers')?>', 'counties_pregnant', '');"><?=lang('label.preganant_mothers')?></button>
+        <button onclick="retrieve_map('<?=lang('label.lactating_mothers')?>', 'counties_lactating', '');"><?=lang('label.lactating_mothers')?></button>
    
 </div>
 
@@ -58,40 +58,40 @@
             this_month
             ){
             case 1:
-                return ' Jan ' + this_year;
+                return ' <?=  lang('cal_jan')?> ' + this_year;
                 break;
             case 2:
-                return ' Feb ' + this_year;
+                return ' <?=  lang('cal_feb')?> ' + this_year;
                 break;
             case 3:
-                return ' Mar ' + this_year;
+                return ' <?=  lang('cal_mar')?> ' + this_year;
                 break;
             case 4:
-                return ' Apr ' + this_year;
+                return ' <?=  lang('cal_apr')?> ' + this_year;
                 break;
             case 5:
-                return ' May ' + this_year;
+                return ' <?=  lang('cal_may')?> ' + this_year;
                 break;
             case 6:
-                return ' Jun ' + this_year;
+                return ' <?=  lang('cal_jun')?> ' + this_year;
                 break;
             case 7:
-                return ' Jul ' + this_year;
+                return ' <?=  lang('cal_jul')?> ' + this_year;
                 break;
             case 8:
-                return ' Aug ' + this_year;
+                return ' <?=  lang('cal_aug')?> ' + this_year;
                 break;
             case 9:
-                return ' Sep ' + this_year;
+                return ' <?=  lang('cal_sep')?> ' + this_year;
                 break;
             case 10:
-                return ' Oct ' + this_year;
+                return ' <?=  lang('cal_oct')?> ' + this_year;
                 break;
             case 11:
-                return ' Nov ' + this_year;
+                return ' <?=  lang('cal_nov')?> ' + this_year;
                 break;
             case 12:
-                return ' Dec ' + this_year;
+                return ' <?=  lang('cal_dec')?> ' + this_year;
                 break;
             default:
                 return ' ' + this_year;
@@ -156,7 +156,7 @@
            url: "<?php echo base_url('charts/counties/'); ?>/" + func_path,
            
            error: function() {
-              alert("Error");
+              alert("<?=  lang('alert_error')?>");
            },
            dataType : "json",
            success: function(data) {
@@ -212,7 +212,7 @@
             }else{ echo 0;} ?>;
 
         this_year = <?php echo $this->session->userdata('filter_year'); ?>;
-        retrieve_map("Suppressed", "counties_suppressed", '%');
+        retrieve_map("<?=  lang('label_suppressed')?>", "counties_suppressed", '%');
 
     });
 

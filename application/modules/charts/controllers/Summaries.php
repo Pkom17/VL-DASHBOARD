@@ -122,7 +122,7 @@ class Summaries extends MY_Controller {
 	function county_listing($type, $param_type=1, $param=NULL,$annual=NULL){
 		$data['cont'] = $this->summaries_model->suppression_listings($type,$param_type,$param,$annual);
 		$data['cont']['div'] = 'county_sup_listings';
-		$data['cont']['title'] = 'County Listing';
+		$data['cont']['title'] = lang('label.county_listing');
 		$data['cont']['table_div'] = 'county_sup_listings_table';
 
 		$this->load->view('current_suppression_listing',$data);
@@ -131,7 +131,7 @@ class Summaries extends MY_Controller {
 	function subcounty_listing($type, $param_type=1, $param=NULL,$annual=NULL){
 		$data['cont'] = $this->summaries_model->suppression_listings($type,$param_type,$param,$annual);
 		$data['cont']['div'] = 'subcounty_sup_listings';
-		$data['cont']['title'] = 'Sub-County Listing';
+		$data['cont']['title'] = lang('label.subcounty_listing');
 		$data['cont']['table_div'] = 'subcounty_sup_listings_table';
 
 		$this->load->view('current_suppression_listing',$data);
@@ -140,7 +140,7 @@ class Summaries extends MY_Controller {
 	function partner_listing($type, $param_type=1, $param=NULL,$annual=NULL){
 		$data['cont'] = $this->summaries_model->suppression_listings($type,$param_type,$param,$annual);
 		$data['cont']['div'] = 'partner_sup_listings';
-		$data['cont']['title'] = 'Partner Listing';
+		$data['cont']['title'] = lang('label.partner_listing');
 		$data['cont']['table_div'] = 'partner_sup_listings_table';
 
 		$this->load->view('current_suppression_listing',$data);
@@ -149,7 +149,7 @@ class Summaries extends MY_Controller {
 	function site_listing($type, $param_type=1, $param=NULL,$annual=NULL){
 		$data['cont'] = $this->summaries_model->suppression_listings($type,$param_type,$param,$annual);
 		$data['cont']['div'] = 'site_sup_listings';
-		$data['cont']['title'] = 'Facility Listing';
+		$data['cont']['title'] = lang('label.facility_listing');
 		$data['cont']['table_div'] = 'site_sup_listings_table';
 
 		$this->load->view('current_suppression_listing',$data);
@@ -162,7 +162,7 @@ class Summaries extends MY_Controller {
 	function county_listing_age($type, $param_type=1, $param=NULL,$annual=NULL){
 		$data['cont'] = $this->summaries_model->suppression_age_listings(1, $type,$param_type,$param,$annual);
 		$data['cont']['div'] = 'county_sup_listings_age';
-		$data['cont']['title'] = 'County Listing Age';
+		$data['cont']['title'] = lang('label.county_listing_age');
 		$data['cont']['table_div'] = 'county_sup_listings_table_age';
 
 		$this->load->view('current_age_suppression_listing_sup',$data);
@@ -171,7 +171,7 @@ class Summaries extends MY_Controller {
 	function subcounty_listing_age($type, $param_type=1, $param=NULL,$annual=NULL){
 		$data['cont'] = $this->summaries_model->suppression_age_listings(1, $type,$param_type,$param,$annual);
 		$data['cont']['div'] = 'subcounty_sup_listings_age';
-		$data['cont']['title'] = 'Sub-County Listing Age';
+		$data['cont']['title'] = lang('label.sub_county_listing_age');
 		$data['cont']['table_div'] = 'subcounty_sup_listings_table_age';
 
 		$this->load->view('current_age_suppression_listing_sup',$data);
@@ -180,7 +180,7 @@ class Summaries extends MY_Controller {
 	function partner_listing_age($type, $param_type=1, $param=NULL,$annual=NULL){
 		$data['cont'] = $this->summaries_model->suppression_age_listings(1, $type,$param_type,$param,$annual);
 		$data['cont']['div'] = 'partner_sup_listings_age';
-		$data['cont']['title'] = 'Partner Listing Age';
+		$data['cont']['title'] = lang('label.partner_listing_age');
 		$data['cont']['table_div'] = 'partner_sup_listings_table_age';
 
 		$this->load->view('current_age_suppression_listing_sup',$data);
@@ -189,7 +189,7 @@ class Summaries extends MY_Controller {
 	function site_listing_age($type, $param_type=1, $param=NULL,$annual=NULL){
 		$data['cont'] = $this->summaries_model->suppression_age_listings(1, $type,$param_type,$param,$annual);
 		$data['cont']['div'] = 'site_sup_listings_age';
-		$data['cont']['title'] = 'Facility Listing Age';
+		$data['cont']['title'] = lang('label.facility_listing_age');
 		$data['cont']['table_div'] = 'site_sup_listings_table_age';
 
 		$this->load->view('current_age_suppression_listing_sup',$data);
@@ -202,7 +202,7 @@ class Summaries extends MY_Controller {
 	function county_listing_age_n($type, $param_type=1, $param=NULL,$annual=NULL){
 		$data['cont'] = $this->summaries_model->suppression_age_listings(0, $type,$param_type,$param,$annual);
 		$data['cont']['div'] = 'county_sup_listings_age_n';
-		$data['cont']['title'] = 'County Listing Age Non Suppressed';
+		$data['cont']['title'] = lang('label.county_listing_age_non_suppressed');
 		$data['cont']['table_div'] = 'county_sup_listings_table_age_n';
 
 		$this->load->view('current_age_suppression_listing',$data);
@@ -211,7 +211,7 @@ class Summaries extends MY_Controller {
 	function subcounty_listing_age_n($type, $param_type=1, $param=NULL,$annual=NULL){
 		$data['cont'] = $this->summaries_model->suppression_age_listings(0, $type,$param_type,$param,$annual);
 		$data['cont']['div'] = 'subcounty_sup_listings_age_n';
-		$data['cont']['title'] = 'Sub-County Listing Age Non Suppressed';
+		$data['cont']['title'] = lang('label.sub_county_listing_age_non_suppressed');
 		$data['cont']['table_div'] = 'subcounty_sup_listings_table_age_n';
 
 		$this->load->view('current_age_suppression_listing',$data);
@@ -220,7 +220,7 @@ class Summaries extends MY_Controller {
 	function partner_listing_age_n($type, $param_type=1, $param=NULL,$annual=NULL){
 		$data['cont'] = $this->summaries_model->suppression_age_listings(0, $type,$param_type,$param,$annual);
 		$data['cont']['div'] = 'partner_sup_listings_age_n';
-		$data['cont']['title'] = 'Partner Listing Age Non Suppressed';
+		$data['cont']['title'] = lang('label.partner_listing_age_non_suppressed');
 		$data['cont']['table_div'] = 'partner_sup_listings_table_age_n';
 
 		$this->load->view('current_age_suppression_listing',$data);
@@ -229,7 +229,7 @@ class Summaries extends MY_Controller {
 	function site_listing_age_n($type, $param_type=1, $param=NULL,$annual=NULL){
 		$data['cont'] = $this->summaries_model->suppression_age_listings(0, $type,$param_type,$param,$annual);
 		$data['cont']['div'] = 'site_sup_listings_age_n';
-		$data['cont']['title'] = 'Facility Listing Age Non Suppressed';
+		$data['cont']['title'] = lang('label.facility_listing_age_non_suppressed');
 		$data['cont']['table_div'] = 'site_sup_listings_table_age_n';
 
 		$this->load->view('current_age_suppression_listing',$data);
@@ -241,7 +241,7 @@ class Summaries extends MY_Controller {
 	function county_listing_gender($type, $param_type=1, $param=NULL,$annual=NULL){
 		$data['cont'] = $this->summaries_model->suppression_gender_listings($type,$param_type,$param,$annual);
 		$data['cont']['div'] = 'county_sup_listings_gender';
-		$data['cont']['title'] = 'County Listing Gender';
+		$data['cont']['title'] = lang('label.county_listing_gender');
 		$data['cont']['table_div'] = 'county_sup_listings_table_gender';
 
 		$this->load->view('current_gender_suppression_listing',$data);
@@ -250,7 +250,7 @@ class Summaries extends MY_Controller {
 	function subcounty_listing_gender($type, $param_type=1, $param=NULL,$annual=NULL){
 		$data['cont'] = $this->summaries_model->suppression_gender_listings($type,$param_type,$param,$annual);
 		$data['cont']['div'] = 'subcounty_sup_listings_gender';
-		$data['cont']['title'] = 'Sub-County Listing Gender';
+		$data['cont']['title'] = lang('label.sub_county_listing_gender');
 		$data['cont']['table_div'] = 'subcounty_sup_listings_table_gender';
 
 		$this->load->view('current_gender_suppression_listing',$data);
@@ -259,7 +259,7 @@ class Summaries extends MY_Controller {
 	function partner_listing_gender($type, $param_type=1, $param=NULL,$annual=NULL){
 		$data['cont'] = $this->summaries_model->suppression_gender_listings($type,$param_type,$param,$annual);
 		$data['cont']['div'] = 'partner_sup_listings_gender';
-		$data['cont']['title'] = 'Partner Listing Gender';
+		$data['cont']['title'] = lang('label.partner_listing_gender');
 		$data['cont']['table_div'] = 'partner_sup_listings_table_gender';
 
 		$this->load->view('current_gender_suppression_listing',$data);
@@ -268,7 +268,7 @@ class Summaries extends MY_Controller {
 	function site_listing_gender($type, $param_type=1, $param=NULL,$annual=NULL){
 		$data['cont'] = $this->summaries_model->suppression_gender_listings($type,$param_type,$param,$annual);
 		$data['cont']['div'] = 'site_sup_listings_gender';
-		$data['cont']['title'] = 'Facility Listing Gender';
+		$data['cont']['title'] = lang('label.facility_listing_gender');
 		$data['cont']['table_div'] = 'site_sup_listings_table_gender';
 
 		$this->load->view('current_gender_suppression_listing',$data);

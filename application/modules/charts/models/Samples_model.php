@@ -40,14 +40,14 @@ class Samples_model extends MY_Model
 		// echo "<pre>";print_r($sql);die();
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($result);die();
-		$data['county_outcomes'][0]['name'] = 'Not Suppresed';
-		$data['county_outcomes'][1]['name'] = 'Suppresed';
+		$data['county_outcomes'][0]['name'] = lang('label.not_suppressed_');
+		$data['county_outcomes'][1]['name'] = lang('label.suppressed_');
 
 		$count = 0;
 		
 		$data["county_outcomes"][0]["data"][0]	= $count;
 		$data["county_outcomes"][1]["data"][0]	= $count;
-		$data['categories'][0]					= 'No Data';
+		$data['categories'][0]					= lang('label.no_data');
 
 		foreach ($result as $key => $value) {
 			$data['categories'][$key] 					= $value['name'];
@@ -92,12 +92,12 @@ class Samples_model extends MY_Model
 
 		$color = array('#6BB9F0', '#F2784B', '#1BA39C', '#5C97BF');
 
-		$data['vl_outcomes']['name'] = 'Tests';
+		$data['vl_outcomes']['name'] = lang('label.tests');
 		$data['vl_outcomes']['colorByPoint'] = true;
 		$data['ul'] = '';
 
-		$data['vl_outcomes']['data'][0]['name'] = 'Suppresed';
-		$data['vl_outcomes']['data'][1]['name'] = 'Not Suppresed';
+		$data['vl_outcomes']['data'][0]['name'] =  lang('label.suppressed_');
+		$data['vl_outcomes']['data'][1]['name'] = lang('label.not_suppressed_');
 
 		$count = 0;
 
@@ -110,41 +110,41 @@ class Samples_model extends MY_Model
 			$greater = (int) ($value['less5000']+$value['above5000']);
 
 			$data['ul'] .= '<tr>
-	    		<td colspan="2">Tests With Valid Outcomes:</td>
+	    		<td colspan="2">'.lang('label.tests_with_valid_outcomes').'</td>
 	    		<td colspan="2">'.number_format($total).'</td>
 	    	</tr>
  
 	    	<tr>
-	    		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Valid Tests &gt; 1000 copies/ml:</td>
+	    		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.lang('label.valid_tests_gt1000').'</td>
 	    		<td>'.number_format($greater).'</td>
-	    		<td>Percentage Non Suppression</td>
+	    		<td>'.  lang('label.percentage_non_suppression').'</td>
 	    		<td>'.round((($greater/$total)*100),1).'%</td>
 	    	</tr>
  
 	    	<tr>
-	    		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Valid Tests &lt; 1000 copies/ml:</td>
+	    		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.lang('label.valid_tests_lt1000').'</td>
 	    		<td>'.number_format($less).'</td>
-	    		<td>Percentage Suppression</td>
+	    		<td>'.  lang('label.percentage_suppression').'</td>
 	    		<td>'.round((($less/$total)*100),1).'%</td>
 	    	</tr>
  
 	    	<tr>
-	    		<td>&nbsp;&nbsp;&nbsp;Baseline VLs:</td>
+	    		<td>&nbsp;&nbsp;&nbsp;'.lang('label.baseline_vl').'</td>
 	    		<td>'.number_format($value['baseline']).'</td>
-	    		<td>Non Suppression ( &gt; 1000cpml)</td>
+	    		<td>'.lang('label.non_suppression_gt_1000').'</td>
 	    		<td>'.number_format($value['baselinesustxfail']). ' (' .round(($value['baselinesustxfail'] * 100 / $value['baseline']), 1). '%)' .'</td>
 	    	</tr>
 	    	<tr>
 	    		<td>&nbsp;&nbsp;&nbsp;Confirmatory Repeat Tests:</td>
 	    		<td>'.number_format($value['confirmtx']).'</td>
-	    		<td>Non Suppression ( &gt; 1000cpml)</td>
+	    		<td>'.lang('label.non_suppression_gt_1000').'</td>
 	    		<td>'.number_format($value['confirm2vl']). ' (' .round(($value['confirm2vl'] * 100 / $value['confirmtx']), 1). '%)' .'</td>
 	    	</tr>
  
 	    	<tr>
-	    		<td>Rejected Samples:</td>
+	    		<td>'.lang('label.rejected_samples').'</td>
 	    		<td>'.number_format($value['rejected']).'</td>
-	    		<td>Percentage Rejection Rate</td>
+	    		<td>'.lang('label.percentage_rejection_rate').'</td>
 	    		<td>'. round((($value['rejected']*100)/$value['alltests']), 1, PHP_ROUND_HALF_UP).'%</td>
 	    	</tr>';
 						
@@ -191,17 +191,17 @@ class Samples_model extends MY_Model
 		// echo "<pre>";print_r($sql);die();
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($result);die();
-		$data['gender'][0]['name'] = 'Test';
+		$data['gender'][0]['name'] = lang('label.test');
 
 		$count = 0;
 		
 		$data["gender"][0]["data"][0]	= $count;
 		$data["gender"][0]["data"][1]	= $count;
-		$data['categories'][0]			= 'No Data';
+		$data['categories'][0]			= lang('label.no_data');
 
 		foreach ($result as $key => $value) {
-			$data['categories'][0] 			= 'Male';
-			$data['categories'][1] 			= 'Female';
+			$data['categories'][0] 			= lang('label.male');
+			$data['categories'][1] 			= lang('label.female');
 			$data["gender"][0]["data"][0]	=  (int) $value['maletest'];
 			$data["gender"][0]["data"][1]	=  (int) $value['femaletest'];
 		}
@@ -243,13 +243,13 @@ class Samples_model extends MY_Model
 		// echo "<pre>";print_r($sql);die();
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($result);die();
-		$data['ageGnd'][0]['name'] = 'Test';
+		$data['ageGnd'][0]['name'] = lang('label.test');
 
 		$count = 0;
 		
 		$data["ageGnd"][0]["data"][0]	= $count;
 		$data["ageGnd"][0]["data"][1]	= $count;
-		$data['categories'][0]			= 'No Data';
+		$data['categories'][0]			= lang('label.no_data');
 
 		foreach ($result as $key => $value) {
 			$data['categories'][0] 			= 'No Age';
@@ -297,9 +297,9 @@ class Samples_model extends MY_Model
 		// echo "<pre>";print_r($sql);die();
 		$result = $this->db->query($sql)->result_array();
 
-		$data['outcomes'][0]['name'] = "Nonsuppressed";
-		$data['outcomes'][1]['name'] = "Suppressed";
-		$data['outcomes'][2]['name'] = "Suppression";
+		$data['outcomes'][0]['name'] = lang('label.non_suppressed_');
+		$data['outcomes'][1]['name'] =  lang('label.suppressed_');
+		$data['outcomes'][2]['name'] = lang('label.suppression');
 
 
 		//$data['outcomes'][0]['drilldown']['color'] = '#913D88';
@@ -317,7 +317,7 @@ class Samples_model extends MY_Model
 		$data['outcomes'][1]['tooltip'] = array("valueSuffix" => ' ');
 		$data['outcomes'][2]['tooltip'] = array("valueSuffix" => ' %');
 
-		$data['title'] = "Outcomes";
+		$data['title'] = lang('label.outcomes');
 
 		foreach ($result as $key => $value) {
 			
@@ -367,9 +367,9 @@ class Samples_model extends MY_Model
 		
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($result);die();
-		$data['outcomes'][0]['name'] = "Nonsuppressed";
-		$data['outcomes'][1]['name'] = "Suppressed";
-		$data['outcomes'][2]['name'] = "Suppression";
+		$data['outcomes'][0]['name'] = lang('label.non_suppressed_');
+		$data['outcomes'][1]['name'] =  lang('label.suppressed_');
+		$data['outcomes'][2]['name'] = lang('label.suppression');
 
 
 		//$data['outcomes'][0]['drilldown']['color'] = '#913D88';
@@ -387,7 +387,7 @@ class Samples_model extends MY_Model
 		$data['outcomes'][1]['tooltip'] = array("valueSuffix" => ' ');
 		$data['outcomes'][2]['tooltip'] = array("valueSuffix" => ' %');
 
-		$data['title'] = "Outcomes";
+		$data['title'] = lang('label.outcomes');
 
 
 		

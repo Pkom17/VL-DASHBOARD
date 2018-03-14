@@ -46,17 +46,17 @@
 
 </style>
 <div id="notification" style="margin-bottom: 1em;background-color:#E4F1FE;">
-  	Not Suppressed: XXXX
+  	<?=  lang('label.not_suppressed')?> 
 </div>
 <div class="row">
 	<div class="col-md-6">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Gender <div class="display_date"></div>
+			  <?=  lang('label.gender')?><div class="display_date"></div>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="genderGrp">
-		  		<div>Loading...</div>
+		  		<div><?=  lang('label.loading')?></div>
 		  	</div>
 		  	<!-- -->
 		  </div>
@@ -65,11 +65,11 @@
 	<div class="col-md-6">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Age Category <div class="display_date"></div>
+			  <?=  lang('label.age_category')?><div class="display_date"></div>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="ageGrp">
-		  		<div>Loading...</div>
+		  		<div><?=  lang('label.loading')?></div>
 		  	</div>
 		  </div>
 		</div>
@@ -79,11 +79,11 @@
 	<div class="col-md-4">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Justification <div class="display_date"></div>
+			  <?=  lang('label.justification')?> <div class="display_date"></div>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="justification">
-		  		<div>Loading...</div>
+		  		<div><?=  lang('label.loading')?></div>
 		  	</div>
 		  	<!-- -->
 		  </div>
@@ -92,11 +92,11 @@
 	<div class="col-md-4">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Gender <div class="display_date"></div>
+			  <?=  lang('label.gender')?> <div class="display_date"></div>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="gender">
-		  		<div>Loading...</div>
+		  		<div><?=  lang('label.loading')?></div>
 		  	</div>
 		  	<!-- -->
 		  </div>
@@ -105,11 +105,11 @@
 	<div class="col-md-4">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Age <div class="display_date"></div>
+			  <?=  lang('label.age')?> <div class="display_date"></div>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="age">
-		  		<div>Loading...</div>
+		  		<div><?=  lang('label.loading')?></div>
 		  	</div>
 		  	<!-- -->
 		  </div>
@@ -117,17 +117,17 @@
 	</div>
 </div>
 <div class="row">
-	<center><h3>Non suppression rates</h3></center>
+	<center><h3><?=  lang('label.non_suppress_rates')?></h3></center>
 </div>
 <div class="row">
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Counties <div class="display_date"></div>
+			  <?=  lang('label.counties')?><div class="display_date"></div>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="countys">
-		  		<div>Loading...</div>
+		  		<div><?=  lang('label.loading')?></div>
 		  	</div>
 		  	<!-- -->
 		  </div>
@@ -136,11 +136,11 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Sub counties <div class="display_date"></div>
+			  <?=  lang('label.sub_sp_counties')?> <div class="display_date"></div>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="subcounty">
-		  		<div>Loading...</div>
+		  		<div><?=  lang('label.loading')?></div>
 		  	</div>
 		  </div>
 		</div>
@@ -148,11 +148,11 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Facilities <div class="display_date"></div>
+			  <?=  lang('label.facilities')?> <div class="display_date"></div>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="facilities">
-		  		<div>Loading...</div>
+		  		<div><?=  lang('label.loading')?></div>
 		  	</div>
 		  </div>
 		</div>
@@ -160,11 +160,11 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Partners <div class="display_date"></div>
+			  <?=  lang('label.partners')?> <div class="display_date"></div>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="partners">
-		  		<div>Loading...</div>
+		  		<div><?=  lang('label.loading')?></div>
 		  	</div>
 		  	<!-- -->
 		  </div>
@@ -175,11 +175,11 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  VL County Suppression <div class="display_date"></div>
+			  <?=  lang('label.VL_county_suppress')?> <div class="display_date"></div>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="countiesGraph">
-		  		<div>Loading...</div>
+		  		<div><?=  lang('label.loading')?></div>
 		  	</div>
 		  	<!-- -->
 		  </div>
@@ -201,7 +201,7 @@
 					</div>
 				  	<div class="panel-body">
 				  	<div class="row" id="genderGrp">
-				  		<div>Loading...</div>
+				  		<div><?=  lang('label.loading')?></div>
 				  	</div>
 				  </div>
 				</div> -->
@@ -213,7 +213,7 @@
 					</div>
 				  	<div class="panel-body">
 				  	<div class="row" id="ageGrp">
-				  		<div>Loading...</div>
+				  		<div><?=  lang('label.loading')?></div>
 				  	</div>
 				  	<!-- -->
 				  </div>
@@ -231,7 +231,7 @@
 					</div>
 					  <div class="panel-body">
 					  	<div class="row" id="justification">
-					  		<div>Loading...</div>
+					  		<div><?=  lang('label.loading')?></div>
 					  		
 					  	</div>
 					 </div>
@@ -246,7 +246,7 @@
 						</div>
 					  <div class="panel-body">
 					  	<div class="row" id="sampleType">
-					  		<div>Loading...</div>
+					  		<div><?=  lang('label.loading')?></div>
 					  	</div>
 					 </div>
 				</div>
@@ -265,7 +265,7 @@
 				  	Counties <div class="display_date"></div>
 				  </div>
 				  <div class="panel-body" id="countys">
-				    Loading...
+				    <?=  lang('label.loading')?>
 				  </div>
 				</div>
 				
@@ -277,7 +277,7 @@
 				  	Patners <div class="display_date"></div>
 				  </div>
 				  <div class="panel-body" id="partners">
-				    <div>Loading...</div>
+				    <div><?=  lang('label.loading')?></div>
 				  </div>
 				</div>
 		
@@ -290,7 +290,7 @@
 				</div>
 			  <div class="panel-body">
 			  	<div class="row" id="regimen">
-			  		<div>Loading...</div>
+			  		<div><?=  lang('label.loading')?></div>
 			  	</div>
 			 </div>
 		</div>

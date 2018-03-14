@@ -81,7 +81,7 @@ class County extends MY_Controller
 	{
 		$data['outcomes'] = $this->county_model->subcounty_outcomes($year,$month,$county,$to_year,$to_month);
 		$data['type'] = 'percent';
-		$data['yAxisText'] = 'Non-suppression';
+		$data['yAxisText'] = lang('label.non_suppression');
 		$data['div'] = 'sub_counties_positivity_chart';
 		// die();
 		$this->load->view('county_outcomes_view',$data);

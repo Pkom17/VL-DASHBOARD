@@ -30,8 +30,8 @@
       <div class="row">
         <div class="col-md-12">
           <select class="btn js-example-basic-single" style="width:220px;background-color: #C5EFF7;" name="site" id="site">
-            <option value="0" disabled="true" selected="true">Select a Facility:</option>
-            <option value="NA">All Facilities</option>
+            <option value="0" disabled="true" selected="true"><?= lang('label.select_facilities'); ?> </option>
+            <option value="NA"><?= lang('label.all_facilities'); ?> </option>
             <!-- <optgroup value="Counties"> -->
             <?php echo $sites; ?>
             <!-- </optgroup> -->
@@ -48,44 +48,44 @@
     </div>
   </div>
   <div class="col-md-5" id="year-month-filter">
-    <div class="filter">
-      Year: 
-      <a href="javascript:void(0)" onclick="date_filter('yearly', 2010 )" class="alert-link"> 2010 </a>|
-      <a href="javascript:void(0)" onclick="date_filter('yearly', 2011 )" class="alert-link"> 2011 </a>|
-      <a href="javascript:void(0)" onclick="date_filter('yearly', 2012 )" class="alert-link"> 2012 </a>|
-      <a href="javascript:void(0)" onclick="date_filter('yearly', 2013 )" class="alert-link"> 2013 </a>|
-      <a href="javascript:void(0)" onclick="date_filter('yearly', 2014 )" class="alert-link"> 2014 </a>|
-      <a href="javascript:void(0)" onclick="date_filter('yearly', 2015 )" class="alert-link"> 2015 </a>|
-      <a href="javascript:void(0)" onclick="date_filter('yearly', 2016 )" class="alert-link"> 2016 </a>|
-      <a href="javascript:void(0)" onclick="date_filter('yearly', 2017 )" class="alert-link"> 2017 </a>|
-      <a href="javascript:void(0)" onclick="date_filter('yearly', 2018 )" class="alert-link"> 2018 </a>
-    </div>
-    <div class="filter">
-      Month: 
-      <a href='javascript:void(0)' onclick='date_filter("monthly", 1)' class='alert-link'> Jan </a>|
-      <a href='javascript:void(0)' onclick='date_filter("monthly", 2)' class='alert-link'> Feb </a>|
-      <a href='javascript:void(0)' onclick='date_filter("monthly", 3)' class='alert-link'> Mar </a>|
-      <a href='javascript:void(0)' onclick='date_filter("monthly", 4)' class='alert-link'> Apr </a>|
-      <a href='javascript:void(0)' onclick='date_filter("monthly", 5)' class='alert-link'> May </a>|
-      <a href='javascript:void(0)' onclick='date_filter("monthly", 6)' class='alert-link'> Jun </a>|
-      <a href='javascript:void(0)' onclick='date_filter("monthly", 7)' class='alert-link'> Jul </a>|
-      <a href='javascript:void(0)' onclick='date_filter("monthly", 8)' class='alert-link'> Aug </a>|
-      <a href='javascript:void(0)' onclick='date_filter("monthly", 9)' class='alert-link'> Sep </a>|
-      <a href='javascript:void(0)' onclick='date_filter("monthly", 10)' class='alert-link'> Oct </a>|
-      <a href='javascript:void(0)' onclick='date_filter("monthly", 11)' class='alert-link'> Nov </a>|
-      <a href='javascript:void(0)' onclick='date_filter("monthly", 12)' class='alert-link'> Dec</a>
-    </div>
+ <div class="filter">
+            <?= lang('date_year'); ?>  
+            <a href="javascript:void(0)" onclick="date_filter('yearly', 2010)" class="alert-link"> 2010 </a>|
+            <a href="javascript:void(0)" onclick="date_filter('yearly', 2011)" class="alert-link"> 2011 </a>|
+            <a href="javascript:void(0)" onclick="date_filter('yearly', 2012)" class="alert-link"> 2012 </a>|
+            <a href="javascript:void(0)" onclick="date_filter('yearly', 2013)" class="alert-link"> 2013 </a>|
+            <a href="javascript:void(0)" onclick="date_filter('yearly', 2014)" class="alert-link"> 2014 </a>|
+            <a href="javascript:void(0)" onclick="date_filter('yearly', 2015)" class="alert-link"> 2015 </a>|
+            <a href="javascript:void(0)" onclick="date_filter('yearly', 2016)" class="alert-link"> 2016 </a>|
+            <a href="javascript:void(0)" onclick="date_filter('yearly', 2017)" class="alert-link"> 2017 </a>|
+            <a href="javascript:void(0)" onclick="date_filter('yearly', 2018)" class="alert-link"> 2018 </a>
+        </div>
+        <div class="filter">
+            <?= lang('date_months'); ?> 
+            <a href='javascript:void(0)' onclick='date_filter("monthly", 1)' class='alert-link'> <?= lang('cal_jan'); ?> </a>|
+            <a href='javascript:void(0)' onclick='date_filter("monthly", 2)' class='alert-link'> <?= lang('cal_feb'); ?> </a>|
+            <a href='javascript:void(0)' onclick='date_filter("monthly", 3)' class='alert-link'> <?= lang('cal_mar'); ?> </a>|
+            <a href='javascript:void(0)' onclick='date_filter("monthly", 4)' class='alert-link'> <?= lang('cal_apr'); ?> </a>|
+            <a href='javascript:void(0)' onclick='date_filter("monthly", 5)' class='alert-link'> <?= lang('cal_may'); ?> </a>|
+            <a href='javascript:void(0)' onclick='date_filter("monthly", 6)' class='alert-link'> <?= lang('cal_jun'); ?> </a>|
+            <a href='javascript:void(0)' onclick='date_filter("monthly", 7)' class='alert-link'> <?= lang('cal_jul'); ?> </a>|
+            <a href='javascript:void(0)' onclick='date_filter("monthly", 8)' class='alert-link'> <?= lang('cal_aug'); ?> </a>|
+            <a href='javascript:void(0)' onclick='date_filter("monthly", 9)' class='alert-link'> <?= lang('cal_sep'); ?> </a>|
+            <a href='javascript:void(0)' onclick='date_filter("monthly", 10)' class='alert-link'> <?= lang('cal_oct'); ?> </a>|
+            <a href='javascript:void(0)' onclick='date_filter("monthly", 11)' class='alert-link'> <?= lang('cal_nov'); ?> </a>|
+            <a href='javascript:void(0)' onclick='date_filter("monthly", 12)' class='alert-link'> <?= lang('cal_dec'); ?></a>
+        </div>
   </div>
   <div class="col-md-2">
         <div class="row" id="range">
             <div class="col-md-4">
-                <input name="startDate" id="startDate" class="date-picker" placeholder="From:" />
+                <input name="startDate" id="startDate" class="date-picker" placeholder="<?= lang('filter_from'); ?> " />
             </div>
             <div class="col-md-4 endDate">
-                <input name="endDate" id="endDate" class="date-picker" placeholder="To:" />
+                <input name="endDate" id="endDate" class="date-picker" placeholder="<?= lang('filter_to'); ?> " />
             </div>
             <div class="col-md-4">
-                <button id="filter" class="btn btn-primary date-pickerBtn" style="color: white;background-color: #1BA39C; margin-top: 0.2em; margin-bottom: 0em; margin-left: 4em;"><center>Filter</center></button>
+                <button id="filter" class="btn btn-primary date-pickerBtn" style="color: white;background-color: #1BA39C; margin-top: 0.2em; margin-bottom: 0em; margin-left: 4em;"><center><?= lang('label_filter'); ?> </center></button>
             </div>
         </div>
             <center><div id="errorAlertDateRange"><div id="errorAlert" class="alert alert-danger" role="alert">...</div></div></center>

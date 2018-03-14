@@ -6,8 +6,8 @@
 <center>
 	<div id="age_dropdown">
 		<select class="btn btn-primary js-example-basic-single" style="background-color: #C5EFF7;" id="age_category" name="age_category">
-	        <option value="0" disabled="true" selected="true">Select Age Category:</option>
-	        <option value="NA">All Age Categories</option>
+	        <option value="0" disabled="true" selected="true"><?=lang('label.select_age_category:')?></option>
+	        <option value="NA"><?=lang('label.all_age_categories')?></option>
 	        <!-- <optgroup value="Counties"> -->
 	        <?php echo $age_filter; ?>
 	        <!-- </optgroup> -->
@@ -20,7 +20,7 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			    Age Outcomes <div class="display_date"></div>
+			   <?=lang('label.age_outcomes')?> <div class="display_date"></div>
 			  </div>
 			  <div class="panel-body" id="age_outcomes">
 			    <center><div class="loader"></div></center>
@@ -34,7 +34,7 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			    Testing Trends <div class="display_range"></div>
+			   <?=lang('label.testing_trends')?> <div class="display_range"></div>
 			  </div>
 			  <div class="panel-body" id="samples">
 			    <center><div class="loader"></div></center>
@@ -46,7 +46,7 @@
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	VL Outcomes <div class="display_date" ></div>
+			  	<?=lang('label.vl_outcomes')?> <div class="display_date" ></div>
 			  </div>
 			  <div class="panel-body" id="vlOutcomes">
 			  	<center><div class="loader"></div></center>
@@ -57,7 +57,7 @@
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	Gender <div class="display_date" ></div>
+			  	<?=lang('label.gender')?> <div class="display_date" ></div>
 			  </div>
 			  <div class="panel-body" id="gender">
 			  	<center><div class="loader"></div></center>

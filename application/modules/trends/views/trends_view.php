@@ -2,14 +2,14 @@
 
   <div class="col-md-4 col-md-offset-4">
     <div id="breadcrum" class="alert" style="background-color: #1BA39C;text-align: center;vertical-align: middle;" onclick="switch_source()">
-          <span id="current_source">Click to toggle between quarterly and yearly</span>   
+          <span id="current_source"><?=  lang('label.toggle_quart_year')?></span>   
       </div>
          
   </div>
 </div>
 
 <div class="row">
-  <div style="color:red;"><center>Click on Year(s)/Quarter(s) on legend to view only for the year(s)/quarter(s) selected</center></div>
+  <div style="color:red;"><center><?=  lang('label.view_for_year_quart_selected')?> </center></div>
 
   <div id="first">
 

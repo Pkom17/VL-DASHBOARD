@@ -20,7 +20,7 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Sites Outcomes <div class="display_date"></div>
+			  <?=lang('label.sites_outcomes')?> <div class="display_date"></div>
 			</div>
 		  	<div class="panel-body" id="siteOutcomes">
 		  		<center><div class="loader"></div></center>
@@ -33,7 +33,7 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Partner Sites <div class="display_date"></div>
+			  <?=lang('label.partner_sites')?> <div class="display_date"></div>
 			</div>
 		  	<div class="panel-body" id="partnerSites">
 		  		<center><div class="loader"></div></center>

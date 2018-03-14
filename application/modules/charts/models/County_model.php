@@ -40,18 +40,18 @@ class County_model extends MY_Model
 		// echo "<pre>";print_r($sql);die();
 		$result = $this->db->query($sql)->result_array();
 
-		$data['county_outcomes'][0]['name'] = 'Not Suppresed';
-		$data['county_outcomes'][1]['name'] = 'Suppresed';
+		$data['county_outcomes'][0]['name'] = lang('label.not_suppressed_');
+		$data['county_outcomes'][1]['name'] =  lang('label.suppressed_');
 
 		$count = 0;
 		
 		$data["county_outcomes"][0]["data"][0]	= $count;
 		$data["county_outcomes"][1]["data"][0]	= $count;
-		$data['categories'][0]					= 'No Data';
+		$data['categories'][0]					= lang('label.no_data');
 
-		$data['outcomes'][0]['name'] = "Not Suppressed";
-		$data['outcomes'][1]['name'] = "Suppressed";
-		$data['outcomes'][2]['name'] = "Suppression";
+		$data['outcomes'][0]['name'] =  lang('label.not_suppressed_');
+		$data['outcomes'][1]['name'] =  lang('label.suppressed_');
+		$data['outcomes'][2]['name'] = lang('label.suppression');
 
 		$data['outcomes'][0]['type'] = "column";
 		$data['outcomes'][1]['type'] = "column";
@@ -175,7 +175,11 @@ class County_model extends MY_Model
 	    $f = fopen('php://memory', 'w');
 	    /** loop through array  */
 
-	    $b = array('County', 'Facilities Sending Samples', 'Received', 'Rejected', 'All Tests', 'Redraws', 'Undetected', 'less1000', 'above1000 - less5000', 'above5000', 'Baseline Tests', 'Baseline >1000', 'Confirmatory Tests', 'Confirmatory >1000');
+	    $b = array(lang('label.table_county'), lang('label.table_facilities_send_samp'), 
+                lang('label.received'), lang('label.rejected'), lang('label.all_tests'),
+                lang('label.redraws'), lang('label.undetected'), lang('label.less1000'), 
+                lang('label.above1000_less5000'), lang('label.above5000'),lang('label.baseline_tests'),
+                lang('label.baseline_gt1000'), lang('label.confirmatory_tests'), lang('label.confirmatory_gt1000'));
 
 	    fputcsv($f, $b, $delimiter);
 
@@ -290,7 +294,12 @@ class County_model extends MY_Model
 	    $f = fopen('php://memory', 'w');
 	    /** loop through array  */
 
-	    $b = array('County', 'Subcounty', 'Facilities Sending Samples', 'Received', 'Rejected', 'All Tests', 'Redraws', 'Undetected', 'less1000', 'above1000 - less5000', 'above5000', 'Baseline Tests', 'Baseline >1000', 'Confirmatory Tests', 'Confirmatory >1000');
+	    $b = array(lang('label.table_county'), lang('label.subcounty'), lang('label.table_facilities_send_samp'),
+                 lang('label.received'), lang('label.rejected'), lang('label.all_tests'),
+                lang('label.redraws'), lang('label.undetected'), lang('label.less1000'),
+                lang('label.above1000_less5000'), lang('label.above5000'),
+                lang('label.baseline_tests'),
+                lang('label.baseline_gt1000'), lang('label.confirmatory_tests'), lang('label.confirmatory_gt1000'));
 
 	    fputcsv($f, $b, $delimiter);
 
@@ -340,7 +349,7 @@ class County_model extends MY_Model
 		// echo "<pre>";print_r($sql);die();
 		foreach ($result as $key => $value) {
 			if ($value['partner'] == NULL || $value['partner'] == 'NULL') {
-				$value['partner'] = 'No Partner';
+				$value['partner'] = lang('label.no_partner');
 			}
 			$routine = ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['less5000'] + (int) $value['above5000']);
 			$routinesus = ((int) $value['less5000'] + (int) $value['above5000']);
@@ -408,7 +417,11 @@ class County_model extends MY_Model
 	    $f = fopen('php://memory', 'w');
 	    /** loop through array  */
 
-	    $b = array('County', 'Partner', 'Facilities Sending Samples', 'Received', 'Rejected', 'All Tests', 'Redraws', 'Undetected', 'less1000', 'above1000 - less5000', 'above5000', 'Baseline Tests', 'Baseline >1000', 'Confirmatory Tests', 'Confirmatory >1000');
+	    $b = array(lang('label.table_county'), lang('label.partner'), lang('label.table_facilities_send_samp'),
+                lang('label.received'), lang('label.rejected'), lang('label.all_tests'),
+                 lang('label.redraws'), lang('label.undetected'), lang('label.less1000'),
+                lang('label.above1000_less5000'), lang('label.above5000'), lang('label.baseline_tests'), 
+                 lang('label.baseline_gt1000'), lang('label.confirmatory_tests'), lang('label.confirmatory_gt1000'));
 
 	    fputcsv($f, $b, $delimiter);
 

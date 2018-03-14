@@ -125,7 +125,7 @@ class Nonsuppression_model extends MY_Model
 		// echo "<pre>";print_r($result);die();
 
 
-		$data['gnd_gr']['name'] = 'Non suppression';
+		$data['gnd_gr']['name'] = lang('label.non_suppression');
 		$data['gnd_gr']['colorByPoint'] = true;
 		$female = NULL;
 		$male = NULL;
@@ -133,11 +133,11 @@ class Nonsuppression_model extends MY_Model
 
 		foreach ($result as $key => $value) {
 			if ($value['name']=='F') {
-				$data['gnd_gr']['data'][$key]['name'] = 'Female';
+				$data['gnd_gr']['data'][$key]['name'] = lang('label.female');
 				$data['gnd_gr']['data'][$key]['y'] = (int) $value['nonsuppressed'];
 				$female = number_format((int) $value['nonsuppressed']).' ('.round((((int) $value['nonsuppressed'])/@((int) $value['nonsuppressed']+(int) $value['suppressed']))*100,1).'%)';
 			} else if ($value['name']=='M') {
-				$data['gnd_gr']['data'][$key]['name'] = 'Male';
+				$data['gnd_gr']['data'][$key]['name'] = lang('label.male');
 				$data['gnd_gr']['data'][$key]['y'] = (int) $value['nonsuppressed'];
 				$male = number_format((int) $value['nonsuppressed']).' ('.round((((int) $value['nonsuppressed'])/@((int) $value['nonsuppressed']+(int) $value['suppressed']))*100,1).'%)';
 			} else {
@@ -153,17 +153,17 @@ class Nonsuppression_model extends MY_Model
 		$data['gnd_gr']['data'][1]['color'] = '#1BA39C';
 
 		$data['ul'] = '<tr>
-		    		<td>Male: </td>
+		    		<td>'.lang('label.male').'</td>
 		    		<td>'.$male.'</td>
 		    	</tr>
 
 		    	<tr>
-		    		<td>Female: </td>
+		    		<td>'.lang('label.female').' </td>
 		    		<td>'. $female.'</td>
 		    	</tr>
 
 		    	<tr>
-		    		<td>No Data:</td>
+		    		<td>'.lang('label.no_data').':</td>
 		    		<td>'. $nodata.'</td>
 		    	</tr>';
 		
@@ -217,7 +217,7 @@ class Nonsuppression_model extends MY_Model
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($result);die();
 
-		$data['age_gr']['name'] = 'Non suppression';
+		$data['age_gr']['name'] = lang('label.non_suppression');
 		$data['age_gr']['colorByPoint'] = true;
 		$children = 0;
 		$childrenTotal = 0;
@@ -245,13 +245,13 @@ class Nonsuppression_model extends MY_Model
 			}
 		}
 
-		$data['age_gr']['data'][0]['name'] = 'Children (<10)';
+		$data['age_gr']['data'][0]['name'] = lang('label.children_lt10');
 		$data['age_gr']['data'][0]['y'] = (int) $children;
-		$data['age_gr']['data'][1]['name'] = 'Adolescents (10-19)';
+		$data['age_gr']['data'][1]['name'] = lang('label.adolescents_lt19');
 		$data['age_gr']['data'][1]['y'] = (int) $adolescent;
-		$data['age_gr']['data'][2]['name'] = 'Adults (>20)';
+		$data['age_gr']['data'][2]['name'] = lang('label.adults_gt20');
 		$data['age_gr']['data'][2]['y'] = (int) $adults;
-		$data['age_gr']['data'][3]['name'] = 'No Data';
+		$data['age_gr']['data'][3]['name'] = lang('label.no_data');
 		$data['age_gr']['data'][3]['y'] = (int) $nodata;
 
 		$data['age_gr']['data'][0]['sliced'] = true;
@@ -260,22 +260,22 @@ class Nonsuppression_model extends MY_Model
 		$data['age_gr']['data'][1]['color'] = '#1BA39C';
 
 		$data['ul'] = '<tr>
-		    		<td>Children (<10): </td>
+		    		<td>'.lang('label.children_lt10').': </td>
 		    		<td>'.number_format((int) $children).' ('.round(((int) $children)/@((int) $childrenTotal)*100,1).'%)</td>
 		    	</tr>
 
 		    	<tr>
-		    		<td>Adolescents (10-19): </td>
+		    		<td>'.lang('label.adolescents_lt19').': </td>
 		    		<td>'.number_format((int) $adolescent).' ('.round(((int) $adolescent)/@((int) $adolescentTotal)*100,1).'%)</td>
 		    	</tr>
 
 		    	<tr>
-		    		<td>Adults (>20): </td>
+		    		<td>'. lang('label.adults_gt20').': </td>
 		    		<td>'.number_format((int) $adults).' ('.round(((int) $adults)/@((int) $adultsTotal)*100,1).'%)</td>
 		    	</tr>
 
 		    	<tr>
-		    		<td>No Data: </td>
+		    		<td>'.lang('label.no_data').': </td>
 		    		<td>'.number_format((int) $nodata).' ('.round(((int) $nodata)/@((int) $nodataTotal)*100,1).'%)</td>
 		    	</tr>';
 
@@ -329,14 +329,14 @@ class Nonsuppression_model extends MY_Model
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($result);die();
 
-		$data['sup_justification'][0]['name'] = 'Not Suppresed';
-		$data['sup_justification'][1]['name'] = 'Suppresed';
+		$data['sup_justification'][0]['name'] =  lang('label.not_suppressed_');
+		$data['sup_justification'][1]['name'] =  lang('label.suppressed_');
 
 		$count = 0;
 		
 		$data["sup_justification"][0]["data"][0]	= $count;
 		$data["sup_justification"][1]["data"][0]	= $count;
-		$data['categories'][0]					= 'No Data';
+		$data['categories'][0]					= lang('label.no_data');
 
 		foreach ($result as $key => $value) {
 			$data['categories'][$key] 					= $value['name'];
@@ -393,14 +393,14 @@ class Nonsuppression_model extends MY_Model
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($result);die();
 
-		$data['sup_gender'][0]['name'] = 'Not Suppresed';
-		$data['sup_gender'][1]['name'] = 'Suppresed';
+		$data['sup_gender'][0]['name'] =  lang('label.not_suppressed_');
+		$data['sup_gender'][1]['name'] =  lang('label.suppressed_');
 
 		$count = 0;
 		
 		$data["sup_gender"][0]["data"][0]	= $count;
 		$data["sup_gender"][1]["data"][0]	= $count;
-		$data['categories'][0]					= 'No Data';
+		$data['categories'][0]					= lang('label.no_data');
 
 		foreach ($result as $key => $value) {
 			$data['categories'][$key] 					= $value['name'];
@@ -457,14 +457,14 @@ class Nonsuppression_model extends MY_Model
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($result);die();
 
-		$data['sup_age'][0]['name'] = 'Not Suppresed';
-		$data['sup_age'][1]['name'] = 'Suppresed';
+		$data['sup_age'][0]['name'] =  lang('label.not_suppressed_');
+		$data['sup_age'][1]['name'] =  lang('label.suppressed_');
 
 		$count = 0;
 		
 		$data["sup_age"][0]["data"][0]	= $count;
 		$data["sup_age"][1]["data"][0]	= $count;
-		$data['categories'][0]					= 'No Data';
+		$data['categories'][0]					= lang('label.no_data');
 
 		foreach ($result as $key => $value) {
 			$data['categories'][$key] 					= $value['name'];
@@ -523,14 +523,14 @@ class Nonsuppression_model extends MY_Model
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($result);die();
 
-		$data['sup_county'][0]['name'] = 'Not Suppresed';
-		$data['sup_county'][1]['name'] = 'Suppresed';
+		$data['sup_county'][0]['name'] =  lang('label.not_suppressed_');
+		$data['sup_county'][1]['name'] =  lang('label.suppressed_');
 
 		$count = 0;
 		
 		$data["sup_county"][0]["data"][0]	= $count;
 		$data["sup_county"][1]["data"][0]	= $count;
-		$data['categories'][0]					= 'No Data';
+		$data['categories'][0]					= lang('label.no_data');
 
 		foreach ($result as $key => $value) {
 			$data['categories'][$key] 					= $value['name'];
@@ -582,12 +582,12 @@ class Nonsuppression_model extends MY_Model
 	// 	// echo "<pre>";print_r($result);die();
 
 	// 	$color = array('#6BB9F0', '#F2784B', '#1BA39C');
-	// 	$data['sampletype']['name'] = 'Non Suppression';
+	// 	$data['sampletype']['name'] = lang('label.non_suppression');
 	// 	$data['sampletype']['colorByPoint'] = true;
 
 	// 	$count = 0;
 
-	// 	$data['sampletype']['data'][0]['name'] = 'No Data';
+	// 	$data['sampletype']['data'][0]['name'] = lang('label.no_data');
 
 	// 	foreach ($result as $key => $value) {
 	// 		$data['sampletype']['data'][$key]['y'] = $count;
@@ -641,14 +641,14 @@ class Nonsuppression_model extends MY_Model
 	// 	}
 	// 	// echo "<pre>";print_r($sql);die();
 	// 	$result = $this->db->query($sql)->result_array();
-	// 	$data['regimen']['name'] = 'Non Suppression';
+	// 	$data['regimen']['name'] = lang('label.non_suppression');
 	// 	$data['regimen']['colorByPoint'] = true;
 
 	// 	$count = 0;
 	// 	$color = array('#19B5FE', '#E26A6A', '#96281B', '#BE90D4', '#16A085', '#F2784B', '#26C281', '#C8F7C5', '#E9D460', '', '', '', '', '', '', '', '');
 
 	// 	$data['li'] = '';
-	// 	$data['regimen']['data'][0]['name'] = 'No Data';
+	// 	$data['regimen']['data'][0]['name'] = lang('label.no_data');
 	// 	$data['regimen']['data'][0]['y'] = 0;
 
 	// 	foreach ($result as $key => $value) {
@@ -714,7 +714,7 @@ class Nonsuppression_model extends MY_Model
 					$count++;
 			}
 		}else{
-			$li = 'No Data';
+			$li = lang('label.no_data');
 		}
 		
 		// if($result)
@@ -761,7 +761,7 @@ class Nonsuppression_model extends MY_Model
 					
 		// 		}
 		// 	}else{
-		// 		$li = 'No Data';
+		// 		$li = lang('label.no_data');
 		// 	}
 		
 		// echo "<pre>";print_r($li);die();
@@ -818,7 +818,7 @@ class Nonsuppression_model extends MY_Model
 					$count++;
 				}
 			}else{
-				$li = 'No Data';
+				$li = lang('label.no_data');
 			}
 
 		$data = array(
@@ -874,7 +874,7 @@ class Nonsuppression_model extends MY_Model
 				$count++;
 				}
 			}else{
-				$li = 'No Data';
+				$li = lang('label.no_data');
 			}
 
 		$data = array(
@@ -934,7 +934,7 @@ class Nonsuppression_model extends MY_Model
 					$count++;
 				}
 			}else{
-				$li = 'No Data';
+				$li = lang('label.no_data');
 			}
 			$data = array(
 						'ul' => $li,
@@ -982,7 +982,7 @@ class Nonsuppression_model extends MY_Model
 	// 				$count++;
 	// 			}
 	// 		}else{
-	// 			$li = 'No Data';
+	// 			$li = lang('label.no_data');
 	// 		}
 
 	// 	return $li;
