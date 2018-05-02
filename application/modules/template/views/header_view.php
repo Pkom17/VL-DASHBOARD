@@ -12,7 +12,7 @@
         <?php
         $this->load->view('utils/dynamicLoads');
         ?>
-        <link rel=icon href="<?php echo base_url('assets/img/logo_moh.jpg'); ?>" type="image/jpeg" />
+        <link rel=icon href="<?php echo base_url('assets/img/logo_moh_2.jpg'); ?>" type="image/jpeg" />
         <title>
             <?=lang('site_title');?>
         </title>
