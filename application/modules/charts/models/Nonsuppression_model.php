@@ -258,25 +258,46 @@ class Nonsuppression_model extends MY_Model
 		$data['age_gr']['data'][0]['selected'] = true;
 		$data['age_gr']['data'][0]['color'] = '#F2784B';
 		$data['age_gr']['data'][1]['color'] = '#1BA39C';
+                
+                if($childrenTotal == 0){
+                     $val_chil = number_format((int) $children).' ('.round(0,1).'%)';
+                }else{
+                    $val_chil = number_format((int) $children).' ('.round(((int) $children)/((int) $childrenTotal)*100,1).'%)';
+                }
+                if($adolescentTotal == 0){
+                     $val_ado = number_format((int) $adolescent).' ('.round(0,1).'%)';
+                }else{
+                    $val_ado = number_format((int) $adolescent).' ('.round(((int) $adolescent)/((int) $adolescentTotal)*100,1).'%)';
+                }
+                if($adultsTotal == 0){
+                     $val_adu = number_format((int) $adults).' ('.round(0,1).'%)';
+                }else{
+                    $val_adu = number_format((int) $adults).' ('.round(((int) $adults)/((int) $adultsTotal)*100,1).'%)';
+                }
+                if($nodataTotal == 0){
+                     $val_nod = number_format((int) $nodata).' ('.round(0,1).'%)';
+                }else{
+                    $val_nod = number_format((int) $nodata).' ('.round(((int) $nodata)/((int) $nodataTotal)*100,1).'%)';
+                }
 
 		$data['ul'] = '<tr>
 		    		<td>'.lang('label.children_lt10').': </td>
-		    		<td>'.number_format((int) $children).' ('.round(((int) $children)/@((int) $childrenTotal)*100,1).'%)</td>
+		    		<td>'.$val_chil.'</td>
 		    	</tr>
 
 		    	<tr>
 		    		<td>'.lang('label.adolescents_lt19').': </td>
-		    		<td>'.number_format((int) $adolescent).' ('.round(((int) $adolescent)/@((int) $adolescentTotal)*100,1).'%)</td>
+		    		<td>'.$val_ado.'</td>
 		    	</tr>
 
 		    	<tr>
 		    		<td>'. lang('label.adults_gt20').': </td>
-		    		<td>'.number_format((int) $adults).' ('.round(((int) $adults)/@((int) $adultsTotal)*100,1).'%)</td>
+		    		<td>'.$val_adu.'</td>
 		    	</tr>
 
 		    	<tr>
 		    		<td>'.lang('label.no_data').': </td>
-		    		<td>'.number_format((int) $nodata).' ('.round(((int) $nodata)/@((int) $nodataTotal)*100,1).'%)</td>
+		    		<td>'.$val_nod.'</td>
 		    	</tr>';
 
 		// echo "<pre>";print_r($data);die();

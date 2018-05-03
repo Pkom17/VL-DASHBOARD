@@ -1,4 +1,4 @@
-Q<style type="text/css">
+<style type="text/css">
 	.display_date {
 		width: 130px;
 		display: inline;

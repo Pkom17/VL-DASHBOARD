@@ -56,10 +56,17 @@ class Summaries_model extends MY_Model {
         );
         // echo "<pre>";print_r($tat);die();
         foreach ($tat as $key => $value) {
-            $data['tat1'] = round(@$value['tat1'] / @$value['count']);
-            $data['tat2'] = round((@$value['tat2'] / @$value['count']) + @$data['tat1']);
-            $data['tat3'] = round((@$value['tat3'] / @$value['count']) + @$data['tat2']);
-            $data['tat4'] = round(@$value['tat4'] / @$value['count']);
+            if ($value['count'] != 0) {
+                $data['tat1'] = round(($value['tat1'] / $value['count']));
+                $data['tat2'] = round(($value['tat2'] / $value['count']) + $data['tat1']);
+                $data['tat3'] = round(($value['tat3'] / $value['count']) + $data['tat2']);
+                $data['tat4'] = round(($value['tat4'] / $value['count']));
+            } else {
+                $data['tat1'] = null;
+                $data['tat2'] = null;
+                $data['tat3'] = null;
+                $data['tat4'] = null;
+            }
         }
         // echo "<pre>";print_r($data);die();
         return $data;
@@ -235,12 +242,45 @@ class Summaries_model extends MY_Model {
             // 	<td colspan="2">'.number_format($value['alltests']).'</td>
             // </tr>
             // <tr>
+            /*
+             * Test values to avoid PHP error
+             */
+            if ($total_tests == 0) {
+                $val_ns = number_format($non_suppressed) . ' (' . round((0), 1) . '%)';
+            } else {
+                $val_ns = number_format($non_suppressed) . ' (' . round((($non_suppressed / $total_tests ) * 100), 1) . '%)';
+            }
+            if ($total == 0) {
+                $val_ls = round((0), 1);
+                $val_gt = round((0), 1);
+            } else {
+                $val_ls = round((($less / $total) * 100), 1);
+                $val_gt = round((($greater / $total) * 100), 1);
+            }
+            if ($value['baseline'] == 0) {
+                $val_bl = number_format($value['baselinesustxfail']) . ' (' . round((0), 1) . '%)';
+            } else {
+                $val_bl = number_format($value['baselinesustxfail']) . ' (' . round(($value['baselinesustxfail'] * 100 / $value['baseline']), 1) . '%)';
+            }
+            if ($value['confirmtx'] == 0) {
+                $val_cvl = number_format($value['confirm2vl']) . ' (' . round((0), 1) . '%)';
+            } else {
+                $val_cvl = number_format($value['confirm2vl']) . ' (' . round(($value['confirm2vl'] * 100 / $value['confirmtx']), 1) . '%)';
+            }
+            if ($value['received'] == 0) {
+                $val_rej = $val_gt = round((0), 1);
+            } else {
+                $val_rej = round((($value['rejected'] * 100) / $value['received']), 1, PHP_ROUND_HALF_UP);
+            }
+            /*
+             * End Test
+             */
             $data['ul'] .= '
 			<tr>
 	    		<td>' . lang('label.total_vl_tests_done') . '</td>
 	    		<td>' . number_format($total_tests) . '</td>
 	    		<td>' . lang('label.non_suppression') . '</td>
-	    		<td>' . number_format($non_suppressed) . ' (' . round((($non_suppressed / $total_tests ) * 100), 1) . '%)</td>
+	    		<td>' . $val_ns . '</td>
 	    	</tr>
  
 			<tr>
@@ -252,34 +292,34 @@ class Summaries_model extends MY_Model {
 	    		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . lang('label.valid_tests_gt1000') . '</td>
 	    		<td>' . number_format($greater) . '</td>
 	    		<td>' . lang('label.percentage_non_suppression') . '</td>
-	    		<td>' . round((($greater / $total) * 100), 1) . '%</td>
+	    		<td>' . $val_gt . '%</td>
 	    	</tr>
  
 	    	<tr>
 	    		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' . lang('label.valid_tests_lt1000') . '</td>
 	    		<td>' . number_format($less) . '</td>
 	    		<td>' . lang('label.percentage_suppression') . '</td>
-	    		<td>' . round((($less / $total) * 100), 1) . '%</td>
+	    		<td>' . $val_ls . '%</td>
 	    	</tr>
  
 	    	<tr>
 	    		<td>&nbsp;&nbsp;&nbsp;' . lang('label.baseline_vl') . '</td>
 	    		<td>' . number_format($value['baseline']) . '</td>
 	    		<td>' . lang('label.non_suppression_gt_1000') . '</td>
-	    		<td>' . number_format($value['baselinesustxfail']) . ' (' . round(($value['baselinesustxfail'] * 100 / $value['baseline']), 1) . '%)' . '</td>
+	    		<td>' . $val_bl . '</td>
 	    	</tr>
 	    	<tr>
 	    		<td>&nbsp;&nbsp;&nbsp;' . lang('label.confirmatory_repeat_tests') . '</td>
 	    		<td>' . number_format($value['confirmtx']) . '</td>
 	    		<td>' . lang('label.non_suppression') . '</td>
-	    		<td>' . number_format($value['confirm2vl']) . ' (' . round(($value['confirm2vl'] * 100 / $value['confirmtx']), 1) . '%)' . '</td>
+	    		<td>' . $val_cvl . '</td>
 	    	</tr>
  
 	    	<tr>
 	    		<td>' . lang('label.rejected_samples') . '</td>
 	    		<td>' . number_format($value['rejected']) . '</td>
 	    		<td>' . lang('label.percentage_rejection_rate') . '</td>
-	    		<td>' . round((($value['rejected'] * 100) / $value['received']), 1, PHP_ROUND_HALF_UP) . '%</td>
+	    		<td>' . $val_rej . '%</td>
 	    	</tr>';
 
             $data['vl_outcomes']['data'][0]['y'] = (int) $value['undetected'] + (int) $value['less1000'];
@@ -298,7 +338,12 @@ class Summaries_model extends MY_Model {
             }
         }
         // echo "<pre>";print_r($sites);echo "<pre>";print_r($count);echo "<pre>";print_r(round(@$sites / $count));die();
-        $data['ul'] .= "<tr> <td colspan=2>" . lang('label.average_sites_sending') . "</td><td colspan=2>" . number_format(round(@$sites / $count)) . "</td></tr>";
+        if($count!=0) {
+            $data['ul'] .= "<tr> <td colspan=2>" . lang('label.average_sites_sending') . "</td><td colspan=2>" . number_format(round($sites / $count)) . "</td></tr>";
+        }
+        else{
+             $data['ul'] .= "<tr> <td colspan=2>" . lang('label.average_sites_sending') . "</td><td colspan=2>" . number_format(round(0)) . "</td></tr>";
+        }
         $count = 1;
         $sites = 0;
 

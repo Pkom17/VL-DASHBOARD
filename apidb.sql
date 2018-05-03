@@ -41,8 +41,8 @@ CREATE DEFINER=`root`@`%` PROCEDURE `proc_get_all_sites_outcomes` (IN `filter_ye
                     `vf`.`name`, 
                     SUM((`vss`.`Undetected`+`vss`.`less1000`)) AS `suppressed`, 
                     SUM(`vss`.`sustxfail`) AS `nonsuppressed` 
-                  FROM `vl_site_summary` `vss` 
-                  LEFT JOIN `view_facilitys` `vf` 
+                    FROM `vl_site_summary` `vss` 
+                    LEFT JOIN `view_facilitys` `vf` 
                     ON `vss`.`facility` = `vf`.`ID`
     WHERE 1";
 

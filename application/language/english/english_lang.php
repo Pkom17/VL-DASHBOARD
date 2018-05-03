@@ -587,4 +587,22 @@ $lang['label.age_cat_2week'] = "2 weeks";
 $lang['label.age_cat_3week'] = "3 weeks";
 $lang['label.age_cat_gt4week'] = "&gt; 4 weeks";
 $lang['label.total_'] = "Total:";
-
+//datatables
+$lang['dt.decimal'] = "";
+$lang['dt.processing'] = "Processing...";
+$lang['dt.search'] = "Search:";
+$lang['dt.lengthMenu'] = "Show _MENU_ entries";
+$lang['dt.info'] = "Showing _START_ to _END_ of _TOTAL_ entries";
+$lang['dt.infoEmpty'] = "Showing 0 to 0 of 0 entries";
+$lang['dt.infoFiltered'] = "(filtered from _MAX_ total entries)";
+$lang['dt.infoPostFix'] = "";
+$lang['dt.thousands'] = ",";
+$lang['dt.loadingRecords'] = "Loading...";
+$lang['dt.zeroRecords'] = "No matching records found";
+$lang['dt.emptyTable'] = "No data available in table";
+$lang['dt.first'] = "First";
+$lang['dt.previous'] = "Previous";
+$lang['dt.next'] = "Next";
+$lang['dt.last'] = "Last";
+$lang['dt.sortAscending'] = ": activate to sort column ascending";
+$lang['dt.sortDescending'] = ": activate to sort column descending";

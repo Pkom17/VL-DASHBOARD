@@ -27,7 +27,9 @@ class Subcounties extends MY_Controller
 		$data['sites'] = TRUE;
 		$data['sub_county'] = TRUE;
 
-		$link = $year . '/' . $month . '/' . $county . '/' . $to_year . '/' . $to_month;
+		//$link = $year . '/' . $month . '/' . $county . '/' . $to_year . '/' . $to_month;
+                //error on $county, variable non defined
+		$link = $year . '/' . $month . '/' . $to_year . '/' . $to_month;
 
 		$data['link'] =  base_url('charts/county/download_subcounty_table/' . $link);
 		$data['table_div'] = "random_table";
