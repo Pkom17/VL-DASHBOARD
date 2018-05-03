@@ -585,14 +585,14 @@ $lang['label.age_cat_3week'] = "3 semaines";
 $lang['label.age_cat_gt4week'] = "&gt; 4 semaines";
 $lang['label.total_'] = "Total:";
 //datatables
-$lang['dt.decimal'] = "";
+$lang['dt.decimal'] = " ";
 $lang['dt.processing'] = "Traitement en cours...";
 $lang['dt.search'] = "Rechercher&nbsp;:";
 $lang['dt.lengthMenu'] = "Afficher _MENU_ &eacute;l&eacute;ments";
 $lang['dt.info'] = "Affichage de l'&eacute;lement _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments";
 $lang['dt.infoEmpty'] = "Affichage de l'&eacute;lement 0 &agrave; 0 sur 0 &eacute;l&eacute;ments";
 $lang['dt.infoFiltered'] = "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)";
-$lang['dt.infoPostFix'] = "";
+$lang['dt.infoPostFix'] = " ";
 $lang['dt.thousands'] = " ";
 $lang['dt.loadingRecords'] = "Chargement en cours...";
 $lang['dt.zeroRecords'] = "Aucun &eacute;l&eacute;ment &agrave; afficher";
