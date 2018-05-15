@@ -1,66 +1,66 @@
 <table id="example" cellspacing="1" cellpadding="3" class="tablehead table table-striped table-bordered" style="background:#CCC;">
-	<thead>
-		<tr class="colhead">
-			<th rowspan="2">No</th>
-			<th rowspan="2">County</th>
-			<th rowspan="2">Facilities Sending Samples</th>
-			<th rowspan="2">Received Samples at Lab</th>
-			<th rowspan="2">Rejected Samples (on receipt at lab)</th>
-			<th rowspan="2">All Test (plus reruns) Done at Lab</th>
-			<th rowspan="2">Redraw (after testing)</th>
-			<th colspan="2">Routine VL Tests</th>
-			<th colspan="2">Baseline VL Tests</th>
-			<th colspan="2">Confirmatory Repeat Tests</th>
-			<th colspan="2">Total Tests with Valid Outcomes</th>
-		</tr>
-		<tr>
-			<th>Tests</th>
-			<th>&gt; 1000</th>
-			<th>Tests</th>
-			<th>&gt; 1000</th>
-			<th>Tests</th>
-			<th>&gt; 1000</th>
-			<th>Tests</th>
-			<th>&gt; 1000</th>
-		</tr>
-	</thead>
-	<tbody>
-		<?php echo $outcomes;?>
-	</tbody>
+    <thead>
+        <tr class="colhead">
+            <th rowspan="2"><?= lang('label.no'); ?></th>
+            <th rowspan="2"><?= lang('label.table_county'); ?></th>
+            <th rowspan="2"><?= lang('label.table_facilities_send_samp'); ?></th>
+            <th rowspan="2"><?= lang('label.table_received_samp'); ?></th>
+            <th rowspan="2"><?= lang('label.table_rejected_samp'); ?></th>
+            <th rowspan="2"><?= lang('label.rejected_samples_orl'); ?></th>
+            <th rowspan="2"><?= lang('label.table_redraw'); ?></th>
+            <th colspan="2"><?= lang('label.table_routine_vl_tests'); ?></th>
+            <th colspan="2"><?= lang('label.table_baseline_vl_tests'); ?></th>
+            <th colspan="2"><?= lang('label.table_confirm_repeat_tests'); ?></th>
+            <th colspan="2"><?= lang('label.table_total_tests_wvo'); ?></th>
+        </tr>
+        <tr>
+            <th><?= lang('label.tests'); ?></th>
+            <th>&gt; 1000</th>
+            <th><?= lang('label.tests'); ?></th>
+            <th>&gt; 1000</th>
+            <th><?= lang('label.tests'); ?></th>
+            <th>&gt; 1000</th>
+            <th><?= lang('label.tests'); ?></th>
+            <th>&gt; 1000</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php echo $outcomes; ?>
+    </tbody>
 </table>
 <div class="row" id="excels" style="display: none;">
-	<div class="col-md-6">
-		<!-- <center><button class="btn btn-primary" style="background-color: #009688;color: white;">List of all supported sites</button></center> -->
-	</div>
-	<div class="col-md-6">
-		<center><a href="<?php  echo $link; ?>"><button id="download_link" class="btn btn-primary" style="background-color: #009688;color: white;">Export To Excel</button></a></center>
-	</div>
+    <div class="col-md-6">
+            <!-- <center><button class="btn btn-primary" style="background-color: #009688;color: white;">List of all supported sites</button></center> -->
+    </div>
+    <div class="col-md-6">
+        <center><a href="<?php echo $link; ?>"><button id="download_link" class="btn btn-primary" style="background-color: #009688;color: white;"><?= lang('label.export_excel') ?></button></a></center>
+    </div>
 </div>
 <script type="text/javascript" charset="utf-8">
-  $(document).ready(function() {
+    $(document).ready(function () {
 
-  	$('#example').DataTable({
-  		dom: '<"btn btn-primary"B>lTfgtip',
-		responsive: true,
-	    buttons : [
-	        {
-	          text:  'Export to CSV',
-	          extend: 'csvHtml5',
-	          title: 'Download'
-	        },
-	        {
-	          text:  'Export to Excel',
-	          extend: 'excelHtml5',
-	          title: 'Download'
-	        }
-	      ]
-  	});
+        $('#example').DataTable({
+            dom: '<"btn btn-primary"B>lTfgtip',
+            responsive: true,
+            buttons: [
+                {
+                    text: '<?= lang('label.export_csv') ?>',
+                    extend: 'csvHtml5',
+                    title: '<?= lang('label.download') ?>'
+                },
+                {
+                    text: '<?= lang('label.export_excel') ?>',
+                    extend: 'excelHtml5',
+                    title: '<?= lang('label.download') ?>'
+                }
+            ]
+        });
 
-    // $("table").tablecloth({
-    //   theme: "paper",
-    //   striped: true,
-    //   sortable: true,
-    //   condensed: true
-    // });
-  });
+        // $("table").tablecloth({
+        //   theme: "paper",
+        //   striped: true,
+        //   sortable: true,
+        //   condensed: true
+        // });
+    });
 </script>

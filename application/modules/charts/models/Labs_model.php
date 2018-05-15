@@ -120,7 +120,12 @@ class Labs_model extends MY_Model
 	    $f = fopen('php://memory', 'w');
 	    /** loop through array  */
 
-	    $b = array('Testing Lab', 'Facilities Served', 'Total Samples Received', 'Rejected Samples (on receipt at lab)', 'Rejection Rate', 'Redraws (after testing)', 'All Samples Run', 'Valid Test Results', 'EQA QA/IQC Tests', 'Confirmatory Repeat Tests', 'Total Tests Performed', '>1000 copies/ml', '%>1000 copies/ml', '<1000 copies/ml', '%<1000 copies/ml');
+	    $b = array(lang('label.testing_lab'), lang('label.facilities_served'),
+                lang('label.total_samples_received'), lang('label.rejected_samples_orl'), 
+                lang('label.rejection_rate'), lang('label.redraws_after_testing'),
+                lang('label.all_samples_run'), lang('label.valid_test_results'), lang('label.eqa_qa_iqc_tests'),
+                lang('label.confirmatory_repeat_tests'), lang('label.total_tests_performed'),
+                lang('label.gt1000_copies_ml'), lang('label.percent_gt1000_copies_ml'), lang('label.lt1000_copies_ml'), lang('label.percent_lt1000_copies_ml'));
 
 	    fputcsv($f, $b, $delimiter);
 
@@ -174,7 +179,7 @@ class Labs_model extends MY_Model
 				$count = 0;
 			}
 		} else {
-			echo "<pre>";print_r("NO TESTING TRENDS DATA FOUND FOR THE SELECTED PERIOD!");echo "</pre>";die();
+			echo "<pre>";print_r(lang('label.no_testing_data_found'));echo "</pre>";die();
 		}
 
 		
@@ -187,7 +192,7 @@ class Labs_model extends MY_Model
 		$count = 0;
 		foreach ($result2 as $key => $value) {
 				
-			$data['test_trends'][$i]['name'] = 'Average Lab Testing Volumes';
+			$data['test_trends'][$i]['name'] = lang('label.average_lab_testing_vol');
 			$data['test_trends'][$i]['data'][$count] = (int) $value['alltests'];
 			$count++;
 		}
@@ -233,7 +238,7 @@ class Labs_model extends MY_Model
 				$count = 0;
 			}
 		} else {
-			echo "<pre>";print_r("NO REJECTION TRENDS DATA FOUND FOR THE SELECTED PERIOD!");echo "</pre>";die();
+			echo "<pre>";print_r(lang('label.no_rejection_data_found'));echo "</pre>";die();
 		}
 
 		$this->db->close();
@@ -245,7 +250,7 @@ class Labs_model extends MY_Model
 		$count = 0;
 		foreach ($result2 as $key => $value) {
 				
-			$data['reject_trend'][$i]['name'] = 'National Rejection Rate';
+			$data['reject_trend'][$i]['name'] = lang('label.national_rejection_rate');
 			$data['reject_trend'][$i]['data'][$count] = round(@((int) $value['rejected'] * 100 / (int) $value['received']), 1);
 			$count++;
 		}
@@ -277,13 +282,13 @@ class Labs_model extends MY_Model
 		// echo "<pre>";print_r($sql);die();
 		$result = $this->db->query($sql)->result_array();
 
-		$data['sample_types'][0]['name'] = 'EDTA';
-		$data['sample_types'][1]['name'] = 'DBS';
-		$data['sample_types'][2]['name'] = 'Plasma';
+		$data['sample_types'][0]['name'] = lang('label.sample_type_EDTA');
+		$data['sample_types'][1]['name'] = lang('label.sample_type_DBS');
+		$data['sample_types'][2]['name'] = lang('label.sample_type_plasma');
 
 		$count = 0;
 		
-		$data['categories'][0] = 'No Data';
+		$data['categories'][0] = lang('label.no_data');
 		$data["sample_types"][0]["data"][0]	= $count;
 		$data["sample_types"][1]["data"][0]	= $count;
 		$data["sample_types"][2]["data"][0]	= $count;
@@ -411,7 +416,7 @@ class Labs_model extends MY_Model
 				$data[$key]['tat4'] = round($value['tat4']/$value['count']);
 			}
 		} else {
-			echo "<pre>";print_r("NO TAT DATA FOUND FOR THE SELECTED PERIOD!");echo "</pre>";die();
+			echo "<pre>";print_r(lang('label.no_tat_data_found'));echo "</pre>";die();
 		}
 		
 		// echo "<pre>";print_r($data);
@@ -442,14 +447,14 @@ class Labs_model extends MY_Model
 		// echo "<pre>";print_r($sql);die();
 		$result = $this->db->query($sql)->result_array();
 
-			$data['lab_outcomes'][0]['name'] = 'Not Suppressed';
-			$data['lab_outcomes'][1]['name'] = 'Suppressed';
+			$data['lab_outcomes'][0]['name'] =  lang('label.not_suppressed_');
+			$data['lab_outcomes'][1]['name'] =  lang('label.suppressed_');
 
 			$count = 0;
 			
 			$data["lab_outcomes"][0]["data"][0]	= $count;
 			$data["lab_outcomes"][1]["data"][0]	= $count;
-			$data['categories'][0]					= 'No Data';
+			$data['categories'][0]					=  lang('label.no_data');
 
 			foreach ($result as $key => $value) {
 				$data['categories'][$key] 					= $value['labname'];
@@ -530,9 +535,9 @@ class Labs_model extends MY_Model
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($result);die();
 
-		$data['outcomes'][0]['name'] = "Nonsuppressed";
-		$data['outcomes'][1]['name'] = "Suppressed";
-		$data['outcomes'][2]['name'] = "Suppression";
+		$data['outcomes'][0]['name'] = lang('label.non_suppressed_');
+		$data['outcomes'][1]['name'] =  lang('label.suppressed_');
+		$data['outcomes'][2]['name'] =  lang('label.suppression');
 
 
 		//$data['outcomes'][0]['drilldown']['color'] = '#913D88';
@@ -557,7 +562,7 @@ class Labs_model extends MY_Model
 		$data['outcomes'][1]['tooltip'] = array("valueSuffix" => ' ');
 		$data['outcomes'][2]['tooltip'] = array("valueSuffix" => ' %');
 
-		$data['title'] = "Outcomes";
+		$data['title'] = lang('label.outcomes');
 
 		return $data;
 	}
@@ -592,7 +597,7 @@ class Labs_model extends MY_Model
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($result);die();
 
-		$data['outcomes'][0]['name'] = "Rejected Samples";
+		$data['outcomes'][0]['name'] = lang('label.rejected_samples');
 
 		$data['outcomes'][0]['type'] = "column";
 
@@ -606,10 +611,10 @@ class Labs_model extends MY_Model
 		$data['outcomes'][0]['tooltip'] = array("valueSuffix" => ' ');
 
 		if($lab == 0){
-			$data['title'] = "National Rejections";
+			$data['title'] = lang('label.national_rejections');
 		}
 		else{
-			$data['title'] = "Lab Rejections";
+			$data['title'] = lang('label.lab_rejections');
 		}
 
 

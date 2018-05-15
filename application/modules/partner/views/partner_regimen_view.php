@@ -6,8 +6,8 @@
 <center>
 	<div id="age_dropdown">
 		<select class="btn btn-primary js-example-basic-single" style="background-color: #C5EFF7;" id="regimen" name="regimen">
-	        <option value="0" disabled="true" selected="true">Select Regimen:</option>
-            <option value="NA">All Regimen</option>
+	        <option value="0" disabled="true" selected="true"><?=lang('label.select_regimen')?></option>
+            <option value="NA"><?=lang('label.all_regimen')?></option>
             <!-- <optgroup value="Counties"> -->
             <?php echo $regimen; ?>
 	        <!-- </optgroup> -->
@@ -20,7 +20,7 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			    Regimen Outcomes <div class="display_date"></div>
+			    <?=lang('label.regimen_outcomes')?> <div class="display_date"></div>
 			  </div>
 			  <div class="panel-body" id="regimen_outcomes">
 			    <center><div class="loader"></div></center>
@@ -34,7 +34,7 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			    Testing Trends <div class="display_range"></div>
+			   <?=lang('label.testing_trends')?> <div class="display_range"></div>
 			  </div>
 			  <div class="panel-body" id="samples">
 			    <center><div class="loader"></div></center>
@@ -44,7 +44,7 @@
 		<div class="col-md-6 col-sm-3 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	VL Outcomes <div class="display_date" ></div>
+			  	<?=lang('label.vl_outcomes')?> <div class="display_date" ></div>
 			  </div>
 			  <div class="panel-body" id="vlOutcomes">
 			  	<center><div class="loader"></div></center>
@@ -55,7 +55,7 @@
 		<div class="col-md-3 col-sm-3 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	Gender <div class="display_date" ></div>
+			  	<?=lang('label.gender')?> <div class="display_date" ></div>
 			  </div>
 			  <div class="panel-body" id="gender">
 			  	<center><div class="loader"></div></center>
@@ -66,7 +66,7 @@
 		<div class="col-md-3 col-sm-3 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	Age <div class="display_date" ></div>
+			  	<?=lang('label.age')?> <div class="display_date" ></div>
 			  </div>
 			  <div class="panel-body" id="age">
 			  	<center><div class="loader"></div></center>

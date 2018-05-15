@@ -83,7 +83,6 @@ class Counties extends MY_Controller
 	        'row_alt_end'           => '</tr>',
 	        'cell_alt_start'        => '<td>',
 	        'cell_alt_end'          => '</td>',
-
 	        'table_close'           => '</table>'
 		);
 

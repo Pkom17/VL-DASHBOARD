@@ -2,7 +2,7 @@
 	$(document).ready(function(){
 		$("#first").show();
 		$("#second").hide();
-		$("#breadcrum").html('All PMTCT');
+		$("#breadcrum").html('<?=lang('label.site_all.pmtct')?>');
 		$.get("<?php echo base_url();?>template/dates", function(data){
     		obj = $.parseJSON(data);
 	

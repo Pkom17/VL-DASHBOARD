@@ -42,9 +42,9 @@ class Regimen_model extends MY_Model
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($result);die();
 
-		$data['outcomes'][0]['name'] = "Not Suppressed";
-		$data['outcomes'][1]['name'] = "Suppressed";
-		$data['outcomes'][2]['name'] = "Suppression";
+		$data['outcomes'][0]['name'] =  lang('label.not_suppressed_');
+		$data['outcomes'][1]['name'] =  lang('label.suppressed_');
+		$data['outcomes'][2]['name'] =  lang('label.suppression');
 
 		$data['outcomes'][0]['type'] = "column";
 		$data['outcomes'][1]['type'] = "column";
@@ -106,12 +106,12 @@ class Regimen_model extends MY_Model
 
 		$color = array('#6BB9F0', '#F2784B', '#1BA39C', '#5C97BF');
 
-		$data['vl_outcomes']['name'] = 'Tests';
+		$data['vl_outcomes']['name'] = lang('label.tests');
 		$data['vl_outcomes']['colorByPoint'] = true;
 		$data['ul'] = '';
 
-		$data['vl_outcomes']['data'][0]['name'] = 'Suppresed';
-		$data['vl_outcomes']['data'][1]['name'] = 'Not Suppresed';
+		$data['vl_outcomes']['data'][0]['name'] = lang('label.suppressed_');
+		$data['vl_outcomes']['data'][1]['name'] = lang('label.not_suppressed_');
 
 		$count = 0;
 
@@ -131,48 +131,48 @@ class Regimen_model extends MY_Model
 	    	// <tr>
 			$data['ul'] .= '
 			<tr>
-	    		<td>Total VL tests done:</td>
+	    		<td>'.lang('label.total_vl_tests_done').'</td>
 	    		<td>'.number_format($total_tests ).'</td>
-	    		<td>Non Suppression</td>
+	    		<td>'.lang('label.non_suppression').'</td>
 	    		<td>'. number_format($non_suppressed) . ' (' . round((($non_suppressed / $total_tests  )*100),1).'%)</td>
 	    	</tr>
  
 			<tr>
-	    		<td colspan="2">&nbsp;&nbsp;&nbsp;Routine VL Tests with Valid Outcomes:</td>
+	    		<td colspan="2">&nbsp;&nbsp;&nbsp;'.lang('label.routine_vl_tests_valid_outcomes').'</td>
 	    		<td colspan="2">'.number_format($total).'</td>
 	    	</tr>
  
 	    	<tr>
-	    		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Valid Tests &gt; 1000 copies/ml:</td>
+	    		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.lang('label.valid_tests_gt1000').'</td>
 	    		<td>'.number_format($greater).'</td>
-	    		<td>Percentage Non Suppression</td>
+	    		<td>'.  lang('label.percentage_non_suppression').'</td>
 	    		<td>'.round((($greater/$total)*100),1).'%</td>
 	    	</tr>
  
 	    	<tr>
-	    		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Valid Tests &lt; 1000 copies/ml:</td>
+	    		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.lang('label.valid_tests_lt1000').'</td>
 	    		<td>'.number_format($less).'</td>
-	    		<td>Percentage Suppression</td>
+	    		<td>'.  lang('label.percentage_suppression').'</td>
 	    		<td>'.round((($less/$total)*100),1).'%</td>
 	    	</tr>
  
 	    	<tr>
-	    		<td>&nbsp;&nbsp;&nbsp;Baseline VLs:</td>
+	    		<td>&nbsp;&nbsp;&nbsp;'.lang('label.baseline_vl').'</td>
 	    		<td>'.number_format($value['baseline']).'</td>
-	    		<td>Non Suppression ( &gt; 1000cpml)</td>
+	    		<td>'.lang('label.non_suppression_gt_1000').'</td>
 	    		<td>'.number_format($value['baselinesustxfail']). ' (' .round(($value['baselinesustxfail'] * 100 / $value['baseline']), 1). '%)' .'</td>
 	    	</tr>
 	    	<tr>
-	    		<td>&nbsp;&nbsp;&nbsp;Confirmatory Repeat Tests:</td>
+	    		<td>&nbsp;&nbsp;&nbsp;'.lang('label.confirmatory_repeat_tests').'</td>
 	    		<td>'.number_format($value['confirmtx']).'</td>
-	    		<td>Non Suppression ( &gt; 1000cpml)</td>
+	    		<td>'.lang('label.non_suppression_gt_1000').'</td>
 	    		<td>'.number_format($value['confirm2vl']). ' (' .round(($value['confirm2vl'] * 100 / $value['confirmtx']), 1). '%)' .'</td>
 	    	</tr>
  
 	    	<tr>
-	    		<td>Rejected Samples:</td>
+	    		<td>'.lang('label.rejected_samples').'</td>
 	    		<td>'.number_format($value['rejected']).'</td>
-	    		<td>Percentage Rejection Rate</td>
+	    		<td>'.lang('label.percentage_rejection_rate').'</td>
 	    		<td>'. round((($value['rejected']*100)/$value['alltests']), 1, PHP_ROUND_HALF_UP).'%</td>
 	    	</tr>';
 						
@@ -221,18 +221,18 @@ class Regimen_model extends MY_Model
 		// echo "<pre>";print_r($sql);die();
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($result);die();
-		$data['gender'][0]['name'] = 'Test';
+		$data['gender'][0]['name'] = lang('label.tests');
 
 		$count = 0;
 		
 		$data["gender"][0]["data"][0]	= $count;
 		$data["gender"][0]["data"][1]	= $count;
-		$data['categories'][0]			= 'No Data';
+		$data['categories'][0]			=  lang('label.no_data');
 
 		foreach ($result as $key => $value) {
-			$data['categories'][0] 			= 'Male';
-			$data['categories'][1] 			= 'Female';
-			$data['categories'][2] 			= 'No Data';
+			$data['categories'][0] 			=  lang('label.male');
+			$data['categories'][1] 			=  lang('label.female');
+			$data['categories'][2] 			=  lang('label.no_data');
 			$data["gender"][0]["data"][0]	=  (int) $value['maletest'];
 			$data["gender"][0]["data"][1]	=  (int) $value['femaletest'];
 			$data["gender"][0]["data"][2]	= (int) $value['nodata'];
@@ -277,22 +277,22 @@ class Regimen_model extends MY_Model
 		// echo "<pre>";print_r($sql);die();
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($result);die();
-		$data['ageGnd'][0]['name'] = 'Test';
+		$data['ageGnd'][0]['name'] =  lang('label.tests');
 
 		$count = 0;
 		
 		$data["ageGnd"][0]["data"][0]	= $count;
 		$data["ageGnd"][0]["data"][1]	= $count;
-		$data['categories'][0]			= 'No Data';
+		$data['categories'][0]			=  lang('label.no_data');
 
 		foreach ($result as $key => $value) {
-			$data['categories'][0] 			= 'No Age';
-			$data['categories'][1] 			= 'Less 2';
-			$data['categories'][2] 			= 'Less 9';
-			$data['categories'][3] 			= 'Less 14';
-			$data['categories'][4] 			= 'Less 19';
-			$data['categories'][5] 			= 'Less 24';
-			$data['categories'][6] 			= 'over 25';
+			$data['categories'][0] 			= lang('label.no_age');
+			$data['categories'][1] 			= lang('label.less2');
+			$data['categories'][2] 			=  lang('label.less9');
+			$data['categories'][3] 			=  lang('label.less14');
+			$data['categories'][4] 			=  lang('label.less19');
+			$data['categories'][5] 			=  lang('label.less24');
+			$data['categories'][6] 			=  lang('label.over25');
 			$data["ageGnd"][0]["data"][0]	=  (int) $value['noage'];
 			$data["ageGnd"][0]["data"][1]	=  (int) $value['less2'];
 			$data["ageGnd"][0]["data"][2]	=  (int) $value['less9'];
@@ -349,10 +349,10 @@ class Regimen_model extends MY_Model
 	{
 		$result = $this->get_sampletypesData($year,$regimen,$partner);
 
-		$data['sample_types'][0]['name'] = 'EDTA';
-		$data['sample_types'][1]['name'] = 'DBS';
-		$data['sample_types'][2]['name'] = 'Plasma';
-		$data['sample_types'][3]['name'] = 'Suppression';
+		$data['sample_types'][0]['name'] = lang('label.sample_type_EDTA');
+		$data['sample_types'][1]['name'] = lang('label.sample_type_DBS');
+		$data['sample_types'][2]['name'] = lang('label.sample_type_plasma');
+		$data['sample_types'][3]['name'] = lang('label.sample_type_suppression');
 
 		$data['sample_types'][0]['type'] = "column";
 		$data['sample_types'][1]['type'] = "column";
@@ -370,7 +370,7 @@ class Regimen_model extends MY_Model
  
 		$count = 0;
 		
-		$data['categories'][0] = 'No Data';
+		$data['categories'][0] = lang('label.no_data');
 		$data["sample_types"][0]["data"][0]	= $count;
 		$data["sample_types"][1]["data"][0]	= $count;
 		$data["sample_types"][2]["data"][0]	= $count;
@@ -403,7 +403,7 @@ class Regimen_model extends MY_Model
 	    $f = fopen('php://memory', 'w');
 	    /** loop through array  */
 
-	    $b = array('Month', 'Year', 'EDTA', 'DBS', 'Plasma', 'Suppressed', 'Tests', 'Suppression');
+	    $b = array(lang('date_months'), lang('date_year'), lang('label.sample_type_EDTA'), lang('label.sample_type_DBS'), lang('label.sample_type_plasma'), lang('label.suppressed'), lang('label.tests'), lang('label.suppression'));
 
 	    fputcsv($f, $b, $delimiter);
 
@@ -457,9 +457,9 @@ class Regimen_model extends MY_Model
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($result);die();
 
-		$data['outcomes'][0]['name'] = "Not Suppressed";
-		$data['outcomes'][1]['name'] = "Suppressed";
-		$data['outcomes'][2]['name'] = "Suppression";
+		$data['outcomes'][0]['name'] =  lang('label.not_suppressed_');
+		$data['outcomes'][1]['name'] =  lang('label.suppressed_');
+		$data['outcomes'][2]['name'] = lang('label.suppression');
 
 		$data['outcomes'][0]['type'] = "column";
 		$data['outcomes'][1]['type'] = "column";

@@ -225,10 +225,10 @@ class Counties_model extends MY_Model
 		$sql = "CALL `proc_get_county_summary`('".$county."','".$year."','".$month."')";
 		$result =  $this->db->query($sql)->row();
 
-		$data[0][0] = 'Tests';
-		$data[1][0] = 'Suppressed';
-		$data[2][0] = 'Non Suppressed';
-		$data[3][0] = 'Rejected';
+		$data[0][0] = lang('label.tests');
+		$data[1][0] = lang('label.suppressed_');
+		$data[2][0] = lang('label.non_sp_suppressed');
+		$data[3][0] = lang('label.rejected');
 
 		$data[0][1] = $result->tests;
 		if($result->tests > 0){

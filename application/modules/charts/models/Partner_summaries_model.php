@@ -39,9 +39,9 @@ class Partner_summaries_model extends MY_Model
 
 		// echo "<pre>";print_r($result);die();
 
-		$data['outcomes'][0]['name'] = "Not Suppressed";
-		$data['outcomes'][1]['name'] = "Suppressed";
-		$data['outcomes'][2]['name'] = "Suppression";
+		$data['outcomes'][0]['name'] =  lang('label.not_suppressed_');
+		$data['outcomes'][1]['name'] =  lang('label.suppressed_');
+		$data['outcomes'][2]['name'] =lang('label.suppression');
 
 		$data['outcomes'][0]['type'] = "column";
 		$data['outcomes'][1]['type'] = "column";
@@ -156,7 +156,11 @@ class Partner_summaries_model extends MY_Model
 	    /** loop through array  */
 
 
-	    $b = array('County', 'Facilities', 'Tests', 'Received', 'Rejected', 'All Tests', 'Redraws', 'Undetected', 'less1000', 'above1000 - less5000', 'above5000', 'Baseline Tests', 'Baseline >1000', 'Confirmatory Tests', 'Confirmatory >1000');
+	    $b = array(lang('label.table_county'), lang('label.facilities'), lang('label.tests'),
+                lang('label.received'), lang('label.rejected'), lang('label.all_tests'),
+                 lang('label.redraws'), lang('label.undetected'), lang('label.less1000'),
+                lang('label.above1000_less5000'), lang('label.above5000'), lang('label.baseline_tests'), 
+                 lang('label.baseline_gt1000'), lang('label.confirmatory_tests'), lang('label.confirmatory_gt1000'));
 
 	    fputcsv($f, $b, $delimiter);
 

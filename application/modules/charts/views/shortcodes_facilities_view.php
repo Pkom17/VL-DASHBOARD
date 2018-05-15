@@ -17,7 +17,7 @@
                     yAxis: {
                         min: 0,
                         title: {
-                            text: 'Requests'
+                            text: '<?=  lang('label.requests')?>'
                         },
                         stackLabels: {
                             rotation: -45,
@@ -40,7 +40,7 @@
                     },
                     tooltip: {
                         headerFormat: '<b>{point.x}</b><br/>',
-                        pointFormat: '{series.name}: {point.y}<br/>% contribution: {point.percentage:.1f}%'
+                        pointFormat: '{series.name}: {point.y}<br/>% <?=  lang('label.contribution')?> {point.percentage:.1f}%'
                     },
                     plotOptions: {
                         column: {

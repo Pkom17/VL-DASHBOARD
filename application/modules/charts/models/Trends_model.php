@@ -87,9 +87,9 @@ class Trends_model extends MY_Model
 		$year = date("Y");
 		$i = 0;
 
-		$data['outcomes'][0]['name'] = "Nonsuppressed";
-		$data['outcomes'][1]['name'] = "Suppressed";
-		$data['outcomes'][2]['name'] = "Suppression";
+		$data['outcomes'][0]['name'] = lang('label.non_suppressed_');
+		$data['outcomes'][1]['name'] =  lang('label.suppressed_');
+		$data['outcomes'][2]['name'] = lang('label.suppression');
 
 
 		//$data['outcomes'][0]['drilldown']['color'] = '#913D88';
@@ -115,7 +115,7 @@ class Trends_model extends MY_Model
 		$data['outcomes'][1]['tooltip'] = array("valueSuffix" => ' ');
 		$data['outcomes'][2]['tooltip'] = array("valueSuffix" => ' %');
 
-		$data['title'] = "Outcomes";
+		$data['title'] =lang('label.outcomes');
 
 		return $data;
 	}
@@ -223,9 +223,9 @@ class Trends_model extends MY_Model
 
 		$data;
 
-		$data['outcomes'][0]['name'] = "Nonsuppressed";
-		$data['outcomes'][1]['name'] = "Suppressed";
-		$data['outcomes'][2]['name'] = "Suppression";
+		$data['outcomes'][0]['name'] = lang('label.non_suppressed_');
+		$data['outcomes'][1]['name'] =  lang('label.suppressed_');
+		$data['outcomes'][2]['name'] =  lang('label.suppression');
 
 
 		//$data['outcomes'][0]['drilldown']['color'] = '#913D88';
@@ -243,7 +243,7 @@ class Trends_model extends MY_Model
 		$data['outcomes'][1]['tooltip'] = array("valueSuffix" => ' ');
 		$data['outcomes'][2]['tooltip'] = array("valueSuffix" => ' %');
 
-		$data['title'] = "Outcomes";
+		$data['title'] =  lang('label.outcomes');
 
 		$data['categories'] = array_fill(0, 8, "Null");
 		$data['outcomes'][0]['data'] = array_fill(0, 8, 0);

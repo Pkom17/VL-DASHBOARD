@@ -14,12 +14,13 @@
                 x: -20
             },
             xAxis: {
-                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+                categories: ['<?=  lang('cal_jan')?>', '<?=  lang('cal_feb')?>', '<?=  lang('cal_mar')?>', '<?=  lang('cal_apr')?>', 
+        '<?=  lang('cal_may')?>', '<?=  lang('cal_jun')?>','<?=  lang('cal_jul')?>',<?=  lang('cal_aug')?>',
+ '<?=  lang('cal_sep')?>', '<?=  lang('cal_oct')?>', '<?=  lang('cal_nov')?>', '<?=  lang('cal_dec')?>']
             },
             yAxis: {
                 title: {
-                    text: 'Tests'
+                    text: '<?=  lang('label.tests')?>'
                 },
                 plotLines: [{
                     value: 0,

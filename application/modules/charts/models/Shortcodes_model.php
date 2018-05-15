@@ -44,12 +44,12 @@ class Shortcodes_model extends MY_Model
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($result);die();
 
-		$data['requests'][0]['name'] = 'Requests';
+		$data['requests'][0]['name'] = lang('label.requests');
 
 		$count = 0;
 		
 		$data["requests"][0]["data"][0]	= $count;
-		$data['categories'][0]			= 'No Data';
+		$data['categories'][0]			= lang('label.no_data');
 		foreach ($result as $key => $value) {
 			$data['categories'][$key] 			= $value['monthname'].", ".$value['year'];
 			$data["requests"][0]["data"][$key]	=  (int) $value['count'];
@@ -94,7 +94,7 @@ class Shortcodes_model extends MY_Model
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($result);die();
 
-		$data['requests'][0]['name'] = 'Requests';
+		$data['requests'][0]['name'] = lang('label.requests');
 
 		$count = 0;
 		
@@ -215,7 +215,7 @@ class Shortcodes_model extends MY_Model
 					$count++;
 				}
 			}else{
-				$li = 'No Data';
+				$li = lang('label.no_data');
 			}
 
 		$data = array(
@@ -272,7 +272,7 @@ class Shortcodes_model extends MY_Model
 				$count++;
 				}
 			}else{
-				$li = 'No Data';
+				$li = lang('label.no_data');
 			}
 
 		$data = array(
@@ -331,7 +331,7 @@ class Shortcodes_model extends MY_Model
 					$count++;
 				}
 			}else{
-				$li = 'No Data';
+				$li = lang('label.no_data');
 			}
 			$data = array(
 						'ul' => $li,

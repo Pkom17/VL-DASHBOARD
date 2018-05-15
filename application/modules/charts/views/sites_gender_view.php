@@ -20,7 +20,7 @@
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Tests'
+                    text: '<?=  lang('label.tests')?>'
                 }
             },
             tooltip: {

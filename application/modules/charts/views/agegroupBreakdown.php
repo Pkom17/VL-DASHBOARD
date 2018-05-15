@@ -27,7 +27,7 @@
                 type: 'pie'
 		            },
 		            title: {
-		                text: 'Children (Total Tests: '+<?php echo $outcomes['ctotal'];?>+')'
+		                text: '<?=  lang('label.children')?> (<?=  lang('label.total_tests')?> '+<?php echo $outcomes['ctotal'];?>+')'
 		            },
 		            tooltip: {
 		                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -59,7 +59,7 @@
                 type: 'pie'
 		            },
 		            title: {
-		                text: 'Adults (Total Tests: '+<?php echo $outcomes['atotal'];?>+')'
+		                text: '<?=  lang('label.adults')?> (<?=  lang('label.total_tests')?> '+<?php echo $outcomes['atotal'];?>+')'
 		            },
 		            tooltip: {
 		                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'

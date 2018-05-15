@@ -14,7 +14,7 @@
 	  <div class="col-md-12 col-sm-12 col-xs-12">
 	    <div class="panel panel-default">
 	      <div class="panel-heading">
-	        LAB PERFORMANCE STATS <div class="display_date"></div>
+	       <?=lang('label.labs_performance.stat')?>  <div class="display_date"></div>
 	      </div>
 	      <div class="panel-body" id="lab_perfomance_stats">
 	        <center><div class="loader"></div></center>
@@ -26,11 +26,11 @@
 
 	<div class="row">
 		<!-- Map of the country -->
-		<div style="color:red;"><center>Click on Lab(s) on legend to view only for the lab(s) selected</center></div>
+		<div style="color:red;"><center><?=lang('label.labs_click_labs_legende_view_labs')?></center></div>
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	Labs Testing Trends <div class="display_date" ></div>
+			  	<?=lang('label.labs_testing.trends')?> <div class="display_date" ></div>
 			  </div>
 			  <div class="panel-body" id="test_trends">
 			  	<center><div class="loader"></div></center>
@@ -43,7 +43,7 @@
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	Labs Rejection Trends <div class="display_date" ></div>
+			  	<?=lang('label.labs_rejection.trends')?> <div class="display_date" ></div>
 			  </div>
 			  <div class="panel-body" id="rejected">
 			  	<center><div class="loader"></div></center>
@@ -58,20 +58,20 @@
 		<div class="col-md-5 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			    Routine VLs Tested by Sample Type <div class="display_date" ></div>
+			   <?=lang('label.labs_routine.vls_tested.sampletype')?>  <div class="display_date" ></div>
 			  </div>
 			  <div class="panel-body" id="samples">
-			    <div>Loading...</div>
+			    <div><?=lang('label.loading')?></div>
 			  </div>
 			</div>
 		</div>
 		<div class="col-md-7 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			    Turn around Time <div class="display_date" ></div>
+			   <?=lang('label.labs_turn_around.time')?> <div class="display_date" ></div>
 			  </div>
 			  <div class="panel-body" id="ttime">
-			    <div>Loading...</div>
+			    <div></div>
 			  </div>
 			  
 			</div>
@@ -82,10 +82,10 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	Routine VLs Result Outcomes <div class="display_date"></div>
+			  	<?=lang('label.labs_routine_vls_result.outcomes')?> <div class="display_date"></div>
 			  </div>
 			  <div class="panel-body" id="results">
-			    <div>Loading...</div>
+			    <div><?=lang('label.loading')?></div>
 			  </div>
 			</div>
 		</div>
@@ -112,7 +112,7 @@
 	  <div class="col-md-12 col-sm-12 col-xs-12">
 	    <div class="panel panel-default">
 	      <div class="panel-heading">
-	        Samples Rejections <div class="display_date"></div>
+	        <?=lang('label.labs_samples.rejections')?> <div class="display_date"></div>
 	      </div>
 	      <div class="panel-body" id="lab_rejections">
 	        <center><div class="loader"></div></center>

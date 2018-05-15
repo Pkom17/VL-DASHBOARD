@@ -18,34 +18,34 @@ class Trends extends MY_Controller
 		// echo "<pre>";print_r($obj);echo "</pre>";die();
 
 		$data['trends'] = $obj['suppression_trends'];
-		$data['title'] = "Suppression Trends";
+		$data['title'] = lang('label.suppression_trends');
 		$data['div_name'] = "suppression";
 		$data['suffix'] = "%";
-		$data['yAxis'] = "Suppression Rate (%)";
+		$data['yAxis'] = lang('label.suppression_rate_percent');
 		$this->load->view('yearly_trends_view', $data);
 
 		$data['trends'] = $obj['test_trends'];
-		$data['title'] = "Testing Trends";
+		$data['title'] = lang('label.testing_trends');
 		$data['div_name'] = "tests";
 		$data['suffix'] = "";
-		$data['yAxis'] = "Number of  Valid Tests";
+		$data['yAxis'] = lang('label.number_valid_tests');
 		$this->load->view('yearly_trends_view', $data);
 
 		
 
 		$data['trends'] = $obj['rejected_trends'];
-		$data['title'] = "Rejection Rate Trends";
+		$data['title'] = lang('label.rejected_rate_trends');
 		$data['div_name'] = "rejects";
 		$data['suffix'] = "%";
-		$data['yAxis'] = "Rejection (%)";
+		$data['yAxis'] = lang('label.rejection_percent');
 		$this->load->view('yearly_trends_view', $data);
 
 
 		$data['trends'] = $obj['tat_trends'];
-		$data['title'] = "Turn Around Time (Collection - Dispatch)";
+		$data['title'] = lang('label.turn_around_time_cd');
 		$data['div_name'] = "tat";
 		$data['suffix'] = "";
-		$data['yAxis'] = "TAT(Days)";
+		$data['yAxis'] =  lang('label.TAT_days');
 		$this->load->view('yearly_trends_view', $data);
 
 		
@@ -69,34 +69,34 @@ class Trends extends MY_Controller
 		// echo "<pre>";print_r($obj);echo "</pre>";die();
 
 		$data['trends'] = $obj['suppression_trends'];
-		$data['title'] = "Suppression Trends";
+		$data['title'] = lang('label.suppression_trends');
 		$data['div_name'] = "suppression_q";
 		$data['suffix'] = "%";
-		$data['yAxis'] = "Suppression Rate (%)";
+		$data['yAxis'] = lang('label.suppression_rate_percent');
 		$this->load->view('quarterly_trends_view', $data);
 
 		$data['trends'] = $obj['test_trends'];
-		$data['title'] = "Testing Trends";
+		$data['title'] =  lang('label.testing_trends');
 		$data['div_name'] = "tests_q";
 		$data['suffix'] = "";
-		$data['yAxis'] = "Number of  Valid Tests";
+		$data['yAxis'] = lang('label.number_valid_tests');
 		$this->load->view('quarterly_trends_view', $data);
 
 		
 
 		$data['trends'] = $obj['rejected_trends'];
-		$data['title'] = "Rejection Rate Trends";
+		$data['title'] =  lang('label.rejected_rate_trends');
 		$data['div_name'] = "rejects_q";
 		$data['suffix'] = "%";
-		$data['yAxis'] = "Rejection (%)";
+		$data['yAxis'] =lang('label.rejection_percent');
 		$this->load->view('quarterly_trends_view', $data);
 
 
 		$data['trends'] = $obj['tat_trends'];
-		$data['title'] = "Turn Around Time (Collection - Dispatch)";
+		$data['title'] =  lang('label.turn_around_time_cd');
 		$data['div_name'] = "tat_q";
 		$data['suffix'] = "";
-		$data['yAxis'] = "TAT(Days)";
+		$data['yAxis'] =  lang('label.TAT_days');
 		$this->load->view('quarterly_trends_view', $data);
 	}
 

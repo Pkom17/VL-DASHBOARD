@@ -8,7 +8,7 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	Counties Outcomes <div class="display_date"></div>
+			  <?=lang('label.counties_outcomes')?> <div class="display_date"></div>
 			  </div>
 			  <div class="panel-body" id="county">
 			    <center><div class="loader"></div></center>
@@ -18,7 +18,7 @@
 		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-				Counties <div class="display_date"></div>
+				<?=lang('label.counties_cap')?> <div class="display_date"></div>
 				</div>
 			  	<div class="panel-body" id="county_sites">
 			  		<center><div class="loader"></div></center>
@@ -33,7 +33,7 @@
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading" id="heading">
-			  Sub-Counties Outcomes <div class="display_date"></div>
+			  <?=lang('label.sub-counties_outcomes')?> <div class="display_date"></div>
 			  </div>
 			  <div class="panel-body" id="subcounty">
 			    <center><div class="loader"></div></center>
@@ -43,7 +43,7 @@
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading" id="heading">
-			  Sub-Counties Suppression <div class="display_date"></div>
+			  <?=lang('label.sub-counties_suppression')?> <div class="display_date"></div>
 			  </div>
 			  <div class="panel-body" id="subcountypos">
 			    <center><div class="loader"></div></center>
@@ -53,7 +53,7 @@
 		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-				  Sub-Counties <div class="display_date"></div>
+				  <?=lang('label.sub-counties')?><div class="display_date"></div>
 				</div>
 			  	<div class="panel-body" id="sub_counties">
 			  		<center><div class="loader"></div></center>
@@ -63,7 +63,7 @@
 		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-				  Partners <div class="display_date"></div>
+				  <?=lang('label.partners')?><div class="display_date"></div>
 				</div>
 			  	<div class="panel-body" id="partners">
 			  		<center><div class="loader"></div></center>
@@ -73,7 +73,7 @@
 		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">
-				  Facilities PMTCT <div class="display_date"></div>
+				  <?=lang('label.facilities_PMTCT')?> <div class="display_date"></div>
 				</div>
 			  	<div class="panel-body" id="facilities_pmtct">
 			  		<center><div class="loader"></div></center>

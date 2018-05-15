@@ -48,9 +48,9 @@
 	        	});
 
 	        	// alert(data);
-	        	$('#heading').html('County Sites Outcomes <div class="display_date"></div>');
-	        	$("#nattat").html("<div>Loading...</div>");
-	        	$("#coverage").html("<div>Loading...</div>");
+	        	$('#heading').html('<?=  lang('label.county_sites_outcomes')?> <div class="display_date"></div>');
+	        	$("#nattat").html("<div><?=  lang('label.loading')?></div>");
+	        	$("#coverage").html("<div><?=  lang('label.loading')?></div>");
 	        	$("#samples").html("<center><div class='loader'></div></center>");
 		        $("#vlOutcomes").html("<center><div class='loader'></div></center>");
 				$("#justification").html("<center><div class='loader'></div></center>");
@@ -91,7 +91,7 @@
 		    var error_check = check_error_date_range(from, to);
 		    
 		    if (!error_check) {
-			    $("#nattat").html("<div>Loading...</div>");
+			    $("#nattat").html("<div><?=  lang('label.loading')?></div>");
 		 		$("#samples").html("<center><div class='loader'></div></center>"); 
 				$("#vlOutcomes").html("<center><div class='loader'></div></center>");
 				$("#justification").html("<center><div class='loader'></div></center>");
@@ -136,7 +136,7 @@
 			
 		});
  		
-		$("#nattat").html("<div>Loading...</div>");
+		$("#nattat").html("<div><?=  lang('label.loading')?></div>");
  		$("#samples").html("<center><div class='loader'></div></center>"); 
 		$("#vlOutcomes").html("<center><div class='loader'></div></center>");
 		$("#justification").html("<center><div class='loader'></div></center>");
@@ -159,15 +159,15 @@
 		if(all == 0){
 			localStorage.setItem("my_var", 1);
 			all=1;
-			$("#samples_heading").html('Testing Trends for All Tests');
-			$("#switchButton").val('Click to Switch to Routine Tests Trend');
+			$("#samples_heading").html('<?=  lang('label.testing_trends_for_all_tests')?>');
+			$("#switchButton").val('<?=  lang('label.switch_routine_tests_trends')?>');
 
 		}
 		else{
 			localStorage.setItem("my_var", 0);
 			all=0;
-			$("#samples_heading").html('Testing Trends for Routine VL');
-			$("#switchButton").val('Click to Switch to All Tests');
+			$("#samples_heading").html('<?=  lang('label.testing_trends_for_routine_VL')?> ');
+			$("#switchButton").val('<?=  lang('label.switch_all_tests')?> ');
 		}
 		$("#samples").load("<?php echo base_url('charts/summaries/sample_types'); ?>/"+null+"/"+null+"/"+null+"/"+all);
 

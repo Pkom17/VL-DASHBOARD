@@ -45,14 +45,14 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div class="ibox-title">
-		            <h5>Date: <span id="time_now"></span></h5>
+		            <h5><?=lang('label.date')?>  <span id="time_now"></span></h5>
 		        </div>
 		    </div>
 		</div>
 	</div>
 	<div class="col-md-4">
 		<div id="breadcrum" class="alert" style="background-color: #1BA39C;text-align: center;vertical-align: middle;" onclick="switch_source()">
-      		<span id="current_source">Viralload</span> (Click to switch)	
+      		<span id="current_source"><?=lang('label.live_viralload')?> </span> <?=lang('label.Click_to_switch')?>	
     	</div>
 		     
 	</div>
@@ -60,7 +60,7 @@
 		<div class="panel panel-default">
 			<div class="panel-body">
 				<div class="ibox-title">
-		            <h5>Last Update: <span id="last_updated"></span></h5>
+		            <h5><?=lang('label.live_last.update')?> <span id="last_updated"></span></h5>
 		        </div>
 		    </div>
 		</div>
@@ -76,10 +76,10 @@
 			<div class="panel-body">
 				<div class="ibox float-e-margins">
 		            <div class="ibox-title">
-		                <h5>Year to Date/Month to date</h5>
+		                <h5><?=lang('label.live_year_date_month.date')?></h5>
 		            </div>
 		            <div class="ibox-content">
-		                <h1 class="no-margins stat-percent font-bold text-success" id="year_to_date" style="font-size:24px;">34,200</h1>
+		                <h1 class="no-margins stat-percent font-bold text-success" id="year_to_date" style="font-size:24px;"><?=lang('number.year_to_date')?> </h1>
 		            </div>
 		        </div>
 			</div>
@@ -91,10 +91,10 @@
 				<div class="ibox float-e-margins">
 		            <div class="ibox-title">
 		                <!-- <span class="label label-success pull-right">Monthly</span> -->
-		                <h5>Received Samples</h5>
+		                <h5><?=lang('label.live_received.samples')?></h5>
 		            </div>
 		            <div class="ibox-content">
-		                <h1 class="no-margins stat-percent font-bold text-success" id="received_samples">40 886,200</h1>
+		                <h1 class="no-margins stat-percent font-bold text-success" id="received_samples"><?=lang('number.received_samples')?></h1>
 		                <!-- <div class="stat-percent font-bold text-success">98% <i class="fa fa-bolt"></i></div>
 		                <small>Total income</small> -->
 		            </div>
@@ -107,10 +107,10 @@
 			<div class="panel-body">
 				<div class="ibox float-e-margins">
 		            <div class="ibox-title">
-		                <h5>Waiting (Testing) Samples</h5>
+		                <h5><?=lang('label.live_Waiting_Testing.samples')?></h5>
 		            </div>
 		            <div class="ibox-content">
-		                <h1 class="no-margins stat-percent font-bold text-success" id="inqueue_samples">406,200</h1>
+		                <h1 class="no-margins stat-percent font-bold text-success" id="inqueue_samples"><?=lang('number.inqueue_samples')?></h1>
 		            </div>
 		        </div>
 			</div>
@@ -121,10 +121,10 @@
 			<div class="panel-body">
 				<div class="ibox float-e-margins">
 		            <div class="ibox-title">
-		                <h5>In-Process Samples</h5>
+		                <h5><?=lang('label.live_in_process.samples')?></h5>
 		            </div>
 		            <div class="ibox-content">
-		                <h1 class="no-margins stat-percent font-bold text-success" id="inprocess_samples">342,200</h1>
+		                <h1 class="no-margins stat-percent font-bold text-success" id="inprocess_samples"><?=lang('number.inprocess_samples')?></h1>
 		            </div>
 		        </div>
 			</div>
@@ -136,10 +136,10 @@
 			<div class="panel-body">
 				<div class="ibox float-e-margins">
 		            <div class="ibox-title">
-		                <h5>Results Pending Approval</h5>
+		                <h5><?=lang('label.live_results_pending.approval')?></h5>
 		            </div>
 		            <div class="ibox-content">
-		                <h1 class="no-margins stat-percent font-bold text-success" id="pending_approval">646,200</h1>
+		                <h1 class="no-margins stat-percent font-bold text-success" id="pending_approval"><?=lang('number.pending_approval')?></h1>
 		            </div>
 		        </div>
 			</div>
@@ -150,10 +150,10 @@
 			<div class="panel-body">
 				<div class="ibox float-e-margins">
 		            <div class="ibox-title">
-		                <h5>Results Dispatched Today</h5>
+		                <h5><?=lang('label.live_results_dispatched.today')?></h5>
 		            </div>
 		            <div class="ibox-content">
-		                <h1 class="no-margins stat-percent font-bold text-success" id="dispatched_results">98,200</h1>
+		                <h1 class="no-margins stat-percent font-bold text-success" id="dispatched_results"><?=lang('number.dispatched_results')?></h1>
 		            </div>
 		        </div>
 			</div>
@@ -164,7 +164,7 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Sample Entry</h3>
+				<h3 class="panel-title"><?=lang('label.live_sample.entry')?></h3>
 			</div>
 			<div class="panel-body">
 				<div id="sampleEntry"></div>
@@ -174,7 +174,7 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Sample Entry vs Received</h3>
+				<h3 class="panel-title"><?=lang('label.live_sample_entry_vs.received')?></h3>
 			</div>
 			<div class="panel-body">
 				<div id="sampleEntryVsReceived"></div>
@@ -184,7 +184,7 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Site Entry by Lab</h3>
+				<h3 class="panel-title"><?=lang('label.live_site_entry.bylab')?></h3>
 			</div>
 			<div class="panel-body">
 				<div id="siteEntryLab"></div>
@@ -194,7 +194,7 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Received Samples by Lab</h3>
+				<h3 class="panel-title"><?=lang('label.live_received_samples.bylab')?></h3>
 			</div>
 			<div class="panel-body">
 				<div id="receivedSampleLab"></div>
@@ -206,7 +206,7 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Inqueue Samples by Lab</h3>
+				<h3 class="panel-title"><?=lang('label.live_inqueue_samples_by.lab')?></h3>
 			</div>
 			<div class="panel-body">
 				<div id="inqueueLabs"></div>
@@ -216,7 +216,7 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">In process samples by Lab</h3>
+				<h3 class="panel-title"><?=lang('label.live_in_process_samples_by.lab')?></h3>
 			</div>
 			<div class="panel-body">
 				<div id="inprocessLabs"></div>
@@ -226,7 +226,7 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">In process platform</h3>
+				<h3 class="panel-title"><?=lang('label.live_in_process.platform')?></h3>
 			</div>
 			<div class="panel-body">
 				<div id="inprocessPlatform"></div>
@@ -246,7 +246,7 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Pends Approval</h3>
+				<h3 class="panel-title"><?=lang('label.live_pends.approval')?></h3>
 			</div>
 			<div class="panel-body">
 				<div id="pendsApproval"></div>
@@ -258,7 +258,7 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Dispatched Results</h3>
+				<h3 class="panel-title"><?=lang('label.live_dispatched.results')?></h3>
 			</div>
 			<div class="panel-body">
 				<div id="dispatchedResults"></div>
@@ -268,7 +268,7 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Oldest Samples in queue</h3>
+				<h3 class="panel-title"><?=lang('label.live_oldest_samples_in.queue')?></h3>
 			</div>
 			<div class="panel-body">
 				<div id="oldestSamples"></div>
@@ -278,7 +278,7 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Ageing of Samples (National)</h3>
+				<h3 class="panel-title"><?=lang('label.live_ageing_samples.national')?></h3>
 			</div>
 			<div class="panel-body">
 				<div id="aging_samples_national"></div>
@@ -288,11 +288,11 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Ageing of Samples (Based on Date Drawn)</h3>
+				<h3 class="panel-title"><?=lang('label.live_Ageing_amples_based_date.drawn')?></h3>
 			</div>
 			<div class="panel-body">
 				<select id="lab_dropdown" name="ny" class="form-control">
-					<option>Select something</option>
+					<option><?=lang('label.live_select.something')?></option>
 				</select>
 				
 				<div id="aging_samples"></div>
@@ -333,7 +333,7 @@ function switch_source(){
 	else{
 		localStorage.setItem("my_var", 0);
 		localStorage.setItem("my_url", "charts/live/get_data/2/");
-		$("#current_source").html('Viralload');
+		$("#current_source").html('<?=lang('label.live_viralload');?>');
 	}
 	ajaxd();
 }
@@ -358,19 +358,19 @@ function ajaxd(){
 	     $("#dispatched_results").html(ob.dispatchedresults);
 
 
-	     set_graph("#sampleEntry", "column", ["Entered at site","Entered at Lab"], [ob.enteredsamplesatsite, ob.enteredsamplesatlab], 'samples');
-	     set_graph("#sampleEntryVsReceived", "column", ["Entered received same day","Entered not received same day"], [ob.enteredreceivedsameday, ob.enterednotreceivedsameday], 'samples');
-	     set_graph("#siteEntryLab", "bar", ob.labs, ob.enteredsamplesatsitea, 'samples');
-	     set_graph("#receivedSampleLab", "bar", ob.labs, ob.receivedsamplesa, 'samples');
-	     set_graph("#inqueueLabs", "bar", ob.labs, ob.inqueuesamplesa, 'samples');
-	     set_graph("#inprocessLabs", "bar", ob.labs, ob.inprocesssamplesa, 'samples');
+	     set_graph("#sampleEntry", "column", ["<?=lang('label.entered_at_site');?>","<?=lang('label.entered_at_lab');?>"], [ob.enteredsamplesatsite, ob.enteredsamplesatlab], '<?=lang('label.samples');?>');
+	     set_graph("#sampleEntryVsReceived", "column", ["<?=lang('label.entered_received_same_day');?>","<?=lang('label.entered_not_received_same_day');?>"], [ob.enteredreceivedsameday, ob.enterednotreceivedsameday], '<?=lang('label.samples');?>');
+	     set_graph("#siteEntryLab", "bar", ob.labs, ob.enteredsamplesatsitea, '<?=lang('label.samples');?>');
+	     set_graph("#receivedSampleLab", "bar", ob.labs, ob.receivedsamplesa, '<?=lang('label.samples');?>');
+	     set_graph("#inqueueLabs", "bar", ob.labs, ob.inqueuesamplesa, '<?=lang('label.samples');?>');
+	     set_graph("#inprocessLabs", "bar", ob.labs, ob.inprocesssamplesa, '<?=lang('label.samples');?>');
 	     // set_graph("#processedSamples", "bar", ob.labs, ob.processedsamplesa, 'samples');
-	     set_graph("#pendsApproval", "bar", ob.labs, ob.pendingapprovala, 'samples');
-	     set_graph("#dispatchedResults", "bar", ob.labs, ob.dispatchedresultsa, 'samples');
-	     set_graph("#oldestSamples", "bar", ob.labs, ob.oldestinqueuesamplea, 'days');
-	     set_graph("#inprocessPlatform", "column", ob.machines, ob.minprocess, 'samples');
-	     set_graph("#aging_samples_national", "bar", ob.age_cat, ob.age_nat, 'samples');
-	     set_graph("#aging_samples", "bar", ob.age_cat, ob.age, 'samples');
+	     set_graph("#pendsApproval", "bar", ob.labs, ob.pendingapprovala, '<?=lang('label.samples');?>');
+	     set_graph("#dispatchedResults", "bar", ob.labs, ob.dispatchedresultsa, '<?=lang('label.samples');?>');
+	     set_graph("#oldestSamples", "bar", ob.labs, ob.oldestinqueuesamplea, '<?=lang('label.days');?>');
+	     set_graph("#inprocessPlatform", "column", ob.machines, ob.minprocess, '<?=lang('label.samples');?>');
+	     set_graph("#aging_samples_national", "bar", ob.age_cat, ob.age_nat, '<?=lang('label.samples');?>');
+	     set_graph("#aging_samples", "bar", ob.age_cat, ob.age, '<?=lang('label.samples');?>');
 
 
 	   }
@@ -412,7 +412,7 @@ function set_graph(div_name, chart_type, xcategories, ydata, ytitle){
 	        },
 	        tooltip: {
 	            headerFormat: '<b>{point.x}</b><br/>',
-	            pointFormat: '{series.name}: {point.y}<br/>% contribution: {point.percentage:.1f}%'
+	            pointFormat: '{series.name}: {point.y}<br/>% <?=lang('label.contribution');?> {point.percentage:.1f}%'
 	        },
 	        plotOptions: {
 	            column: {
@@ -431,7 +431,7 @@ function set_graph(div_name, chart_type, xcategories, ydata, ytitle){
 	        series: [
 	        			{
 	        				"data": ydata,
-	        				"name": "Total"
+	        				"name": "<?=lang('label.total');?>"
 	        			}
 	        		]
 	        });

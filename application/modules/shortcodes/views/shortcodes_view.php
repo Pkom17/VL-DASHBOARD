@@ -72,7 +72,7 @@
 	<div class="col-sm-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Requests Trends</h3>
+				<h3 class="panel-title"> <?=lang('label.requests_trends')?> </h3>
 			</div>
 			<div class="panel-body">
 				<div id="requests"></div>
@@ -84,7 +84,7 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Counties</h3>
+				<h3 class="panel-title"><?=lang('label.pmtct_counties')?> </h3>
 			</div>
 			<div class="panel-body">
 				<div id="counties"></div>
@@ -94,7 +94,7 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Sub counties</h3>
+				<h3 class="panel-title"> <?=lang('label.pmtct_sub.counties')?></h3>
 			</div>
 			<div class="panel-body">
 				<div id="subcounties"></div>
@@ -104,7 +104,7 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Facilities</h3>
+				<h3 class="panel-title"> <?=lang('label.current_facilities')?></h3>
 			</div>
 			<div class="panel-body">
 				<div id="facilities"></div>
@@ -114,7 +114,7 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Partners</h3>
+				<h3 class="panel-title"><?=lang('label.current_partners')?></h3>
 			</div>
 			<div class="panel-body">
 				<div id="partners"></div>
@@ -126,7 +126,7 @@
 	<div class="col-sm-12">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="panel-title">Facilities Requesting</h3>
+				<h3 class="panel-title"><?=lang('label.shortcodes_facilities.requesting')?></h3>
 			</div>
 			<div class="panel-body">
 				<div id="facilities_requesting"></div>

@@ -3,7 +3,7 @@
 	<div class="col-md-12 col-sm-12 col-xs-12">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
-		  	County Outcomes <div class="display_date"></div>
+		  	<?=lang('label.county_outcomes')?> <div class="display_date"></div>
 		  </div>
 		  <div class="panel-body" id="county">
 		    <center><div class="loader"></div></center>
@@ -16,7 +16,7 @@
 	<div class="col-md-12">
 		<div class="panel panel-default">
 			<div class="panel-heading" id="heading">
-			  Counties <div class="display_date"></div>
+			  <?=lang('label.counties')?> <div class="display_date"></div>
 			</div>
 		  	<div class="panel-body" id="county_sites">
 		  		<center><div class="loader"></div></center>

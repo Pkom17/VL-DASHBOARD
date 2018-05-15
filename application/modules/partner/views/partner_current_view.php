@@ -54,7 +54,7 @@
 	<div class="col-md-4 col-sm-12 col-xs-12">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
-		    Suppression Rate <div class="display_current_range"></div>
+		    <?=lang('label.suppression_rate')?> <div class="display_current_range"></div>
 		  </div>
 		  <div class="panel-body" id="current_sup">
 		    <center><div class="loader"></div></center>
@@ -65,7 +65,7 @@
 	<div class="col-md-4 col-sm-12 col-xs-12">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
-		    Current Suppression by Gender <div class="display_current_range"></div>
+		    <?=lang('label.current_by_gender')?> <div class="display_current_range"></div>
 		  </div>
 		  <div class="panel-body" id="current_sup_gender">
 		    <center><div class="loader"></div></center>
@@ -76,7 +76,7 @@
 	<div class="col-md-4 col-sm-12 col-xs-12">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
-		    Current Suppression by Age <div class="display_current_range"></div>
+		    <?=lang('label.current_by_age')?> <div class="display_current_range"></div>
 		  </div>
 		  <div class="panel-body" id="current_sup_age">
 		    <center><div class="loader"></div></center>
@@ -88,18 +88,18 @@
 </div>
 
 <div class="row">
-	<center><h3>Current suppression rates <div class="display_current_range"></div></h3></center>
+	<center><h3><?=lang('label.current_suppression_rates')?> <div class="display_current_range"></div></h3></center>
 </div>
 
 <div class="row">
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Counties
+			  <?=lang('label.counties')?>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="countys">
-		  		<div>Loading...</div>
+		  		<div><?=lang('label.loading')?></div>
 		  	</div>
 		  	<!-- -->
 		  </div>
@@ -108,11 +108,11 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Sub counties
+			  <?=lang('label.sub_counties')?>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="subcounty">
-		  		<div>Loading...</div>
+		  		<div><?=lang('label.loading')?></div>
 		  	</div>
 		  </div>
 		</div>
@@ -120,11 +120,11 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Facilities
+			  <?=lang('label.facilities')?>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="facilities">
-		  		<div>Loading...</div>
+		  		<div><?=lang('label.loading')?></div>
 		  	</div>
 		  </div>
 		</div>
@@ -132,11 +132,11 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Partners
+			  <?=lang('label.partners')?>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="partners">
-		  		<div>Loading...</div>
+		  		<div><?=lang('label.loading')?></div>
 		  	</div>
 		  	<!-- -->
 		  </div>
@@ -147,18 +147,18 @@
 
 
 <div class="row">
-	<center><h3>Current suppression suppressed age data <div class="display_current_range"></div></h3></center>
+	<center><h3><?=lang('label.current_suppression_data')?> <div class="display_current_range"></div></h3></center>
 </div>
 
 <div class="row">
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Counties
+			  <?=lang('label.counties')?>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="countys_a">
-		  		<div>Loading...</div>
+		  		<div><?=lang('label.loading')?></div>
 		  	</div>
 		  	<!-- -->
 		  </div>
@@ -167,11 +167,11 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Sub counties 
+			  <?=lang('label.sub_counties')?>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="subcounty_a">
-		  		<div>Loading...</div>
+		  		<div><?=lang('label.loading')?></div>
 		  	</div>
 		  </div>
 		</div>
@@ -179,11 +179,11 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Facilities 
+			  <?=lang('label.facilities')?>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="facilities_a">
-		  		<div>Loading...</div>
+		  		<div><?=lang('label.loading')?></div>
 		  	</div>
 		  </div>
 		</div>
@@ -191,11 +191,11 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Partners
+			  <?=lang('label.partners')?>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="partners_a">
-		  		<div>Loading...</div>
+		  		<div><?=lang('label.loading')?></div>
 		  	</div>
 		  	<!-- -->
 		  </div>
@@ -204,18 +204,18 @@
 </div>
 
 <div class="row">
-	<center><h3>Current suppression non suppressed age data <div class="display_current_range"></div></h3></center>
+	<center><h3><?=lang('label.current_non_suppression_data')?> <div class="display_current_range"></div></h3></center>
 </div>
 
 <div class="row">
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Counties
+			  <?=lang('label.counties')?>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="countys_na">
-		  		<div>Loading...</div>
+		  		<div><?=lang('label.loading')?></div>
 		  	</div>
 		  	<!-- -->
 		  </div>
@@ -224,11 +224,11 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Sub counties 
+			  <?=lang('label.sub_counties')?> 
 			</div>
 		  	<div class="panel-body">
 		  	<div id="subcounty_na">
-		  		<div>Loading...</div>
+		  		<div><?=lang('label.loading')?></div>
 		  	</div>
 		  </div>
 		</div>
@@ -236,11 +236,11 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Facilities 
+			  <?=lang('label.facilities')?> 
 			</div>
 		  	<div class="panel-body">
 		  	<div id="facilities_na">
-		  		<div>Loading...</div>
+		  		<div><?=lang('label.loading')?></div>
 		  	</div>
 		  </div>
 		</div>
@@ -248,11 +248,11 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Partners
+			  <?=lang('label.partners')?>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="partners_na">
-		  		<div>Loading...</div>
+		  		<div><?=lang('label.loading')?></div>
 		  	</div>
 		  	<!-- -->
 		  </div>
@@ -261,18 +261,18 @@
 </div>
 
 <div class="row">
-	<center><h3>Current suppression gender data <div class="display_current_range"></div></h3></center>
+	<center><h3><?=lang('label.current_gender_data')?> <div class="display_current_range"></div></h3></center>
 </div>
 
 <div class="row">
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Counties
+			  <?=lang('label.counties')?>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="countys_g">
-		  		<div>Loading...</div>
+		  		<div><?=lang('label.loading')?></div>
 		  	</div>
 		  	<!-- -->
 		  </div>
@@ -281,11 +281,11 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Sub counties 
+			  <?=lang('label.sub_counties')?>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="subcounty_g">
-		  		<div>Loading...</div>
+		  		<div><?=lang('label.loading')?></div>
 		  	</div>
 		  </div>
 		</div>
@@ -293,11 +293,11 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Facilities 
+			  <?=lang('label.facilities')?>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="facilities_g">
-		  		<div>Loading...</div>
+		  		<div><?=lang('label.loading')?></div>
 		  	</div>
 		  </div>
 		</div>
@@ -305,11 +305,11 @@
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
-			  Partners
+			  <?=lang('label.partners')?>
 			</div>
 		  	<div class="panel-body">
 		  	<div id="partners_g">
-		  		<div>Loading...</div>
+		  		<div><?=lang('label.loading')?></div>
 		  	</div>
 		  	<!-- -->
 		  </div>
