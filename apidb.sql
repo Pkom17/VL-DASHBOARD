@@ -6304,7 +6304,7 @@ CREATE DEFINER=`root`@`%` PROCEDURE `proc_get_vl_age_gender` (IN `A_id` INT(11),
         SET @QUERY = CONCAT(@QUERY, " AND `year` = '",filter_year,"' ");
     END IF;
 
-    SET @QUERY = CONCAT(@QUERY, " AND `age` = '",A_id,"' ");
+    SET @QUERY = CONCAT(@QUERY, " AND `age` = '",A_id,"' ");    
 
 
     

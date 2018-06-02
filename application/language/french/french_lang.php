@@ -276,7 +276,7 @@ $lang['label.VL_county_suppress'] = "Suppression de CV par région";
 $lang['label.county_sites_outcomes'] = "Résultats des sites de la Région";
 $lang['label.testing_trends_for_all_tests'] = "Tendances des tests pour tous les tests";
 $lang['label.switch_routine_tests_trends'] = "Cliquez pour passer à la tendance des tests de routine";
-$lang['label.testing_trends_for_routine_VL'] = "Test des tendances pour la routine charge virale";
+$lang['label.testing_trends_for_routine_VL'] = "Tendances des tests pour la routine charge virale";
 $lang['label.switch_all_tests'] = "Cliquez pour passer à tous les tests";
 //application/modules/summary/views/summary_view.php
 $lang['label.VL_coverage_percent'] = "Couverture de la CV (%)";
@@ -506,7 +506,7 @@ $lang['label.collection_dispatch'] = "Envoi de la collection";
 $lang['label.TAT_days'] = "Temps de traitement (Jours)";
 $lang['label.no_gender'] = "sans sexe";
 $lang['label.no_age'] = "sans Age";
-$lang['label.less2'] = "Moins 2";
+$lang['label.less2'] = "Moins de 2";
 $lang['label.less9'] = "2-9";
 $lang['label.less14'] = "10-14";
 $lang['label.less19'] = "15-19";
@@ -603,5 +603,11 @@ $lang['dt.next'] = "Suivant";
 $lang['dt.last'] = "Dernier";
 $lang['dt.sortAscending'] = ": activer pour trier la colonne par ordre croissant";
 $lang['dt.sortDescending'] = ": activer pour trier la colonne par ordre décroissant";
+$lang['select.csv.file'] = "Sélectionnez un fichier CSV:";
+$lang['import.csv'] = "Importer le fichier CSV";
+$lang['load.csv.file'] = "Charger les données d'un fichier CSV";
+$lang['label.importing'] = "Importation en cours ...";
+$lang['label.site'] = "Site:";
+$lang['label.site_select'] = "Sélectionnez un site";
 
 

@@ -300,8 +300,6 @@ class Trends_model extends MY_Model
 				$quarter = 1;
 				$i = 0;
 			}
-
-
 		}
 
 		return $data;

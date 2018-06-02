@@ -61,7 +61,7 @@ class Subcounty_model extends MY_Model
 			$data['categories'][$key] 					= $value['name'];
 			$data['outcomes'][0]['data'][$key] = (int) $value['nonsuppressed'];
 			$data['outcomes'][1]['data'][$key] = (int) $value['suppressed'];
-			$data['outcomes'][2]['data'][$key] = round(@(((int) $value['suppressed']*100)/((int) $value['suppressed']+(int) $value['nonsuppressed'])),1);
+			$data['outcomes'][2]['data'][$key] = @round((((int) $value['suppressed']*100)/((int) $value['suppressed']+(int) $value['nonsuppressed'])),1);
 		}
 
 		// echo "<pre>";print_r($data);die();
@@ -182,7 +182,7 @@ class Subcounty_model extends MY_Model
 	    		<td>'.lang('label.total_vl_tests_done').'</td>
 	    		<td>'.number_format($total_tests ).'</td>
 	    		<td>'.lang('label.non_suppression').'</td>
-	    		<td>'. number_format($non_suppressed) . ' (' . round((($non_suppressed / $total_tests  )*100),1).'%</td>
+	    		<td>'. number_format($non_suppressed) . ' (' . @round((($non_suppressed / $total_tests  )*100),1).'%</td>
 	    	</tr>
 
 			<tr>
@@ -194,21 +194,21 @@ class Subcounty_model extends MY_Model
 	    		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.lang('label.valid_tests_gt1000').'</td>
 	    		<td>'.number_format($greater).'</td>
 	    		<td>'.lang('label.percentage_non_suppression').'</td>
-	    		<td>'.round((($greater/$total)*100),1).'%</td>
+	    		<td>'.@round((($greater/$total)*100),1).'%</td>
 	    	</tr>
 
 	    	<tr>
 	    		<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'.lang('label.valid_tests_lt1000').'</td>
 	    		<td>'.number_format($less).'</td>
 	    		<td>'.lang('label.percentage_suppression').'</td>
-	    		<td>'.round((($less/$total)*100),1).'%</td>
+	    		<td>'.@round((($less/$total)*100),1).'%</td>
 	    	</tr>
  
 	    	<tr>
 	    		<td>&nbsp;&nbsp;&nbsp;'.lang('label.baseline_vl').'</td>
 	    		<td>'.number_format($value['baseline']).'</td>
 	    		<td>'.lang('label.non_suppression_gt_1000').'</td>
-	    		<td>'.number_format($value['baselinesustxfail']). ' (' .round(($value['baselinesustxfail'] * 100 / $value['baseline']), 1). '%)' .'</td>
+	    		<td>'.number_format($value['baselinesustxfail']). ' (' .@round(($value['baselinesustxfail'] * 100 / $value['baseline']), 1). '%)' .'</td>
 	    	</tr>
 
 	    	<tr>
@@ -220,7 +220,7 @@ class Subcounty_model extends MY_Model
 	    		<td>'.lang('label.rejected_samples').'</td>
 	    		<td>'.number_format($value['rejected']).'</td>
 	    		<td>'.lang('label.percentage_rejection_rate').'</td>
-	    		<td>'. round((($value['rejected']*100)/$value['alltests']), 1, PHP_ROUND_HALF_UP).'%</td>
+	    		<td>'. @round((($value['rejected']*100)/$value['alltests']), 1, PHP_ROUND_HALF_UP).'%</td>
 	    	</tr>';
 						
 			$data['vl_outcomes']['data'][0]['y'] = (int) $value['undetected']+(int) $value['less1000'];
@@ -481,7 +481,7 @@ class Subcounty_model extends MY_Model
 				<td>".$value['county']."</td>
 				<td>".number_format((int) $value['received'])."</td>
 				<td>".number_format((int) $value['rejected']) . " (" . 
-					round((($value['rejected']*100)/$value['received']), 1, PHP_ROUND_HALF_UP)."%)</td>
+					@round((($value['rejected']*100)/$value['received']), 1, PHP_ROUND_HALF_UP)."%)</td>
 				<td>".number_format((int) $value['alltests'])."</td>
 				<td>".number_format((int) $value['invalids'])."</td>
 
