@@ -72,7 +72,9 @@ $config['js_files']			=	array(
 								);
 $config['plugin_js_files']	=	array(
 									array('title'=> 'jquery',		'file'	=>	'jquery/jquery-2.2.3.min.js'),
-									array('title'=> 'jquery-ui',	'file'	=>	'jquery-ui/jquery-ui.min.js'),
+                                    array('title'=> 'jquery-ui',	'file'	=>	'jquery-ui/jquery-ui.min.js'),
+                                    array('title'=> 'datepicker-en','file'  =>  'jquery-ui/datepicker-en.js'),
+                                    array('title'=> 'datepicker-fr','file'  =>  'jquery-ui/datepicker-fr.js'),
 									array('title'=> 'bootstrap'	,	'file'	=>	'bootstrap/js/bootstrap.min.js'),
 									array('title'=> 'material',		'file'	=>	'bootstrap/js/material.min.js'),
 									array('title'=> 'ripples',		'file'	=>	'bootstrap/js/ripples.min.js'),
@@ -80,8 +82,7 @@ $config['plugin_js_files']	=	array(
 									array('title'=> 'highmaps',		'file'	=>	'highmaps/js/modules/map.js'),
 									array('title'=> 'highmaps',		'file'	=>	'highmaps/js/modules/exporting.js'),
 									array('title'=> 'highmaps',		'file'	=>	'highmaps/js/modules/mapdata/countries/ke/ke-all.js'),
-									array('title' => 'Kenya', 		'file' => 'highmaps/kenya.js'
-										),
+									array('title'=> 'Kenya', 		'file'  =>  'highmaps/kenya.js'),
 									array('title'=> 'tablecloth',		'file'	=>	'tablecloth/js/jquery.metadata.js'),
 									array('title'=> 'tablecloth',		'file'	=>	'tablecloth/js/jquery.tablesorter.min.js'),
 									array('title'=> 'tablecloth',		'file'	=>	'tablecloth/js/jquery.tablecloth.js'),
