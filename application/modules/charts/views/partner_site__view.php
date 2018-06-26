@@ -54,7 +54,31 @@
                     extend: 'excelHtml5',
                     title: '<?= lang('label.download') ?>'
                 }
-            ]
+            ],
+            language: {
+                decimal: "<?= lang('dt.decimal') ?>",
+                processing: "<?= lang('dt.processing') ?>",
+                search: "<?= lang('dt.search') ?>",
+                lengthMenu: "<?= lang('dt.lengthMenu') ?>",
+                info: "<?= lang('dt.info') ?>",
+                infoEmpty: "<?= lang('dt.infoEmpty') ?>",
+                infoFiltered: "<?= lang('dt.infoFiltered') ?>",
+                infoPostFix: "<?= lang('dt.infoPostFix') ?>",
+                thousands: "<?= lang('dt.thousands') ?>",
+                loadingRecords: "<?= lang('dt.loadingRecords') ?>",
+                zeroRecords: "<?= lang('dt.zeroRecords') ?>",
+                emptyTable: "<?= lang('dt.emptyTable') ?>",
+                paginate: {
+                    first: "<?= lang('dt.first') ?>",
+                    previous: "<?= lang('dt.previous') ?>",
+                    next: "<?= lang('dt.next') ?>",
+                    last: "<?= lang('dt.last') ?>"
+                },
+                aria: {
+                    sortAscending: "<?= lang('dt.sortAscending') ?>",
+                    sortDescending: "<?= lang('dt.sortDescending') ?>"
+                }
+            }
         });
 
         // $("table").tablecloth({

@@ -28,7 +28,7 @@ class Counties_model extends MY_Model
 		
 		// echo "<pre>";print_r($sql);die();
 		$result = $this->db->query($sql)->result_array();
-		$data;
+		$data=[];
 		foreach ($result as $key => $value) {
 			
 				$data[$value['id']]['id'] = $value['id'];
@@ -59,7 +59,7 @@ class Counties_model extends MY_Model
 		
 		// echo "<pre>";print_r($sql);die();
 		$result = $this->db->query($sql)->result_array();
-		$data;
+		$data=[];
 		foreach ($result as $key => $value) {
 			
 				$data[$value['id']]['id'] = $value['id'];
@@ -93,7 +93,7 @@ class Counties_model extends MY_Model
 		
 		// echo "<pre>";print_r($sql);die();
 		$result = $this->db->query($sql)->result_array();
-		$data;
+		$data=[];
 		foreach ($result as $key => $value) {
 			
 				$data[$value['id']]['id'] = $value['id'];
@@ -128,7 +128,7 @@ class Counties_model extends MY_Model
 		
 		// echo "<pre>";print_r($sql);die();
 		$result = $this->db->query($sql)->result_array();
-		$data;
+		$data=[];
 		foreach ($result as $key => $value) {
 			
 				$data[$value['id']]['id'] = $value['id'];
@@ -162,7 +162,7 @@ class Counties_model extends MY_Model
 		
 		// echo "<pre>";print_r($sql);die();
 		$result = $this->db->query($sql)->result_array();
-		$data;
+		$data=[];
 		foreach ($result as $key => $value) {
 			
 				$data[$value['id']]['id'] = $value['id'];
@@ -194,7 +194,7 @@ class Counties_model extends MY_Model
 		
 		// echo "<pre>";print_r($sql);die();
 		$result = $this->db->query($sql)->result_array();
-		$data;
+		$data=[];
 		foreach ($result as $key => $value) {
 			
 				$data[$value['id']]['id'] = $value['id'];
@@ -267,7 +267,7 @@ class Counties_model extends MY_Model
 
 		$result = $this->db->query($sql)->result_array();
 		
-		$data;
+		$data=[];
 		$i = 0;
 
 		foreach ($result as $key => $value) {

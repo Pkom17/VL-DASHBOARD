@@ -12,7 +12,7 @@
         <?php
         $this->load->view('utils/dynamicLoads');
         ?>
-        <link rel=icon href="<?php echo base_url('assets/img/logo_itech.jpg'); ?>" type="image/jpeg" />
+        <link rel=icon href="<?php echo base_url('assets/img/logo_moh_2.jpg'); ?>" type="image/jpeg" />
         <title>
             <?=lang('site_title');?>
         </title>
@@ -101,7 +101,7 @@
     <body>
         <?php //echo "<pre>";print_r($_SERVER['REQUEST_URI']);die();?>
         <!-- Begining of Navigation Bar -->
-        <div class="navbar navbar-default">
+        <div class="navbar navbar-default" style="height: 135px;">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -109,7 +109,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="javascript:void(0)" style="padding:0px;padding-top:4px;padding-left:4px;"><img src="<?php echo base_url(); ?>assets/img/logo_itech.jpg" style="width:250px;height:60px;"/></a>
+                    <a class="navbar-brand" href="javascript:void(0)" style="padding:0px;padding-top:4px;padding-left:1px;"><img src="<?php echo base_url(); ?>assets/img/logo_moh.jpg" style="width:160px;height:130px;"/></a>
                 </div>
                 <div class="navbar-collapse collapse navbar-responsive-collapse">
                     <ul class="nav navbar-nav navbar-right">

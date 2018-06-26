@@ -41,8 +41,8 @@ CREATE DEFINER=`root`@`%` PROCEDURE `proc_get_all_sites_outcomes` (IN `filter_ye
                     `vf`.`name`, 
                     SUM((`vss`.`Undetected`+`vss`.`less1000`)) AS `suppressed`, 
                     SUM(`vss`.`sustxfail`) AS `nonsuppressed` 
-                  FROM `vl_site_summary` `vss` 
-                  LEFT JOIN `view_facilitys` `vf` 
+                    FROM `vl_site_summary` `vss` 
+                    LEFT JOIN `view_facilitys` `vf` 
                     ON `vss`.`facility` = `vf`.`ID`
     WHERE 1";
 
@@ -6304,7 +6304,7 @@ CREATE DEFINER=`root`@`%` PROCEDURE `proc_get_vl_age_gender` (IN `A_id` INT(11),
         SET @QUERY = CONCAT(@QUERY, " AND `year` = '",filter_year,"' ");
     END IF;
 
-    SET @QUERY = CONCAT(@QUERY, " AND `age` = '",A_id,"' ");
+    SET @QUERY = CONCAT(@QUERY, " AND `age` = '",A_id,"' ");    
 
 
     

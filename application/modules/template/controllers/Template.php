@@ -8,6 +8,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Template extends MY_Controller {
 
     public function index($data) {
+        if (null !== $this->session->userdata('language')) {
+            $language = $this->session->get_userdata('language')['language'];
+        } else {
+            //get browser language
+            $tLang_l = preg_split('/[;,]/', $_SERVER["HTTP_ACCEPT_LANGUAGE"]);
+            switch ($tLang_l[0]) {
+                case 'fr':$language = "french";
+                    break;
+                case 'en':$language = "english";
+                    break;
+                default:
+                    $language = "french";
+            }
+        }
+        $this->lang->load($language, $language); //charger la langue dans le système
         $this->load_template($data);
     }
 
@@ -147,7 +162,7 @@ class Template extends MY_Controller {
         $this->load->model('template_model');
         //définir la langue
         $l = $this->session->userdata('language');
-                if(is_null($l)){
+        if (is_null($l)) {
             //get browser language
             $tLang_l = preg_split('/[;,]/', $_SERVER["HTTP_ACCEPT_LANGUAGE"]);
             switch ($tLang_l[0]) {
@@ -159,7 +174,7 @@ class Template extends MY_Controller {
                     $l = "english";
             }
         }
-        
+
         $this->lang->load($l, $l);
         //fin definir langue
         $data = trim($data, "%22");
@@ -252,9 +267,9 @@ class Template extends MY_Controller {
         $prev_month = ((int) Date('m'));
 
         if ($month == 0) {
-            echo "(".lang('cal_jan')." -".lang('cal_dec')." {$prev_year})";
+            echo "(" . lang('cal_jan') . " -" . lang('cal_dec') . " {$prev_year})";
         } else {
-            echo "(" .lang( $this->template_model->resolve_month($prev_month)) . ", {$prev_year} - " . lang($this->template_model->resolve_month($month)) . ", {$year})";
+            echo "(" . lang($this->template_model->resolve_month($prev_month)) . ", {$prev_year} - " . lang($this->template_model->resolve_month($month)) . ", {$year})";
         }
     }
 

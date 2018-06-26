@@ -13,7 +13,8 @@ if ( ! function_exists('lang'))
 	 */
 	function lang($line, $for = '', $attributes = array())
 	{
-		$line = ($t = get_instance()->lang->line($line))?(trim($t)!==''?$t:$line):$line;
+		//$line = ($t = get_instance()->lang->line($line))?(trim($t)!==''?$t:$line):$line;
+		$line = ($t = get_instance()->lang->line($line))?($t):$line;
 
 		if ($for !== '')
 		{

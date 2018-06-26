@@ -16,17 +16,17 @@ $(function () {
                 text: ''
             },
             plotLines: [{
-                value: 0,
-                width: 1,
-                color: '#808080'
-            }]
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
         },
         legend: {
             enabled: false
         },
         series: [{
-           data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
-        }]
+                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+            }]
     });
 });
 $(function () {
@@ -38,7 +38,7 @@ $(function () {
             text: ''
         },
         xAxis: {
-            categories: ["Entered at site","Entered at Lab"]
+            categories: ["Entered at site", "Entered at Lab"]
         },
         yAxis: {
             min: 0,
@@ -46,17 +46,17 @@ $(function () {
                 text: 'Samples'
             },
             stackLabels: {
-            	rotation: -75,
+                rotation: -75,
                 enabled: true,
                 style: {
                     fontWeight: 'bold',
                     color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
                 },
-                y:-20
+                y: -20
             }
         },
         legend: {
-        	enabled: false
+            enabled: false
         },
         tooltip: {
             headerFormat: '<b>{point.x}</b><br/>',
@@ -73,18 +73,18 @@ $(function () {
                     }
                 }
             }
-        },colors: [
-	        '#1BA39C'
-	    ],
+        }, colors: [
+            '#1BA39C'
+        ],
         series: [
-        			{
-        				"data": [
-        							41368,
-        							57484
-        						]
-        			}
-        		]
-        });
+            {
+                "data": [
+                    41368,
+                    57484
+                ]
+            }
+        ]
+    });
 });
 $(function () {
     $('#sampleEntryVsReceived').highcharts({
@@ -95,7 +95,7 @@ $(function () {
             text: ''
         },
         xAxis: {
-            categories: ["Entered received same day","Entered not received same day"]
+            categories: ["Entered received same day", "Entered not received same day"]
         },
         yAxis: {
             min: 0,
@@ -103,17 +103,17 @@ $(function () {
                 text: 'Samples'
             },
             stackLabels: {
-            	rotation: -75,
+                rotation: -75,
                 enabled: true,
                 style: {
                     fontWeight: 'bold',
                     color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
                 },
-                y:-20
+                y: -20
             }
         },
         legend: {
-        	enabled: false
+            enabled: false
         },
         tooltip: {
             headerFormat: '<b>{point.x}</b><br/>',
@@ -130,18 +130,18 @@ $(function () {
                     }
                 }
             }
-        },colors: [
-	        '#1BA39C'
-	    ],
+        }, colors: [
+            '#1BA39C'
+        ],
         series: [
-        			{
-        				"data": [
-        							41368,
-        							57484
-        						]
-        			}
-        		]
-        });
+            {
+                "data": [
+                    41368,
+                    57484
+                ]
+            }
+        ]
+    });
 });
 $(function () {
     $('#siteEntryLab').highcharts({
@@ -152,7 +152,7 @@ $(function () {
             text: ''
         },
         xAxis: {
-            categories: ["KEMRI Nairobi","Kisumu Lab","Kericho Lab","Eldoret Lab","Coast Lab","NHRL Nairobi","Nyumbani Lab"]
+            categories: ["KEMRI Nairobi", "Kisumu Lab", "Kericho Lab", "Eldoret Lab", "Coast Lab", "NHRL Nairobi", "Nyumbani Lab"]
         },
         yAxis: {
             min: 0,
@@ -160,17 +160,17 @@ $(function () {
                 text: 'Samples'
             },
             stackLabels: {
-            	rotation: -75,
+                rotation: -75,
                 enabled: true,
                 style: {
                     fontWeight: 'bold',
                     color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
                 },
-                y:-20
+                y: -20
             }
         },
         legend: {
-        	enabled: false
+            enabled: false
         },
         tooltip: {
             headerFormat: '<b>{point.x}</b><br/>',
@@ -187,23 +187,23 @@ $(function () {
                     }
                 }
             }
-        },colors: [
-	        '#1BA39C'
-	    ],
+        }, colors: [
+            '#1BA39C'
+        ],
         series: [
-        			{
-        				"data": [
-        							41368,
-        							3953,
-        							41368,
-        							25523,
-        							15644,
-        							64303,
-        							37885
-        						]
-        			}
-        		]
-        });
+            {
+                "data": [
+                    41368,
+                    3953,
+                    41368,
+                    25523,
+                    15644,
+                    64303,
+                    37885
+                ]
+            }
+        ]
+    });
 });
 $(function () {
     $('#receivedSampleLab').highcharts({
@@ -214,7 +214,7 @@ $(function () {
             text: ''
         },
         xAxis: {
-            categories: ["KEMRI Nairobi","Kisumu Lab","Kericho Lab","Eldoret Lab","Coast Lab","NHRL Nairobi","Nyumbani Lab"]
+            categories: ["KEMRI Nairobi", "Kisumu Lab", "Kericho Lab", "Eldoret Lab", "Coast Lab", "NHRL Nairobi", "Nyumbani Lab"]
         },
         yAxis: {
             min: 0,
@@ -222,17 +222,17 @@ $(function () {
                 text: 'Samples'
             },
             stackLabels: {
-            	rotation: -75,
+                rotation: -75,
                 enabled: true,
                 style: {
                     fontWeight: 'bold',
                     color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
                 },
-                y:-20
+                y: -20
             }
         },
         legend: {
-        	enabled: false
+            enabled: false
         },
         tooltip: {
             headerFormat: '<b>{point.x}</b><br/>',
@@ -249,23 +249,23 @@ $(function () {
                     }
                 }
             }
-        },colors: [
-	        '#1BA39C'
-	    ],
+        }, colors: [
+            '#1BA39C'
+        ],
         series: [
-        			{
-        				"data": [
-        							41368,
-        							3953,
-        							41368,
-        							25523,
-        							15644,
-        							64303,
-        							37885
-        						]
-        			}
-        		]
-        });
+            {
+                "data": [
+                    41368,
+                    3953,
+                    41368,
+                    25523,
+                    15644,
+                    64303,
+                    37885
+                ]
+            }
+        ]
+    });
 });
 $(function () {
     $('#inqueueLabs').highcharts({
@@ -276,7 +276,7 @@ $(function () {
             text: ''
         },
         xAxis: {
-            categories: ["KEMRI Nairobi","Kisumu Lab","Kericho Lab","Eldoret Lab","Coast Lab","NHRL Nairobi","Nyumbani Lab"]
+            categories: ["KEMRI Nairobi", "Kisumu Lab", "Kericho Lab", "Eldoret Lab", "Coast Lab", "NHRL Nairobi", "Nyumbani Lab"]
         },
         yAxis: {
             min: 0,
@@ -284,17 +284,17 @@ $(function () {
                 text: 'Samples'
             },
             stackLabels: {
-            	rotation: -75,
+                rotation: -75,
                 enabled: true,
                 style: {
                     fontWeight: 'bold',
                     color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
                 },
-                y:-20
+                y: -20
             }
         },
         legend: {
-        	enabled: false
+            enabled: false
         },
         tooltip: {
             headerFormat: '<b>{point.x}</b><br/>',
@@ -311,23 +311,23 @@ $(function () {
                     }
                 }
             }
-        },colors: [
-	        '#1BA39C'
-	    ],
+        }, colors: [
+            '#1BA39C'
+        ],
         series: [
-        			{
-        				"data": [
-        							41368,
-        							3953,
-        							41368,
-        							25523,
-        							15644,
-        							64303,
-        							37885
-        						]
-        			}
-        		]
-        });
+            {
+                "data": [
+                    41368,
+                    3953,
+                    41368,
+                    25523,
+                    15644,
+                    64303,
+                    37885
+                ]
+            }
+        ]
+    });
 });
 $(function () {
     $('#inprocessLabs').highcharts({
@@ -338,7 +338,7 @@ $(function () {
             text: ''
         },
         xAxis: {
-            categories: ["KEMRI Nairobi","Kisumu Lab","Kericho Lab","Eldoret Lab","Coast Lab","NHRL Nairobi","Nyumbani Lab"]
+            categories: ["KEMRI Nairobi", "Kisumu Lab", "Kericho Lab", "Eldoret Lab", "Coast Lab", "NHRL Nairobi", "Nyumbani Lab"]
         },
         yAxis: {
             min: 0,
@@ -346,17 +346,17 @@ $(function () {
                 text: 'Samples'
             },
             stackLabels: {
-            	rotation: -75,
+                rotation: -75,
                 enabled: true,
                 style: {
                     fontWeight: 'bold',
                     color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
                 },
-                y:-20
+                y: -20
             }
         },
         legend: {
-        	enabled: false
+            enabled: false
         },
         tooltip: {
             headerFormat: '<b>{point.x}</b><br/>',
@@ -373,23 +373,23 @@ $(function () {
                     }
                 }
             }
-        },colors: [
-	        '#1BA39C'
-	    ],
+        }, colors: [
+            '#1BA39C'
+        ],
         series: [
-        			{
-        				"data": [
-        							41368,
-        							3953,
-        							41368,
-        							25523,
-        							15644,
-        							64303,
-        							37885
-        						]
-        			}
-        		]
-        });
+            {
+                "data": [
+                    41368,
+                    3953,
+                    41368,
+                    25523,
+                    15644,
+                    64303,
+                    37885
+                ]
+            }
+        ]
+    });
 });
 $(function () {
     $('#processedSamples').highcharts({
@@ -400,7 +400,7 @@ $(function () {
             text: ''
         },
         xAxis: {
-            categories: ["KEMRI Nairobi","Kisumu Lab","Kericho Lab","Eldoret Lab","Coast Lab","NHRL Nairobi","Nyumbani Lab"]
+            categories: ["KEMRI Nairobi", "Kisumu Lab", "Kericho Lab", "Eldoret Lab", "Coast Lab", "NHRL Nairobi", "Nyumbani Lab"]
         },
         yAxis: {
             min: 0,
@@ -408,17 +408,17 @@ $(function () {
                 text: 'Samples'
             },
             stackLabels: {
-            	rotation: -75,
+                rotation: -75,
                 enabled: true,
                 style: {
                     fontWeight: 'bold',
                     color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
                 },
-                y:-20
+                y: -20
             }
         },
         legend: {
-        	enabled: false
+            enabled: false
         },
         tooltip: {
             headerFormat: '<b>{point.x}</b><br/>',
@@ -435,23 +435,23 @@ $(function () {
                     }
                 }
             }
-        },colors: [
-	        '#1BA39C'
-	    ],
+        }, colors: [
+            '#1BA39C'
+        ],
         series: [
-        			{
-        				"data": [
-        							41368,
-        							3953,
-        							41368,
-        							25523,
-        							15644,
-        							64303,
-        							37885
-        						]
-        			}
-        		]
-        });
+            {
+                "data": [
+                    41368,
+                    3953,
+                    41368,
+                    25523,
+                    15644,
+                    64303,
+                    37885
+                ]
+            }
+        ]
+    });
 });
 $(function () {
     $('#pendsApproval').highcharts({
@@ -462,7 +462,7 @@ $(function () {
             text: ''
         },
         xAxis: {
-            categories: ["KEMRI Nairobi","Kisumu Lab","Kericho Lab","Eldoret Lab","Coast Lab","NHRL Nairobi","Nyumbani Lab"]
+            categories: ["KEMRI Nairobi", "Kisumu Lab", "Kericho Lab", "Eldoret Lab", "Coast Lab", "NHRL Nairobi", "Nyumbani Lab"]
         },
         yAxis: {
             min: 0,
@@ -470,17 +470,17 @@ $(function () {
                 text: 'Samples'
             },
             stackLabels: {
-            	rotation: -75,
+                rotation: -75,
                 enabled: true,
                 style: {
                     fontWeight: 'bold',
                     color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
                 },
-                y:-20
+                y: -20
             }
         },
         legend: {
-        	enabled: false
+            enabled: false
         },
         tooltip: {
             headerFormat: '<b>{point.x}</b><br/>',
@@ -497,23 +497,23 @@ $(function () {
                     }
                 }
             }
-        },colors: [
-	        '#1BA39C'
-	    ],
+        }, colors: [
+            '#1BA39C'
+        ],
         series: [
-        			{
-        				"data": [
-        							41368,
-        							3953,
-        							41368,
-        							25523,
-        							15644,
-        							64303,
-        							37885
-        						]
-        			}
-        		]
-        });
+            {
+                "data": [
+                    41368,
+                    3953,
+                    41368,
+                    25523,
+                    15644,
+                    64303,
+                    37885
+                ]
+            }
+        ]
+    });
 });
 
 $(function () {
@@ -525,7 +525,7 @@ $(function () {
             text: ''
         },
         xAxis: {
-            categories: ["KEMRI Nairobi","Kisumu Lab","Kericho Lab","Eldoret Lab","Coast Lab","NHRL Nairobi","Nyumbani Lab"]
+            categories: ["KEMRI Nairobi", "Kisumu Lab", "Kericho Lab", "Eldoret Lab", "Coast Lab", "NHRL Nairobi", "Nyumbani Lab"]
         },
         yAxis: {
             min: 0,
@@ -533,17 +533,17 @@ $(function () {
                 text: 'Samples'
             },
             stackLabels: {
-            	rotation: -75,
+                rotation: -75,
                 enabled: true,
                 style: {
                     fontWeight: 'bold',
                     color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
                 },
-                y:-20
+                y: -20
             }
         },
         legend: {
-        	enabled: false
+            enabled: false
         },
         tooltip: {
             headerFormat: '<b>{point.x}</b><br/>',
@@ -560,23 +560,23 @@ $(function () {
                     }
                 }
             }
-        },colors: [
-	        '#1BA39C'
-	    ],
+        }, colors: [
+            '#1BA39C'
+        ],
         series: [
-        			{
-        				"data": [
-        							41368,
-        							3953,
-        							41368,
-        							25523,
-        							15644,
-        							64303,
-        							37885
-        						]
-        			}
-        		]
-        });
+            {
+                "data": [
+                    41368,
+                    3953,
+                    41368,
+                    25523,
+                    15644,
+                    64303,
+                    37885
+                ]
+            }
+        ]
+    });
 });
 $(function () {
     $('#oldestSamples').highcharts({
@@ -587,7 +587,7 @@ $(function () {
             text: ''
         },
         xAxis: {
-            categories: ["KEMRI Nairobi","Kisumu Lab","Kericho Lab","Eldoret Lab","Coast Lab","NHRL Nairobi","Nyumbani Lab"]
+            categories: ["KEMRI Nairobi", "Kisumu Lab", "Kericho Lab", "Eldoret Lab", "Coast Lab", "NHRL Nairobi", "Nyumbani Lab"]
         },
         yAxis: {
             min: 0,
@@ -595,17 +595,17 @@ $(function () {
                 text: 'Days'
             },
             stackLabels: {
-            	rotation: -75,
+                rotation: -75,
                 enabled: true,
                 style: {
                     fontWeight: 'bold',
                     color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
                 },
-                y:-20
+                y: -20
             }
         },
         legend: {
-        	enabled: false
+            enabled: false
         },
         tooltip: {
             headerFormat: '<b>{point.x}</b><br/>',
@@ -622,23 +622,23 @@ $(function () {
                     }
                 }
             }
-        },colors: [
-	        '#1BA39C'
-	    ],
+        }, colors: [
+            '#1BA39C'
+        ],
         series: [
-        			{
-        				"data": [
-        							7,
-        							6,
-        							5,
-        							4,
-        							3,
-        							3,
-        							4
-        						]
-        			}
-        		]
-        });
+            {
+                "data": [
+                    7,
+                    6,
+                    5,
+                    4,
+                    3,
+                    3,
+                    4
+                ]
+            }
+        ]
+    });
 });
 
 $(function () {
@@ -650,7 +650,7 @@ $(function () {
             text: ''
         },
         xAxis: {
-            categories: ["Abbott","Roche","Panther"]
+            categories: ["Abbott", "Roche", "Panther"]
         },
         yAxis: {
             min: 0,
@@ -658,17 +658,17 @@ $(function () {
                 text: 'Samples'
             },
             stackLabels: {
-            	rotation: -75,
+                rotation: -75,
                 enabled: true,
                 style: {
                     fontWeight: 'bold',
                     color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
                 },
-                y:-20
+                y: -20
             }
         },
         legend: {
-        	enabled: false
+            enabled: false
         },
         tooltip: {
             headerFormat: '<b>{point.x}</b><br/>',
@@ -685,19 +685,19 @@ $(function () {
                     }
                 }
             }
-        },colors: [
-	        '#1BA39C'
-	    ],
+        }, colors: [
+            '#1BA39C'
+        ],
         series: [
-        			{
-        				"data": [
-        							41368,
-        							39503,
-        							41368
-        						]
-        			}
-        		]
-        });
+            {
+                "data": [
+                    41368,
+                    39503,
+                    41368
+                ]
+            }
+        ]
+    });
 });
 $(function () {
     $('#processedPlatform').highcharts({
@@ -708,7 +708,7 @@ $(function () {
             text: ''
         },
         xAxis: {
-            categories: ["Abbott","Roche","Panther"]
+            categories: ["Abbott", "Roche", "Panther"]
         },
         yAxis: {
             min: 0,
@@ -716,17 +716,17 @@ $(function () {
                 text: 'Samples'
             },
             stackLabels: {
-            	rotation: -75,
+                rotation: -75,
                 enabled: true,
                 style: {
                     fontWeight: 'bold',
                     color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
                 },
-                y:-20
+                y: -20
             }
         },
         legend: {
-        	enabled: false
+            enabled: false
         },
         tooltip: {
             headerFormat: '<b>{point.x}</b><br/>',
@@ -743,17 +743,17 @@ $(function () {
                     }
                 }
             }
-        },colors: [
-	        '#1BA39C'
-	    ],
+        }, colors: [
+            '#1BA39C'
+        ],
         series: [
-        			{
-        				"data": [
-        							41368,
-        							39503,
-        							41368
-        						]
-        			}
-        		]
-        });
+            {
+                "data": [
+                    41368,
+                    39503,
+                    41368
+                ]
+            }
+        ]
+    });
 });

@@ -1,0 +1,3078 @@
+{
+    "data": [{
+            "year": "2018",
+            "month": "01",
+            "sitecode": "0418",
+            "sitename": "HOPITAL GENERAL AGNIBILEKROU",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "01",
+            "sitecode": "025",
+            "sitename": "CHR Abengourou",
+            "sexe": "2",
+            "received": 15
+        }, {
+            "year": "2018",
+            "month": "01",
+            "sitecode": "027",
+            "sitename": "DISPENSAIRE DIOULAKRO",
+            "sexe": "2",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "01",
+            "sitecode": "035",
+            "sitename": "CSU ANIASSUE",
+            "sexe": "2",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "01",
+            "sitecode": "1590",
+            "sitename": "PIM ABENGOUROU",
+            "sexe": "2",
+            "received": 14
+        }, {
+            "year": "2018",
+            "month": "01",
+            "sitecode": "1590",
+            "sitename": "PIM ABENGOUROU",
+            "sexe": "1",
+            "received": 10
+        }, {
+            "year": "2018",
+            "month": "01",
+            "sitecode": "054",
+            "sitename": "CSU NIABLE",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "01",
+            "sitecode": "029",
+            "sitename": "SSSU ABENGOUROU",
+            "sexe": "2",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "01",
+            "sitecode": "052",
+            "sitename": "CSU AFFALIKR",
+            "sexe": "2",
+            "received": 7
+        }, {
+            "year": "2018",
+            "month": "01",
+            "sitecode": "025",
+            "sitename": "CHR Abengourou",
+            "sexe": "1",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "01",
+            "sitecode": "035",
+            "sitename": "CSU ANIASSUE",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "01",
+            "sitecode": "039",
+            "sitename": "CSU APPROMPRONOU",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "01",
+            "sitecode": "039",
+            "sitename": "CSU APPROMPRONOU",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "01",
+            "sitecode": "033",
+            "sitename": "CSU AMELEKIA",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "01",
+            "sitecode": "043",
+            "sitename": "CSU SANKADIOKR",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "01",
+            "sitecode": "7977",
+            "sitename": "MARIA GRACI",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "01",
+            "sitecode": "0422",
+            "sitename": "CSU AKOBOISSUE",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "01",
+            "sitecode": "0425",
+            "sitename": "CSU DUFFREBO",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "01",
+            "sitecode": "0418",
+            "sitename": "HOPITAL GENERAL AGNIBILEKROU",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "01",
+            "sitecode": "028",
+            "sitename": "PMI ABENGOUROU",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "01",
+            "sitecode": "028",
+            "sitename": "PMI ABENGOUROU",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "052",
+            "sitename": "CSU AFFALIKR",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "025",
+            "sitename": "CHR Abengourou",
+            "sexe": "2",
+            "received": 21
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "025",
+            "sitename": "CHR Abengourou",
+            "sexe": "1",
+            "received": 13
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "035",
+            "sitename": "CSU ANIASSUE",
+            "sexe": "2",
+            "received": 14
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "035",
+            "sitename": "CSU ANIASSUE",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "039",
+            "sitename": "CSU APPROMPRONOU",
+            "sexe": "1",
+            "received": 7
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "039",
+            "sitename": "CSU APPROMPRONOU",
+            "sexe": "2",
+            "received": 9
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "029",
+            "sitename": "SSSU ABENGOUROU",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1590",
+            "sitename": "PIM ABENGOUROU",
+            "sexe": "2",
+            "received": 14
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "029",
+            "sitename": "SSSU ABENGOUROU",
+            "sexe": "2",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1940",
+            "sitename": "CMS BETHESDA",
+            "sexe": "2",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "028",
+            "sitename": "PMI ABENGOUROU",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "028",
+            "sitename": "PMI ABENGOUROU",
+            "sexe": "2",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "033",
+            "sitename": "CSU AMELEKIA",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "041",
+            "sitename": "CSU EBILASSOUKRO",
+            "sexe": "2",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "041",
+            "sitename": "CSU EBILASSOUKRO",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "2719",
+            "sitename": "CM BANACOMOE",
+            "sexe": "2",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "2719",
+            "sitename": "CM BANACOMOE",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "375",
+            "sitename": "CSU N'ZUESSY",
+            "sexe": "1",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "375",
+            "sitename": "CSU N'ZUESSY",
+            "sexe": "2",
+            "received": 16
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "043",
+            "sitename": "CSU SANKADIOKR",
+            "sexe": "2",
+            "received": 7
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "043",
+            "sitename": "CSU SANKADIOKR",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0422",
+            "sitename": "CSU AKOBOISSUE",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0418",
+            "sitename": "HOPITAL GENERAL AGNIBILEKROU",
+            "sexe": "1",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0418",
+            "sitename": "HOPITAL GENERAL AGNIBILEKROU",
+            "sexe": "2",
+            "received": 19
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1940",
+            "sitename": "CMS BETHESDA",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "030",
+            "sitename": "CAT ABENGOUROU",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "030",
+            "sitename": "CAT ABENGOUROU",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1590",
+            "sitename": "PIM ABENGOUROU",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "027",
+            "sitename": "DISPENSAIRE DIOULAKRO",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "054",
+            "sitename": "CSU NIABLE",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "050",
+            "sitename": "HG BETTIE",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "025",
+            "sitename": "CHR Abengourou",
+            "sexe": "2",
+            "received": 94
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "025",
+            "sitename": "CHR Abengourou",
+            "sexe": "1",
+            "received": 44
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "029",
+            "sitename": "SSSU ABENGOUROU",
+            "sexe": "2",
+            "received": 11
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "028",
+            "sitename": "PMI ABENGOUROU",
+            "sexe": "2",
+            "received": 46
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "028",
+            "sitename": "PMI ABENGOUROU",
+            "sexe": "1",
+            "received": 16
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0423",
+            "sitename": "CSU DAME",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0422",
+            "sitename": "CSU AKOBOISSUE",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "7977",
+            "sitename": "MARIA GRACI",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "7977",
+            "sitename": "MARIA GRACI",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0425",
+            "sitename": "CSU DUFFREBO",
+            "sexe": "2",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0425",
+            "sitename": "CSU DUFFREBO",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "046",
+            "sitename": "CSU YAKASSE FEYASSE",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0928",
+            "sitename": "CMS LES FLAMBOYANTS",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0928",
+            "sitename": "CMS LES FLAMBOYANTS",
+            "sexe": "2",
+            "received": 10
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0474",
+            "sitename": "CSU TEHINI",
+            "sexe": "2",
+            "received": 7
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0474",
+            "sitename": "CSU TEHINI",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0594",
+            "sitename": "CSU DOROPO",
+            "sexe": "2",
+            "received": 8
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0594",
+            "sitename": "CSU DOROPO",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0584",
+            "sitename": "HG BOUNA",
+            "sexe": "2",
+            "received": 32
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0584",
+            "sitename": "HG BOUNA",
+            "sexe": "1",
+            "received": 11
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0599",
+            "sitename": "HG NASSIAN",
+            "sexe": "2",
+            "received": 10
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0599",
+            "sitename": "HG NASSIAN",
+            "sexe": "1",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0489",
+            "sitename": "CSU SOROBANGO",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0489",
+            "sitename": "CSU SOROBANGO",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1141",
+            "sitename": "CSU FLAKIEDOUGOU",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1141",
+            "sitename": "CSU FLAKIEDOUGOU",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1100",
+            "sitename": "PMI BOUNA",
+            "sexe": "2",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1100",
+            "sitename": "PMI BOUNA",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0487",
+            "sitename": "CSU SAPLI SEPINGO",
+            "sexe": "2",
+            "received": 24
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0487",
+            "sitename": "CSU SAPLI SEPINGO",
+            "sexe": "1",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0487",
+            "sitename": "CSU SAPLI SEPINGO",
+            "sexe": "2",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1591",
+            "sitename": "CSR GBANHUI",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1590",
+            "sitename": "PIM ABENGOUROU",
+            "sexe": "1",
+            "received": 21
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1591",
+            "sitename": "CSR GBANHUI",
+            "sexe": "2",
+            "received": 12
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0311",
+            "sitename": "DU BONDOUKOU",
+            "sexe": "1",
+            "received": 40
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0473",
+            "sitename": "CAT BONDOUKOU",
+            "sexe": "2",
+            "received": 18
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0473",
+            "sitename": "CAT BONDOUKOU",
+            "sexe": "1",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0153",
+            "sitename": "CAT BONDOUKOU",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0597",
+            "sitename": "CSU KOTOUBA",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0597",
+            "sitename": "CSU KOTOUBA",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0597",
+            "sitename": "CSU KOTOUBA",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1961",
+            "sitename": "DISPENSAIRE SAINTE MARIE",
+            "sexe": "2",
+            "received": 13
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1961",
+            "sitename": "DISPENSAIRE SAINTE MARIE",
+            "sexe": "1",
+            "received": 8
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "8787",
+            "sitename": "PMI BONDOUKOU",
+            "sexe": "2",
+            "received": 14
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "8787",
+            "sitename": "PMI BONDOUKOU",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1524",
+            "sitename": "02 C SOKO",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1524",
+            "sitename": "02 C SOKO",
+            "sexe": "2",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0496",
+            "sitename": "CSR TROSSANGUEHI",
+            "sexe": "2",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0472",
+            "sitename": "MEDICO SCOLAIRE BONDOUKOU",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0311",
+            "sitename": "DU BONDOUKOU",
+            "sexe": "1",
+            "received": 8
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0311",
+            "sitename": "DU BONDOUKOU",
+            "sexe": "2",
+            "received": 14
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0311",
+            "sitename": "DU BONDOUKOU",
+            "sexe": "2",
+            "received": 92
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0476",
+            "sitename": "CSU BONDOUKOU",
+            "sexe": "1",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0483",
+            "sitename": "CSR HERBO",
+            "sexe": "2",
+            "received": 11
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0483",
+            "sitename": "CSR HERBO",
+            "sexe": "1",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0441",
+            "sitename": "CSR MAMASSI",
+            "sexe": "2",
+            "received": 10
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0502",
+            "sitename": "HG SANDEGUE",
+            "sexe": "1",
+            "received": 9
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0502",
+            "sitename": "HG SANDEGUE",
+            "sexe": "2",
+            "received": 12
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0502",
+            "sitename": "HG SANDEGUE",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0494",
+            "sitename": "CSU TROUDI",
+            "sexe": "2",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0494",
+            "sitename": "CSU TROUDI",
+            "sexe": "1",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0481",
+            "sitename": "CSU GOUMERE",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0481",
+            "sitename": "CSU GOUMERE",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0134",
+            "sitename": "CSR APPIMANDOUM",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0134",
+            "sitename": "CSR APPIMANDOUM",
+            "sexe": "2",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "NGRE",
+            "sitename": "INFIRMERIE NOIRE GRENIER",
+            "sexe": "2",
+            "received": 9
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "NGRE",
+            "sitename": "INFIRMERIE NOIRE GRENIER",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1270",
+            "sitename": "CSR GUIENDE",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1270",
+            "sitename": "CSR GUIENDE",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0490",
+            "sitename": "CSU TABAGNE",
+            "sexe": "2",
+            "received": 15
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "05",
+            "sitename": "CSR DADIASSE",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0471",
+            "sitename": "CHR BONDOUKOU",
+            "sexe": "2",
+            "received": 26
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0471",
+            "sitename": "CHR BONDOUKOU",
+            "sexe": "1",
+            "received": 10
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0471",
+            "sitename": "CHR BONDOUKOU",
+            "sexe": "1",
+            "received": 33
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0471",
+            "sitename": "CHR BONDOUKOU",
+            "sexe": "2",
+            "received": 69
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0159",
+            "sitename": "DISPENSAIRE DE KAMALA",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "2546",
+            "sitename": "MTE HKB CAFETOU",
+            "sexe": "2",
+            "received": 8
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "2546",
+            "sitename": "MTE HKB CAFETOU",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "05",
+            "sitename": "CSR DADIASSE",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "046",
+            "sitename": "CSU YAKASSE FEYASSE",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1273",
+            "sitename": "CSU TIEDIO",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1273",
+            "sitename": "CSU TIEDIO",
+            "sexe": "2",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0624",
+            "sitename": "CSU AMANVI",
+            "sexe": "2",
+            "received": 9
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "0624",
+            "sitename": "CSU AMANVI",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1247",
+            "sitename": "CSU KOUASSI-DATEKRO",
+            "sexe": "2",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1247",
+            "sitename": "CSU KOUASSI-DATEKRO",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1247",
+            "sitename": "CSU KOUASSI-DATEKRO",
+            "sexe": "2",
+            "received": 19
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1247",
+            "sitename": "CSU KOUASSI-DATEKRO",
+            "sexe": "1",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1244",
+            "sitename": "CSU ASSUEFRY",
+            "sexe": "1",
+            "received": 11
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1244",
+            "sitename": "CSU ASSUEFRY",
+            "sexe": "2",
+            "received": 48
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1244",
+            "sitename": "CSU ASSUEFRY",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1244",
+            "sitename": "CSU ASSUEFRY",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1261",
+            "sitename": "CSU TANKESSE",
+            "sexe": "2",
+            "received": 25
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1261",
+            "sitename": "CSU TANKESSE",
+            "sexe": "1",
+            "received": 8
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1261",
+            "sitename": "CSU TANKESSE",
+            "sexe": "2",
+            "received": 61
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1277",
+            "sitename": "CSR KOUASSIA NIANGUINI",
+            "sexe": "1",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1277",
+            "sitename": "CSR KOUASSIA NIANGUINI",
+            "sexe": "2",
+            "received": 7
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1263",
+            "sitename": "CSU TIENKOIKRO",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1263",
+            "sitename": "CSU TIENKOIKRO",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "2439",
+            "sitename": "CSR N'GUESSAN BRINDOUKRO",
+            "sexe": "2",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1250",
+            "sitename": "CSU KRAKRO",
+            "sexe": "2",
+            "received": 11
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1250",
+            "sitename": "CSU KRAKRO",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1275",
+            "sitename": "H G TRANSUA",
+            "sexe": "2",
+            "received": 15
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1275",
+            "sitename": "H G TRANSUA",
+            "sexe": "1",
+            "received": 11
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1257",
+            "sitename": "HG KOUN FAO",
+            "sexe": "2",
+            "received": 36
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1257",
+            "sitename": "HG KOUN FAO",
+            "sexe": "1",
+            "received": 9
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1265",
+            "sitename": "CSR OUATTE",
+            "sexe": "2",
+            "received": 7
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1265",
+            "sitename": "CSR OUATTE",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1256",
+            "sitename": "CSR KOTOGWAND",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1256",
+            "sitename": "CSR KOTOGWAND",
+            "sexe": "2",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1272",
+            "sitename": "HG TANDA",
+            "sexe": "2",
+            "received": 40
+        }, {
+            "year": "2018",
+            "month": "02",
+            "sitecode": "1272",
+            "sitename": "HG TANDA",
+            "sexe": "1",
+            "received": 7
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1272",
+            "sitename": "HG TANDA",
+            "sexe": "2",
+            "received": 119
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1272",
+            "sitename": "HG TANDA",
+            "sexe": "1",
+            "received": 28
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "2546",
+            "sitename": "MTE HKB CAFETOU",
+            "sexe": "2",
+            "received": 11
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "7977",
+            "sitename": "MARIA GRACI",
+            "sexe": "2",
+            "received": 8
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "027",
+            "sitename": "DISPENSAIRE DIOULAKRO",
+            "sexe": "2",
+            "received": 16
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "029",
+            "sitename": "SSSU ABENGOUROU",
+            "sexe": "1",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1590",
+            "sitename": "PIM ABENGOUROU",
+            "sexe": "2",
+            "received": 48
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "048",
+            "sitename": "CSU ZARAN",
+            "sexe": "2",
+            "received": 9
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0418",
+            "sitename": "HOPITAL GENERAL AGNIBILEKROU",
+            "sexe": "2",
+            "received": 48
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0422",
+            "sitename": "CSU AKOBOISSUE",
+            "sexe": "2",
+            "received": 10
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "2546",
+            "sitename": "MTE HKB CAFETOU",
+            "sexe": "1",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "033",
+            "sitename": "CSU AMELEKIA",
+            "sexe": "2",
+            "received": 12
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "027",
+            "sitename": "DISPENSAIRE DIOULAKRO",
+            "sexe": "1",
+            "received": 8
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1940",
+            "sitename": "CMS BETHESDA",
+            "sexe": "2",
+            "received": 8
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "030",
+            "sitename": "CAT ABENGOUROU",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "35",
+            "sitename": "PMI DAOUKRO",
+            "sexe": "2",
+            "received": 15
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "3501",
+            "sitename": "DISP RUR KOMPINOU",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "035",
+            "sitename": "CSU ANIASSUE",
+            "sexe": "1",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "054",
+            "sitename": "CSU NIABLE",
+            "sexe": "2",
+            "received": 14
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "054",
+            "sitename": "CSU NIABLE",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0594",
+            "sitename": "CSU DOROPO",
+            "sexe": "2",
+            "received": 14
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0594",
+            "sitename": "CSU DOROPO",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1961",
+            "sitename": "DISPENSAIRE SAINTE MARIE",
+            "sexe": "1",
+            "received": 20
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1961",
+            "sitename": "DISPENSAIRE SAINTE MARIE",
+            "sexe": "2",
+            "received": 53
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0928",
+            "sitename": "CMS LES FLAMBOYANTS",
+            "sexe": "1",
+            "received": 7
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0928",
+            "sitename": "CMS LES FLAMBOYANTS",
+            "sexe": "2",
+            "received": 13
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0474",
+            "sitename": "CSU TEHINI",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0474",
+            "sitename": "CSU TEHINI",
+            "sexe": "2",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1601",
+            "sitename": "CSR BOUKO",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1601",
+            "sitename": "CSR BOUKO",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0584",
+            "sitename": "HG BOUNA",
+            "sexe": "2",
+            "received": 25
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0584",
+            "sitename": "HG BOUNA",
+            "sexe": "1",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0481",
+            "sitename": "CSU GOUMERE",
+            "sexe": "2",
+            "received": 21
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0481",
+            "sitename": "CSU GOUMERE",
+            "sexe": "1",
+            "received": 9
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0599",
+            "sitename": "HG NASSIAN",
+            "sexe": "2",
+            "received": 11
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0599",
+            "sitename": "HG NASSIAN",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0496",
+            "sitename": "CSR TROSSANGUEHI",
+            "sexe": "2",
+            "received": 12
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "487\/03",
+            "sitename": "CSR KOUASSI N'DAWA BONDOUKOU",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0494",
+            "sitename": "CSU TROUDI",
+            "sexe": "2",
+            "received": 20
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0505",
+            "sitename": "CSU YOROBOD",
+            "sexe": "2",
+            "received": 14
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0505",
+            "sitename": "CSU YOROBOD",
+            "sexe": "1",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "2719",
+            "sitename": "CM BANACOMOE",
+            "sexe": "1",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1940",
+            "sitename": "CMS BETHESDA",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1277",
+            "sitename": "CSR KOUASSIA NIANGUINI",
+            "sexe": "2",
+            "received": 19
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1277",
+            "sitename": "CSR KOUASSIA NIANGUINI",
+            "sexe": "1",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1723",
+            "sitename": "CSU KANGOUDI",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1250",
+            "sitename": "CSU KRAKRO",
+            "sexe": "2",
+            "received": 34
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1250",
+            "sitename": "CSU KRAKRO",
+            "sexe": "1",
+            "received": 16
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1265",
+            "sitename": "CSR OUATTE",
+            "sexe": "1",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1265",
+            "sitename": "CSR OUATTE",
+            "sexe": "2",
+            "received": 8
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "2439",
+            "sitename": "CSR N'GUESSAN BRINDOUKRO",
+            "sexe": "2",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0624",
+            "sitename": "CSU AMANVI",
+            "sexe": "2",
+            "received": 23
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "\"\"",
+            "sitename": "Disp KOTOBI",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "05",
+            "sitename": "CSR DADIASSE",
+            "sexe": "2",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1256",
+            "sitename": "CSR KOTOGWAND",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1256",
+            "sitename": "CSR KOTOGWAND",
+            "sexe": "2",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1261",
+            "sitename": "CSU TANKESSE",
+            "sexe": "1",
+            "received": 18
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1266",
+            "sitename": "CSR DIAMB",
+            "sexe": "2",
+            "received": 18
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1266",
+            "sitename": "CSR DIAMB",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1275",
+            "sitename": "H G TRANSUA",
+            "sexe": "2",
+            "received": 37
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1275",
+            "sitename": "H G TRANSUA",
+            "sexe": "1",
+            "received": 13
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1257",
+            "sitename": "HG KOUN FAO",
+            "sexe": "2",
+            "received": 44
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1257",
+            "sitename": "HG KOUN FAO",
+            "sexe": "1",
+            "received": 11
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0490",
+            "sitename": "CSU TABAGNE",
+            "sexe": "2",
+            "received": 15
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "8787",
+            "sitename": "PMI BONDOUKOU",
+            "sexe": "2",
+            "received": 26
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "NGRE",
+            "sitename": "INFIRMERIE NOIRE GRENIER",
+            "sexe": "2",
+            "received": 15
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "NGRE",
+            "sitename": "INFIRMERIE NOIRE GRENIER",
+            "sexe": "1",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0134",
+            "sitename": "CSR APPIMANDOUM",
+            "sexe": "2",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0134",
+            "sitename": "CSR APPIMANDOUM",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0489",
+            "sitename": "CSU SOROBANGO",
+            "sexe": "2",
+            "received": 17
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0489",
+            "sitename": "CSU SOROBANGO",
+            "sexe": "1",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0476",
+            "sitename": "CSU BONDOUKOU",
+            "sexe": "2",
+            "received": 8
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "2719",
+            "sitename": "CM BANACOMOE",
+            "sexe": "2",
+            "received": 7
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "037",
+            "sitename": "CSU APPOISSO",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "037",
+            "sitename": "CSU APPOISSO",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "7977",
+            "sitename": "MARIA GRACI",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "041",
+            "sitename": "CSU EBILASSOUKRO",
+            "sexe": "2",
+            "received": 7
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "041",
+            "sitename": "CSU EBILASSOUKRO",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0418",
+            "sitename": "HOPITAL GENERAL AGNIBILEKROU",
+            "sexe": "1",
+            "received": 15
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "4",
+            "sitename": "PEDIATRIE CHU COCODY",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "4",
+            "sitename": "PEDIATRIE CHU COCODY",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0423",
+            "sitename": "CSU DAME",
+            "sexe": "2",
+            "received": 17
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0423",
+            "sitename": "CSU DAME",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0248",
+            "sitename": "PMI AGNIBILEKRO",
+            "sexe": "2",
+            "received": 14
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0248",
+            "sitename": "PMI AGNIBILEKRO",
+            "sexe": "1",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "043",
+            "sitename": "CSU SANKADIOKR",
+            "sexe": "2",
+            "received": 11
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "052",
+            "sitename": "CSU AFFALIKR",
+            "sexe": "2",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "039",
+            "sitename": "CSU APPROMPRONOU",
+            "sexe": "1",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "039",
+            "sitename": "CSU APPROMPRONOU",
+            "sexe": "2",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "033",
+            "sitename": "CSU AMELEKIA",
+            "sexe": "1",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "043",
+            "sitename": "CSU SANKADIOKR",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0425",
+            "sitename": "CSU DUFFREBO",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0425",
+            "sitename": "CSU DUFFREBO",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "046",
+            "sitename": "CSU YAKASSE FEYASSE",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "046",
+            "sitename": "CSU YAKASSE FEYASSE",
+            "sexe": "2",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1100",
+            "sitename": "PMI BOUNA",
+            "sexe": "2",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1100",
+            "sitename": "PMI BOUNA",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "2609",
+            "sitename": "DR YOUNDOUO",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1141",
+            "sitename": "CSU FLAKIEDOUGOU",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1141",
+            "sitename": "CSU FLAKIEDOUGOU",
+            "sexe": "2",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0496",
+            "sitename": "CSR TROSSANGUEHI",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1591",
+            "sitename": "CSR GBANHUI",
+            "sexe": "1",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1594",
+            "sitename": "CSU LAOUDIBA BONDOUKOU",
+            "sexe": "2",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1594",
+            "sitename": "CSU LAOUDIBA BONDOUKOU",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0487",
+            "sitename": "CSU SAPLI SEPINGO",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0349",
+            "sitename": "CSU SAPLI",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "487\/02",
+            "sitename": "CSU YEZIMALA BONDOUKOU",
+            "sexe": "2",
+            "received": 13
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "487\/02",
+            "sitename": "CSU YEZIMALA BONDOUKOU",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0656",
+            "sitename": "CSU BONDO",
+            "sexe": "2",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0475",
+            "sitename": "CSR KOUASSI N'DAW",
+            "sexe": "2",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0490",
+            "sitename": "CSU TABAGNE",
+            "sexe": "1",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0159",
+            "sitename": "DISPENSAIRE DE KAMALA",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0159",
+            "sitename": "DISPENSAIRE DE KAMALA",
+            "sexe": "2",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "8787",
+            "sitename": "PMI BONDOUKOU",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1524",
+            "sitename": "02 C SOKO",
+            "sexe": "2",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1524",
+            "sitename": "02 C SOKO",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "472",
+            "sitename": "SSSU BONDOUKOU",
+            "sexe": "2",
+            "received": 11
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "472",
+            "sitename": "SSSU BONDOUKOU",
+            "sexe": "1",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0494",
+            "sitename": "CSU TROUDI",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0731",
+            "sitename": "CSR ASSIE KOUMASSI",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "501",
+            "sitename": "CSR APPOUASSO",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0441",
+            "sitename": "CSR MAMASSI",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1270",
+            "sitename": "CSR GUIENDE",
+            "sexe": "1",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1270",
+            "sitename": "CSR GUIENDE",
+            "sexe": "2",
+            "received": 13
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0624",
+            "sitename": "CSU AMANVI",
+            "sexe": "1",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "05",
+            "sitename": "CSR DADIASSE",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1273",
+            "sitename": "CSU TIEDIO",
+            "sexe": "2",
+            "received": 13
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1273",
+            "sitename": "CSU TIEDIO",
+            "sexe": "1",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "2439",
+            "sitename": "CSR N'GUESSAN BRINDOUKRO",
+            "sexe": "1",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "1263",
+            "sitename": "CSU TIENKOIKRO",
+            "sexe": "2",
+            "received": 10
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "048",
+            "sitename": "CSU ZARAN",
+            "sexe": "1",
+            "received": 7
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0682",
+            "sitename": "CSU DIMANDOUGOU",
+            "sexe": "2",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0682",
+            "sitename": "CSU DIMANDOUGOU",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0866",
+            "sitename": "CSR KRAKRO",
+            "sexe": "2",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0866",
+            "sitename": "CSR KRAKRO",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1961",
+            "sitename": "DISPENSAIRE SAINTE MARIE",
+            "sexe": "2",
+            "received": 18
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1961",
+            "sitename": "DISPENSAIRE SAINTE MARIE",
+            "sexe": "1",
+            "received": 11
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0311",
+            "sitename": "DU BONDOUKOU",
+            "sexe": "2",
+            "received": 53
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0311",
+            "sitename": "DU BONDOUKOU",
+            "sexe": "1",
+            "received": 13
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "34",
+            "sitename": "HG Daoukro",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "702",
+            "sitename": "CSU COM ZOE BRUNO",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0471",
+            "sitename": "CHR BONDOUKOU",
+            "sexe": "2",
+            "received": 36
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0471",
+            "sitename": "CHR BONDOUKOU",
+            "sexe": "1",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0483",
+            "sitename": "CSR HERBO",
+            "sexe": "2",
+            "received": 8
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0483",
+            "sitename": "CSR HERBO",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0490",
+            "sitename": "CSU TABAGNE",
+            "sexe": "2",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0134",
+            "sitename": "CSR APPIMANDOUM",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0134",
+            "sitename": "CSR APPIMANDOUM",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "8787",
+            "sitename": "PMI BONDOUKOU",
+            "sexe": "2",
+            "received": 26
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1524",
+            "sitename": "02 C SOKO",
+            "sexe": "2",
+            "received": 9
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1524",
+            "sitename": "02 C SOKO",
+            "sexe": "1",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0473",
+            "sitename": "CAT BONDOUKOU",
+            "sexe": "2",
+            "received": 14
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "025",
+            "sitename": "CHR Abengourou",
+            "sexe": "1",
+            "received": 18
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "025",
+            "sitename": "CHR Abengourou",
+            "sexe": "2",
+            "received": 48
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "035",
+            "sitename": "CSU ANIASSUE",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "054",
+            "sitename": "CSU NIABLE",
+            "sexe": "2",
+            "received": 12
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "054",
+            "sitename": "CSU NIABLE",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1590",
+            "sitename": "PIM ABENGOUROU",
+            "sexe": "2",
+            "received": 14
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "048",
+            "sitename": "CSU ZARAN",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "028",
+            "sitename": "PMI ABENGOUROU",
+            "sexe": "2",
+            "received": 17
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1590",
+            "sitename": "PIM ABENGOUROU",
+            "sexe": "1",
+            "received": 13
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1940",
+            "sitename": "CMS BETHESDA",
+            "sexe": "2",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "027",
+            "sitename": "DISPENSAIRE DIOULAKRO",
+            "sexe": "1",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "033",
+            "sitename": "CSU AMELEKIA",
+            "sexe": "2",
+            "received": 12
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "033",
+            "sitename": "CSU AMELEKIA",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "041",
+            "sitename": "CSU EBILASSOUKRO",
+            "sexe": "2",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0418",
+            "sitename": "HOPITAL GENERAL AGNIBILEKROU",
+            "sexe": "2",
+            "received": 19
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0418",
+            "sitename": "HOPITAL GENERAL AGNIBILEKROU",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0248",
+            "sitename": "PMI AGNIBILEKRO",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0248",
+            "sitename": "PMI AGNIBILEKRO",
+            "sexe": "2",
+            "received": 10
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "043",
+            "sitename": "CSU SANKADIOKR",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "050",
+            "sitename": "HG BETTIE",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "029",
+            "sitename": "SSSU ABENGOUROU",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "030",
+            "sitename": "CAT ABENGOUROU",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "2546",
+            "sitename": "MTE HKB CAFETOU",
+            "sexe": "2",
+            "received": 14
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "2546",
+            "sitename": "MTE HKB CAFETOU",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "030",
+            "sitename": "CAT ABENGOUROU",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "8787",
+            "sitename": "PMI BONDOUKOU",
+            "sexe": "1",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0473",
+            "sitename": "CAT BONDOUKOU",
+            "sexe": "1",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0153",
+            "sitename": "CAT BONDOUKOU",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0489",
+            "sitename": "CSU SOROBANGO",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0489",
+            "sitename": "CSU SOROBANGO",
+            "sexe": "2",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0494",
+            "sitename": "CSU TROUDI",
+            "sexe": "2",
+            "received": 8
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0682",
+            "sitename": "CSU DIMANDOUGOU",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0682",
+            "sitename": "CSU DIMANDOUGOU",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0502",
+            "sitename": "HG SANDEGUE",
+            "sexe": "2",
+            "received": 12
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0502",
+            "sitename": "HG SANDEGUE",
+            "sexe": "1",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0441",
+            "sitename": "CSR MAMASSI",
+            "sexe": "2",
+            "received": 10
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0472",
+            "sitename": "MEDICO SCOLAIRE BONDOUKOU",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0441",
+            "sitename": "CSR MAMASSI",
+            "sexe": "1",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0494",
+            "sitename": "CSU TROUDI",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "050",
+            "sitename": "HG BETTIE",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "050",
+            "sitename": "HG BETTIE",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "0427",
+            "sitename": "CSU TANGUELAN",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "03",
+            "sitecode": "030",
+            "sitename": "CAT ABENGOUROU",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1257",
+            "sitename": "HG KOUN FAO",
+            "sexe": "2",
+            "received": 37
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1257",
+            "sitename": "HG KOUN FAO",
+            "sexe": "1",
+            "received": 8
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1250",
+            "sitename": "CSU KRAKRO",
+            "sexe": "2",
+            "received": 7
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "027",
+            "sitename": "DISPENSAIRE DIOULAKRO",
+            "sexe": "2",
+            "received": 8
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "052",
+            "sitename": "CSU AFFALIKR",
+            "sexe": "2",
+            "received": 11
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "052",
+            "sitename": "CSU AFFALIKR",
+            "sexe": "1",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1247",
+            "sitename": "CSU KOUASSI-DATEKRO",
+            "sexe": "1",
+            "received": 7
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1247",
+            "sitename": "CSU KOUASSI-DATEKRO",
+            "sexe": "2",
+            "received": 11
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1261",
+            "sitename": "CSU TANKESSE",
+            "sexe": "2",
+            "received": 14
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1261",
+            "sitename": "CSU TANKESSE",
+            "sexe": "1",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1100",
+            "sitename": "PMI BOUNA",
+            "sexe": "1",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1100",
+            "sitename": "PMI BOUNA",
+            "sexe": "2",
+            "received": 13
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0584",
+            "sitename": "HG BOUNA",
+            "sexe": "1",
+            "received": 7
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0584",
+            "sitename": "HG BOUNA",
+            "sexe": "2",
+            "received": 8
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0594",
+            "sitename": "CSU DOROPO",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0594",
+            "sitename": "CSU DOROPO",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0480",
+            "sitename": "CSR YEZIMALA",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0487",
+            "sitename": "DEMAT BONDOUKOU",
+            "sexe": "2",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0349",
+            "sitename": "CSU SAPLI",
+            "sexe": "2",
+            "received": 8
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0349",
+            "sitename": "CSU SAPLI",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "487\/02",
+            "sitename": "CSU YEZIMALA BONDOUKOU",
+            "sexe": "1",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "487\/02",
+            "sitename": "CSU YEZIMALA BONDOUKOU",
+            "sexe": "2",
+            "received": 7
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0487(03)",
+            "sitename": "CSR KNDAWA",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "487\/03",
+            "sitename": "CSR KOUASSI N'DAWA BONDOUKOU",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0928",
+            "sitename": "CMS LES FLAMBOYANTS",
+            "sexe": "2",
+            "received": 7
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0928",
+            "sitename": "CMS LES FLAMBOYANTS",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0599",
+            "sitename": "HG NASSIAN",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0599",
+            "sitename": "HG NASSIAN",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0496",
+            "sitename": "CSR TROSSANGUEHI",
+            "sexe": "2",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0474",
+            "sitename": "CSU TEHINI",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0474",
+            "sitename": "CSU TEHINI",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1601",
+            "sitename": "CSR BOUKO",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1601",
+            "sitename": "CSR BOUKO",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1141",
+            "sitename": "CSU FLAKIEDOUGOU",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0597",
+            "sitename": "CSU KOTOUBA",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0476",
+            "sitename": "CSU BONDOUKOU",
+            "sexe": "2",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0476",
+            "sitename": "CSU BONDOUKOU",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1591",
+            "sitename": "CSR GBANHUI",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1594",
+            "sitename": "CSU LAOUDIBA BONDOUKOU",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1594",
+            "sitename": "CSU LAOUDIBA BONDOUKOU",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "035",
+            "sitename": "CSU ANIASSUE",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1940",
+            "sitename": "CMS BETHESDA",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "028",
+            "sitename": "PMI ABENGOUROU",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "7977",
+            "sitename": "MARIA GRACI",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "7977",
+            "sitename": "MARIA GRACI",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "4",
+            "sitename": "PEDIATRIE CHU COCODY",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0423",
+            "sitename": "CSU DAME",
+            "sexe": "1",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0423",
+            "sitename": "CSU DAME",
+            "sexe": "2",
+            "received": 2
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0427",
+            "sitename": "CSU TANGUELAN",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0427",
+            "sitename": "CSU TANGUELAN",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "046",
+            "sitename": "CSU YAKASSE FEYASSE",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1275",
+            "sitename": "H G TRANSUA",
+            "sexe": "1",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1275",
+            "sitename": "H G TRANSUA",
+            "sexe": "2",
+            "received": 11
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1277",
+            "sitename": "CSR KOUASSIA NIANGUINI",
+            "sexe": "2",
+            "received": 7
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1277",
+            "sitename": "CSR KOUASSIA NIANGUINI",
+            "sexe": "1",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1250",
+            "sitename": "CSU KRAKRO",
+            "sexe": "1",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1265",
+            "sitename": "CSR OUATTE",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1265",
+            "sitename": "CSR OUATTE",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1272",
+            "sitename": "HG TANDA",
+            "sexe": "2",
+            "received": 47
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1272",
+            "sitename": "HG TANDA",
+            "sexe": "1",
+            "received": 21
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "2439",
+            "sitename": "CSR N'GUESSAN BRINDOUKRO",
+            "sexe": "2",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1263",
+            "sitename": "CSU TIENKOIKRO",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1263",
+            "sitename": "CSU TIENKOIKRO",
+            "sexe": "2",
+            "received": 10
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1273",
+            "sitename": "CSU TIEDIO",
+            "sexe": "1",
+            "received": 5
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1273",
+            "sitename": "CSU TIEDIO",
+            "sexe": "2",
+            "received": 13
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1244",
+            "sitename": "CSU ASSUEFRY",
+            "sexe": "2",
+            "received": 6
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1244",
+            "sitename": "CSU ASSUEFRY",
+            "sexe": "1",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0624",
+            "sitename": "CSU AMANVI",
+            "sexe": "2",
+            "received": 14
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0624",
+            "sitename": "CSU AMANVI",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1266",
+            "sitename": "CSR DIAMB",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1256",
+            "sitename": "CSR KOTOGWAND",
+            "sexe": "2",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "05",
+            "sitename": "CSR DADIASSE",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "05",
+            "sitename": "CSR DADIASSE",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1270",
+            "sitename": "CSR GUIENDE",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "1270",
+            "sitename": "CSR GUIENDE",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0606",
+            "sitename": "CSU SOROBANG",
+            "sexe": "2",
+            "received": 3
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0606",
+            "sitename": "CSU SOROBANG",
+            "sexe": "1",
+            "received": 1
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0487",
+            "sitename": "CSU SAPLI SEPINGO",
+            "sexe": "1",
+            "received": 4
+        }, {
+            "year": "2018",
+            "month": "04",
+            "sitecode": "0487(02)",
+            "sitename": "CSU YEZIMALA",
+            "sexe": "2",
+            "received": 1
+        }],
+    "success": "1",
+    "nbread": 3763
+}
