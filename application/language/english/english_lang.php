@@ -114,6 +114,7 @@ $lang['label.tests'] = "Tests";
 $lang['label.test'] = "Test";
 $lang['label.suppressed'] = "Suppressed";
 $lang['label.non_suppressed'] = "Non - Suppressed";
+$lang['label.non_suppressed_'] = "Non - Suppressed";
 $lang['label.suppression'] = "Suppression";
 $lang['label.export_csv'] = "Export to CSV";
 $lang['label.export_excel'] = "Export to Excel";

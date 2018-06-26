@@ -16,7 +16,7 @@
             x: -20 //center
         },
         xAxis: {
-            categories: ['<?= lang('label_month1'); ?>', '<?= lang('label_month2'); ?>', '<?= lang('label_month3'); ?>']
+            categories: ['<?= lang('label.month1'); ?>', '<?= lang('label.month2'); ?>', '<?= lang('label.month3'); ?>']
         },
         yAxis: {
             title: {

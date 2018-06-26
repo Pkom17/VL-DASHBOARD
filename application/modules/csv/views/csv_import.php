@@ -11,6 +11,9 @@
         <script src="<?PHP echo base_url(); ?>assets/plugins/select2/js/select2.min.js"></script>
         <?php
         ?>
+        <style type="text/css">
+
+        </style>
     </head>
     <body>
         <div class="navbar navbar-default" style="height: 135px;">
@@ -113,8 +116,11 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
+                    <div class="col-sm-offset-2 col-sm-3">
                         <button type="submit" name="import_csv_btn" class="btn btn-primary" id="import_csv_btn"><?= lang("import.csv"); ?></button>
+                    </div>
+                    <div class="col-sm-4" id="loader">
+                        
                     </div>
                 </div>
             </form>
@@ -125,6 +131,7 @@
             $(document).ready(function () {
                 $('#imported_csv_data').addClass('hidden');
                 $('#import_csv').on('submit', function (event) {
+                    $('#loader').html('');
                     event.preventDefault();
                     $.ajax({
                         url: "<?php echo base_url(); ?>Csv/upload",
@@ -136,17 +143,20 @@
                         beforeSend: function () {
                             $('#import_csv_btn').attr('disabled', true);
                             $('#import_csv_btn').html('<?= lang("label.importing"); ?>');
+                            $('#loader').html('<img src="<?PHP echo base_url(); ?>assets/img/loader.gif" width="70" height="70" />');
                         },
                         success: function (data)
                         {
+                            $('#loader').html('');
                             console.log(data);
                             var d = JSON.parse(data);
                             $('#import_csv_btn').html('<?= lang("import.csv"); ?>');
                             //$('#select_site').reset();
                             $('#import_csv')[0].reset();
+                            $(".js-example-basic-single").select2();
                             $('#import_csv_btn').attr('disabled', false);
                             $('#imported_csv_data').removeClass('hidden');
-                            if(d.success == 1){
+                            if (d.success == 1) {
                                 $('#imported_csv_data').append('<p>Fichier charge avec succes</p>');
                             }
                             $('#imported_csv_data').append('<p>' + d.nbread + ' lignes lues</p>');
