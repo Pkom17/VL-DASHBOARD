@@ -179,6 +179,7 @@ class RegimenDispatcher {
                     $over18 += 1;
                 }
             }
+            $data[$key]['dateupdated'] = date('d/m/Y H:i:s');
             $data[$key]['month'] = $v['month'];
             $data[$key]['year'] = $v['year'];
             $data[$key]['regimen'] = $v['regimen'];
@@ -317,6 +318,7 @@ class RegimenDispatcher {
                     $over18 += 1;
                 }
             }
+            $data[$key]['dateupdated'] = date('d/m/Y H:i:s');
             $data[$key]['month'] = $v['month'];
             $data[$key]['year'] = $v['year'];
             $data[$key]['sitecode'] = $v['sitecode'];

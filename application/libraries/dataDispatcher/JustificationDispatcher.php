@@ -171,6 +171,7 @@ class JustificationDispatcher {
                     $over18 += 1;
                 }
             }
+            $data[$key]['dateupdated'] = date('d/m/Y H:i:s');
             $data[$key]['month'] = $v['month'];
             $data[$key]['year'] = $v['year'];
             $data[$key]['justification'] = $v['justification'];
@@ -305,6 +306,7 @@ class JustificationDispatcher {
                     $over18 += 1;
                 }
             }
+            $data[$key]['dateupdated'] = date('d/m/Y H:i:s');
             $data[$key]['month'] = $v['month'];
             $data[$key]['year'] = $v['year'];
             $data[$key]['sitecode'] = $v['sitecode'];

@@ -234,7 +234,7 @@ class Csv_import_model extends CI_Model {
     }
 
     public function findDistrictIdByDatimCode($datimcode) {
-        $sql = 'select d.ID from districts d join  facilitys f on f.district = d.ID  where f.DATIMcode = ? ';
+        $sql = 'select d.ID ID from districts d join  facilitys f on f.district = d.ID  where f.DATIMcode = ? ';
         $query = $this->db->query($sql, array($datimcode));
         $rows = $query->result_array();
         if (is_array($rows) && isset($rows[0]['ID'])) {
@@ -245,7 +245,7 @@ class Csv_import_model extends CI_Model {
     }
 
     public function findCountyIdByDatimCode($datimcode) {
-        $sql = 'select c.id from countys c join  districts d on d.county = c.id join  facilitys f on f.district = d.id  where f.DATIMcode = ? ';
+        $sql = 'select c.id ID from countys c join  districts d on d.county = c.id join  facilitys f on f.district = d.id  where f.DATIMcode = ? ';
         $query = $this->db->query($sql, array($datimcode));
         $rows = $query->result_array();
         if (is_array($rows) && isset($rows[0]['ID'])) {
@@ -256,7 +256,7 @@ class Csv_import_model extends CI_Model {
     }
 
     public function findPartnerIdByDatimCode($datimcode) {
-        $sql = 'select p.ID from  partners p join  facilitys f on f.partner = p.ID  where f.DATIMcode = ? ';
+        $sql = 'select p.ID ID from  partners p join  facilitys f on f.partner = p.ID  where f.DATIMcode = ? ';
         $query = $this->db->query($sql, array($datimcode));
         $rows = $query->result_array();
         if (is_array($rows) && isset($rows[0]['ID'])) {
@@ -267,7 +267,7 @@ class Csv_import_model extends CI_Model {
     }
 
     public function findLabIdByDatimCode($datimcode) {
-        $sql = 'select p.ID from  labs l join  facilitys f on f.lab = l.ID  where f.DATIMcode = ? ';
+        $sql = 'select l.ID ID from  labs l join  facilitys f on f.lab = l.ID  where f.DATIMcode = ? ';
         $query = $this->db->query($sql, array($datimcode));
         $rows = $query->result_array();
         if (is_array($rows) && isset($rows[0]['ID'])) {
@@ -278,7 +278,7 @@ class Csv_import_model extends CI_Model {
     }
 
     public function findJustificationIdByName($name) {
-        $sql = 'select v.ID from  viraljustifications v where v.name = ?';
+        $sql = 'select v.ID ID from  viraljustifications v where v.name = ?';
         $query = $this->db->query($sql, array($name));
         $rows = $query->result_array();
         if (is_array($rows) && isset($rows[0]['ID'])) {
@@ -289,7 +289,7 @@ class Csv_import_model extends CI_Model {
     }
 
     public function findRegimenIdByName($name) {
-        $sql = 'select v.ID from  viralprophylaxis v where v.name = ?';
+        $sql = 'select v.ID ID from  viralprophylaxis v where v.name = ?';
         $query = $this->db->query($sql, array($name));
         $rows = $query->result_array();
         if (is_array($rows) && isset($rows[0]['ID'])) {
@@ -300,7 +300,7 @@ class Csv_import_model extends CI_Model {
     }
     
     public function findSampleTypeIdByname($name){
-        $sql = 'select v.ID from  viralsampletypedetails v where v.name = ?';
+        $sql = 'select v.ID ID from  viralsampletypedetails v where v.name = ?';
         $query = $this->db->query($sql, array($name));
         $rows = $query->result_array();
         if (is_array($rows) && isset($rows[0]['ID'])) {
