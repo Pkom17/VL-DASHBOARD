@@ -469,7 +469,7 @@ class Summaries_model extends MY_Model {
                 $month = 0;
             }
         }
-
+        
         if ($partner) {
             $sql = "CALL `proc_get_partner_age`('" . $partner . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
         } else {
@@ -504,34 +504,34 @@ class Summaries_model extends MY_Model {
                 $name = $value['name'];
                 $nonsuppressed = $value['nonsuppressed'];
                 $suppressed = $value['suppressed'];
-            } else if ($value['name'] == lang('label.less2')) {
+            } else if (lang($value['name']) == lang('label.less2')) {
                 $loop = $key;
-                $name = $value['name'];
+                $name = lang($value['name']);
                 $nonsuppressed = $value['nonsuppressed'];
                 $suppressed = $value['suppressed'];
-            } else if ($value['name'] == lang('label.less9')) {
+            } else if (lang($value['name']) == lang('label.less9')) {
                 $loop = $key;
-                $name = $value['name'];
+                $name = lang($value['name']);
                 $nonsuppressed = $value['nonsuppressed'];
                 $suppressed = $value['suppressed'];
-            } else if ($value['name'] == lang('label.less14')) {
+            } else if (lang($value['name']) == lang('label.less14')) {
                 $loop = $key;
-                $name = $value['name'];
+                $name = lang($value['name']);
                 $nonsuppressed = $value['nonsuppressed'];
                 $suppressed = $value['suppressed'];
-            } else if ($value['name'] == lang('label.less19')) {
+            } else if (lang($value['name']) == lang('label.less19')) {
                 $loop = $key;
-                $name = $value['name'];
+                $name = lang($value['name']);
                 $nonsuppressed = $value['nonsuppressed'];
                 $suppressed = $value['suppressed'];
-            } else if ($value['name'] == lang('label.less24')) {
+            } else if (lang($value['name']) == lang('label.less24')) {
                 $loop = $key;
-                $name = $value['name'];
+                $name = lang($value['name']);
                 $nonsuppressed = $value['nonsuppressed'];
                 $suppressed = $value['suppressed'];
-            } else if ($value['name'] == lang('label.over25')) {
+            } else if (lang($value['name']) == lang('label.over25')) {
                 $loop = $key;
-                $name = $value['name'];
+                $name = lang($value['name']);
                 $nonsuppressed = $value['nonsuppressed'];
                 $suppressed = $value['suppressed'];
             }
@@ -603,19 +603,19 @@ class Summaries_model extends MY_Model {
 
         foreach ($result as $key => $value) {
 
-            if ($value['name'] == lang('label.less2') || $value['name'] == lang('label.less9') || $value['name'] == lang('label.less14')) {
+            if (lang($value['name']) == lang('label.less2') || lang($value['name']) == lang('label.less9') || lang($value['name']) == lang('label.less14')) {
                 $data['ul']['children'] = '';
                 $children = (int) $children + (int) $value['agegroups'];
                 $schildren = (int) $schildren + (int) $value['suppressed'];
                 $data['children']['data'][$key]['y'] = $count;
-                $data['children']['data'][$key]['name'] = $value['name'];
+                $data['children']['data'][$key]['name'] = lang($value['name']);
                 $data['children']['data'][$key]['y'] = (int) $value['agegroups'];
-            } else if ($value['name'] == lang('label.less19') || $value['name'] == lang('label.less24') || $value['name'] == lang('label.over25')) {
+            } else if (lang($value['name']) == lang('label.less19') || lang($value['name']) == lang('label.less24') || lang($value['name']) == lang('label.over25')) {
                 $data['ul']['adults'] = '';
                 $adults = (int) $adults + (int) $value['agegroups'];
                 $sadult = (int) $sadult + (int) $value['suppressed'];
                 $data['adults']['data'][$key]['y'] = $count;
-                $data['adults']['data'][$key]['name'] = $value['name'];
+                $data['adults']['data'][$key]['name'] = lang($value['name']);
                 $data['adults']['data'][$key]['y'] = (int) $value['agegroups'];
             }
         }
@@ -687,7 +687,7 @@ class Summaries_model extends MY_Model {
         $data['categories'][0] = lang('label.no_data');
 
         foreach ($result as $key => $value) {
-            $data['categories'][$key] = $value['name'];
+            $data['categories'][$key] = lang($value['name']);
             $data["gender"][0]["data"][$key] = (int) $value['nonsuppressed'];
             $data["gender"][1]["data"][$key] = (int) $value['suppressed'];
         }
