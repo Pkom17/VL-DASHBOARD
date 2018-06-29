@@ -1,6 +1,3 @@
-[submodule "vldash-api/VL-API"]
-	path = vldash-api/VL-API
-	url = https://github.com/CalebSLane/VL-API.git
 [submodule "VL-API"]
 	path = VL-API
 	url = https://github.com/CalebSLane/VL-API.git
