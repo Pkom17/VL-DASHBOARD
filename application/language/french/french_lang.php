@@ -193,10 +193,10 @@ $lang['label.table_eqa_tests'] = "Tests EEQ";
 //application/modules/charts/views/lab_tat_view.php
 //application/modules/charts/views/lab_turnaround_key_view.php
 $lang['label.key'] = "Clé";
-$lang['label.collection_receipt_cr'] = "réception des collectes";
-$lang['label.receipt_process'] = "Réception pour envoi";
-$lang['label.process_dispatch'] = "Processus d'envoi";
-$lang['label.collection_dispatch_cd'] = "Envoi des collectes";
+$lang['label.collection_receipt_cr'] = "De la réception au Prélevement";
+$lang['label.receipt_process'] = "Réception au traitement";
+$lang['label.process_dispatch'] = "Du Traitement à l'envoi";
+$lang['label.collection_dispatch_cd'] = "Du Prélèvement a l'envoi";
 //application/modules/charts/views/labs_rejection_trends.php
 $lang['label.rejection_percent'] = "pourcentage de rejet";
 //application/modules/charts/views/labs_sample_types.php
@@ -507,12 +507,12 @@ $lang['label.collection_dispatch'] = "Envoi de la collection";
 $lang['label.TAT_days'] = "Temps de traitement (Jours)";
 $lang['label.no_gender'] = "sans sexe";
 $lang['label.no_age'] = "sans Age";
-$lang['label.less2'] = "Moins de 2";
+$lang['label.less2'] = "<2";
 $lang['label.less9'] = "2-9";
 $lang['label.less14'] = "10-14";
 $lang['label.less19'] = "15-19";
 $lang['label.less24'] = "20-24";
-$lang['label.over25'] = "25+";
+$lang['label.over25'] = ">25";
 $lang['label.non_suppression'] = "Non suppression";
 $lang['label.download_list_of_all_supported_sites'] = "TÉLÉCHARGER LA LISTE DE TOUS LES SITES PRIS EN CHARGE";
 $lang['label.facility_listing'] = "Liste des etablissements";

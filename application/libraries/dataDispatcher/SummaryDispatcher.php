@@ -40,7 +40,7 @@ class SummaryDispatcher {
             $year = \CsvUtils::extractYear($row);
             $month = \CsvUtils::extractMonth($row);
             $sitecode = \CsvUtils::extractDatimCode($row);
-            if (!in_array(['year' => $year, 'month' => $month,'sitecode'=>$sitecode], $periode1)) {
+            if (!in_array(['year' => $year, 'month' => $month, 'sitecode' => $sitecode], $periode1)) {
                 $periode1[$x]['year'] = $year;
                 $periode1[$x]['month'] = $month;
                 $periode1[$x]['sitecode'] = $sitecode;
@@ -201,6 +201,9 @@ class SummaryDispatcher {
             $data[$key]['edta'] = $edta;
             $data[$key]['dbs'] = $dbs;
             $data[$key]['plasma'] = $plasma;
+            $data[$key]['alledta'] = $edta;
+            $data[$key]['alldbs'] = $dbs;
+            $data[$key]['allplasma'] = $plasma;
             $data[$key]['maletest'] = $maletests;
             $data[$key]['femaletest'] = $femaletests;
             $data[$key]['nogendertest'] = $nogendertests;
@@ -287,6 +290,7 @@ class SummaryDispatcher {
                     $tat_count += 1;
 
                     $alltests += 1;
+                    $received += 1;
                     if ($sample == \CsvUtils::SAMPLE_EDTA_IN_BASE) {
                         $edta += 1;
                     } elseif ($sample == \CsvUtils::SAMPLE_DBS) {
@@ -356,6 +360,9 @@ class SummaryDispatcher {
             $data[$key]['edta'] = $edta;
             $data[$key]['dbs'] = $dbs;
             $data[$key]['plasma'] = $plasma;
+            $data[$key]['alledta'] = $edta;
+            $data[$key]['alldbs'] = $dbs;
+            $data[$key]['allplasma'] = $plasma;
             $data[$key]['maletest'] = $maletests;
             $data[$key]['femaletest'] = $femaletests;
             $data[$key]['nogendertest'] = $nogendertests;

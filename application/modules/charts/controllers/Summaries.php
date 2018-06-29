@@ -57,7 +57,7 @@ class Summaries extends MY_Controller {
 	function age($year=NULL,$month=NULL,$county=NULL,$partner=NULL,$to_year=NULL,$to_month=NULL)
 	{
 		$data['outcomes'] = $this->summaries_model->age($year,$month,$county,$partner,$to_year,$to_month);
-		
+                
     	$this->load->view('agegroup_view',$data);
 	}
 
@@ -71,7 +71,6 @@ class Summaries extends MY_Controller {
 	function gender($year=NULL,$month=NULL,$county=NULL,$partner=NULL,$to_year=NULL,$to_month=NULL)
 	{
 		$data['outcomes'] = $this->summaries_model->gender($year,$month,$county,$partner,$to_year,$to_month);
-
     	$this->load->view('gender_view',$data);
 	}
 
@@ -81,8 +80,8 @@ class Summaries extends MY_Controller {
 		$link = $year . '/' . $county . '/' . $partner;
 
 		$data['link'] = base_url('charts/summaries/download_sampletypes/' . $link);
-
-    	$this->load->view('national_sample_types',$data);
+    	
+                $this->load->view('national_sample_types',$data);
 	}
 
 	function download_sampletypes($year=NULL,$county=NULL,$partner=NULL)

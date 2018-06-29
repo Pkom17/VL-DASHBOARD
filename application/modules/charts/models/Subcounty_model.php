@@ -104,7 +104,7 @@ class Subcounty_model extends MY_Model
 						<td>".number_format((int) $value['sitesending'])."</td>
 						<td>".number_format((int) $value['received'])."</td>
 						<td>".number_format((int) $value['rejected']) . " (" . 
-							round((($value['rejected']*100)/$value['received']), 1, PHP_ROUND_HALF_UP)."%)</td>
+							@round((($value['rejected']*100)/$value['received']), 1, PHP_ROUND_HALF_UP)."%)</td>
 						<td>".number_format((int) $value['alltests'])."</td>
 						<td>".number_format((int) $value['invalids'])."</td>
 
