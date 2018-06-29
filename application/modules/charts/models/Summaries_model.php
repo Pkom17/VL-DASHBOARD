@@ -399,7 +399,7 @@ class Summaries_model extends MY_Model {
 
         foreach ($result as $key => $value) {
             if ($value['name'] == lang('label.routine_vl')) {
-                $data['justification']['data'][$key]['color'] = '#5C97BF';
+                $data['justification']['data'][$key]['color'] = '#5C970F';
             }
             $data['justification']['data'][$key]['y'] = $count;
 

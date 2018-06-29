@@ -101,13 +101,13 @@
             <h3><?= lang("load.csv.file"); ?></h3>
             <form class="form-horizontal" role="form" method="post" id="import_csv" action="" enctype="multipart/form-data">
                 <div class="form-group ">
-                    <label for="select_site" class="control-label col-sm-2"><?= lang("label.site"); ?></label>
+                  <!--  <label for="select_site" class="control-label col-sm-2"><?= lang("label.site"); ?></label>
                     <div class="form-group col-sm-10">
                         <select id="select_site" name="site" class="btn btn-primary js-example-basic-single" required>
                             <option  value="" disabled="true" selected="true"><?= lang('label.site_select') ?></option>
                             <?php echo $sites; ?>
-                        </select>
-                    </div>
+                        </select> 
+                    </div> -->
                 </div>
                 <div class="form-group">
                     <label for="csv_file" class="control-label col-sm-2"><?= lang("select.csv.file"); ?></label>

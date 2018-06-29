@@ -51,7 +51,7 @@ class Csv extends MY_Controller {
         }
         $agecategories1 = $this->Csv_import_model->get_ageCategory1();
         $agecategories2 = $this->Csv_import_model->get_ageCategory2();
-        $site = $this->input->post("site");
+       // $site = $this->input->post("site");
         $file_data = $this->upload->data();
         $csv_array = $this->csvimport->get_array($file_data['full_path']);
         //if(count($csv_array))
