@@ -45,7 +45,8 @@ class MY_Controller extends MX_Controller {
     }
 
     public function load_libraries($arr) {
-
+        
+        array_unshift($arr, "datepicker-en", "datepicker-fr");
         array_unshift($arr, "jquery", "jquery-ui", "bootstrap");
 
         $libs['js_files'] = array();

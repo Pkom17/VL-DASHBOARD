@@ -6,19 +6,19 @@ BEGIN
   SET @QUERY =    "SELECT
 					`month`,
 					`year`,
-					`edta`,
-					`dbs`,
-					`plasma`,
-					`alledta`,
-					`alldbs`,
-					`allplasma`,
-					(`Undetected`+`less1000`) AS `suppressed`,
-					(`Undetected`+`less1000`+`less5000`+`above5000`) AS `tests`,
-					((`Undetected`+`less1000`)*100/(`Undetected`+`less1000`+`less5000`+`above5000`)) AS `suppression`
+					SUM(`edta`) AS `edta`,
+ 					SUM(`dbs`) AS `dbs`,
+ 					SUM(`plasma`) AS `plasma`,
+					SUM(`alledta`) AS `alledta`,
+ 					SUM(`alldbs`) AS `alldbs`,
+ 					SUM(`allplasma`) AS `allplasma`,
+					SUM(`Undetected`+`less1000`) AS `suppressed`,
+					SUM(`Undetected`+`less1000`+`less5000`+`above5000`) AS `tests`,
+					SUM((`Undetected`+`less1000`)*100/(`Undetected`+`less1000`+`less5000`+`above5000`)) AS `suppression`
 				FROM `vl_national_summary`
                 WHERE 1";
 
-    SET @QUERY = CONCAT(@QUERY, " AND `year` = '",from_year,"' OR `year`='",to_year,"' ORDER BY `year` ASC, `month` ");
+    SET @QUERY = CONCAT(@QUERY, " AND `year` = '",from_year,"' OR `year`='",to_year,"' GROUP BY `year`, `month` ORDER BY `year` ASC, `month` ");
     
     PREPARE stmt FROM @QUERY;
     EXECUTE stmt;

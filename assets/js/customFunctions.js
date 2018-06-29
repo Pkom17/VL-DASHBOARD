@@ -4,6 +4,9 @@ function format_date(data)
 		var month = date[0];
 	    month = month.toLowerCase();
 	    var months = ["january", "february", "march", "april", "may", "june", "july", "august", "september", "october", "november", "december"];
+	    if ($("#select_user_lang").val() == "french") {
+	    	months = ["janvier", "février", "mars", "avril", "mai", "juin", "juillet", "août", "septembre", "octobre", "novembre", "décembre "];
+	    }
 	    month = months.indexOf(month)+1;
 		
 		return [month, date[1]];
