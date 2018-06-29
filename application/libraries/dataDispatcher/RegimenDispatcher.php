@@ -30,9 +30,11 @@ class RegimenDispatcher {
     }
 
     public function dispatchByRegimen($type) {
-        $periode = [];
+        $periode1 = [];
+        $periode2 = [];
         $array = $this->data;
         $x = 0;
+        $y = 0;
         foreach ($array as $row) {
             $year = \CsvUtils::extractYear($row);
             $month = \CsvUtils::extractMonth($row);
@@ -42,33 +44,37 @@ class RegimenDispatcher {
             $c3 = \CsvUtils::extractVLCurrent3($row);
             $regimenExtractor = new RegimenExtractor();
             $regimen = $regimenExtractor->getRegimen($c1, $c2, $c3);
-            foreach ($periode as $val) {
-                if (($val['year'] == $year) && ($val['month'] == $month ) && ($val['sitecode'] == $sitecode ) && ($val['regimen'] == $regimen )) {
-                    continue(2);
-                }
+
+            if (!in_array(['year' => $year, 'month' => $month, 'sitecode' => $sitecode, 'regimen' => $regimen], $periode1)) {
+                $periode1[$x]['year'] = $year;
+                $periode1[$x]['month'] = $month;
+                $periode1[$x]['sitecode'] = $sitecode;
+                $periode1[$x]['regimen'] = $regimen;
+                $x++;
             }
-            $periode[$x]['year'] = $year;
-            $periode[$x]['month'] = $month;
-            $periode[$x]['sitecode'] = $sitecode;
-            $periode[$x]['regimen'] = $regimen;
-            $x++;
+            if (!in_array(['year' => $year, 'month' => $month, 'regimen' => $regimen], $periode2)) {
+                $periode2[$y]['year'] = $year;
+                $periode2[$y]['month'] = $month;
+                $periode2[$y]['regimen'] = $regimen;
+                $y++;
+            }
         }
         $data = [];
         switch ($type) {
             case self::NATIONAL_REGIMEN:
-                $data = $this->dispatchDataToNationalRegimen($periode);
+                $data = $this->dispatchDataToNationalRegimen($periode2);
                 break;
             case self::SITE_REGIMEN:
-                $data = $this->dispatchDataToSiteRegimen($periode);
+                $data = $this->dispatchDataToSiteRegimen($periode1);
                 break;
             case self::COUNTY_REGIMEN:
-                $data = $this->dispatchDataToCountyRegimen($periode);
+                $data = $this->dispatchDataToCountyRegimen($periode1);
                 break;
             case self::SUBCOUNTY_REGIMEN:
-                $data = $this->dispatchDataToSubcountyRegimen($periode);
+                $data = $this->dispatchDataToSubcountyRegimen($periode1);
                 break;
             case self::PARTNER_REGIMEN:
-                $data = $this->dispatchDataToPartnerRegimen($periode);
+                $data = $this->dispatchDataToPartnerRegimen($periode1);
                 break;
         }
         return $data;
@@ -120,7 +126,7 @@ class RegimenDispatcher {
                     continue;
                 }
                 $alltests += 1;
-                if ($sample == \CsvUtils::SAMPLE_EDTA) {
+                if ($sample == \CsvUtils::SAMPLE_EDTA_IN_BASE) {
                     $edta += 1;
                 } elseif ($sample == \CsvUtils::SAMPLE_DBS) {
                     $dbs += 1;
@@ -259,7 +265,7 @@ class RegimenDispatcher {
                     continue;
                 }
                 $alltests += 1;
-                if ($sample == \CsvUtils::SAMPLE_EDTA) {
+                if ($sample == \CsvUtils::SAMPLE_EDTA_IN_BASE) {
                     $edta += 1;
                 } elseif ($sample == \CsvUtils::SAMPLE_DBS) {
                     $dbs += 1;

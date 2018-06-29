@@ -222,6 +222,39 @@ class Csv_import_model extends CI_Model {
             echo $this->db->_error_message();
         }
     }
+    public function saveVLSiteSampleType($array_data) {
+        if (!$this->db->insert_batch('vl_site_sampletype', $array_data)) {
+            echo $this->db->_error_message();
+        }
+    }
+    public function saveVLNationalSampleType($array_data) {
+        if (!$this->db->insert_batch('vl_national_sampletype', $array_data)) {
+            echo $this->db->_error_message();
+        }
+    }
+
+    public function saveVLCountySampleType($array_data) {
+        if (!$this->db->insert_batch('vl_county_sampletype', $array_data)) {
+            echo $this->db->_error_message();
+        }
+    }
+
+    public function saveVLSubcountySampleType($array_data) {
+        if (!$this->db->insert_batch('vl_subcounty_sampletype', $array_data)) {
+            echo $this->db->_error_message();
+        }
+    }
+
+    public function saveVLPartnerSampleType($array_data) {
+        if (!$this->db->insert_batch('vl_partner_sampletype', $array_data)) {
+            echo $this->db->_error_message();
+        }
+    }
+    public function saveVLLabSampleType($array_data) {
+        if (!$this->db->insert_batch('vl_lab_sampletype', $array_data)) {
+            print_r($this->db->_error_message());
+        }
+    }
 
     public function findSiteIdByDatimCode($datimcode) {
         $query = $this->db->query('select ID from facilitys where DATIMcode = ?', array($datimcode));

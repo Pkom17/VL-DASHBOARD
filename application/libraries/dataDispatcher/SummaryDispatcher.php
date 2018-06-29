@@ -31,42 +31,46 @@ class SummaryDispatcher {
     }
 
     public function dispatchBySummary($type) {
-        $periode = [];
+        $periode1 = [];
+        $periode2 = [];
         $array = $this->data;
         $x = 0;
+        $y = 0;
         foreach ($array as $row) {
             $year = \CsvUtils::extractYear($row);
             $month = \CsvUtils::extractMonth($row);
             $sitecode = \CsvUtils::extractDatimCode($row);
-            foreach ($periode as $val) {
-                if (($val['year'] == $year) && ($val['month'] == $month ) && ($val['sitecode'] == $sitecode )) {
-                    continue(2);
-                }
+            if (!in_array(['year' => $year, 'month' => $month,'sitecode'=>$sitecode], $periode1)) {
+                $periode1[$x]['year'] = $year;
+                $periode1[$x]['month'] = $month;
+                $periode1[$x]['sitecode'] = $sitecode;
+                $x++;
             }
-            $periode[$x]['year'] = $year;
-            $periode[$x]['month'] = $month;
-            $periode[$x]['sitecode'] = $sitecode;
-            $x++;
+            if (!in_array(['year' => $year, 'month' => $month], $periode2)) {
+                $periode2[$y]['year'] = $year;
+                $periode2[$y]['month'] = $month;
+                $y++;
+            }
         }
         $data = [];
         switch ($type) {
             case self::NATIONAL_SUMMARY:
-                $data = $this->dispatchDataToNationalSummary($periode);
+                $data = $this->dispatchDataToNationalSummary($periode2);
                 break;
             case self::SITE_SUMMARY:
-                $data = $this->dispatchDataToSiteSummary($periode);
+                $data = $this->dispatchDataToSiteSummary($periode1);
                 break;
             case self::COUNTY_SUMMARY:
-                $data = $this->dispatchDataToCountySummary($periode);
+                $data = $this->dispatchDataToCountySummary($periode1);
                 break;
             case self::SUBCOUNTY_SUMMARY:
-                $data = $this->dispatchDataToSubcountySummary($periode);
+                $data = $this->dispatchDataToSubcountySummary($periode1);
                 break;
             case self::PARTNER_SUMMARY:
-                $data = $this->dispatchDataToPartnerSummary($periode);
+                $data = $this->dispatchDataToPartnerSummary($periode1);
                 break;
             case self::LAB_SUMMARY:
-                $data = $this->dispatchDataToLabSummary($periode);
+                $data = $this->dispatchDataToLabSummary($periode1);
                 break;
         }
         return $data;
@@ -108,6 +112,7 @@ class SummaryDispatcher {
             $less24 = 0;
             $over25 = 0;
             $tat_count = 0; // for average
+
             foreach ($array as $row) {
                 $year = \CsvUtils::extractYear($row);
                 $month = \CsvUtils::extractMonth($row);
@@ -119,74 +124,73 @@ class SummaryDispatcher {
                 $age = \CsvUtils::extractAge($row);
                 $sexe = \CsvUtils::extractSexe($row);
                 $vl = \CsvUtils::extractViralLoad($row);
-                if (!(($v['year'] == $year) && ($v['month'] == $month ))) {
-                    continue;
-                }
-                $tat1 += intval(\CsvUtils::dateDiff($interv_date, $received_date));
-                $tat2 += intval(\CsvUtils::dateDiff($completed_date, $interv_date));
-                $tat3 += intval(\CsvUtils::dateDiff($released_date, $completed_date));
-                $tat4 += intval(\CsvUtils::dateDiff($released_date, $received_date));
-                $tat_count+=1;
-                
-                $alltests += 1;
-                $received += 1;
-                if ($sample == \CsvUtils::SAMPLE_EDTA) {
-                    $edta += 1;
-                } elseif ($sample == \CsvUtils::SAMPLE_DBS) {
-                    $dbs += 1;
-                } elseif ($sample == \CsvUtils::SAMPLE_PLASMA) {
-                    $plasma += 1;
-                }
-                if (intval($age) >= self::AGE_ADULT) {
-                    $adults += 1;
-                }
-                if (intval($age) >= self::AGE_PAEDS) {
-                    $paeds += 1;
-                }
-                if ($age === null || trim($age) === '') {
-                    $noage += 1;
-                }
-                if (intval($sexe) === 1) {
-                    $maletests += 1;
-                } elseif (intval($sexe) === 2) {
-                    $femaletests += 1;
-                } else {
-                    $nogendertests += 1;
-                }
-                if ($vl === '< LL') {
-                    $undetected += 1;
-                } elseif (intval($vl) < 1000) {
-                    $less1000 += 1;
-                } elseif (intval($vl) < 5000) {
-                    $less5000 += 1;
-                } elseif (intval($vl) >= 5000) {
-                    $above5000 += 1;
-                } else {
-                    $invalids += 1;
-                }
-                if (intval($age) < 2) {
-                    $less2 += 1;
-                } elseif (intval($age) <= 9) {
-                    $less9 += 1;
-                } elseif (intval($age) <= 14) {
-                    $less14 += 1;
-                } elseif (intval($age) <= 19) {
-                    $less19 += 1;
-                } elseif (intval($age) <= 24) {
-                    $less24 += 1;
-                } elseif (intval($age) >= 25) {
-                    $over25 += 1;
-                }
-                if (intval($age) < 5) {
-                    $less5 += 1;
-                } elseif (intval($age) < 10) {
-                    $less10 += 1;
-                } elseif (intval($age) < 15) {
-                    $less15 += 1;
-                } elseif (intval($age) < 18) {
-                    $less18 += 1;
-                } elseif (intval($age) >= 18) {
-                    $over18 += 1;
+                if (($v['year'] == $year) && ($v['month'] == $month )) {
+                    $tat1 += intval(\CsvUtils::dateDiff($interv_date, $received_date));
+                    $tat2 += intval(\CsvUtils::dateDiff($completed_date, $interv_date));
+                    $tat3 += intval(\CsvUtils::dateDiff($released_date, $completed_date));
+                    $tat4 += intval(\CsvUtils::dateDiff($released_date, $received_date));
+                    $tat_count += 1;
+                    $alltests += 1;
+                    $received += 1;
+
+                    if ($sample == \CsvUtils::SAMPLE_EDTA_IN_BASE) {
+                        $edta += 1;
+                    } elseif ($sample == \CsvUtils::SAMPLE_DBS) {
+                        $dbs += 1;
+                    } elseif ($sample == \CsvUtils::SAMPLE_PLASMA) {
+                        $plasma += 1;
+                    }
+                    if (intval($age) >= self::AGE_ADULT) {
+                        $adults += 1;
+                    }
+                    if (intval($age) >= self::AGE_PAEDS) {
+                        $paeds += 1;
+                    }
+                    if ($age === null || trim($age) === '') {
+                        $noage += 1;
+                    }
+                    if (intval($sexe) === 1) {
+                        $maletests += 1;
+                    } elseif (intval($sexe) === 2) {
+                        $femaletests += 1;
+                    } else {
+                        $nogendertests += 1;
+                    }
+                    if ($vl === '< LL') {
+                        $undetected += 1;
+                    } elseif (intval($vl) < 1000) {
+                        $less1000 += 1;
+                    } elseif (intval($vl) < 5000) {
+                        $less5000 += 1;
+                    } elseif (intval($vl) >= 5000) {
+                        $above5000 += 1;
+                    } else {
+                        $invalids += 1;
+                    }
+                    if (intval($age) < 2) {
+                        $less2 += 1;
+                    } elseif (intval($age) <= 9) {
+                        $less9 += 1;
+                    } elseif (intval($age) <= 14) {
+                        $less14 += 1;
+                    } elseif (intval($age) <= 19) {
+                        $less19 += 1;
+                    } elseif (intval($age) <= 24) {
+                        $less24 += 1;
+                    } elseif (intval($age) >= 25) {
+                        $over25 += 1;
+                    }
+                    if (intval($age) < 5) {
+                        $less5 += 1;
+                    } elseif (intval($age) < 10) {
+                        $less10 += 1;
+                    } elseif (intval($age) < 15) {
+                        $less15 += 1;
+                    } elseif (intval($age) < 18) {
+                        $less18 += 1;
+                    } elseif (intval($age) >= 18) {
+                        $over18 += 1;
+                    }
                 }
             }
             $data[$key]['dateupdated'] = date('d/m/Y H:i:s');
@@ -213,10 +217,10 @@ class SummaryDispatcher {
             $data[$key]['less15'] = $less15;
             $data[$key]['less18'] = $less18;
             $data[$key]['over18'] = $over18;
-            $data[$key]['tat1'] = round(($tat_count!=0)?($tat1/$tat_count):0,0);
-            $data[$key]['tat2'] = round(($tat_count!=0)?($tat2/$tat_count):0,0);
-            $data[$key]['tat3'] = round(($tat_count!=0)?($tat3/$tat_count):0,0);
-            $data[$key]['tat4'] = round(($tat_count!=0)?($tat4/$tat_count):0,0);
+            $data[$key]['tat1'] = round(($tat_count != 0) ? ($tat1 / $tat_count) : 0, 0);
+            $data[$key]['tat2'] = round(($tat_count != 0) ? ($tat2 / $tat_count) : 0, 0);
+            $data[$key]['tat3'] = round(($tat_count != 0) ? ($tat3 / $tat_count) : 0, 0);
+            $data[$key]['tat4'] = round(($tat_count != 0) ? ($tat4 / $tat_count) : 0, 0);
             $data[$key]['less2'] = $less2;
             $data[$key]['less9'] = $less9;
             $data[$key]['less14'] = $less14;
@@ -275,73 +279,72 @@ class SummaryDispatcher {
                 $interv_date = \CsvUtils::extractInterviewDate($row);
                 $completed_date = \CsvUtils::extractCompletedDate($row);
                 $released_date = \CsvUtils::extractReleasedDate($row);
-                if (!(($v['year'] == $year) && ($v['month'] == $month ) && ($v['sitecode'] == $sitecode ))) {
-                    continue;
-                }
-                $tat1 += intval(\CsvUtils::dateDiff($interv_date, $received_date));
-                $tat2 += intval(\CsvUtils::dateDiff($completed_date, $interv_date));
-                $tat3 += intval(\CsvUtils::dateDiff($released_date, $completed_date));
-                $tat4 += intval(\CsvUtils::dateDiff($released_date, $received_date));
-                $tat_count+=1;
-                
-                $alltests += 1;
-                if ($sample == \CsvUtils::SAMPLE_EDTA) {
-                    $edta += 1;
-                } elseif ($sample == \CsvUtils::SAMPLE_DBS) {
-                    $dbs += 1;
-                } elseif ($sample == \CsvUtils::SAMPLE_PLASMA) {
-                    $plasma += 1;
-                }
-                if (intval($age) >= self::AGE_ADULT) {
-                    $adults += 1;
-                }
-                if (intval($age) >= self::AGE_PAEDS) {
-                    $paeds += 1;
-                }
-                if ($age === null || trim($age) === '') {
-                    $noage += 1;
-                }
-                if (intval($sexe) === 1) {
-                    $maletests += 1;
-                } elseif (intval($sexe) === 2) {
-                    $femaletests += 1;
-                } else {
-                    $nogendertests += 1;
-                }
-                if ($vl === '< LL') {
-                    $undetected += 1;
-                } elseif (intval($vl) < 1000) {
-                    $less1000 += 1;
-                } elseif (intval($vl) < 5000) {
-                    $less5000 += 1;
-                } elseif (intval($vl) >= 5000) {
-                    $above5000 += 1;
-                } else {
-                    $invalids += 1;
-                }
-                if (intval($age) < 2) {
-                    $less2 += 1;
-                } elseif (intval($age) <= 9) {
-                    $less9 += 1;
-                } elseif (intval($age) <= 14) {
-                    $less14 += 1;
-                } elseif (intval($age) <= 19) {
-                    $less19 += 1;
-                } elseif (intval($age) <= 24) {
-                    $less24 += 1;
-                } elseif (intval($age) >= 25) {
-                    $over25 += 1;
-                }
-                if (intval($age) < 5) {
-                    $less5 += 1;
-                } elseif (intval($age) < 10) {
-                    $less10 += 1;
-                } elseif (intval($age) < 15) {
-                    $less15 += 1;
-                } elseif (intval($age) < 18) {
-                    $less18 += 1;
-                } elseif (intval($age) >= 18) {
-                    $over18 += 1;
+                if (($v['year'] == $year) && ($v['month'] == $month ) && ($v['sitecode'] == $sitecode )) {
+                    $tat1 += intval(\CsvUtils::dateDiff($interv_date, $received_date));
+                    $tat2 += intval(\CsvUtils::dateDiff($completed_date, $interv_date));
+                    $tat3 += intval(\CsvUtils::dateDiff($released_date, $completed_date));
+                    $tat4 += intval(\CsvUtils::dateDiff($released_date, $received_date));
+                    $tat_count += 1;
+
+                    $alltests += 1;
+                    if ($sample == \CsvUtils::SAMPLE_EDTA_IN_BASE) {
+                        $edta += 1;
+                    } elseif ($sample == \CsvUtils::SAMPLE_DBS) {
+                        $dbs += 1;
+                    } elseif ($sample == \CsvUtils::SAMPLE_PLASMA) {
+                        $plasma += 1;
+                    }
+                    if (intval($age) >= self::AGE_ADULT) {
+                        $adults += 1;
+                    }
+                    if (intval($age) >= self::AGE_PAEDS) {
+                        $paeds += 1;
+                    }
+                    if ($age === null || trim($age) === '') {
+                        $noage += 1;
+                    }
+                    if (intval($sexe) === 1) {
+                        $maletests += 1;
+                    } elseif (intval($sexe) === 2) {
+                        $femaletests += 1;
+                    } else {
+                        $nogendertests += 1;
+                    }
+                    if ($vl === '< LL') {
+                        $undetected += 1;
+                    } elseif (intval($vl) < 1000) {
+                        $less1000 += 1;
+                    } elseif (intval($vl) < 5000) {
+                        $less5000 += 1;
+                    } elseif (intval($vl) >= 5000) {
+                        $above5000 += 1;
+                    } else {
+                        $invalids += 1;
+                    }
+                    if (intval($age) < 2) {
+                        $less2 += 1;
+                    } elseif (intval($age) <= 9) {
+                        $less9 += 1;
+                    } elseif (intval($age) <= 14) {
+                        $less14 += 1;
+                    } elseif (intval($age) <= 19) {
+                        $less19 += 1;
+                    } elseif (intval($age) <= 24) {
+                        $less24 += 1;
+                    } elseif (intval($age) >= 25) {
+                        $over25 += 1;
+                    }
+                    if (intval($age) < 5) {
+                        $less5 += 1;
+                    } elseif (intval($age) < 10) {
+                        $less10 += 1;
+                    } elseif (intval($age) < 15) {
+                        $less15 += 1;
+                    } elseif (intval($age) < 18) {
+                        $less18 += 1;
+                    } elseif (intval($age) >= 18) {
+                        $over18 += 1;
+                    }
                 }
             }
             $data[$key]['dateupdated'] = date('d/m/Y H:i:s');
@@ -369,10 +372,10 @@ class SummaryDispatcher {
             $data[$key]['less15'] = $less15;
             $data[$key]['less18'] = $less18;
             $data[$key]['over18'] = $over18;
-            $data[$key]['tat1'] = round(($tat_count!=0)?($tat1/$tat_count):0,0);
-            $data[$key]['tat2'] = round(($tat_count!=0)?($tat2/$tat_count):0,0);
-            $data[$key]['tat3'] = round(($tat_count!=0)?($tat3/$tat_count):0,0);
-            $data[$key]['tat4'] = round(($tat_count!=0)?($tat4/$tat_count):0,0);
+            $data[$key]['tat1'] = round(($tat_count != 0) ? ($tat1 / $tat_count) : 0, 0);
+            $data[$key]['tat2'] = round(($tat_count != 0) ? ($tat2 / $tat_count) : 0, 0);
+            $data[$key]['tat3'] = round(($tat_count != 0) ? ($tat3 / $tat_count) : 0, 0);
+            $data[$key]['tat4'] = round(($tat_count != 0) ? ($tat4 / $tat_count) : 0, 0);
             $data[$key]['less2'] = $less2;
             $data[$key]['less9'] = $less9;
             $data[$key]['less14'] = $less14;

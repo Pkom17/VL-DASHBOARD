@@ -30,41 +30,47 @@ class JustificationDispatcher {
     }
 
     public function dispatchByJustification($type) {
-        $periode = [];
+        $periode1 = [];
+        $periode2 = [];
         $array = $this->data;
         $x = 0;
+        $y = 0;
         foreach ($array as $row) {
             $year = \CsvUtils::extractYear($row);
             $month = \CsvUtils::extractMonth($row);
             $vlreason = \CsvUtils::extractVLReason($row);
             $sitecode = \CsvUtils::extractDatimCode($row);
-            foreach ($periode as $val) {
-                if (($val['year'] == $year) && ($val['month'] == $month ) && ($val['sitecode'] == $sitecode ) && ($val['justification'] == $vlreason )) {
-                    continue(2);
-                }
+
+            if (!in_array(['year' => $year, 'month' => $month, 'sitecode' => $sitecode, 'justification' => $vlreason], $periode1)) {
+                $periode1[$x]['year'] = $year;
+                $periode1[$x]['month'] = $month;
+                $periode1[$x]['sitecode'] = $sitecode;
+                $periode1[$x]['justification'] = $vlreason;
+                $x++;
             }
-            $periode[$x]['year'] = $year;
-            $periode[$x]['month'] = $month;
-            $periode[$x]['sitecode'] = $sitecode;
-            $periode[$x]['justification'] = $vlreason;
-            $x++;
+            if (!in_array(['year' => $year, 'month' => $month, 'justification' => $vlreason], $periode2)) {
+                $periode2[$y]['year'] = $year;
+                $periode2[$y]['month'] = $month;
+                $periode2[$y]['justification'] = $vlreason;
+                $y++;
+            }
         }
         $data = [];
         switch ($type) {
             case self::NATIONAL_JUSTIFICATION:
-                $data = $this->dispatchDataToNationalJustification($periode);
+                $data = $this->dispatchDataToNationalJustification($periode2);
                 break;
             case self::SITE_JUSTIFICATION:
-                $data = $this->dispatchDataToSiteJustification($periode);
+                $data = $this->dispatchDataToSiteJustification($periode1);
                 break;
             case self::COUNTY_JUSTIFICATION:
-                $data = $this->dispatchDataToCountyJustification($periode);
+                $data = $this->dispatchDataToCountyJustification($periode1);
                 break;
             case self::SUBCOUNTY_JUSTIFICATION:
-                $data = $this->dispatchDataToSubcountyJustification($periode);
+                $data = $this->dispatchDataToSubcountyJustification($periode1);
                 break;
             case self::PARTNER_JUSTIFICATION:
-                $data = $this->dispatchDataToPartnerJustification($periode);
+                $data = $this->dispatchDataToPartnerJustification($periode1);
                 break;
         }
         return $data;
@@ -112,7 +118,7 @@ class JustificationDispatcher {
                     continue;
                 }
                 $alltests += 1;
-                if ($sample == \CsvUtils::SAMPLE_EDTA) {
+                if ($sample == \CsvUtils::SAMPLE_EDTA_IN_BASE) {
                     $edta += 1;
                 } elseif ($sample == \CsvUtils::SAMPLE_DBS) {
                     $dbs += 1;
@@ -247,7 +253,7 @@ class JustificationDispatcher {
                     continue;
                 }
                 $alltests += 1;
-                if ($sample == \CsvUtils::SAMPLE_EDTA) {
+                if ($sample == \CsvUtils::SAMPLE_EDTA_IN_BASE) {
                     $edta += 1;
                 } elseif ($sample == \CsvUtils::SAMPLE_DBS) {
                     $dbs += 1;

@@ -778,6 +778,7 @@ class Summaries_model extends MY_Model {
 
     function sample_types($year = null, $county = null, $partner = null, $all = null) {
         $result = $this->get_sampletypesData($year, $county, $partner);
+       
         // echo "<pre>";print_r($result);die();
         $data['sample_types'][0]['name'] = lang('label.sample_type_EDTA');
         $data['sample_types'][1]['name'] = lang('label.sample_type_DBS');
@@ -791,7 +792,7 @@ class Summaries_model extends MY_Model {
         $data["sample_types"][1]["data"][0] = $count;
         $data["sample_types"][2]["data"][0] = $count;
         // $data["sample_types"][3]["data"][0]	= $count;
-
+        
         foreach ($result as $key => $value) {
 
             $data['categories'][$key] = $this->resolve_month($value['month']) . '-' . $value['year'];
@@ -808,7 +809,7 @@ class Summaries_model extends MY_Model {
 
             // $data["sample_types"][3]["data"][$key]	= round($value['suppression'],1);
         }
-
+        
         return $data;
     }
 

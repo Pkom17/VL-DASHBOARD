@@ -30,42 +30,48 @@ class GenderDispatcher {
     }
 
     public function dispatchByGender($type) {
-        $periode = [];
+        $periode1 = [];
+        $periode2 = [];
         $array = $this->data;
         $x = 0;
+        $y = 0;
         foreach ($array as $row) {
             $year = \CsvUtils::extractYear($row);
             $month = \CsvUtils::extractMonth($row);
             $sitecode = \CsvUtils::extractDatimCode($row);
             $sexe = \CsvUtils::extractSexe($row);
-            foreach ($periode as $val) {
-                if (($val['year'] == $year) && ($val['month'] == $month ) && ($val['sitecode'] == $sitecode ) && ($val['gender'] == $sexe )) {
-                    continue(2);
-                }
+
+            if (!in_array(['year' => $year, 'month' => $month, 'sitecode' => $sitecode, 'gender' => $sexe], $periode1)) {
+                $periode1[$x]['year'] = $year;
+                $periode1[$x]['month'] = $month;
+                $periode1[$x]['sitecode'] = $sitecode;
+                $periode1[$x]['gender'] = $sexe;
+                $x++;
             }
-            $periode[$x]['year'] = $year;
-            $periode[$x]['month'] = $month;
-            $periode[$x]['sitecode'] = $sitecode;
-            $periode[$x]['gender'] = $sexe;
-            $x++;
+            if (!in_array(['year' => $year, 'month' => $month, 'gender' => $sexe], $periode2)) {
+                $periode2[$y]['year'] = $year;
+                $periode2[$y]['month'] = $month;
+                $periode2[$y]['gender'] = $sexe;
+                $y++;
+            }
         }
 
         $data = [];
         switch ($type) {
             case self::NATIONAL_GENDER:
-                $data = $this->dispatchDataToNationalGender($periode);
+                $data = $this->dispatchDataToNationalGender($periode2);
                 break;
             case self::SITE_GENDER:
-                $data = $this->dispatchDataToSiteGender($periode);
+                $data = $this->dispatchDataToSiteGender($periode1);
                 break;
             case self::COUNTY_GENDER:
-                $data = $this->dispatchDataToCountyGender($periode);
+                $data = $this->dispatchDataToCountyGender($periode1);
                 break;
             case self::SUBCOUNTY_GENDER:
-                $data = $this->dispatchDataToSubcountyGender($periode);
+                $data = $this->dispatchDataToSubcountyGender($periode1);
                 break;
             case self::PARTNER_GENDER:
-                $data = $this->dispatchDataToPartnerGender($periode);
+                $data = $this->dispatchDataToPartnerGender($periode1);
                 break;
         }
         return $data;
@@ -111,13 +117,12 @@ class GenderDispatcher {
                 }
                 $received += 1;
                 $alltests += 1;
-                                if($sample== \CsvUtils::SAMPLE_EDTA){
-                    $edta+=1;
-                }
-                elseif($sample== \CsvUtils::SAMPLE_DBS){
-                    $dbs+=1;
-                }elseif($sample== \CsvUtils::SAMPLE_PLASMA){
-                    $plasma+=1;
+                if ($sample == \CsvUtils::SAMPLE_EDTA_IN_BASE) {
+                    $edta += 1;
+                } elseif ($sample == \CsvUtils::SAMPLE_DBS) {
+                    $dbs += 1;
+                } elseif ($sample == \CsvUtils::SAMPLE_PLASMA) {
+                    $plasma += 1;
                 }
                 if (intval($age) >= self::AGE_ADULT) {
                     $adults += 1;
@@ -236,7 +241,7 @@ class GenderDispatcher {
                 }
                 $received += 1;
                 $alltests += 1;
-                if ($sample == \CsvUtils::SAMPLE_EDTA) {
+                if ($sample == \CsvUtils::SAMPLE_EDTA_IN_BASE) {
                     $edta += 1;
                 } elseif ($sample == \CsvUtils::SAMPLE_DBS) {
                     $dbs += 1;

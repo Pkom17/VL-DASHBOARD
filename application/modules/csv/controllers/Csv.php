@@ -68,7 +68,10 @@ class Csv extends MY_Controller {
             $siteRegimens = $this->retrieveRegimen($this->csvdatadispatcher->toSiteRegimen());
             $nationalSummary = $this->csvdatadispatcher->toNationalSummary();
             $siteSummary = $this->csvdatadispatcher->toSiteSummary();
-            
+            $nationalSampleType = $this->retrieveSampleType($this->csvdatadispatcher->toNationalSampleType());
+            $siteSampleType = $this->retrieveSampleType($this->csvdatadispatcher->toSiteSampleType());
+            $labSampleType = $this->retrieveSampleType($this->csvdatadispatcher->toLabSampleType());
+            //insertion
             $this->Csv_import_model->saveVLNationalAge($nationalAges);
             $this->Csv_import_model->saveVLSiteAge($this->retrieveSite($siteAges));
             $this->Csv_import_model->saveVLCountyAge($this->retrieveCounty($siteAges));
@@ -95,6 +98,12 @@ class Csv extends MY_Controller {
             $this->Csv_import_model->saveVLSubcountySummary($this->retrieveSubcounty($siteSummary));
             $this->Csv_import_model->saveVLPartnerSummary($this->retrievePartner($siteSummary));
             $this->Csv_import_model->saveVLLabSummary($this->retrieveLab($siteSummary));
+            $this->Csv_import_model->saveVLNationalSampleType($nationalSampleType);
+            $this->Csv_import_model->saveVLSiteSampleType($this->retrieveSite($siteSampleType));
+            $this->Csv_import_model->saveVLCountySampleType($this->retrieveCounty($siteSampleType));
+            $this->Csv_import_model->saveVLSubcountySampleType($this->retrieveSubcounty($siteSampleType));
+            $this->Csv_import_model->saveVLPartnerSampleType($this->retrievePartner($siteSampleType));
+            $this->Csv_import_model->saveVLLabSampleType($this->retrieveLab($labSampleType));
             $nbread = count($csv_array);
             /*
               foreach ($csv_array as $row) {
@@ -135,7 +144,7 @@ class Csv extends MY_Controller {
     private function retrieveSampleType(array $data) {
         $count = count($data);
         for ($k = 0; $k < $count; $k++) {
-            $data[$k]['sample'] = $this->Csv_import_model->findSampleTypeIdByName($data[$k]['sample']);
+            $data[$k]['sampletype'] = $this->Csv_import_model->findSampleTypeIdByName($data[$k]['sampletype']);
         }
         return $data;
     }

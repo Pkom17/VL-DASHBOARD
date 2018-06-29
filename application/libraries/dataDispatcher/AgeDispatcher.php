@@ -84,42 +84,48 @@ class AgeDispatcher {
     }
 
     public function dispatchByAge($typeAge) {
-        $periode = [];
+        $periode1 = [];
+        $periode2 = [];
         $array = $this->data;
         $x = 0;
+        $y = 0;
         foreach ($array as $row) {
             $year = \CsvUtils::extractYear($row);
             $month = \CsvUtils::extractMonth($row);
             $sitecode = \CsvUtils::extractDatimCode($row);
             $age = \CsvUtils::extractAge($row);
             $agecat = $this->getAge2Id($age);
-            foreach ($periode as $val) {
-                if (($val['year'] == $year) && ($val['month'] == $month ) && ($val['sitecode'] == $sitecode ) && ($val['age'] == $agecat )) {
-                    continue(2);
-                }
+            if (!in_array(['year' => $year, 'month' => $month, 'sitecode' => $sitecode, 'age' => $agecat], $periode1)) {
+                $periode1[$x]['year'] = $year;
+                $periode1[$x]['month'] = $month;
+                $periode1[$x]['sitecode'] = $sitecode;
+                $periode1[$x]['age'] = $agecat;
+                $x++;
             }
-            $periode[$x]['year'] = $year;
-            $periode[$x]['month'] = $month;
-            $periode[$x]['sitecode'] = $sitecode;
-            $periode[$x]['age'] = $agecat;
-            $x++;
+            if (!in_array(['year' => $year, 'month' => $month, 'age' => $agecat], $periode2)) {
+                $periode2[$y]['year'] = $year;
+                $periode2[$y]['month'] = $month;
+                $periode2[$y]['age'] = $agecat;
+                $y++;
+            }
         }
+
         $data = [];
         switch ($typeAge) {
             case self::SITE_AGE:
-                $data = $this->dispatchDataToSiteAge($periode);
+                $data = $this->dispatchDataToSiteAge($periode1);
                 break;
             case self::COUNTY_AGE:
-                $data = $this->dispatchDataToCountyAge($periode);
+                $data = $this->dispatchDataToCountyAge($periode1);
                 break;
             case self::SUBCOUNTY_AGE:
-                $data = $this->dispatchDataToSubcountyAge($periode);
+                $data = $this->dispatchDataToSubcountyAge($periode1);
                 break;
             case self::NATIONAL_AGE:
-                $data = $this->dispatchDataToNationalAge($periode);
+                $data = $this->dispatchDataToNationalAge($periode2);
                 break;
             case self::PARTNER_AGE:
-                $data = $this->dispatchDataToPartnerAge($periode);
+                $data = $this->dispatchDataToPartnerAge($periode1);
                 break;
         }
 
@@ -158,7 +164,7 @@ class AgeDispatcher {
                     continue;
                 }
                 $alltests += 1;
-                if ($sample == \CsvUtils::SAMPLE_EDTA) {
+                if ($sample == \CsvUtils::SAMPLE_EDTA_IN_BASE) {
                     $edta += 1;
                 } elseif ($sample == \CsvUtils::SAMPLE_DBS) {
                     $dbs += 1;
@@ -256,7 +262,7 @@ class AgeDispatcher {
                 }
                 $received += 1;
                 $alltests += 1;
-                if ($sample == \CsvUtils::SAMPLE_EDTA) {
+                if ($sample == \CsvUtils::SAMPLE_EDTA_IN_BASE) {
                     $edta += 1;
                 } elseif ($sample == \CsvUtils::SAMPLE_DBS) {
                     $dbs += 1;

@@ -12,6 +12,7 @@ use dataDispatcher\AgeDispatcher;
 use dataDispatcher\JustificationDispatcher;
 use dataDispatcher\RegimenDispatcher;
 use dataDispatcher\SummaryDispatcher;
+use dataDispatcher\SampleTypeDispatcher;
 
 class CSVDataDispatcher {
 
@@ -161,6 +162,34 @@ class CSVDataDispatcher {
     public function toNationalSummary() {
         $summaryDispatcher = new SummaryDispatcher($this->data);
         return $summaryDispatcher->dispatchBySummary(SummaryDispatcher::NATIONAL_SUMMARY);
+    }
+    public function toSiteSampleType() {
+        $sampletypeDispatcher = new SampleTypeDispatcher($this->data);
+        return $sampletypeDispatcher->dispatchBySampleType(SampleTypeDispatcher::SITE_SAMPLETYPE);
+    }
+
+    public function toCountySampleType() {
+        $sampletypeDispatcher = new SampleTypeDispatcher($this->data);
+        return $sampletypeDispatcher->dispatchBySampleType(SampleTypeDispatcher::COUNTY_SAMPLETYPE);
+    }
+
+    public function toSubcountySampleType() {
+        $sampletypeDispatcher = new SampleTypeDispatcher($this->data);
+        return $sampletypeDispatcher->dispatchBySampleType(SampleTypeDispatcher::SUBCOUNTY_SAMPLETYPE);
+    }
+
+    public function toPartnerSampleType() {
+        $sampletypeDispatcher = new SampleTypeDispatcher($this->data);
+        return $sampletypeDispatcher->dispatchBySampleType(SampleTypeDispatcher::PARTNER_SAMPLETYPE);
+    }
+    public function toLabSampleType() {
+        $sampletypeDispatcher = new SampleTypeDispatcher($this->data);
+        return $sampletypeDispatcher->dispatchBySampleType(SampleTypeDispatcher::LAB_SAMPLETYPE);
+    }
+
+    public function toNationalSampleType() {
+        $sampletypeDispatcher = new SampleTypeDispatcher($this->data);
+        return $sampletypeDispatcher->dispatchBySampleType(SampleTypeDispatcher::NATIONAL_SAMPLETYPE);
     }
 
 }
