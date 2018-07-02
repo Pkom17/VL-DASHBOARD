@@ -21,9 +21,9 @@
 			em = $(this).val();
 			var posting = $.post( "<?php echo base_url();?>template/filter_county_data", { county: em } );
 			posting.done(function( data ) {
-	        	$.get("<?php echo base_url();?>template/breadcrum/"+data, function(data){
+	        	/*$.get("<?php echo base_url();?>template/breadcrum/"+data, function(data){
 	        		$("#breadcrum").html(data);
-	        	});
+	        	});*/
 	        	$.get("<?php echo base_url();?>template/dates", function(data){
 		    		obj = $.parseJSON(data);
 			

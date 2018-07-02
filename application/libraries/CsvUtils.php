@@ -16,8 +16,18 @@ class CsvUtils {
     const SAMPLE_DBS = 'DBS';
     const SAMPLE_PLASMA = 'Plasma';
 
-    public function validData() {
-        
+    public static function validData($csvData) {
+        if(!is_array($csvData)){
+            return false;
+        }
+        $toRemove = ['ECHSTAT' => '', 'SUJETNO' => '', 'ETUDE' => '', 'SUJETSIT' => '', 'NOM_SITE' => '', 'NOM_SITE_DATIM' => '', 'DATENAIS' => '', 'AGEMOIS' => '', 'AGESEMS' => '', 'Viral Load log' => '',
+            'STARTED_DATE' => '', 'STATVIH' => '', 'NOMMED' => '', 'NOMPRELEV' => '', 'ARV_INIT_DATE' => '', 'ARVREG' => '', 'CURRENT_ART' => '',
+            'INITCD4_COUNT' => '', 'INITCD4_PERCENT' => '', 'INITCD4_DATE' => '', 'DEMANDCD4_COUNT' => '', 'DEMANDCD4_PERCENT' => '',
+            'DEMANDCD4_DATE' => '', 'PRIOR_VL_BENEFIT' => '', 'VL_PREGNANCY' => '', 'VL_SUCKLE' => '', 'PRIOR_VL_Lab' => '', 'PRIOR_VL_Value' => '', 'PRIOR_VL_Date' => ''];
+        foreach ($csvData as $v) {
+            $d[] = array_diff_key($v, $toRemove);
+        }
+        return $d;
     }
 
     public static function extractYear(array $row) {
@@ -138,6 +148,7 @@ class CsvUtils {
         }
         return $inc;
     }
+
     public static function addPaeds($age) {
         $inc = 0;
         if (intval($age) >= self::AGE_PAEDS) {
@@ -145,10 +156,207 @@ class CsvUtils {
         }
         return $inc;
     }
+
     public static function addNoage($age) {
         $inc = 0;
-        if ($age === null || trim($age) === ''){
+        if ($age === null || trim($age) === '') {
             $inc = 1;
+        }
+        return $inc;
+    }
+
+    public static function addEdta($sample) {
+        $inc = 0;
+        if ($sample == \CsvUtils::SAMPLE_EDTA_IN_BASE) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+
+    public static function addDbs($sample) {
+        $inc = 0;
+        if ($sample == \CsvUtils::SAMPLE_DBS) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+
+    public static function addPlasma($sample) {
+        $inc = 0;
+        if ($sample == \CsvUtils::SAMPLE_PLASMA) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+
+    public static function addMaleTest($sexe) {
+        $inc = 0;
+        if ($sexe == 1) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+
+    public static function addFemaleTest($sexe) {
+        $inc = 0;
+        if ($sexe == 2) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+
+    public static function addNoGenderTest($sexe) {
+        $inc = 0;
+        if ($sexe != 2 && $sexe != 1) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+
+    public static function addMaleNonSuppressed($sexe, $vl) {
+        $inc = 0;
+        if ($sexe === 1 && $vl >= 1000) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+
+    public static function addFemaleNonSuppressed($sexe, $vl) {
+        $inc = 0;
+        if ($sexe === 1 && $vl >= 1000) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+
+    public static function addNoGenderNonSuppressed($sexe, $vl) {
+        $inc = 0;
+        if (($sexe != 2 && $sexe != 1) && $vl >= 1000) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+
+    public static function addUndetected($vl) {
+        $inc = 0;
+        if ($vl === '< LL') {
+            $inc += 1;
+        }
+        return $inc;
+    }
+
+    public static function addLess1000($vl) {
+        $inc = 0;
+        if ($vl < 1000) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+
+    public static function addLess5000($vl) {
+        $inc = 0;
+        if ($vl >= 1000 && $vl < 5000) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+
+    public static function addAbove5000($vl) {
+        $inc = 0;
+        if ($vl >= 5000) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+
+    public static function addInvalids($vl) {
+        $inc = 0;
+        if ($vl != '< LL' && !is_numeric($inc)) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+
+    public static function addLess2($age) {
+        $inc = 0;
+        if (intval($age) < 2) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+
+    public static function addLess9($age) {
+        $inc = 0;
+        if (intval($age) >= 2 && intval($age) < 9) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+
+    public static function addLess14($age) {
+        $inc = 0;
+        if (intval($age) >= 9 && intval($age) < 14) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+
+    public static function addLess19($age) {
+        $inc = 0;
+        if (intval($age) >= 14 && intval($age) < 19) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+
+    public static function addLess24($age) {
+        $inc = 0;
+        if (intval($age) >= 19 && intval($age) < 24) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+
+    public static function addOver25($age) {
+        $inc = 0;
+        if (intval($age) >= 25) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+
+    public static function addLess5($age) {
+        $inc = 0;
+        if (intval($age) < 5) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+    public static function addLess10($age) {
+        $inc = 0;
+        if (intval($age) >= 5 && intval($age) < 10) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+    public static function addLess15($age) {
+        $inc = 0;
+        if (intval($age) >= 10 && intval($age) < 15) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+    public static function addLess18($age) {
+        $inc = 0;
+        if (intval($age) >= 15 && intval($age) < 18) {
+            $inc += 1;
+        }
+        return $inc;
+    }
+    public static function addOver18($age) {
+        $inc = 0;
+        if (intval($age) >= 18) {
+            $inc += 1;
         }
         return $inc;
     }

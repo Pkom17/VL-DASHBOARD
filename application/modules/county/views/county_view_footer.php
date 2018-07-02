@@ -29,9 +29,9 @@
 	        	}
 	        	
 	        	// alert(county);
-	        	$.get("<?php echo base_url();?>template/breadcrum/"+county, function(data){
+	        	/*$.get("<?php echo base_url();?>template/breadcrum/"+county, function(data){
 	        		$("#breadcrum").html(data);
-	        	});
+	        	});*/
 	        	$.get("<?php echo base_url();?>template/dates", function(data){
 	        		obj = $.parseJSON(data);
 			

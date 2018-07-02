@@ -16,7 +16,7 @@
 	        yAxis: {
 	            min: 0,
 	            title: {
-	                text: '<?=lang('label.sample_types')?>'
+	                text: "<?=lang('label.sample_types')?>"
 	            },
 	            stackLabels: {
 	                enabled: true,

@@ -198,6 +198,7 @@ class SummaryDispatcher {
             $data[$key]['year'] = $v['year'];
             $data[$key]['received'] = $received;
             $data[$key]['alltests'] = $alltests;
+            $data[$key]['sustxfail'] = $less5000+$above5000;
             $data[$key]['edta'] = $edta;
             $data[$key]['dbs'] = $dbs;
             $data[$key]['plasma'] = $plasma;
@@ -357,6 +358,7 @@ class SummaryDispatcher {
             $data[$key]['sitecode'] = $v['sitecode'];
             $data[$key]['received'] = $received;
             $data[$key]['alltests'] = $alltests;
+            $data[$key]['sustxfail'] = $less5000+$above5000;
             $data[$key]['edta'] = $edta;
             $data[$key]['dbs'] = $dbs;
             $data[$key]['plasma'] = $plasma;

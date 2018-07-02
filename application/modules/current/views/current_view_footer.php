@@ -72,9 +72,9 @@
 	        		data = JSON.parse(data);
 	        	}
 	        	// data = $.parseJSON(data);
-	        	$.get("<?php echo base_url();?>template/breadcrum/"+data, function(data){
+	        	/*$.get("<?php echo base_url();?>template/breadcrum/"+data, function(data){
 	        		$("#breadcrum").html(data);
-	        	});
+	        	});*/
 	        	$.get("<?php echo base_url();?>template/dates", function(data){
 	        		obj = $.parseJSON(data);
 			

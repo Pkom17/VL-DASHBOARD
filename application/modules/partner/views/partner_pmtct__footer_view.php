@@ -21,9 +21,9 @@
 			part = $(this).val();
 			var posting = $.post( "<?php echo base_url();?>template/filter_partner_data", { partner: part } );
 			posting.done(function( data ) {
-	        	$.get("<?php echo base_url();?>template/breadcrum/"+data+"/"+1, function(data){
+	        	/*$.get("<?php echo base_url();?>template/breadcrum/"+data+"/"+1, function(data){
 	        		$("#breadcrum").html(data);
-	        	});
+	        	});*/
 	        	$.get("<?php echo base_url();?>template/dates", function(data){
 		    		obj = $.parseJSON(data);
 			

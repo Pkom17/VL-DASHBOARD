@@ -30,12 +30,16 @@ class CSVDataDispatcher {
     public function load($csvData) {
         $this->data = $csvData;
     }
-
+    
     public function setAgeCategories($cat1, $cat2) {
         $this->ageCat1 = $cat1;
         $this->ageCat2 = $cat2;
     }
 
+    public function getData() {
+        $ageDispatcher = new \dataDispatcher\MyDispatcher($this->data, $this->ageCat1, $this->ageCat2);
+        return $ageDispatcher->dispatch();
+    }
     public function toSiteAge() {
         $ageDispatcher = new AgeDispatcher($this->data, $this->ageCat1, $this->ageCat2);
         return $ageDispatcher->dispatchByAge(AgeDispatcher::SITE_AGE);

@@ -31,10 +31,10 @@
 	    	});
 			posting.done(function( data ) {
 	        	
-	        	$.get("<?php echo base_url();?>template/breadcrum/"+data+"/"+1, function(data){
+	        	/*$.get("<?php echo base_url();?>template/breadcrum/"+data+"/"+1, function(data){
 	        		
 	        		$("#breadcrum").html(data);
-	        	});
+	        	});*/
 	        });
 			if (em == "NA") {
 				$("#partner_sites").hide();

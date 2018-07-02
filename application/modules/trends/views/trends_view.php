@@ -55,9 +55,9 @@
 
       var posting = $.post( "<?php echo base_url();?>template/filter_county_data", { county: county_id } );
       posting.done(function( data ) {
-            $.get("<?php echo base_url();?>template/breadcrum/"+data, function(data){
+            /*$.get("<?php echo base_url();?>template/breadcrum/"+data, function(data){
               $("#breadcrum").html(data);
-            });
+            });*/
       });
       var a = localStorage.getItem("my_var");
 

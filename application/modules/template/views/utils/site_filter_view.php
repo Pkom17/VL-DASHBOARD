@@ -43,9 +43,9 @@
     </form>
   </div>
   <div class="col-md-2">
-    <div id="breadcrum" class="alert" style="background-color: #1BA39C;display:none;">
+   <!-- <div id="breadcrum" class="alert" style="background-color: #1BA39C;display:none;">
       
-    </div>
+    </div> -->
   </div>
   <div class="col-md-5" id="year-month-filter">
  <div class="filter">
@@ -112,6 +112,6 @@
   $().ready(function(){
     $('#errorAlertDateRange').hide();
     $(".js-example-basic-single").select2();
-    $("#breadcrum").html("<a href='javascript:void(0)' class='alert-link'><strong>All Sites</strong></a>");
+    $("#breadcrum").html("<a href='javascript:void(0)' class='alert-link'><strong><?PHP lang('label.all_sites')?></strong></a>");
   });
 </script>

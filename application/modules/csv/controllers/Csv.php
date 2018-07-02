@@ -51,13 +51,17 @@ class Csv extends MY_Controller {
         }
         $agecategories1 = $this->Csv_import_model->get_ageCategory1();
         $agecategories2 = $this->Csv_import_model->get_ageCategory2();
-       // $site = $this->input->post("site");
         $file_data = $this->upload->data();
         $csv_array = $this->csvimport->get_array($file_data['full_path']);
-        //if(count($csv_array))
-        if ($csv_array) {
-            $this->csvdatadispatcher->load($csv_array);
+        $valid_array = \CsvUtils::validData($csv_array);
+
+        if (is_array($valid_array)) {
+            $this->csvdatadispatcher->load($valid_array);
             $this->csvdatadispatcher->setAgeCategories($agecategories1, $agecategories2);
+            $t1 = microtime(true);
+            $this->csvdatadispatcher->getData();
+            echo '   Gl'.(microtime(true)-$t1);
+            die();
             $nationalAges = $this->csvdatadispatcher->toNationalAge();
             $siteAges = $this->csvdatadispatcher->toSiteAge();
             $nationalGenders = $this->csvdatadispatcher->toNationalGender();
@@ -105,12 +109,6 @@ class Csv extends MY_Controller {
             $this->Csv_import_model->saveVLPartnerSampleType($this->retrievePartner($siteSampleType));
             $this->Csv_import_model->saveVLLabSampleType($this->retrieveLab($labSampleType));
             $nbread = count($csv_array);
-            /*
-              foreach ($csv_array as $row) {
-
-              }
-             * 
-             */
             $ret['success'] = '1';
             $ret['nbread'] = $nbread;
             echo json_encode($ret);

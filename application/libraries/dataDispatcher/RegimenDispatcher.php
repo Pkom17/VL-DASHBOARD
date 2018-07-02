@@ -190,6 +190,7 @@ class RegimenDispatcher {
             $data[$key]['year'] = $v['year'];
             $data[$key]['regimen'] = $v['regimen'];
             $data[$key]['tests'] = $alltests;
+            $data[$key]['sustxfail'] = $less5000+$above5000;
             $data[$key]['edta'] = $edta;
             $data[$key]['dbs'] = $dbs;
             $data[$key]['plasma'] = $plasma;
@@ -330,6 +331,7 @@ class RegimenDispatcher {
             $data[$key]['sitecode'] = $v['sitecode'];
             $data[$key]['regimen'] = $v['regimen'];
             $data[$key]['tests'] = $alltests;
+            $data[$key]['sustxfail'] = $less5000+$above5000;
             $data[$key]['edta'] = $edta;
             $data[$key]['dbs'] = $dbs;
             $data[$key]['plasma'] = $plasma;

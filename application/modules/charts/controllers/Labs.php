@@ -32,7 +32,7 @@ class Labs extends MY_Controller
 	function testing_trends($year=NULL)
 	{
 		$data['trends'] = $this->labs_model->lab_testing_trends($year);
-
+                
 		$this->load->view('labs_testing_trends',$data);
 	}
 
@@ -47,7 +47,6 @@ class Labs extends MY_Controller
 	function sample_types($year=NULL,$month=NULL,$to_year=NULL,$to_month=NULL)
 	{
 		$data['trends'] = $this->labs_model->sample_types($year,$month,$to_year,$to_month);
-
 		$this->load->view('labs_sample_types',$data);
 	}
 

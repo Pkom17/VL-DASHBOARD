@@ -160,41 +160,22 @@ class AgeDispatcher {
                 $agecat = $this->getAge2Id($age);
                 $sexe = \CsvUtils::extractSexe($row);
                 $vl = \CsvUtils::extractViralLoad($row);
-                if (!(($v['year'] == $year) && ($v['month'] == $month ) && ($v['age'] == $agecat ))) {
-                    continue;
-                }
-                $alltests += 1;
-                if ($sample == \CsvUtils::SAMPLE_EDTA_IN_BASE) {
-                    $edta += 1;
-                } elseif ($sample == \CsvUtils::SAMPLE_DBS) {
-                    $dbs += 1;
-                } elseif ($sample == \CsvUtils::SAMPLE_PLASMA) {
-                    $plasma += 1;
-                }
-                if ($sexe === 1) {
-                    $maletest += 1;
-                } elseif ($sexe === 2) {
-                    $femaletest += 1;
-                } else {
-                    $nogendertest += 1;
-                }
-                if ($sexe === 1 && $vl >= 1000) {
-                    $malenonsuppressed += 1;
-                } elseif ($sexe === 2 && $vl >= 1000) {
-                    $femalenonsuppressed += 1;
-                } elseif ($sexe !== 2 && $sexe !== 1 && $vl >= 1000) {
-                    $nogendernonsuppressed += 1;
-                }
-                if ($vl === '< LL') {
-                    $undetected += 1;
-                } elseif ($vl < 1000) {
-                    $less1000 += 1;
-                } elseif ($vl < 5000) {
-                    $less5000 += 1;
-                } elseif ($vl >= 5000) {
-                    $above5000 += 1;
-                } else {
-                    $invalids += 1;
+                if (($v['year'] == $year) && ($v['month'] == $month ) && ($v['age'] == $agecat )) {
+                    $alltests += 1;
+                    $edta += \CsvUtils::addEdta($sample);
+                    $dbs += \CsvUtils::addDbs($sample);
+                    $plasma += \CsvUtils::addPlasma($sample);
+                    $maletest = \CsvUtils::addMaleTest($sexe);
+                    $femaletest = \CsvUtils::addFemaleTest($sexe);
+                    $nogendertest = \CsvUtils::addNoGenderTest($sexe);
+                    $malenonsuppressed = \CsvUtils::addMaleNonSuppressed($sexe, $vl);
+                    $femalenonsuppressed = \CsvUtils::addFemaleNonSuppressed($sexe, $vl);
+                    $nogendernonsuppressed = \CsvUtils::addNoGenderNonSuppressed($sexe, $vl);
+                    $undetected = \CsvUtils::addUndetected($vl);
+                    $less1000 = \CsvUtils::addLess1000($vl);
+                    $less5000 = \CsvUtils::addLess5000($vl);
+                    $above5000 = \CsvUtils::addAbove5000($vl);
+                    $invalids = \CsvUtils::addInvalids($vl);
                 }
             }
             $data[$key]['dateupdated'] = date('d/m/Y H:i:s');
@@ -202,7 +183,7 @@ class AgeDispatcher {
             $data[$key]['year'] = $v['year'];
             $data[$key]['age'] = $v['age'];
             $data[$key]['tests'] = $alltests;
-            $data[$key]['sustxfail'] = 0;
+            $data[$key]['sustxfail'] = $less5000 + $above5000;
             $data[$key]['confirmtx'] = 0;
             $data[$key]['confirm2vl'] = 0;
             $data[$key]['baseline'] = 0;
@@ -262,39 +243,20 @@ class AgeDispatcher {
                 }
                 $received += 1;
                 $alltests += 1;
-                if ($sample == \CsvUtils::SAMPLE_EDTA_IN_BASE) {
-                    $edta += 1;
-                } elseif ($sample == \CsvUtils::SAMPLE_DBS) {
-                    $dbs += 1;
-                } elseif ($sample == \CsvUtils::SAMPLE_PLASMA) {
-                    $plasma += 1;
-                }
-                if ($sexe === 1) {
-                    $maletest += 1;
-                } elseif ($sexe === 2) {
-                    $femaletest += 1;
-                } else {
-                    $nogendertest += 1;
-                }
-                if ($sexe === 1 && $vl >= 1000) {
-                    $malenonsuppressed += 1;
-                } elseif ($sexe === 2 && $vl >= 1000) {
-                    $femalenonsuppressed += 1;
-                } elseif ($sexe !== 2 && $sexe !== 1 && $vl >= 1000) {
-                    $nogendernonsuppressed += 1;
-                }
-
-                if ($vl === '< LL') {
-                    $undetected += 1;
-                } elseif ($vl < 1000) {
-                    $less1000 += 1;
-                } elseif ($vl < 5000) {
-                    $less5000 += 1;
-                } elseif ($vl >= 5000) {
-                    $above5000 += 1;
-                } else {
-                    $invalids += 1;
-                }
+                $edta += \CsvUtils::addEdta($sample);
+                $dbs += \CsvUtils::addDbs($sample);
+                $plasma += \CsvUtils::addPlasma($sample);
+                $maletest = \CsvUtils::addMaleTest($sexe);
+                $femaletest = \CsvUtils::addFemaleTest($sexe);
+                $nogendertest = \CsvUtils::addNoGenderTest($sexe);
+                $malenonsuppressed = \CsvUtils::addMaleNonSuppressed($sexe, $vl);
+                $femalenonsuppressed = \CsvUtils::addFemaleNonSuppressed($sexe, $vl);
+                $nogendernonsuppressed = \CsvUtils::addNoGenderNonSuppressed($sexe, $vl);
+                $undetected = \CsvUtils::addUndetected($vl);
+                $less1000 = \CsvUtils::addLess1000($vl);
+                $less5000 = \CsvUtils::addLess5000($vl);
+                $above5000 = \CsvUtils::addAbove5000($vl);
+                $invalids = \CsvUtils::addInvalids($vl);
             }
             $data[$key]['month'] = $v['month'];
             $data[$key]['dateupdated'] = date('d/m/Y H:i:s');
@@ -302,7 +264,7 @@ class AgeDispatcher {
             $data[$key]['sitecode'] = $v['sitecode'];
             $data[$key]['age'] = $v['age'];
             $data[$key]['tests'] = $alltests;
-            $data[$key]['sustxfail'] = 0;
+            $data[$key]['sustxfail'] = $less5000 + $above5000;
             $data[$key]['confirmtx'] = 0;
             $data[$key]['confirm2vl'] = 0;
             $data[$key]['baseline'] = 0;

@@ -23,9 +23,9 @@
 	     
 	        // Put the results in a div
 	        posting.done(function( data ) {
-	        	$.get("<?php echo base_url();?>template/breadcrum", function(data2){
+	        	/*$.get("<?php echo base_url();?>template/breadcrum", function(data2){
 	        		$("#breadcrum").html(data2);
-	        	});
+	        	});*/
 	        	$.get("<?php echo base_url();?>template/dates", function(data2){
 	        		obj = $.parseJSON(data2);
 			
@@ -163,10 +163,10 @@
 
 	function county_filter(data)
 	{
-		$.get("<?php echo base_url();?>template/breadcrum", function(data){
+		/*$.get("<?php echo base_url();?>template/breadcrum", function(data){
 			console.log(data);
     		$("#breadcrum").html(data);
-    	});
+    	});*/
 
 		$("#genderGrp").html("<div><?=  lang('label.loading')?></div>"); 
     	$("#ageGrp").html("<div><?=  lang('label.loading')?></div>"); 

@@ -169,6 +169,7 @@ class SampleTypeDispatcher {
             $data[$key]['year'] = $v['year'];
             $data[$key]['sampletype'] = $v['sampletype'];
             $data[$key]['tests'] = $alltests;
+            $data[$key]['sustxfail'] = $less5000+$above5000;
             $data[$key]['maletest'] = $maletests;
             $data[$key]['femaletest'] = $femaletests;
             $data[$key]['nogendertest'] = $nogendertests;
@@ -292,6 +293,7 @@ class SampleTypeDispatcher {
             $data[$key]['sitecode'] = $v['sitecode'];
             $data[$key]['sampletype'] = $v['sampletype'];
             $data[$key]['tests'] = $alltests;
+            $data[$key]['sustxfail'] = $less5000+$above5000;
             $data[$key]['maletest'] = $maletests;
             $data[$key]['femaletest'] = $femaletests;
             $data[$key]['nogendertest'] = $nogendertests;

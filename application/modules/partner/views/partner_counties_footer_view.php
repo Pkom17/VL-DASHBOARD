@@ -22,10 +22,10 @@
 	        
 			posting.done(function( data ) {
 	        	if (data=="") {data = 0;}
-	        	$.get("<?php echo base_url();?>template/breadcrum/"+data+"/"+1, function(data){
+	        	/*$.get("<?php echo base_url();?>template/breadcrum/"+data+"/"+1, function(data){
 	        		
 	        		$("#breadcrum").html(data);
-	        	});
+	        	});*/
 	        });
 			if (em == "NA") {
 				$("#partner_counties").hide();

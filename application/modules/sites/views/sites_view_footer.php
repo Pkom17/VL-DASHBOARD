@@ -64,9 +64,9 @@
 					$(".display_range").html("( "+obj['year']+" )");
 	        	});
 
-	        	$.get("<?php echo base_url();?>template/breadcrum", function(data){
+	        	/*$.get("<?php echo base_url();?>template/breadcrum", function(data){
 	        		$("#breadcrum").html(data);
-	        	});
+	        	});*/
 
 	        	if (em=="NA") {
 					$("#siteOutcomes").html("<center><div class='loader'></div></center>");

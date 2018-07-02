@@ -117,63 +117,35 @@ class GenderDispatcher {
                 }
                 $received += 1;
                 $alltests += 1;
-                if ($sample == \CsvUtils::SAMPLE_EDTA_IN_BASE) {
-                    $edta += 1;
-                } elseif ($sample == \CsvUtils::SAMPLE_DBS) {
-                    $dbs += 1;
-                } elseif ($sample == \CsvUtils::SAMPLE_PLASMA) {
-                    $plasma += 1;
-                }
-                if (intval($age) >= self::AGE_ADULT) {
-                    $adults += 1;
-                }
-                if (intval($age) >= self::AGE_PAEDS) {
-                    $paeds += 1;
-                }
-                if ($age === null || trim($age) === '') {
-                    $noage += 1;
-                }
-                if ($vl === '< LL') {
-                    $undetected += 1;
-                } elseif (intval($vl) < 1000) {
-                    $less1000 += 1;
-                } elseif (intval($vl) < 5000) {
-                    $less5000 += 1;
-                } elseif (intval($vl) >= 5000) {
-                    $above5000 += 1;
-                } else {
-                    $invalids += 1;
-                }
-                if (intval($age) < 2) {
-                    $less2 += 1;
-                } elseif (intval($age) <= 9) {
-                    $less9 += 1;
-                } elseif (intval($age) <= 14) {
-                    $less14 += 1;
-                } elseif (intval($age) <= 19) {
-                    $less19 += 1;
-                } elseif (intval($age) <= 24) {
-                    $less24 += 1;
-                } elseif (intval($age) >= 25) {
-                    $over25 += 1;
-                }
-                if (intval($age) < 5) {
-                    $less5 += 1;
-                } elseif (intval($age) < 10) {
-                    $less10 += 1;
-                } elseif (intval($age) < 15) {
-                    $less15 += 1;
-                } elseif (intval($age) < 18) {
-                    $less18 += 1;
-                } elseif (intval($age) >= 18) {
-                    $over18 += 1;
-                }
+                $edta += \CsvUtils::addEdta($sample);
+                $dbs += \CsvUtils::addDbs($sample);
+                $plasma += \CsvUtils::addPlasma($sample);
+                $adults = \CsvUtils::addAdults($age);
+                $paeds = \CsvUtils::addPaeds($age);
+                $noage = \CsvUtils::addNoage($age);
+                $undetected = \CsvUtils::addUndetected($vl);
+                $less1000 = \CsvUtils::addLess1000($vl);
+                $less5000 = \CsvUtils::addLess5000($vl);
+                $above5000 = \CsvUtils::addAbove5000($vl);
+                $invalids = \CsvUtils::addInvalids($vl);
+                $less2 = \CsvUtils::addLess2($age);
+                $less9 = \CsvUtils::addLess9($age);
+                $less14 = \CsvUtils::addLess14($age);
+                $less19 = \CsvUtils::addLess19($age);
+                $less24 = \CsvUtils::addLess24($age);
+                $over25 = \CsvUtils::addOver25($age);
+                $less5 = \CsvUtils::addLess5($age);
+                $less10 = \CsvUtils::addLess10($age);
+                $less15 = \CsvUtils::addLess15($age);
+                $less18 = \CsvUtils::addLess18($age);
+                $over18 = \CsvUtils::addOver18($age);
             }
             $data[$key]['month'] = $v['month'];
             $data[$key]['dateupdated'] = date('d/m/Y H:i:s');
             $data[$key]['year'] = $v['year'];
             $data[$key]['gender'] = $v['gender'];
             $data[$key]['tests'] = $alltests;
+            $data[$key]['sustxfail'] = $less5000 + $above5000;
             $data[$key]['edta'] = $edta;
             $data[$key]['dbs'] = $dbs;
             $data[$key]['plasma'] = $plasma;
@@ -236,69 +208,41 @@ class GenderDispatcher {
                 $sample = \CsvUtils::extractTypeOfSample($row);
                 $age = \CsvUtils::extractAge($row);
                 $vl = \CsvUtils::extractViralLoad($row);
-                if (!(($v['year'] == $year) && ($v['month'] == $month ) && ($v['sitecode'] == $sitecode ) && ($v['gender'] == $sexe ))) {
-                    continue;
-                }
-                $received += 1;
-                $alltests += 1;
-                if ($sample == \CsvUtils::SAMPLE_EDTA_IN_BASE) {
-                    $edta += 1;
-                } elseif ($sample == \CsvUtils::SAMPLE_DBS) {
-                    $dbs += 1;
-                } elseif ($sample == \CsvUtils::SAMPLE_PLASMA) {
-                    $plasma += 1;
-                }
-                if (intval($age) >= self::AGE_ADULT) {
-                    $adults += 1;
-                }
-                if (intval($age) >= self::AGE_PAEDS) {
-                    $paeds += 1;
-                }
-                if ($age === null || trim($age) === '') {
-                    $noage += 1;
-                }
-                if ($vl === '< LL') {
-                    $undetected += 1;
-                } elseif (intval($vl) < 1000) {
-                    $less1000 += 1;
-                } elseif (intval($vl) < 5000) {
-                    $less5000 += 1;
-                } elseif (intval($vl) >= 5000) {
-                    $above5000 += 1;
-                } else {
-                    $invalids += 1;
-                }
-                if (intval($age) < 2) {
-                    $less2 += 1;
-                } elseif (intval($age) <= 9) {
-                    $less9 += 1;
-                } elseif (intval($age) <= 14) {
-                    $less14 += 1;
-                } elseif (intval($age) <= 19) {
-                    $less19 += 1;
-                } elseif (intval($age) <= 24) {
-                    $less24 += 1;
-                } elseif (intval($age) >= 25) {
-                    $over25 += 1;
-                }
-                if (intval($age) < 5) {
-                    $less5 += 1;
-                } elseif (intval($age) < 10) {
-                    $less10 += 1;
-                } elseif (intval($age) < 15) {
-                    $less15 += 1;
-                } elseif (intval($age) < 18) {
-                    $less18 += 1;
-                } elseif (intval($age) >= 18) {
-                    $over18 += 1;
+                if ((($v['year'] == $year) && ($v['month'] == $month ) && ($v['sitecode'] == $sitecode ) && ($v['gender'] == $sexe ))) {
+                    $received += 1;
+                    $alltests += 1;
+                    $edta += \CsvUtils::addEdta($sample);
+                    $dbs += \CsvUtils::addDbs($sample);
+                    $plasma += \CsvUtils::addPlasma($sample);
+                    $adults = \CsvUtils::addAdults($age);
+                    $paeds = \CsvUtils::addPaeds($age);
+                    $noage = \CsvUtils::addNoage($age);
+                    $undetected = \CsvUtils::addUndetected($vl);
+                    $less1000 = \CsvUtils::addLess1000($vl);
+                    $less5000 = \CsvUtils::addLess5000($vl);
+                    $above5000 = \CsvUtils::addAbove5000($vl);
+                    $invalids = \CsvUtils::addInvalids($vl);
+                    $less2 = \CsvUtils::addLess2($age);
+                    $less9 = \CsvUtils::addLess9($age);
+                    $less14 = \CsvUtils::addLess14($age);
+                    $less19 = \CsvUtils::addLess19($age);
+                    $less24 = \CsvUtils::addLess24($age);
+                    $over25 = \CsvUtils::addOver25($age);
+                    $less5 = \CsvUtils::addLess5($age);
+                    $less10 = \CsvUtils::addLess10($age);
+                    $less15 = \CsvUtils::addLess15($age);
+                    $less18 = \CsvUtils::addLess18($age);
+                    $over18 = \CsvUtils::addOver18($age);
                 }
             }
-            $data[$key]['dateupdated'] = date('d/m/Y H:i:s');
+            $data[$key]['dateupdated'] = date('d/m/Y');
             $data[$key]['month'] = $v['month'];
             $data[$key]['year'] = $v['year'];
             $data[$key]['sitecode'] = $v['sitecode'];
             $data[$key]['gender'] = $v['gender'];
+            $data[$key]['justification'] = $v['justification'];
             $data[$key]['tests'] = $alltests;
+            $data[$key]['sustxfail'] = $less5000 + $above5000;
             $data[$key]['edta'] = $edta;
             $data[$key]['dbs'] = $dbs;
             $data[$key]['plasma'] = $plasma;

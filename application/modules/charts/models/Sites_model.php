@@ -47,7 +47,6 @@ class Sites_model extends MY_Model
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($result);die();
 
-
 		$data['outcomes'][0]['name'] =  lang('label.not_suppressed_');
 		$data['outcomes'][1]['name'] =  lang('label.suppressed_');
 		$data['outcomes'][2]['name'] = lang('label.suppression');
@@ -70,7 +69,7 @@ class Sites_model extends MY_Model
 			$data['categories'][$key] 					= $value['name'];
 			$data['outcomes'][0]['data'][$key] = (int) $value['nonsuppressed'];
 			$data['outcomes'][1]['data'][$key] = (int) $value['suppressed'];
-			$data['outcomes'][2]['data'][$key] = round(@(((int) $value['suppressed']*100)/((int) $value['suppressed']+(int) $value['nonsuppressed'])),1);
+			$data['outcomes'][2]['data'][$key] = @round((((int) $value['suppressed']*100)/((int) $value['suppressed']+(int) $value['nonsuppressed'])),1);
 		}
 		
 		// echo "<pre>";print_r($data);die();

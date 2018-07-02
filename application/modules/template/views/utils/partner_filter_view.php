@@ -76,9 +76,9 @@
     </form>
   </div>
   <div class="col-md-2">
-    <div id="breadcrum" class="alert" style="background-color: #1BA39C;/*display:none;*/">
+   <!-- <div id="breadcrum" class="alert" style="background-color: #1BA39C;display:none;">
       
-    </div>
+    </div> -->
   </div>
   <div class="col-md-5" id="year-month-filter">
     <div class="filter">
@@ -149,7 +149,7 @@
     // Getting the file name i.e last segment of URL (i.e. example.html)
     var fn = url.split('/').indexOf("nosuppression");
     // console.log(fn);
-    
+    /*
     if (fn==-1) {
       $.get("<?php echo base_url();?>template/breadcrum/"+null+"/"+1, function(data){
         $("#breadcrum").html(data);
@@ -158,6 +158,6 @@
       $.get("<?php echo base_url();?>template/breadcrum/"+1+"/"+1, function(data){
         $("#breadcrum").html(data);
       });
-    }
+    }*/
   });
 </script>
