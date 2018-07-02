@@ -240,7 +240,6 @@ class GenderDispatcher {
             $data[$key]['year'] = $v['year'];
             $data[$key]['sitecode'] = $v['sitecode'];
             $data[$key]['gender'] = $v['gender'];
-            $data[$key]['justification'] = $v['justification'];
             $data[$key]['tests'] = $alltests;
             $data[$key]['sustxfail'] = $less5000 + $above5000;
             $data[$key]['edta'] = $edta;
