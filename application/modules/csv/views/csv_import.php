@@ -65,7 +65,6 @@
                                 <li><a href="<?php echo base_url(); ?>partner/age"><?= lang('menu_label.partner_age'); ?> </a></li>
                                 <li><a href="<?php echo base_url(); ?>partner/regimen"><?= lang('menu_label.partner_regimen'); ?> </a></li>
                                 <li><a href="<?php echo base_url(); ?>partner/counties"><?= lang('menu_label.partner_counties'); ?> </a></li>
-                                <li><a href="<?php echo base_url(); ?>partner/pmtct"><?= lang('menu_label.partner_PMTCT'); ?> </a></li>
                                 <li><a href="<?php echo base_url(); ?>partner/current"><?= lang('menu_label.partner_current_supp'); ?> </a></li>
                             </ul>
                         </li>
@@ -75,7 +74,6 @@
                                 <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo base_url(); ?>sites"><?= lang('menu_label.facilities'); ?> </a></li>
-                                <li><a href="<?php echo base_url(); ?>sites/pmtct"><?= lang('menu_label.facilities_PMTCT'); ?></a></li>
                             </ul>
                         </li>
                         <li class="dropdown">
@@ -87,11 +85,8 @@
                                 <li><a href="<?php echo base_url(); ?>age"><?= lang('menu_label.age_analysis'); ?> </a></li>
                                 <li><a href="<?php echo base_url(); ?>sample"><?= lang('menu_label.sample_analysis'); ?> </a></li>
                                 <li><a href="<?php echo base_url(); ?>current"><?= lang('menu_label.current_supp'); ?> </a></li>
-                                <li><a href="<?php echo base_url(); ?>pmtct"><?= lang('menu_label.PMTCT_analysis'); ?> </a></li>
                             </ul>
                         </li>
-                        <li><a href="<?php echo base_url(); ?>live"><?= lang('menu_label.live_data'); ?> </a></li>
-                        <li><a href="<?php echo base_url(); ?>contacts"><?= lang('menu_label.contact'); ?> </a></li>
                     </ul>
                 </div>
             </div>
@@ -134,7 +129,7 @@
                     $('#loader').html('');
                     event.preventDefault();
                     $.ajax({
-                        url: "<?php echo base_url(); ?>Csv/upload",
+                        url: "<?php echo base_url(); ?>csv/upload",
                         method: "POST",
                         data: new FormData(this),
                         contentType: false,
