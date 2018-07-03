@@ -58,10 +58,10 @@ class Csv extends MY_Controller {
         if (is_array($valid_array)) {
             $this->csvdatadispatcher->load($valid_array);
             $this->csvdatadispatcher->setAgeCategories($agecategories1, $agecategories2);
-            $t1 = microtime(true);
+           /* $t1 = microtime(true);
             $this->csvdatadispatcher->getData();
             echo '   Gl'.(microtime(true)-$t1);
-            die();
+            die();*/
             $nationalAges = $this->csvdatadispatcher->toNationalAge();
             $siteAges = $this->csvdatadispatcher->toSiteAge();
             $nationalGenders = $this->csvdatadispatcher->toNationalGender();

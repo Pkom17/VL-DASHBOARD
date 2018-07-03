@@ -165,17 +165,17 @@ class AgeDispatcher {
                     $edta += \CsvUtils::addEdta($sample);
                     $dbs += \CsvUtils::addDbs($sample);
                     $plasma += \CsvUtils::addPlasma($sample);
-                    $maletest = \CsvUtils::addMaleTest($sexe);
-                    $femaletest = \CsvUtils::addFemaleTest($sexe);
-                    $nogendertest = \CsvUtils::addNoGenderTest($sexe);
-                    $malenonsuppressed = \CsvUtils::addMaleNonSuppressed($sexe, $vl);
-                    $femalenonsuppressed = \CsvUtils::addFemaleNonSuppressed($sexe, $vl);
-                    $nogendernonsuppressed = \CsvUtils::addNoGenderNonSuppressed($sexe, $vl);
-                    $undetected = \CsvUtils::addUndetected($vl);
-                    $less1000 = \CsvUtils::addLess1000($vl);
-                    $less5000 = \CsvUtils::addLess5000($vl);
-                    $above5000 = \CsvUtils::addAbove5000($vl);
-                    $invalids = \CsvUtils::addInvalids($vl);
+                    $maletest += \CsvUtils::addMaleTest($sexe);
+                    $femaletest += \CsvUtils::addFemaleTest($sexe);
+                    $nogendertest += \CsvUtils::addNoGenderTest($sexe);
+                    $malenonsuppressed += \CsvUtils::addMaleNonSuppressed($sexe, $vl);
+                    $femalenonsuppressed += \CsvUtils::addFemaleNonSuppressed($sexe, $vl);
+                    $nogendernonsuppressed += \CsvUtils::addNoGenderNonSuppressed($sexe, $vl);
+                    $undetected += \CsvUtils::addUndetected($vl);
+                    $less1000 += \CsvUtils::addLess1000($vl);
+                    $less5000 += \CsvUtils::addLess5000($vl);
+                    $above5000 += \CsvUtils::addAbove5000($vl);
+                    $invalids += \CsvUtils::addInvalids($vl);
                 }
             }
             $data[$key]['dateupdated'] = date('d/m/Y H:i:s');
@@ -246,17 +246,17 @@ class AgeDispatcher {
                 $edta += \CsvUtils::addEdta($sample);
                 $dbs += \CsvUtils::addDbs($sample);
                 $plasma += \CsvUtils::addPlasma($sample);
-                $maletest = \CsvUtils::addMaleTest($sexe);
-                $femaletest = \CsvUtils::addFemaleTest($sexe);
-                $nogendertest = \CsvUtils::addNoGenderTest($sexe);
-                $malenonsuppressed = \CsvUtils::addMaleNonSuppressed($sexe, $vl);
-                $femalenonsuppressed = \CsvUtils::addFemaleNonSuppressed($sexe, $vl);
-                $nogendernonsuppressed = \CsvUtils::addNoGenderNonSuppressed($sexe, $vl);
-                $undetected = \CsvUtils::addUndetected($vl);
-                $less1000 = \CsvUtils::addLess1000($vl);
-                $less5000 = \CsvUtils::addLess5000($vl);
-                $above5000 = \CsvUtils::addAbove5000($vl);
-                $invalids = \CsvUtils::addInvalids($vl);
+                $maletest += \CsvUtils::addMaleTest($sexe);
+                $femaletest += \CsvUtils::addFemaleTest($sexe);
+                $nogendertest += \CsvUtils::addNoGenderTest($sexe);
+                $malenonsuppressed += \CsvUtils::addMaleNonSuppressed($sexe, $vl);
+                $femalenonsuppressed += \CsvUtils::addFemaleNonSuppressed($sexe, $vl);
+                $nogendernonsuppressed += \CsvUtils::addNoGenderNonSuppressed($sexe, $vl);
+                $undetected += \CsvUtils::addUndetected($vl);
+                $less1000 += \CsvUtils::addLess1000($vl);
+                $less5000 += \CsvUtils::addLess5000($vl);
+                $above5000 += \CsvUtils::addAbove5000($vl);
+                $invalids += \CsvUtils::addInvalids($vl);
             }
             $data[$key]['month'] = $v['month'];
             $data[$key]['dateupdated'] = date('d/m/Y H:i:s');
