@@ -56,25 +56,25 @@ class Csv extends MY_Controller {
         $valid_array = \CsvUtils::validData($csv_array);
 
         if (is_array($valid_array)) {
-            $this->csvdatadispatcher->load($valid_array);
-            $this->csvdatadispatcher->setAgeCategories($agecategories1, $agecategories2);
+            $this->csv_datadispatcher->load($valid_array);
+            $this->csv_datadispatcher->setAgeCategories($agecategories1, $agecategories2);
            /* $t1 = microtime(true);
-            $this->csvdatadispatcher->getData();
+            $this->csv_datadispatcher->getData();
             echo '   Gl'.(microtime(true)-$t1);
             die();*/
-            $nationalAges = $this->csvdatadispatcher->toNationalAge();
-            $siteAges = $this->csvdatadispatcher->toSiteAge();
-            $nationalGenders = $this->csvdatadispatcher->toNationalGender();
-            $siteGenders = $this->csvdatadispatcher->toSiteGender();
-            $nationalJustifications = $this->retrieveJustification($this->csvdatadispatcher->toNationalJustification());
-            $siteJustifications = $this->retrieveJustification($this->csvdatadispatcher->toSiteJustification());
-            $nationalRegimens = $this->retrieveRegimen($this->csvdatadispatcher->toNationalRegimen());
-            $siteRegimens = $this->retrieveRegimen($this->csvdatadispatcher->toSiteRegimen());
-            $nationalSummary = $this->csvdatadispatcher->toNationalSummary();
-            $siteSummary = $this->csvdatadispatcher->toSiteSummary();
-            $nationalSampleType = $this->retrieveSampleType($this->csvdatadispatcher->toNationalSampleType());
-            $siteSampleType = $this->retrieveSampleType($this->csvdatadispatcher->toSiteSampleType());
-            $labSampleType = $this->retrieveSampleType($this->csvdatadispatcher->toLabSampleType());
+            $nationalAges = $this->csv_datadispatcher->toNationalAge();
+            $siteAges = $this->csv_datadispatcher->toSiteAge();
+            $nationalGenders = $this->csv_datadispatcher->toNationalGender();
+            $siteGenders = $this->csv_datadispatcher->toSiteGender();
+            $nationalJustifications = $this->retrieveJustification($this->csv_datadispatcher->toNationalJustification());
+            $siteJustifications = $this->retrieveJustification($this->csv_datadispatcher->toSiteJustification());
+            $nationalRegimens = $this->retrieveRegimen($this->csv_datadispatcher->toNationalRegimen());
+            $siteRegimens = $this->retrieveRegimen($this->csv_datadispatcher->toSiteRegimen());
+            $nationalSummary = $this->csv_datadispatcher->toNationalSummary();
+            $siteSummary = $this->csv_datadispatcher->toSiteSummary();
+            $nationalSampleType = $this->retrieveSampleType($this->csv_datadispatcher->toNationalSampleType());
+            $siteSampleType = $this->retrieveSampleType($this->csv_datadispatcher->toSiteSampleType());
+            $labSampleType = $this->retrieveSampleType($this->csv_datadispatcher->toLabSampleType());
             //insertion
             $this->Csv_import_model->saveVLNationalAge($nationalAges);
             $this->Csv_import_model->saveVLSiteAge($this->retrieveSite($siteAges));

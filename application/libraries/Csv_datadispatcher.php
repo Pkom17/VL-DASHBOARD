@@ -41,7 +41,7 @@ class Csv_datadispatcher {
         return $ageDispatcher->dispatch();
     }
     public function toSiteAge() {
-        $ageDispatcher = new AgeDispatcher($this->data, $this->ageCat1, $this->ageCat2);
+        $ageDispatcher = new dataDispatcher\AgeDispatcher($this->data, $this->ageCat1, $this->ageCat2);
         return $ageDispatcher->dispatchByAge(AgeDispatcher::SITE_AGE);
     }
 
