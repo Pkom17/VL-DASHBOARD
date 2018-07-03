@@ -14,7 +14,7 @@ use dataDispatcher\RegimenDispatcher;
 use dataDispatcher\SummaryDispatcher;
 use dataDispatcher\SampleTypeDispatcher;
 
-class CSVDataDispatcher {
+class Csv_datadispatcher {
 
     const AGE_ADULT = 21;
     const AGE_PAEDS = 15;

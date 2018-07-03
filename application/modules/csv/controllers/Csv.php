@@ -13,7 +13,7 @@ class Csv extends MY_Controller {
         parent:: __construct();
         $this->load->library('session');
         $this->load->library('csvimport');
-        $this->load->library('csvdatadispatcher');
+        $this->load->library('csv_datadispatcher');
         $this->load->model('Csv_import_model');
     }
 
