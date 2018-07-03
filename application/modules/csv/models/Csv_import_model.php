@@ -75,6 +75,12 @@ class Csv_import_model extends CI_Model {
         if (!$this->db->insert_batch('vl_site_age', $array_data)) {
             echo $this->db->_error_message();
         }
+        /*foreach ($array_data as $v) {
+            $this->db->update('vl_site_age',$v,array('month'=>$v['month'],'year'=>$v['year'],'facility'=>$v['facility'],'age'=>$v['facility']));
+            if($this->db->affectedRow()==0 || $this->db->_error_message()){
+                $this->db->insert('vl_site_age',$v);
+            }
+        }*/
     }
 
     public function saveVLNationalAge($array_data) {
