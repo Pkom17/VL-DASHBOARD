@@ -180,6 +180,7 @@
                                <!--  <li><a href="<?php echo base_url(); ?>pmtct"><?=lang('menu_label.PMTCT_analysis'); ?> </a></li> -->
                             </ul>
                         </li>
+                        <li><a href="<?php echo base_url(); ?>csv"><?=lang('menu_label.import_file'); ?> </a></li>
                         <!-- <li><a href="<?php echo base_url(); ?>live"><?=lang('menu_label.live_data'); ?> </a></li>
                         <li><a href="<?php echo base_url(); ?>contacts"><?=lang('menu_label.contact'); ?> </a></li> -->
                         <!-- <li><a href="<?php echo base_url(); ?>county">County View</a></li> -->

@@ -87,6 +87,7 @@
                                 <li><a href="<?php echo base_url(); ?>current"><?= lang('menu_label.current_supp'); ?> </a></li>
                             </ul>
                         </li>
+                        <li><a href="<?php echo base_url(); ?>csv"><?=lang('menu_label.import_file'); ?> </a></li>
                     </ul>
                 </div>
             </div>

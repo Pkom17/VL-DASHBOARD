@@ -14,6 +14,9 @@ use dataDispatcher\RegimenDispatcher;
 use dataDispatcher\SummaryDispatcher;
 use dataDispatcher\SampleTypeDispatcher;
 
+
+
+
 class Csv_datadispatcher {
 
     const AGE_ADULT = 21;
@@ -41,7 +44,7 @@ class Csv_datadispatcher {
         return $ageDispatcher->dispatch();
     }
     public function toSiteAge() {
-        $ageDispatcher = new dataDispatcher\AgeDispatcher($this->data, $this->ageCat1, $this->ageCat2);
+        $ageDispatcher = new AgeDispatcher($this->data, $this->ageCat1, $this->ageCat2);
         return $ageDispatcher->dispatchByAge(AgeDispatcher::SITE_AGE);
     }
 

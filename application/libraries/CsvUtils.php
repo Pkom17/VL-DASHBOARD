@@ -20,9 +20,9 @@ class CsvUtils {
         if(!is_array($csvData)){
             return false;
         }
-        $toRemove = ['ECHSTAT' => '', 'SUJETNO' => '', 'ETUDE' => '', 'SUJETSIT' => '', 'NOM_SITE' => '', 'NOM_SITE_DATIM' => '', 'DATENAIS' => '', 'AGEMOIS' => '', 'AGESEMS' => '', 'Viral Load log' => '',
-            'STARTED_DATE' => '', 'STATVIH' => '', 'NOMMED' => '', 'NOMPRELEV' => '', 'ARV_INIT_DATE' => '', 'ARVREG' => '', 'CURRENT_ART' => '',
-            'INITCD4_COUNT' => '', 'INITCD4_PERCENT' => '', 'INITCD4_DATE' => '', 'DEMANDCD4_COUNT' => '', 'DEMANDCD4_PERCENT' => '',
+        $toRemove = ['ECHSTAT' => '', 'SUJETNO' => '', 'ETUDE' => '', 'SUJETSIT' => '' ,'CODE_SITE'=>'', 'NOM_SITE_DATIM' => '', 'DATENAIS' => '', 'AGEMOIS' => '', 'AGESEMS' => '', 'Viral Load log' => '',
+            'STARTED_DATE' => '', 'STATVIH' => '', 'NOMMED' => '', 'NOMPRELEV' => '', 'ARV_INIT_DATE' => '', 'ARVREG' => '','CURRENT4'=> '', 'CURRENT_ART' => '',
+            'INITCD4_COUNT' => '', 'INITCD4_PERCENT' => '', 'INITCD4_DATE' => '', 'DEMANDCD4_COUNT' => '', 'DEMANDCD4_PERCENT' => '','REASON_OTHER' =>'',
             'DEMANDCD4_DATE' => '', 'PRIOR_VL_BENEFIT' => '', 'VL_PREGNANCY' => '', 'VL_SUCKLE' => '', 'PRIOR_VL_Lab' => '', 'PRIOR_VL_Value' => '', 'PRIOR_VL_Date' => ''];
         foreach ($csvData as $v) {
             $d[] = array_diff_key($v, $toRemove);
@@ -32,6 +32,15 @@ class CsvUtils {
 
     public static function extractYear(array $row) {
         $d = (array_key_exists('RELEASED_DATE', $row)) ? ($row['RELEASED_DATE']) : -1;
+        $dAsArray = explode(" ", $d);
+        if (is_array($dAsArray)) {
+            $date = date_create_from_format("d/m/Y", $dAsArray[0]);
+            return intval($date->format("Y"));
+        }
+        return -1;
+    }
+    public static function extractLabNo(array $row) {
+        $d = (array_key_exists('LABNO', $row)) ? ($row['LABNO']) : -1;
         $dAsArray = explode(" ", $d);
         if (is_array($dAsArray)) {
             $date = date_create_from_format("d/m/Y", $dAsArray[0]);
@@ -72,7 +81,7 @@ class CsvUtils {
 
     public static function extractVLReason(array $row) {
         $vlReason = (array_key_exists('VL_REASON', $row)) ? ($row['VL_REASON']) : -1;
-        return trim(utf8_decode($vlReason));
+        return trim(mb_convert_encoding($vlReason,'UTF-8'));
     }
 
     public static function extractVLCurrent1(array $row) {

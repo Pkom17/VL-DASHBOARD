@@ -621,3 +621,4 @@ $lang['load.csv.file'] = "Load CSV file data";
 $lang['label.importing'] = "Importing ...";
 $lang['label.site'] = "Site:";
 $lang['label.site_select'] = "Select site";
+$lang['menu_label.import_file'] = "Import";
