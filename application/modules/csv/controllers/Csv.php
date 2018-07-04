@@ -41,7 +41,7 @@ class Csv extends MY_Controller {
     }
 
     public function upload() {
-        $t1 = microtime(true);
+        //$t1 = microtime(true);
         $data = [];
         $config['upload_path'] = './uploads/';
         $config['allowed_types'] = 'csv';
@@ -61,13 +61,15 @@ class Csv extends MY_Controller {
         if (is_array($valid_array)) {
             $this->csv_datadispatcher->load($valid_array);
             $this->csv_datadispatcher->setAgeCategories($agecategories1, $agecategories2);
-            $t2 = microtime(true);
-            echo '-----' . ($t2 - $t1) . '-----' . count($valid_array) . '....';
+            //$t2 = microtime(true);
+            /*echo '-----' . ($t2 - $t1) . '-----' . count($valid_array) . '....';
             $array2 = $this->getDataFromImport($valid_array);
             $t3 = microtime(true);
             echo '-----' . ($t3 - $t2) . '-----' . count($array2) . '....';
             print_r($array2);
             die();
+             * 
+             */
             /* $t1 = microtime(true);
               $this->csv_datadispatcher->getData();
               echo '   Gl'.(microtime(true)-$t1);
