@@ -57,8 +57,10 @@
                             }
                         }
                     },colors: [
-                        '#F2784B',
-                        '#1BA39C'
+                        //'#F2784B',
+                        //'#1BA39C'
+                        '#f32619',
+                        '#2581cd'
                     ],
                     series: <?php echo json_encode($outcomes['gender']);?>
                 });

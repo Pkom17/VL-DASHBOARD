@@ -47,7 +47,6 @@ class Sites extends MY_Controller
 	function site_outcomes_chart($year=null,$month=null,$site=null,$to_year=NULL,$to_month=NULL)
 	{
 		$data['trends'] = $this->sites_model->site_outcomes_chart($year,$month,$site,$to_year,$to_month);
-
 		$this->load->view('labs_sample_types',$data);
 	}
 
@@ -115,7 +114,7 @@ class Sites extends MY_Controller
 	{
 		$data = $this->sites_model->site_patients($site,$year,$month,$to_year,$to_month);
 
-		echo "<pre>";print_r($data);die();
+		//echo "<pre>";print_r($data);die();
 
 
 

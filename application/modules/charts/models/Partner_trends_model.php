@@ -37,38 +37,51 @@ class Partner_trends_model extends MY_Model {
             'tat_trends' => [],
         ];
 
-        foreach ($result as $key => $value) {
+                $months = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+        foreach ($months as $m) {
+            foreach ($result as $value) {
 
-            if ($b) {
-                $b = false;
-                $year = (int) $value['year'];
+                if ($b) {
+                    $b = false;
+                    $year = (int) $value['year'];
+                }
+
+                $y = (int) $value['year'];
+                if ($value['year'] != $year) {
+                    $i++;
+                    $year--;
+                }
+
+                $month = (int) $value['month'];
+                //$month--;
+                if ((int) $m == (int) $month) {
+                    $tests = (int) $value['suppressed'] + (int) $value['nonsuppressed'];
+
+                    $data['suppression_trends'][$i]['name'] = $value['year'];
+                    $data['suppression_trends'][$i]['data'][] = round((($value['suppressed'] * 100) / $tests), 4, PHP_ROUND_HALF_UP);
+
+
+                    $data['test_trends'][$i]['name'] = $value['year'];
+                    $data['test_trends'][$i]['data'][] = $tests;
+
+                    $data['rejected_trends'][$i]['name'] = $value['year'];
+                    $data['rejected_trends'][$i]['data'][] = round((($value['rejected'] * 100) / $value['received']), 4, PHP_ROUND_HALF_UP);
+
+                    $data['tat_trends'][$i]['name'] = $value['year'];
+                    $data['tat_trends'][$i]['data'][] = (int) $value['tat4'];
+
+                    continue(2);
+                }
             }
-
-            $y = (int) $value['year'];
-            if ($value['year'] != $year) {
-                $i++;
-                $year--;
-            }
-
-            $month = (int) $value['month'];
-            $month--;
-
-            $tests = (int) $value['suppressed'] + (int) $value['nonsuppressed'];
-
             $data['suppression_trends'][$i]['name'] = $value['year'];
-            $data['suppression_trends'][$i]['data'][$month] = round(@(($value['suppressed'] * 100) / $tests), 1, PHP_ROUND_HALF_UP);
-
-
+            $data['suppression_trends'][$i]['data'][] = 0;
             $data['test_trends'][$i]['name'] = $value['year'];
-            $data['test_trends'][$i]['data'][$month] = $tests;
-
+            $data['test_trends'][$i]['data'][] = 0;
             $data['rejected_trends'][$i]['name'] = $value['year'];
-            $data['rejected_trends'][$i]['data'][$month] = round(@(($value['rejected'] * 100) / $value['received']), 1, PHP_ROUND_HALF_UP);
-
+            $data['rejected_trends'][$i]['data'][] = 0;
             $data['tat_trends'][$i]['name'] = $value['year'];
-            $data['tat_trends'][$i]['data'][$month] = (int) $value['tat4'];
+            $data['tat_trends'][$i]['data'][] = 0;
         }
-
 
         return $data;
     }

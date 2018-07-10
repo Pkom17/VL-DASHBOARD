@@ -20,7 +20,7 @@ class CsvUtils {
         if(!is_array($csvData)){
             return false;
         }
-        $toRemove = ['ECHSTAT' => '', 'SUJETNO' => '', 'ETUDE' => '', 'SUJETSIT' => '' ,'CODE_SITE'=>'', 'NOM_SITE_DATIM' => '', 'DATENAIS' => '', 'AGEMOIS' => '', 'AGESEMS' => '', 'Viral Load log' => '',
+        $toRemove = ['ECHSTAT' => '', 'SUJETNO' => '', 'ETUDE' => '', 'SUJETSIT' => '','NOM_SITE'=>'' ,'CODE_SITE'=>'', 'NOM_SITE_DATIM' => '', 'DATENAIS' => '', 'AGEMOIS' => '', 'AGESEMS' => '', 'Viral Load log' => '',
             'STARTED_DATE' => '', 'STATVIH' => '', 'NOMMED' => '', 'NOMPRELEV' => '', 'ARV_INIT_DATE' => '', 'ARVREG' => '','CURRENT4'=> '', 'CURRENT_ART' => '',
             'INITCD4_COUNT' => '', 'INITCD4_PERCENT' => '', 'INITCD4_DATE' => '', 'DEMANDCD4_COUNT' => '', 'DEMANDCD4_PERCENT' => '','REASON_OTHER' =>'',
             'DEMANDCD4_DATE' => '', 'PRIOR_VL_BENEFIT' => '', 'VL_PREGNANCY' => '', 'VL_SUCKLE' => '', 'PRIOR_VL_Lab' => '', 'PRIOR_VL_Value' => '', 'PRIOR_VL_Date' => ''];
@@ -256,7 +256,7 @@ class CsvUtils {
 
     public static function addLess1000($vl) {
         $inc = 0;
-        if ($vl < 1000) {
+        if ($vl != '< LL' && $vl < 1000) {
             $inc += 1;
         }
         return $inc;
@@ -368,6 +368,40 @@ class CsvUtils {
             $inc += 1;
         }
         return $inc;
+    }
+    
+        public static function getAgeCategorysub1($age) {
+        $cat = '';
+        if ($age < 5) {
+            $cat = '<5';
+        } elseif ($age >= 5 && $age < 10) {
+            $cat = '5-9';
+        } elseif ($age >= 10 && $age < 15) {
+            $cat = '10-14';
+        } elseif ($age >= 15 && $age < 18) {
+            $cat = '15-17';
+        } elseif ($age >= 18) {
+            $cat = '>18';
+        }
+        return $cat;
+    }
+
+    public  static function getAgeCategorysub2($age) {
+        $cat = '';
+        if ($age < 2) {
+            $cat = '<2';
+        } elseif ($age >= 2 && $age < 10) {
+            $cat = '2-9';
+        } elseif ($age >= 10 && $age < 15) {
+            $cat = '10-14';
+        } elseif ($age >= 15 && $age < 20) {
+            $cat = '15-19';
+        } elseif ($age >= 20 && $age < 25) {
+            $cat = '20-24';
+        } elseif ($age >= 25) {
+            $cat = '>25';
+        }
+        return $cat;
     }
 
 }

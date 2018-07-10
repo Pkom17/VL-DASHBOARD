@@ -59,7 +59,7 @@
 		<div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
-			  	<?=lang('label.pmtct_vl.outcomes ')?> <div class="display_date" ></div>
+			  	<?=lang('label.vl_outcomes')?> <div class="display_date" ></div>
 			  </div>
 			  <div id="vlOutcomes">
 			  	<center><div class="loader"></div></center>

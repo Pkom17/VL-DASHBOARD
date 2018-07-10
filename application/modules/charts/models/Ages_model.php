@@ -237,7 +237,6 @@ class Ages_model extends MY_Model
 		$data['categories'][0] 			= lang('label.male');
 		$data['categories'][1] 			= lang('label.female');
 		$data['categories'][2] 			= lang('label.no_data');
-                print_r($result);                
 		foreach ($result as $key => $value) {
 			
 			$data["gender"][0]["data"][0]	=  (int) $value['malenonsuppressed'];

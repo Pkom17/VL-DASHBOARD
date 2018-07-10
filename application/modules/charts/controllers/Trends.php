@@ -82,8 +82,6 @@ class Trends extends MY_Controller
 		$data['yAxis'] = lang('label.number_valid_tests');
 		$this->load->view('quarterly_trends_view', $data);
 
-		
-
 		$data['trends'] = $obj['rejected_trends'];
 		$data['title'] =  lang('label.rejected_rate_trends');
 		$data['div_name'] = "rejects_q";

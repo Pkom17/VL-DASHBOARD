@@ -324,7 +324,6 @@ class Subcounty_model extends MY_Model
 		}
 		$data['ageGnd'][0]['drilldown']['color'] = '#913D88';
 		$data['ageGnd'][0]['drilldown']['color'] = '#913D88';
-		
 		return $data;
 	}
 

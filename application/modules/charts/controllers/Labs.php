@@ -103,7 +103,7 @@ class Labs extends MY_Controller
 		$obj = $this->labs_model->yearly_trends($lab);
 		// echo "<pre>";print_r($obj);echo "</pre>";die();
 
-		$data['trends'] = $obj['suppression_trends'];
+                $data['trends'] = $obj['suppression_trends'];
 		$data['title'] = lang('label.suppression_trends');
 		$data['div_name'] = "suppression";
 		$data['suffix'] = "%";

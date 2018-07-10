@@ -209,25 +209,25 @@ class Sites_model extends MY_Model {
         $data['sample_types'][1]['name'] = lang('label.sample_type_DBS');
         $data['sample_types'][2]['name'] = lang('label.sample_type_plasma');
 
-        $count = 0;
-
-        $data['categories'] = array(lang('cal_jan'), lang('cal_feb'), lang('cal_mar'), lang('cal_apr'), lang('cal_may'), lang('cal_jun'), lang('cal_jul'), lang('cal_aug'), lang('cal_sep'), lang('cal_oct'), lang('cal_nov'), lang('cal_dev'));
-        $data["sample_types"][0]["data"][0] = $count;
-        $data["sample_types"][1]["data"][0] = $count;
-        $data["sample_types"][2]["data"][0] = $count;
-
-        foreach ($months as $key => $value) {
-            foreach ($result as $key1 => $value1) {
+        $data['categories'] = array(lang('cal_jan'), lang('cal_feb'), lang('cal_mar'), lang('cal_apr'), lang('cal_may'), lang('cal_jun'), lang('cal_jul'), lang('cal_aug'), lang('cal_sep'), lang('cal_oct'), lang('cal_nov'), lang('cal_dec'));
+        /* $data["sample_types"][0]["data"][0] = $count;
+          $data["sample_types"][1]["data"][0] = $count;
+          $data["sample_types"][2]["data"][0] = $count; */
+        foreach ($months as $value) {
+            foreach ($result as $value1) {
                 if ((int) $value == (int) $value1['month']) {
-                    $data["sample_types"][0]["data"][$key] = (int) $value1['edta'];
-                    $data["sample_types"][1]["data"][$key] = (int) $value1['dbs'];
-                    $data["sample_types"][2]["data"][$key] = (int) $value1['plasma'];
-
-                    $count++;
+                    $data["sample_types"][0]["data"][] = (int) $value1['edta'];
+                    $data["sample_types"][1]["data"][] = (int) $value1['dbs'];
+                    $data["sample_types"][2]["data"][] = (int) $value1['plasma'];
+                    continue(2);
                 }
             }
+            $data["sample_types"][0]["data"][] = 0;
+            $data["sample_types"][1]["data"][] = 0;
+            $data["sample_types"][2]["data"][] = 0;
         }
         // echo "<pre>";print_r($data);die();
+
         return $data;
     }
 
@@ -291,7 +291,7 @@ class Sites_model extends MY_Model {
 	    		<td>' . lang('label.total_vl_tests_done') . '</td>
 	    		<td>' . number_format($total_tests) . '</td>
 	    		<td>' . lang('label.non_suppression') . '</td>
-	    		<td>' . number_format($non_suppressed) . ' (' . round((($non_suppressed / $total_tests ) * 100), 1) . '%)</td>
+	    		<td>' . number_format($non_suppressed) . ' (' . @round((($non_suppressed / $total_tests ) * 100), 1) . '%)</td>
 	    	</tr>
  
 			<tr>

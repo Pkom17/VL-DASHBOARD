@@ -1,7 +1,7 @@
 <?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+ini_set('max_execution_time', 1500);
 /**
  * Import openelis exported data  into vl_dashboard db
  *
@@ -16,7 +16,7 @@ class Csv extends MY_Controller {
         $this->load->library('csv_datadispatcher');
         $this->load->library('regimen_extractor');
         $this->load->model('Csv_import_model');
-        ini_set('max_execution_time', 1500);
+        $this->load->model('Sample_model');
     }
 
     public function index() {
@@ -41,7 +41,6 @@ class Csv extends MY_Controller {
     }
 
     public function upload() {
-        //$t1 = microtime(true);
         $data = [];
         $config['upload_path'] = './uploads/';
         $config['allowed_types'] = 'csv';
@@ -61,15 +60,13 @@ class Csv extends MY_Controller {
         if (is_array($valid_array)) {
             $this->csv_datadispatcher->load($valid_array);
             $this->csv_datadispatcher->setAgeCategories($agecategories1, $agecategories2);
-            //$t2 = microtime(true);
-            /*echo '-----' . ($t2 - $t1) . '-----' . count($valid_array) . '....';
-            $array2 = $this->getDataFromImport($valid_array);
-            $t3 = microtime(true);
-            echo '-----' . ($t3 - $t2) . '-----' . count($array2) . '....';
-            print_r($array2);
+           /* $samples = $this->getDataFromImport($valid_array);
+            $toRemove = $this->Csv_import_model->saveSample($samples);
+            $this->Csv_import_model->saveTempSample($samples);
+            $this->dispatch($samples, $toRemove);
+           
             die();
-             * 
-             */
+
             /* $t1 = microtime(true);
               $this->csv_datadispatcher->getData();
               echo '   Gl'.(microtime(true)-$t1);
@@ -128,6 +125,22 @@ class Csv extends MY_Controller {
             $ret['success'] = '-1';
             echo json_encode($ret);
         }
+    }
+    
+    public function dispatch($data,$toRemove) {
+        $ageDisp = $this->sample_model->findAgeDistinctRow();
+        $ageDisp2 = $this->sample_model->findAgeDistinctRow2();
+        $genderDisp = $this->sample_model->findAgeDistinctRow();
+        $genderDisp2 = $this->sample_model->findAgeDistinctRow2();
+        $justificationDisp = $this->sample_model->findAgeDistinctRow();
+        $justificationDisp2 = $this->sample_model->findAgeDistinctRow2();
+        $regimenDisp = $this->sample_model->findAgeDistinctRow();
+        $regimenDisp2 = $this->sample_model->findAgeDistinctRow2();
+        $sampleTypeDisp = $this->sample_model->findAgeDistinctRow();
+        $sampleTypeDisp2 = $this->sample_model->findAgeDistinctRow2();
+        $summaryDisp = $this->sample_model->findAgeDistinctRow();
+        $summaryDisp2 = $this->sample_model->findAgeDistinctRow2();
+        
     }
 
     /**
@@ -209,18 +222,21 @@ class Csv extends MY_Controller {
         $regimenExtractor = $this->regimen_extractor;
 
         for ($i = 0; $i < $n; $i++) {
+            $data[$i]['dateupdated'] = date('d/m/Y H:i:s');
             $data[$i]['labno'] = $data[$i]['LABNO'];
             $data[$i]['year'] = \CsvUtils::extractYear($data[$i]);
             $data[$i]['month'] = \CsvUtils::extractMonth($data[$i]);
-            $data[$i]['facility'] = $this->Csv_import_model->findSiteIdByDatimCode(\CsvUtils::extractDatimCode($data[$i]));
+            $data[$i]['facility'] = \CsvUtils::extractDatimCode($data[$i]);
             $data[$i]['age'] = \CsvUtils::extractAge($data[$i]);
+            $data[$i]['agecat1'] = \CsvUtils::getAgeCategorysub1($data[$i]['age']);
+            $data[$i]['agecat2'] = \CsvUtils::getAgeCategorysub2($data[$i]['age']);
             $data[$i]['gender'] = $data[$i]['SEXE'];
             $m1 = \CsvUtils::extractVLCurrent1($data[$i]);
             $m2 = \CsvUtils::extractVLCurrent2($data[$i]);
             $m3 = \CsvUtils::extractVLCurrent3($data[$i]);
-            $data[$i]['sampletype'] = $this->Csv_import_model->findSampleTypeIdByName(\CsvUtils::extractTypeOfSample($data[$i]));
+            $data[$i]['sampletype'] = \CsvUtils::extractTypeOfSample($data[$i]);
             $data[$i]['regimen'] = $regimenExtractor->getRegimen($m1, $m2, $m3);
-            $data[$i]['justification'] = $this->Csv_import_model->findJustificationIdByName(\CsvUtils::extractVLReason($data[$i]));
+            $data[$i]['justification'] = \CsvUtils::extractVLReason($data[$i]);
             $tat1 = intval(\CsvUtils::dateDiff(\CsvUtils::extractInterviewDate($data[$i]), \CsvUtils::extractReceivedDate($data[$i])));
             $tat2 = intval(\CsvUtils::dateDiff(\CsvUtils::extractCompletedDate($data[$i]), \CsvUtils::extractInterviewDate($data[$i])));
             $tat3 = intval(\CsvUtils::dateDiff(\CsvUtils::extractReleasedDate($data[$i]), \CsvUtils::extractCompletedDate($data[$i])));

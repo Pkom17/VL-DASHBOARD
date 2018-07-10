@@ -27,6 +27,13 @@
                     showInLegend: true
                 }
             },
+            colors:[
+            '#E26A6A',
+            '#5283E9',
+            '#91D388',
+            '#883DA1',
+            '#AA9999'
+            ],
             series: [<?php echo json_encode($outcomes['justification']); ?>]
         });
     });

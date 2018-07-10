@@ -75,12 +75,12 @@ class Csv_import_model extends CI_Model {
         if (!$this->db->insert_batch('vl_site_age', $array_data)) {
             echo $this->db->_error_message();
         }
-        /*foreach ($array_data as $v) {
-            $this->db->update('vl_site_age',$v,array('month'=>$v['month'],'year'=>$v['year'],'facility'=>$v['facility'],'age'=>$v['facility']));
-            if($this->db->affectedRow()==0 || $this->db->_error_message()){
-                $this->db->insert('vl_site_age',$v);
-            }
-        }*/
+        /* foreach ($array_data as $v) {
+          $this->db->update('vl_site_age',$v,array('month'=>$v['month'],'year'=>$v['year'],'facility'=>$v['facility'],'age'=>$v['facility']));
+          if($this->db->affectedRow()==0 || $this->db->_error_message()){
+          $this->db->insert('vl_site_age',$v);
+          }
+          } */
     }
 
     public function saveVLNationalAge($array_data) {
@@ -94,6 +94,7 @@ class Csv_import_model extends CI_Model {
             echo $this->db->_error_message();
         }
     }
+
     public function saveVLSubcountyAge($array_data) {
         if (!$this->db->insert_batch('vl_subcounty_age', $array_data)) {
             echo $this->db->_error_message();
@@ -195,11 +196,13 @@ class Csv_import_model extends CI_Model {
             echo $this->db->_error_message();
         }
     }
+
     public function saveVLSiteSummary($array_data) {
         if (!$this->db->insert_batch('vl_site_summary', $array_data)) {
             echo $this->db->_error_message();
         }
     }
+
     public function saveVLNationalSummary($array_data) {
         if (!$this->db->insert_batch('vl_national_summary', $array_data)) {
             echo $this->db->_error_message();
@@ -223,16 +226,19 @@ class Csv_import_model extends CI_Model {
             echo $this->db->_error_message();
         }
     }
+
     public function saveVLLabSummary($array_data) {
         if (!$this->db->insert_batch('vl_lab_summary', $array_data)) {
             echo $this->db->_error_message();
         }
     }
+
     public function saveVLSiteSampleType($array_data) {
         if (!$this->db->insert_batch('vl_site_sampletype', $array_data)) {
             echo $this->db->_error_message();
         }
     }
+
     public function saveVLNationalSampleType($array_data) {
         if (!$this->db->insert_batch('vl_national_sampletype', $array_data)) {
             echo $this->db->_error_message();
@@ -256,6 +262,7 @@ class Csv_import_model extends CI_Model {
             echo $this->db->_error_message();
         }
     }
+
     public function saveVLLabSampleType($array_data) {
         if (!$this->db->insert_batch('vl_lab_sampletype', $array_data)) {
             print_r($this->db->_error_message());
@@ -337,8 +344,8 @@ class Csv_import_model extends CI_Model {
             return 0;
         }
     }
-    
-    public function findSampleTypeIdByname($name){
+
+    public function findSampleTypeIdByname($name) {
         $sql = 'select v.ID ID from  viralsampletypedetails v where v.name = ?';
         $query = $this->db->query($sql, array($name));
         $rows = $query->result_array();

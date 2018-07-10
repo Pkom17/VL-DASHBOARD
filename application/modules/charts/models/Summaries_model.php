@@ -217,7 +217,8 @@ class Summaries_model extends MY_Model {
         $this->db->close();
         // echo "<pre>";print_r($result);echo "</pre>";
         // echo "<pre>";print_r($sitessending);echo "</pre>";die();
-        $color = array('#6BB9F0', '#F2784B', '#1BA39C', '#5C97BF');
+        //$color = array('#6BB9F0', '#F2784B', '#1BA39C', '#5C97BF');
+        $color = array('#6BB9F0', '#f91d0f', '#96281B', '#5C97BF');
 
         $data['vl_outcomes']['name'] = lang('label.tests');
         $data['vl_outcomes']['colorByPoint'] = true;
@@ -325,8 +326,10 @@ class Summaries_model extends MY_Model {
             $data['vl_outcomes']['data'][0]['y'] = (int) $value['undetected'] + (int) $value['less1000'];
             $data['vl_outcomes']['data'][1]['y'] = (int) $value['less5000'] + (int) $value['above5000'];
 
-            $data['vl_outcomes']['data'][0]['color'] = '#1BA39C';
-            $data['vl_outcomes']['data'][1]['color'] = '#F2784B';
+            //$data['vl_outcomes']['data'][0]['color'] = '#1BA39C';
+            //$data['vl_outcomes']['data'][1]['color'] = '#F2784B';
+            $data['vl_outcomes']['data'][0]['color'] = '#2f80d1 ';
+            $data['vl_outcomes']['data'][1]['color'] = '#e8ee1d';
         }
 
         $count = 0;
@@ -737,6 +740,8 @@ class Summaries_model extends MY_Model {
             $data["gender"][1]["data"][$key] = (int) $value['suppressed'];
         }
 
+        //$data['gender'][0]['drilldown']['color'] = '#913D88';
+        //$data['gender'][1]['drilldown']['color'] = '#96281B';
         $data['gender'][0]['drilldown']['color'] = '#913D88';
         $data['gender'][1]['drilldown']['color'] = '#96281B';
         // echo "<pre>";print_r($data);die();
