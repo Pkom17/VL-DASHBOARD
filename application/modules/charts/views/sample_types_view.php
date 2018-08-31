@@ -1,7 +1,7 @@
 <div id="sample_types"></div>
 <div class="row" id="excels">
     <div class="col-md-6 col-md-offset-3">
-        <center><a href="<?php  echo $link; ?>"><button id="download_link" class="btn btn-primary" style="background-color: #009688;color: white;">Export To Excel</button></a></center>
+        <center><a href="<?php  echo $link; ?>"><button id="download_link" class="btn btn-primary" style="background-color: #009688;color: white;"><?=lang('label.export_excel')?></button></a></center>
     </div>
 </div>
 
@@ -69,7 +69,7 @@
                 valueDecimale: 0,
                 headerFormat: '<table class="tip"><caption>{point.key}</caption>'+'<tbody>',
                 pointFormat: '<tr><th style="color:{series.color}">{series.name}:</th>'+'<td style="text-align:right">{point.y}</td></tr>',
-                footerFormat: '<tr><th>'.<?=lang('label.total_')?>.'</th>'+'<td style="text-align:right"><b>{point.total}</b></td></tr>'+'</tbody></table>'
+                footerFormat: '<tr><th><?=lang('label.total_')?></th>'+'<td style="text-align:right"><b>{point.total}</b></td></tr>'+'</tbody></table>'
                 // formatter: function() {
                 // 	return this.value;
                 // }

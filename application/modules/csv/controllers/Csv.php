@@ -2,6 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 ini_set('max_execution_time', 1500);
+
 /**
  * Import openelis exported data  into vl_dashboard db
  *
@@ -9,14 +10,22 @@ ini_set('max_execution_time', 1500);
  */
 class Csv extends MY_Controller {
 
+    const ADD = 0;
+    const REM = 1;
+
     function __construct() {
         parent:: __construct();
         $this->load->library('session');
         $this->load->library('csvimport');
-        $this->load->library('csv_datadispatcher');
         $this->load->library('regimen_extractor');
         $this->load->model('Csv_import_model');
         $this->load->model('Sample_model');
+        $this->load->model('Age_model');
+        $this->load->model('Gender_model');
+        $this->load->model('Justification_model');
+        $this->load->model('Regimen_model');
+        $this->load->model('Sampletype_model');
+        $this->load->model('Summary_model');
     }
 
     public function index() {
@@ -44,6 +53,7 @@ class Csv extends MY_Controller {
         $data = [];
         $config['upload_path'] = './uploads/';
         $config['allowed_types'] = 'csv';
+        $config['max_size'] = 1536;
         $this->load->library('upload', $config);
         if (!$this->upload->do_upload('csv_file')) {
             //on récupère l'erreur dans une variable 
@@ -51,72 +61,15 @@ class Csv extends MY_Controller {
             echo json_encode($data);
             die();
         }
-        $agecategories1 = $this->Csv_import_model->get_ageCategory1();
-        $agecategories2 = $this->Csv_import_model->get_ageCategory2();
         $file_data = $this->upload->data();
         $csv_array = $this->csvimport->get_array($file_data['full_path']);
+        unlink($file_data['full_path']);
         $valid_array = \CsvUtils::validData($csv_array);
 
         if (is_array($valid_array)) {
-            $this->csv_datadispatcher->load($valid_array);
-            $this->csv_datadispatcher->setAgeCategories($agecategories1, $agecategories2);
-           /* $samples = $this->getDataFromImport($valid_array);
-            $toRemove = $this->Csv_import_model->saveSample($samples);
-            $this->Csv_import_model->saveTempSample($samples);
-            $this->dispatch($samples, $toRemove);
-           
-            die();
-
-            /* $t1 = microtime(true);
-              $this->csv_datadispatcher->getData();
-              echo '   Gl'.(microtime(true)-$t1);
-              die(); */
-            $nationalAges = $this->csv_datadispatcher->toNationalAge();
-            $siteAges = $this->csv_datadispatcher->toSiteAge();
-            $nationalGenders = $this->csv_datadispatcher->toNationalGender();
-            $siteGenders = $this->csv_datadispatcher->toSiteGender();
-            $nationalJustifications = $this->retrieveJustification($this->csv_datadispatcher->toNationalJustification());
-            $siteJustifications = $this->retrieveJustification($this->csv_datadispatcher->toSiteJustification());
-            $nationalRegimens = $this->retrieveRegimen($this->csv_datadispatcher->toNationalRegimen());
-            $siteRegimens = $this->retrieveRegimen($this->csv_datadispatcher->toSiteRegimen());
-            $nationalSummary = $this->csv_datadispatcher->toNationalSummary();
-            $siteSummary = $this->csv_datadispatcher->toSiteSummary();
-            $nationalSampleType = $this->retrieveSampleType($this->csv_datadispatcher->toNationalSampleType());
-            $siteSampleType = $this->retrieveSampleType($this->csv_datadispatcher->toSiteSampleType());
-            $labSampleType = $this->retrieveSampleType($this->csv_datadispatcher->toLabSampleType());
-            //insertion
-            $this->Csv_import_model->saveVLNationalAge($nationalAges);
-            $this->Csv_import_model->saveVLSiteAge($this->retrieveSite($siteAges));
-            $this->Csv_import_model->saveVLCountyAge($this->retrieveCounty($siteAges));
-            $this->Csv_import_model->saveVLSubcountyAge($this->retrieveSubcounty($siteAges));
-            $this->Csv_import_model->saveVLPartnerAge($this->retrievePartner($siteAges));
-            $this->Csv_import_model->saveVLNationalJustification($nationalJustifications);
-            $this->Csv_import_model->saveVLSiteJustification($this->retrieveSite($siteJustifications));
-            $this->Csv_import_model->saveVLCountyJustification($this->retrieveCounty($siteJustifications));
-            $this->Csv_import_model->saveVLSubcountyJustification($this->retrieveSubcounty($siteJustifications));
-            $this->Csv_import_model->saveVLPartnerJustification($this->retrievePartner($siteJustifications));
-            $this->Csv_import_model->saveVLNationalRegimen($nationalRegimens);
-            $this->Csv_import_model->saveVLSiteRegimen($this->retrieveSite($siteRegimens));
-            $this->Csv_import_model->saveVLCountyRegimen($this->retrieveCounty($siteRegimens));
-            $this->Csv_import_model->saveVLSubcountyRegimen($this->retrieveSubcounty($siteRegimens));
-            $this->Csv_import_model->saveVLPartnerRegimen($this->retrievePartner($siteRegimens));
-            $this->Csv_import_model->saveVLNationalGender($nationalGenders);
-            $this->Csv_import_model->saveVLSiteGender($this->retrieveSite($siteGenders));
-            $this->Csv_import_model->saveVLCountyGender($this->retrieveCounty($siteGenders));
-            $this->Csv_import_model->saveVLSubcountyGender($this->retrieveSubcounty($siteGenders));
-            $this->Csv_import_model->saveVLPartnerGender($this->retrievePartner($siteGenders));
-            $this->Csv_import_model->saveVLNationalSummary($nationalSummary);
-            $this->Csv_import_model->saveVLSiteSummary($this->retrieveSite($siteSummary));
-            $this->Csv_import_model->saveVLCountySummary($this->retrieveCounty($siteSummary));
-            $this->Csv_import_model->saveVLSubcountySummary($this->retrieveSubcounty($siteSummary));
-            $this->Csv_import_model->saveVLPartnerSummary($this->retrievePartner($siteSummary));
-            $this->Csv_import_model->saveVLLabSummary($this->retrieveLab($siteSummary));
-            $this->Csv_import_model->saveVLNationalSampleType($nationalSampleType);
-            $this->Csv_import_model->saveVLSiteSampleType($this->retrieveSite($siteSampleType));
-            $this->Csv_import_model->saveVLCountySampleType($this->retrieveCounty($siteSampleType));
-            $this->Csv_import_model->saveVLSubcountySampleType($this->retrieveSubcounty($siteSampleType));
-            $this->Csv_import_model->saveVLPartnerSampleType($this->retrievePartner($siteSampleType));
-            $this->Csv_import_model->saveVLLabSampleType($this->retrieveLab($labSampleType));
+            $samples = $this->getDataFromImport($valid_array);
+            $this->Sample_model->saveSample($samples);
+            //$this->Sample_model->emptyTempSample();
             $nbread = count($csv_array);
             $ret['success'] = '1';
             $ret['nbread'] = $nbread;
@@ -126,122 +79,138 @@ class Csv extends MY_Controller {
             echo json_encode($ret);
         }
     }
-    
-    public function dispatch($data,$toRemove) {
-        $ageDisp = $this->sample_model->findAgeDistinctRow();
-        $ageDisp2 = $this->sample_model->findAgeDistinctRow2();
-        $genderDisp = $this->sample_model->findAgeDistinctRow();
-        $genderDisp2 = $this->sample_model->findAgeDistinctRow2();
-        $justificationDisp = $this->sample_model->findAgeDistinctRow();
-        $justificationDisp2 = $this->sample_model->findAgeDistinctRow2();
-        $regimenDisp = $this->sample_model->findAgeDistinctRow();
-        $regimenDisp2 = $this->sample_model->findAgeDistinctRow2();
-        $sampleTypeDisp = $this->sample_model->findAgeDistinctRow();
-        $sampleTypeDisp2 = $this->sample_model->findAgeDistinctRow2();
-        $summaryDisp = $this->sample_model->findAgeDistinctRow();
-        $summaryDisp2 = $this->sample_model->findAgeDistinctRow2();
-        
+
+    public function refresh() {
+        $this->dispatchToAge();
+        $this->dispatchToGender();
+        $this->dispatchToJustification();
+        $this->dispatchToRegimen();
+        $this->dispatchToSampletype();
+        $this->dispatchToSummary();
+        $this->Csv_import_model->setComputedData();
+        redirect("Csv");  
     }
 
-    /**
-     * Replace regimen label by its id
-     * @param array $data
-     * @return array
-     */
-    private function retrieveRegimen(array $data) {
-        $count = count($data);
-        for ($k = 0; $k < $count; $k++) {
-            $data[$k]['regimen'] = $this->Csv_import_model->findRegimenIdByName($data[$k]['regimen']);
-        }
-        return $data;
+    public function dispatchToAge() {
+        $nationalAges = $this->Age_model->toNationalAge();
+        $siteAges = $this->Age_model->toSiteAge();
+        $countyAges = $this->Age_model->toCountyAge();
+        $subcountyAges = $this->Age_model->toSubcountyAge();
+        $partnerAges = $this->Age_model->toPartnerAge();
+        $this->Csv_import_model->saveData('vl_national_age', $nationalAges, array('year', 'month', 'age'));
+        $this->Csv_import_model->saveData('vl_site_age', $siteAges, array('year', 'month', 'age', 'facility'));
+        $this->Csv_import_model->saveData('vl_county_age', $countyAges, array('year', 'month', 'age', 'county'));
+        $this->Csv_import_model->saveData('vl_subcounty_age', $subcountyAges, array('year', 'month', 'age', 'subcounty'));
+        $this->Csv_import_model->saveData('vl_partner_age', $partnerAges, array('year', 'month', 'age', 'partner'));
     }
 
-    private function retrieveJustification(array $data) {
-        $count = count($data);
-        for ($k = 0; $k < $count; $k++) {
-            $data[$k]['justification'] = $this->Csv_import_model->findJustificationIdByName($data[$k]['justification']);
-        }
-        return $data;
+    public function dispatchToGender() {
+        $nationalGenders = $this->Gender_model->toNationalGender();
+        $siteGenders = $this->Gender_model->toSiteGender();
+        $countyGenders = $this->Gender_model->toCountyGender();
+        $subcountyGenders = $this->Gender_model->toSubcountyGender();
+        $partnerGenders = $this->Gender_model->toPartnerGender();
+        $this->Csv_import_model->saveData('vl_national_gender', $nationalGenders, array('year', 'month', 'gender'));
+        $this->Csv_import_model->saveData('vl_site_gender', $siteGenders, array('year', 'month', 'gender', 'facility'));
+        $this->Csv_import_model->saveData('vl_county_gender', $countyGenders, array('year', 'month', 'gender', 'county'));
+        $this->Csv_import_model->saveData('vl_subcounty_gender', $subcountyGenders, array('year', 'month', 'gender', 'subcounty'));
+        $this->Csv_import_model->saveData('vl_partner_gender', $partnerGenders, array('year', 'month', 'gender', 'partner'));
     }
 
-    private function retrieveSampleType(array $data) {
-        $count = count($data);
-        for ($k = 0; $k < $count; $k++) {
-            $data[$k]['sampletype'] = $this->Csv_import_model->findSampleTypeIdByName($data[$k]['sampletype']);
-        }
-        return $data;
+    public function dispatchToJustification() {
+        $nationalJustifications = $this->Justification_model->toNationalJustification();
+        $siteJustifications = $this->Justification_model->toSiteJustification();
+        $countyJustifications = $this->Justification_model->toCountyJustification();
+        $subcountyJustifications = $this->Justification_model->toSubcountyJustification();
+        $partnerJustifications = $this->Justification_model->toPartnerJustification();
+        $this->Csv_import_model->saveData('vl_national_justification', $nationalJustifications, array('year', 'month', 'justification'));
+        $this->Csv_import_model->saveData('vl_site_justification', $siteJustifications, array('year', 'month', 'justification', 'facility'));
+        $this->Csv_import_model->saveData('vl_county_justification', $countyJustifications, array('year', 'month', 'justification', 'county'));
+        $this->Csv_import_model->saveData('vl_subcounty_justification', $subcountyJustifications, array('year', 'month', 'justification', 'subcounty'));
+        $this->Csv_import_model->saveData('vl_partner_justification', $partnerJustifications, array('year', 'month', 'justification', 'partner'));
     }
 
-    private function retrieveSite(array $data) {
-        $count = count($data);
-        for ($k = 0; $k < $count; $k++) {
-            $data[$k]['facility'] = $this->Csv_import_model->findSiteIdByDatimCode($data[$k]['sitecode']);
-            unset($data[$k]['sitecode']);
-        }
-        return $data;
+    public function dispatchToRegimen() {
+        $nationalRegimens = $this->Regimen_model->toNationalRegimen();
+        $siteRegimens = $this->Regimen_model->toSiteRegimen();
+        $countyRegimens = $this->Regimen_model->toCountyRegimen();
+        $subcountyRegimens = $this->Regimen_model->toSubcountyRegimen();
+        $partnerRegimens = $this->Regimen_model->toPartnerRegimen();
+        $this->Csv_import_model->saveData('vl_national_regimen', $nationalRegimens, array('year', 'month', 'regimen'));
+        $this->Csv_import_model->saveData('vl_site_regimen', $siteRegimens, array('year', 'month', 'regimen', 'facility'));
+        $this->Csv_import_model->saveData('vl_county_regimen', $countyRegimens, array('year', 'month', 'regimen', 'county'));
+        $this->Csv_import_model->saveData('vl_subcounty_regimen', $subcountyRegimens, array('year', 'month', 'regimen', 'subcounty'));
+        $this->Csv_import_model->saveData('vl_partner_regimen', $partnerRegimens, array('year', 'month', 'regimen', 'partner'));
     }
 
-    private function retrieveSubcounty(array $data) {
-        $count = count($data);
-        for ($k = 0; $k < $count; $k++) {
-            $data[$k]['subcounty'] = $this->Csv_import_model->findDistrictIdByDatimCode($data[$k]['sitecode']);
-            unset($data[$k]['sitecode']);
-        }
-        return $data;
+    public function dispatchToSampletype() {
+        $nationalSampletypes = $this->Sampletype_model->toNationalSampletype();
+        $siteSampletypes = $this->Sampletype_model->toSiteSampletype();
+        $countySampletypes = $this->Sampletype_model->toCountySampletype();
+        $subcountySampletypes = $this->Sampletype_model->toSubcountySampletype();
+        $partnerSampletypes = $this->Sampletype_model->toPartnerSampletype();
+        $labSampletypes = $this->Sampletype_model->toLabSampletype();
+        $this->Csv_import_model->saveData('vl_national_sampletype', $nationalSampletypes, array('year', 'month', 'sampletype'));
+        $this->Csv_import_model->saveData('vl_site_sampletype', $siteSampletypes, array('year', 'month', 'sampletype', 'facility'));
+        $this->Csv_import_model->saveData('vl_county_sampletype', $countySampletypes, array('year', 'month', 'sampletype', 'county'));
+        $this->Csv_import_model->saveData('vl_subcounty_sampletype', $subcountySampletypes, array('year', 'month', 'sampletype', 'subcounty'));
+        $this->Csv_import_model->saveData('vl_partner_sampletype', $partnerSampletypes, array('year', 'month', 'sampletype', 'partner'));
+        $this->Csv_import_model->saveData('vl_lab_sampletype', $labSampletypes, array('year', 'month', 'sampletype', 'lab'));
     }
 
-    private function retrieveCounty(array $data) {
-        $count = count($data);
-        for ($k = 0; $k < $count; $k++) {
-            $data[$k]['county'] = $this->Csv_import_model->findCountyIdByDatimCode($data[$k]['sitecode']);
-            unset($data[$k]['sitecode']);
-        }
-        return $data;
+    public function dispatchToSummary() {
+
+        $nationalSummaries = $this->Summary_model->toNationalSummary();
+        $siteSummaries = $this->Summary_model->toSiteSummary();
+        $countySummaries = $this->Summary_model->toCountySummary();
+        $subcountySummaries = $this->Summary_model->toSubcountySummary();
+        $partnerSummaries = $this->Summary_model->toPartnerSummary();
+        $labSummaries = $this->Summary_model->toLabSummary();
+        $this->Csv_import_model->saveData('vl_national_summary', $nationalSummaries, array('year', 'month'));
+        $this->Csv_import_model->saveData('vl_site_summary', $siteSummaries, array('year', 'month', 'facility'));
+        $this->Csv_import_model->saveData('vl_county_summary', $countySummaries, array('year', 'month', 'county'));
+        $this->Csv_import_model->saveData('vl_subcounty_summary', $subcountySummaries, array('year', 'month', 'subcounty'));
+        $this->Csv_import_model->saveData('vl_partner_summary', $partnerSummaries, array('year', 'month', 'partner'));
+        $this->Csv_import_model->saveData('vl_lab_summary', $labSummaries, array('year', 'month', 'lab'));
     }
 
-    private function retrievePartner(array $data) {
-        $count = count($data);
-        for ($k = 0; $k < $count; $k++) {
-            $data[$k]['partner'] = $this->Csv_import_model->findPartnerIdByDatimCode($data[$k]['sitecode']);
-            unset($data[$k]['sitecode']);
-        }
-        return $data;
-    }
-
-    private function retrieveLab(array $data) {
-        $count = count($data);
-        for ($k = 0; $k < $count; $k++) {
-            $data[$k]['lab'] = $this->Csv_import_model->findLabIdByDatimCode($data[$k]['sitecode']);
-            unset($data[$k]['sitecode']);
-        }
-        return $data;
-    }
-
+    // y mettre les id de labo, county, subcounty et partner
     private function getDataFromImport(array $data) {
         $n = count($data);
         $regimenExtractor = $this->regimen_extractor;
 
         for ($i = 0; $i < $n; $i++) {
             $data[$i]['dateupdated'] = date('d/m/Y H:i:s');
-            $data[$i]['labno'] = $data[$i]['LABNO'];
+            $data[$i]['labno'] = \CsvUtils::extractLabNo($data[$i]);
             $data[$i]['year'] = \CsvUtils::extractYear($data[$i]);
             $data[$i]['month'] = \CsvUtils::extractMonth($data[$i]);
-            $data[$i]['facility'] = \CsvUtils::extractDatimCode($data[$i]);
-            $data[$i]['age'] = \CsvUtils::extractAge($data[$i]);
-            $data[$i]['agecat1'] = \CsvUtils::getAgeCategorysub1($data[$i]['age']);
-            $data[$i]['agecat2'] = \CsvUtils::getAgeCategorysub2($data[$i]['age']);
+            $datim_code = \CsvUtils::extractDatimCode($data[$i]);
+            $data[$i]['datim_code'] = $datim_code;
+            $data[$i]['facility'] = $this->Csv_import_model->findSiteIdByDatimCode($datim_code);
+            $data[$i]['subcounty'] = $this->Csv_import_model->findDistrictIdByDatimCode($datim_code);
+            $data[$i]['county'] = $this->Csv_import_model->findCountyIdByDatimCode($datim_code);
+            $data[$i]['partner'] = $this->Csv_import_model->findPartnerIdByDatimCode($datim_code);
+            //$data[$i]['lab'] = $this->Csv_import_model->findLabIdByDatimCode($datim_code);
+            $data[$i]['lab'] = $this->Csv_import_model->findLabIdByLabNo($data[$i]['labno']);
+            $age = \CsvUtils::extractAge($data[$i]);
+            $data[$i]['age'] = $age;
+            $data[$i]['agecat1'] = $this->Age_model->getAgeCat1Id(\CsvUtils::getAgeCategorysub1($age));
+            $data[$i]['agecat2'] = $this->Age_model->getAgeCat2Id(\CsvUtils::getAgeCategorysub2($age));
             $data[$i]['gender'] = $data[$i]['SEXE'];
             $m1 = \CsvUtils::extractVLCurrent1($data[$i]);
             $m2 = \CsvUtils::extractVLCurrent2($data[$i]);
             $m3 = \CsvUtils::extractVLCurrent3($data[$i]);
-            $data[$i]['sampletype'] = \CsvUtils::extractTypeOfSample($data[$i]);
-            $data[$i]['regimen'] = $regimenExtractor->getRegimen($m1, $m2, $m3);
-            $data[$i]['justification'] = \CsvUtils::extractVLReason($data[$i]);
+            $data[$i]['regimen_name'] = $regimenExtractor->getRegimen($m1, $m2, $m3);
+            $data[$i]['sampletype_name'] = \CsvUtils::extractTypeOfSample($data[$i]);
+            $data[$i]['justification_name'] = \CsvUtils::extractVLReason($data[$i]);
+            $data[$i]['regimen'] = $this->Csv_import_model->findRegimenIdByName($data[$i]['regimen_name']);
+            $data[$i]['sampletype'] = $this->Csv_import_model->findSampleTypeIdByname($data[$i]['sampletype_name']);
+            $data[$i]['justification'] = $this->Csv_import_model->findJustificationIdByName($data[$i]['justification_name']);
             $tat1 = intval(\CsvUtils::dateDiff(\CsvUtils::extractInterviewDate($data[$i]), \CsvUtils::extractReceivedDate($data[$i])));
             $tat2 = intval(\CsvUtils::dateDiff(\CsvUtils::extractCompletedDate($data[$i]), \CsvUtils::extractInterviewDate($data[$i])));
             $tat3 = intval(\CsvUtils::dateDiff(\CsvUtils::extractReleasedDate($data[$i]), \CsvUtils::extractCompletedDate($data[$i])));
-            $tat4 = intval(\CsvUtils::dateDiff(\CsvUtils::extractReleasedDate($data[$i]), \CsvUtils::extractInterviewDate($data[$i])));
-            $data[$i]['viralload'] = $data[$i]['Viral Load'];
+            $tat4 = intval(\CsvUtils::dateDiff(\CsvUtils::extractReleasedDate($data[$i]), \CsvUtils::extractReceivedDate($data[$i])));
+            $data[$i]['viralload'] = \CsvUtils::extractViralLoad($data[$i]);
             $data[$i]['tat1'] = $tat1;
             $data[$i]['tat2'] = $tat2;
             $data[$i]['tat3'] = $tat3;
@@ -261,8 +230,14 @@ class Csv extends MY_Controller {
             unset($data[$i]['CURRENT3']);
             unset($data[$i]['VL_REASON']);
         }
- 
+
         return $data;
+    }
+    
+    public function import_history()
+    {
+        
+        redirect("Csv"); 
     }
 
 }

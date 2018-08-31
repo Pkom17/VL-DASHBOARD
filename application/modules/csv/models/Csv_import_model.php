@@ -71,206 +71,51 @@ class Csv_import_model extends CI_Model {
         return $ages;
     }
 
-    public function saveVLSiteAge($array_data) {
-        if (!$this->db->insert_batch('vl_site_age', $array_data)) {
-            echo $this->db->_error_message();
-        }
-        /* foreach ($array_data as $v) {
-          $this->db->update('vl_site_age',$v,array('month'=>$v['month'],'year'=>$v['year'],'facility'=>$v['facility'],'age'=>$v['facility']));
-          if($this->db->affectedRow()==0 || $this->db->_error_message()){
-          $this->db->insert('vl_site_age',$v);
-          }
-          } */
-    }
-
-    public function saveVLNationalAge($array_data) {
-        if (!$this->db->insert_batch('vl_national_age', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLCountyAge($array_data) {
-        if (!$this->db->insert_batch('vl_county_age', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLSubcountyAge($array_data) {
-        if (!$this->db->insert_batch('vl_subcounty_age', $array_data)) {
-            echo $this->db->_error_message();
+    public function saveData($table, array $data, array $where) {
+        foreach ($data as $v) {
+            $set = array_diff(array_keys($v), $where, array('dateupdated'));
+            $whereClause = [];
+            foreach ($where as $w) {
+                $whereClause[$w] = $v[$w];
+            }
+            $this->db->where($whereClause);
+            $q = $this->db->get($table);
+            $this->db->reset_query();
+            if ($q->num_rows() > 0) {
+                $setClause = [];
+                foreach ($set as $s) {
+                    $setClause[$s] = $s . ' + ' . $v[$s];
+                    //$setClause[$s] =  $v[$s];
+                }
+                $setClause['dateupdated'] = '"'.date('d/m/Y H:i:s').'"';
+                $this->db->set($setClause,'',false);
+                $this->db->where($whereClause);
+                $this->db->update($table);
+            } else {
+                $v['dateupdated'] = date('d/m/Y H:i:s');
+                $this->db->insert($table, $v);
+            }
         }
     }
 
-    public function saveVLPartnerAge($array_data) {
-        if (!$this->db->insert_batch('vl_partner_age', $array_data)) {
-            echo $this->db->_error_message();
+    public function removeData($table, array $data, array $where) {
+        foreach ($data as $v) {
+            $set = array_diff(array_keys($v), $where, array('dateupdated'));
+            $whereClause = [];
+            foreach ($where as $w) {
+                $whereClause[$w] = $v[$w];
+            }
+            $setClause = [];
+            foreach ($set as $s) {
+                $setClause[$s] = $s . ' -' . $v[$s];
+            }
+            $this->db->update($table, $setClause, $whereClause);
         }
     }
 
-    public function saveVLSiteGender($array_data) {
-        if (!$this->db->insert_batch('vl_site_gender', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLNationalGender($array_data) {
-        if (!$this->db->insert_batch('vl_national_gender', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLCountyGender($array_data) {
-        if (!$this->db->insert_batch('vl_county_gender', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLSubcountyGender($array_data) {
-        if (!$this->db->insert_batch('vl_subcounty_gender', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLPartnerGender($array_data) {
-        if (!$this->db->insert_batch('vl_partner_gender', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLSiteJustification($array_data) {
-        if (!$this->db->insert_batch('vl_site_justification', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLNationalJustification($array_data) {
-        if (!$this->db->insert_batch('vl_national_justification', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLCountyJustification($array_data) {
-        if (!$this->db->insert_batch('vl_county_justification', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLSubcountyJustification($array_data) {
-        if (!$this->db->insert_batch('vl_subcounty_justification', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLPartnerJustification($array_data) {
-        if (!$this->db->insert_batch('vl_partner_justification', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLSiteRegimen($array_data) {
-        if (!$this->db->insert_batch('vl_site_regimen', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLNationalRegimen($array_data) {
-        if (!$this->db->insert_batch('vl_national_regimen', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLCountyRegimen($array_data) {
-        if (!$this->db->insert_batch('vl_county_regimen', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLSubcountyRegimen($array_data) {
-        if (!$this->db->insert_batch('vl_subcounty_regimen', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLPartnerRegimen($array_data) {
-        if (!$this->db->insert_batch('vl_partner_regimen', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLSiteSummary($array_data) {
-        if (!$this->db->insert_batch('vl_site_summary', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLNationalSummary($array_data) {
-        if (!$this->db->insert_batch('vl_national_summary', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLCountySummary($array_data) {
-        if (!$this->db->insert_batch('vl_county_summary', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLSubcountySummary($array_data) {
-        if (!$this->db->insert_batch('vl_subcounty_summary', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLPartnerSummary($array_data) {
-        if (!$this->db->insert_batch('vl_partner_summary', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLLabSummary($array_data) {
-        if (!$this->db->insert_batch('vl_lab_summary', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLSiteSampleType($array_data) {
-        if (!$this->db->insert_batch('vl_site_sampletype', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLNationalSampleType($array_data) {
-        if (!$this->db->insert_batch('vl_national_sampletype', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLCountySampleType($array_data) {
-        if (!$this->db->insert_batch('vl_county_sampletype', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLSubcountySampleType($array_data) {
-        if (!$this->db->insert_batch('vl_subcounty_sampletype', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLPartnerSampleType($array_data) {
-        if (!$this->db->insert_batch('vl_partner_sampletype', $array_data)) {
-            echo $this->db->_error_message();
-        }
-    }
-
-    public function saveVLLabSampleType($array_data) {
-        if (!$this->db->insert_batch('vl_lab_sampletype', $array_data)) {
-            print_r($this->db->_error_message());
-        }
-    }
-
-    public function findSiteIdByDatimCode($datimcode) {
-        $query = $this->db->query('select ID from facilitys where DATIMcode = ?', array($datimcode));
+    public function findDistrictIdByDatimCode($datimcode) {
+        $sql = 'select d.ID ID from districts d join  facilitys f on f.district = d.ID  where f.DATIMcode = ? ';
+        $query = $this->db->query($sql, array($datimcode));
         $rows = $query->result_array();
         if (is_array($rows) && isset($rows[0]['ID'])) {
             return $rows[0]['ID'];
@@ -279,9 +124,8 @@ class Csv_import_model extends CI_Model {
         }
     }
 
-    public function findDistrictIdByDatimCode($datimcode) {
-        $sql = 'select d.ID ID from districts d join  facilitys f on f.district = d.ID  where f.DATIMcode = ? ';
-        $query = $this->db->query($sql, array($datimcode));
+    public function findSiteIdByDatimCode($datimcode) {
+        $query = $this->db->query('select ID from facilitys where DATIMcode = ?', array($datimcode));
         $rows = $query->result_array();
         if (is_array($rows) && isset($rows[0]['ID'])) {
             return $rows[0]['ID'];
@@ -323,6 +167,18 @@ class Csv_import_model extends CI_Model {
         }
     }
 
+    public function findLabIdByLabNo($labno) {
+        $prefix = substr($labno, 0, 4);
+        $sql = 'select l.ID ID from  labs l join  lab_prefix p on p.lab_id = l.ID  where p.vl_prefix = ? ';
+        $query = $this->db->query($sql, array($prefix));
+        $rows = $query->result_array();
+        if (is_array($rows) && isset($rows[0]['ID'])) {
+            return $rows[0]['ID'];
+        } else {
+            return 0;
+        }
+    }
+
     public function findJustificationIdByName($name) {
         $sql = 'select v.ID ID from  viraljustifications v where v.name = ?';
         $query = $this->db->query($sql, array($name));
@@ -354,6 +210,10 @@ class Csv_import_model extends CI_Model {
         } else {
             return 0;
         }
+    }
+
+    public function setComputedData() {
+        $this->db->update('vl_sample_import', array('computed' => 'O'));
     }
 
 }

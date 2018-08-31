@@ -87,41 +87,49 @@
                                 <li><a href="<?php echo base_url(); ?>current"><?= lang('menu_label.current_supp'); ?> </a></li>
                             </ul>
                         </li>
-                        <li><a href="<?php echo base_url(); ?>csv"><?=lang('menu_label.import_file'); ?> </a></li>
+                        <li><a href="<?php echo base_url(); ?>csv"><?= lang('menu_label.import_file'); ?> </a></li>
                     </ul>
                 </div>
             </div>
         </div>
         <div class="container">
-            <form></form>
-            <h3><?= lang("load.csv.file"); ?></h3>
-            <form class="form-horizontal" role="form" method="post" id="import_csv" action="" enctype="multipart/form-data">
-                <div class="form-group ">
-                  <!--  <label for="select_site" class="control-label col-sm-2"><?= lang("label.site"); ?></label>
-                    <div class="form-group col-sm-10">
-                        <select id="select_site" name="site" class="btn btn-primary js-example-basic-single" required>
-                            <option  value="" disabled="true" selected="true"><?= lang('label.site_select') ?></option>
-                            <?php echo $sites; ?>
-                        </select> 
-                    </div> -->
-                </div>
-                <div class="form-group">
-                    <label for="csv_file" class="control-label col-sm-2"><?= lang("select.csv.file"); ?></label>
-                    <div class="form-group col-sm-7">
-                        <input class="form-control" type="file" name="csv_file" id="csv_file" required accept=".csv" />
+            <div class="col-md-9">
+                <form></form>
+                <h3><?= lang("load.csv.file"); ?></h3>
+                <form class="form-horizontal" role="form" method="post" id="import_csv" action="" enctype="multipart/form-data">
+                    <div class="form-group ">
+                      <!--  <label for="select_site" class="control-label col-sm-2"><?= lang("label.site"); ?></label>
+                        <div class="form-group col-sm-10">
+                            <select id="select_site" name="site" class="btn btn-primary js-example-basic-single" required>
+                                <option  value="" disabled="true" selected="true"><?= lang('label.site_select') ?></option>
+                        <?php echo $sites; ?>
+                            </select> 
+                        </div> -->
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-3">
-                        <button type="submit" name="import_csv_btn" class="btn btn-primary" id="import_csv_btn"><?= lang("import.csv"); ?></button>
+                    <div class="form-group">
+                        <label for="csv_file" class="control-label col-sm-2"><?= lang("select.csv.file"); ?></label>
+                        <div class="form-group col-sm-7">
+                            <input class="form-control" type="file" name="csv_file" id="csv_file" required accept=".csv"  />
+                        </div>
                     </div>
-                    <div class="col-sm-4" id="loader">
-                        
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-3">
+                            <button type="submit" name="import_csv_btn" class="btn btn-primary" id="import_csv_btn"><?= lang("import.csv"); ?></button>
+                        </div>
+                        <div class="col-sm-4" id="loader">
+
+                        </div>
                     </div>
-                </div>
-            </form>
-            <br/>
-            <div class=" well well-sm" id="imported_csv_data"></div>
+                </form>
+                <br/>
+                <div class=" well well-sm" id="imported_csv_data"></div>
+            </div>
+            <div class="col-md-3">
+                <ul>
+                    <li><a href="<?php echo base_url(); ?>csv/refresh"><?= lang('menu.refresh'); ?> </a></li>
+                    <li><a href="<?php echo base_url(); ?>csv/import_history"><?= lang('menu.import.history'); ?> </a></li>
+                </ul>
+            </div>
         </div>
         <script>
             $(document).ready(function () {

@@ -4602,19 +4602,20 @@ CREATE DEFINER=`root`@`%` PROCEDURE `proc_get_national_sample_types` (IN `from_y
   SET @QUERY =    "SELECT
 					`month`,
 					`year`,
-					`edta`,
-					`dbs`,
-					`plasma`,
-					`alledta`,
-					`alldbs`,
-					`allplasma`,
-					(`Undetected`+`less1000`) AS `suppressed`,
-					(`Undetected`+`less1000`+`less5000`+`above5000`) AS `tests`,
-					((`Undetected`+`less1000`)*100/(`Undetected`+`less1000`+`less5000`+`above5000`)) AS `suppression`
+					sum(`edta`) as edta,
+					sum(`dbs`) as dbs,
+					sum(`plasma`) as plasma,
+					sum(`alledta`) as alledta,
+					sum(`alldbs`) as alldbs,
+					sum(`allplasma`) as allplasma,
+					sum((`Undetected`+`less1000`)) AS `suppressed`,
+					sum((`Undetected`+`less1000`+`less5000`+`above5000`)) AS `tests`,
+					sum(((`Undetected`+`less1000`)*100/(`Undetected`+`less1000`+`less5000`+`above5000`))) AS `suppression`
 				FROM `vl_national_summary`
                 WHERE 1";
 
-    SET @QUERY = CONCAT(@QUERY, " AND `year` = '",from_year,"' OR `year`='",to_year,"' ORDER BY `year` ASC, `month` ");
+    SET @QUERY = CONCAT(@QUERY, " AND `year` = '",from_year,"' OR `year`='",to_year,"' ");
+    SET @QUERY = CONCAT(@QUERY, " GROUP BY  `month`, `year` ORDER BY `year` ASC, `month` ");
     
     PREPARE stmt FROM @QUERY;
     EXECUTE stmt;
@@ -7601,7 +7602,7 @@ CREATE DEFINER=`root`@`%` PROCEDURE `proc_get_vl_national_yearly_trends` ()  BEG
                     SUM(`cs`.`above5000` + `cs`.`less5000`) AS `nonsuppressed`, 
                     SUM(`cs`.`received`) AS `received`, 
                     SUM(`cs`.`rejected`) AS `rejected`,
-                    SUM(`cs`.`tat4`) AS `tat4`
+                    AVG(`cs`.`tat4`) AS `tat4`
                 FROM `vl_national_summary` `cs`
                 WHERE 1  ";
     
@@ -8612,13 +8613,13 @@ CREATE DEFINER=`root`@`%` PROCEDURE `proc_get_vl_sample_summary` (IN `S_id` INT(
   SET @QUERY =    "SELECT 
             `year`, 
             `month`, 
-            (`undetected`+`less1000`) AS `suppressed`,
-            (`less5000`+`above5000`) AS `nonsuppressed`, 
-            ((`undetected`+`less1000`)*100/(`less5000`+`above5000`+`undetected`+`less1000`)) AS `percentage`  
+            sum((`undetected`+`less1000`)) AS `suppressed`,
+            sum((`less5000`+`above5000`)) AS `nonsuppressed`, 
+            sum((`undetected`+`less1000`)*100/(`less5000`+`above5000`+`undetected`+`less1000`)) AS `percentage`  
             FROM `vl_national_sampletype`
                 WHERE 1";
 
-    SET @QUERY = CONCAT(@QUERY, " AND `sampletype` = '",S_id,"' AND `year` BETWEEN '",from_year,"' AND '",to_year,"' ORDER BY `year` ASC, `month` ");
+    SET @QUERY = CONCAT(@QUERY, " AND `sampletype` = '",S_id,"' AND `year` BETWEEN '",from_year,"' AND '",to_year,"' GROUP BY `year`,`month`  ORDER BY `year` ASC, `month` ");
     
     PREPARE stmt FROM @QUERY;
     EXECUTE stmt;
@@ -8828,9 +8829,9 @@ CREATE DEFINER=`root`@`%` PROCEDURE `proc_get_vl_subcounty_age` (IN `filter_subc
 
     SET @QUERY = CONCAT(@QUERY, " AND `subcounty` = '",filter_subcounty,"' ");
 
-    SET @QUERY = CONCAT(@QUERY, " AND `ac`.`subID` = 1 ");
+    SET @QUERY = CONCAT(@QUERY, " AND `ac`.`subID` = 2 ");
 
-    SET @QUERY = CONCAT(@QUERY, " GROUP BY `ac`.`ID` ");
+    SET @QUERY = CONCAT(@QUERY, " GROUP BY `ac`.`name` ");
 
      PREPARE stmt FROM @QUERY;
      EXECUTE stmt;
@@ -9182,10 +9183,10 @@ END$$
 
 CREATE DEFINER=`root`@`%` PROCEDURE `proc_get_vl_yearly_lab_summary` (IN `lab` INT(11), IN `from_year` INT(11), IN `to_year` INT(11))  BEGIN
   SET @QUERY =    "SELECT
-                    `vls`.`year`,
-                     `vls`.`month`, 
-                    (`vls`.`Undetected` + `vls`.`less1000`) AS `suppressed`, 
-                    (`vls`.`above5000` + `vls`.`less5000`) AS `nonsuppressed`
+                    `vls`.`year` as `year`,
+                     `vls`.`month` as `month`, 
+                    sum((`vls`.`Undetected` + `vls`.`less1000`)) AS `suppressed`, 
+                    sum((`vls`.`above5000` + `vls`.`less5000`)) AS `nonsuppressed`
                 FROM `vl_lab_summary` `vls`
                 WHERE 1  ";
 
@@ -9194,7 +9195,7 @@ CREATE DEFINER=`root`@`%` PROCEDURE `proc_get_vl_yearly_lab_summary` (IN `lab` I
       END IF;  
 
     
-      SET @QUERY = CONCAT(@QUERY, "  AND `year` BETWEEN '",from_year,"' AND '",to_year,"'  ORDER BY `year` ASC, `month` ");
+      SET @QUERY = CONCAT(@QUERY, "  AND `year` BETWEEN '",from_year,"' AND '",to_year,"' group by `vls`.`year`,`vls`.`month`   ORDER BY `year` ASC, `month` ");
 
      
 
@@ -9210,7 +9211,7 @@ CREATE DEFINER=`root`@`%` PROCEDURE `proc_get_vl_yearly_lab_trends` (IN `lab` IN
                     SUM(`vls`.`alltests`) AS `alltests`, 
                     SUM(`vls`.`received`) AS `received`, 
                     SUM(`vls`.`rejected`) AS `rejected`,
-                    SUM(`vls`.`tat4`) AS `tat4`
+                    AVG(`vls`.`tat4`) AS `tat4`
                 FROM `vl_lab_summary` `vls`
                 WHERE 1  ";
 
@@ -9259,7 +9260,7 @@ CREATE DEFINER=`root`@`%` PROCEDURE `proc_get_vl_yearly_trends` (IN `county` INT
                     SUM(`cs`.`above5000` + `cs`.`less5000`) AS `nonsuppressed`, 
                     SUM(`cs`.`received`) AS `received`, 
                     SUM(`cs`.`rejected`) AS `rejected`,
-                    SUM(`cs`.`tat4`) AS `tat4`
+                    AVG(`cs`.`tat4`) AS `tat4`
                 FROM `vl_county_summary` `cs`
                 WHERE 1  ";
 

@@ -17,15 +17,22 @@ class CsvUtils {
     const SAMPLE_PLASMA = 'Plasma';
 
     public static function validData($csvData) {
-        if(!is_array($csvData)){
+        if (!is_array($csvData)) {
             return false;
         }
-        $toRemove = ['ECHSTAT' => '', 'SUJETNO' => '', 'ETUDE' => '', 'SUJETSIT' => '','NOM_SITE'=>'' ,'CODE_SITE'=>'', 'NOM_SITE_DATIM' => '', 'DATENAIS' => '', 'AGEMOIS' => '', 'AGESEMS' => '', 'Viral Load log' => '',
-            'STARTED_DATE' => '', 'STATVIH' => '', 'NOMMED' => '', 'NOMPRELEV' => '', 'ARV_INIT_DATE' => '', 'ARVREG' => '','CURRENT4'=> '', 'CURRENT_ART' => '',
-            'INITCD4_COUNT' => '', 'INITCD4_PERCENT' => '', 'INITCD4_DATE' => '', 'DEMANDCD4_COUNT' => '', 'DEMANDCD4_PERCENT' => '','REASON_OTHER' =>'',
+        $toRemove = ['ECHSTAT' => '', 'SUJETNO' => '', 'ETUDE' => '', 'SUJETSIT' => '', 'NOM_SITE' => '', 'CODE_SITE' => '', 'NOM_SITE_DATIM' => '', 'DATENAIS' => '', 'AGEMOIS' => '', 'AGESEMS' => '', 'Viral Load log' => '',
+            'STARTED_DATE' => '', 'STATVIH' => '', 'NOMMED' => '', 'NOMPRELEV' => '', 'ARV_INIT_DATE' => '', 'ARVREG' => '', 'CURRENT4' => '', 'CURRENT_ART' => '',
+            'INITCD4_COUNT' => '', 'INITCD4_PERCENT' => '', 'INITCD4_DATE' => '', 'DEMANDCD4_COUNT' => '', 'DEMANDCD4_PERCENT' => '', 'REASON_OTHER' => '',
             'DEMANDCD4_DATE' => '', 'PRIOR_VL_BENEFIT' => '', 'VL_PREGNANCY' => '', 'VL_SUCKLE' => '', 'PRIOR_VL_Lab' => '', 'PRIOR_VL_Value' => '', 'PRIOR_VL_Date' => ''];
+        $toLookFor = [
+            'LABNO'=> '','DRCPT'=> '','DINTV'=> '','SEXE'=> '','AGEANS'=> '','Viral Load'=> '','Type_of_sample'=> '','COMPLETED_DATE'=> '','RELEASED_DATE'=> '','CURRENT1'=> '',
+            'CURRENT2'=> '','CURRENT3'=> '', 'VL_REASON'=> ''
+        ];
         foreach ($csvData as $v) {
             $d[] = array_diff_key($v, $toRemove);
+        }
+        if(!isset($d[0]) || count(array_diff_key($toLookFor,$d[0]))!=0){
+            return false;
         }
         return $d;
     }
@@ -39,14 +46,10 @@ class CsvUtils {
         }
         return -1;
     }
+
     public static function extractLabNo(array $row) {
         $d = (array_key_exists('LABNO', $row)) ? ($row['LABNO']) : -1;
-        $dAsArray = explode(" ", $d);
-        if (is_array($dAsArray)) {
-            $date = date_create_from_format("d/m/Y", $dAsArray[0]);
-            return intval($date->format("Y"));
-        }
-        return -1;
+        return trim($d);
     }
 
     public static function extractMonth(array $row) {
@@ -75,13 +78,24 @@ class CsvUtils {
     }
 
     public static function extractViralLoad(array $row) {
-        $vl = (array_key_exists('Viral Load', $row)) ? ($row['Viral Load']) : -1;
-        return trim($vl);
+        $vl = (array_key_exists('Viral Load', $row)) ? ($row['Viral Load']) : 0;
+        $nvl = trim($vl);
+        if (strpos($nvl, '<')===0) {
+            return '< LL';
+        } elseif (strpos($nvl, '>') ===0) {
+            return '1000000';
+        } else {
+            return intval($nvl);
+        }
     }
 
     public static function extractVLReason(array $row) {
         $vlReason = (array_key_exists('VL_REASON', $row)) ? ($row['VL_REASON']) : -1;
-        return trim(mb_convert_encoding($vlReason,'UTF-8'));
+        $res = trim(mb_convert_encoding($vlReason, 'UTF-8'));
+        if (strpos($res, "CV contr") != FALSE) {
+            $res = "CV contrôle sous ARV";
+        }
+        return $res;
     }
 
     public static function extractVLCurrent1(array $row) {
@@ -224,7 +238,7 @@ class CsvUtils {
 
     public static function addMaleNonSuppressed($sexe, $vl) {
         $inc = 0;
-        if ($sexe === 1 && $vl >= 1000) {
+        if ($sexe == 1 && $vl >= 1000) {
             $inc += 1;
         }
         return $inc;
@@ -232,7 +246,7 @@ class CsvUtils {
 
     public static function addFemaleNonSuppressed($sexe, $vl) {
         $inc = 0;
-        if ($sexe === 1 && $vl >= 1000) {
+        if ($sexe == 2 && $vl >= 1000) {
             $inc += 1;
         }
         return $inc;
@@ -248,7 +262,7 @@ class CsvUtils {
 
     public static function addUndetected($vl) {
         $inc = 0;
-        if ($vl === '< LL') {
+        if ($vl == '< LL') {
             $inc += 1;
         }
         return $inc;
@@ -320,7 +334,7 @@ class CsvUtils {
 
     public static function addLess24($age) {
         $inc = 0;
-        if (intval($age) >= 19 && intval($age) < 24) {
+        if (intval($age) >= 19 && intval($age) <= 24) {
             $inc += 1;
         }
         return $inc;
@@ -341,6 +355,7 @@ class CsvUtils {
         }
         return $inc;
     }
+
     public static function addLess10($age) {
         $inc = 0;
         if (intval($age) >= 5 && intval($age) < 10) {
@@ -348,6 +363,7 @@ class CsvUtils {
         }
         return $inc;
     }
+
     public static function addLess15($age) {
         $inc = 0;
         if (intval($age) >= 10 && intval($age) < 15) {
@@ -355,6 +371,7 @@ class CsvUtils {
         }
         return $inc;
     }
+
     public static function addLess18($age) {
         $inc = 0;
         if (intval($age) >= 15 && intval($age) < 18) {
@@ -362,6 +379,7 @@ class CsvUtils {
         }
         return $inc;
     }
+
     public static function addOver18($age) {
         $inc = 0;
         if (intval($age) >= 18) {
@@ -369,8 +387,8 @@ class CsvUtils {
         }
         return $inc;
     }
-    
-        public static function getAgeCategorysub1($age) {
+
+    public static function getAgeCategorysub1($age) {
         $cat = '';
         if ($age < 5) {
             $cat = '<5';
@@ -386,7 +404,7 @@ class CsvUtils {
         return $cat;
     }
 
-    public  static function getAgeCategorysub2($age) {
+    public static function getAgeCategorysub2($age) {
         $cat = '';
         if ($age < 2) {
             $cat = '<2';

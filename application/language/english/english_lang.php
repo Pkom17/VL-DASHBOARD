@@ -622,3 +622,5 @@ $lang['label.importing'] = "Importing ...";
 $lang['label.site'] = "Site:";
 $lang['label.site_select'] = "Select site";
 $lang['menu_label.import_file'] = "Import";
+$lang['menu.refresh'] = "Rafresh data";
+$lang['menu.import.history'] ="Importation history";

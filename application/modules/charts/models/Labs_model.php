@@ -521,6 +521,7 @@ class Labs_model extends MY_Model {
                     continue(2);
                 }
             }
+            if(isset($value)){
             $data['suppression_trends'][$i]['name'] = $value['year'];
             $data['suppression_trends'][$i]['data'][] =0;
             $data['test_trends'][$i]['name'] = $value['year'];
@@ -529,6 +530,7 @@ class Labs_model extends MY_Model {
             $data['rejected_trends'][$i]['data'][] = 0;
             $data['tat_trends'][$i]['name'] = $value['year'];
             $data['tat_trends'][$i]['data'][] = 0;
+            }
         }
 
         return $data;

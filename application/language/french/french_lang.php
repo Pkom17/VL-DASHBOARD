@@ -98,7 +98,7 @@ $lang['label.sub_counties'] = "Districts";
 $lang['label.facilities'] = "Sites";
 $lang['label.county_outcomes'] = "Résultat Régional";
 //baseline_view.php
-$lang['label.not_suppressed'] = "pas supprimé";
+$lang['label.not_suppressed'] = "Non Supprimé";
 $lang['label.tests_by_sample'] = "Tests par type d'échantillon";
 $lang['label.tests_by_gender'] = "Tests par sexe";
 $lang['label.tests_by_age'] = "Tests par tranche d'âge";
@@ -141,9 +141,9 @@ $lang['label.table_facilities_send_samp'] = "Envoi d'échantillons par sites";
 $lang['label.table_received_samp'] = "Échantillons réçus au labo";
 $lang['label.table_rejected_samp'] = "Échantillons rejetés";
 $lang['label.table_rejected'] = "Échantillons rejetés";
-$lang['label.table_all_tests_done_lab'] = "Tout les tests effectués au labo";
-$lang['label.table_all_tests_done'] = "Tout les tests effectués au labo";
-$lang['label.table_all_test_done'] = "Tout les tests effectués au labo";
+$lang['label.table_all_tests_done_lab'] = "Tous les tests effectués au labo";
+$lang['label.table_all_tests_done'] = "Tous les tests effectués au labo";
+$lang['label.table_all_test_done'] = "Tous les tests effectués au labo";
 $lang['label.table_redraw_at'] = "Test à refaire (après analyse)";
 $lang['label.table_redraw'] = "Test à refaire (après analyse)";
 $lang['label.table_routine_vl_tests'] = "Tests CV pour routine";
@@ -268,7 +268,7 @@ $lang['label.subcounty_listing'] = "Liste du District";
 //application/modules/charts/views/vl_outcomes_view.php
 //application/modules/charts/views/yearly_trends_view.php
 //application/modules/trends/views/trends_view.php
-$lang['label.toggle_quart_year'] = "Cliquez pour basculer entre trimestriel et annuel";
+$lang['label.toggle_quart_year'] = "Cliquez pour basculer entre vue trimestrielle et annuelle";
 $lang['label.view_for_year_quart_selected'] = "Cliquez sur la légende à afficher uniquement pour l'année (s) / trimestre (s) sélectionné (s)";
 //application/modules/suppression/views/nosuppression_view.php
 $lang['label.loading'] = "Chargement...";
@@ -483,12 +483,12 @@ $lang['label.site_pregnant_lactating.mothers'] = "Mères enceintes et allaitante
  * Kom apart
  */
 //Age_model.php
-$lang['label.not_suppressed_'] = "Pas supprimé";
+$lang['label.not_suppressed_'] = "Non supprimé";
 $lang['label.suppressed_'] = "Supprimé";
 $lang['label.total_vl_tests_done'] = "Total des tests CV effectués";
 $lang['label.routine_vl_tests_valid_outcomes'] = "Tests routine de CV avec des résultats valides";
 $lang['label.valid_tests_gt1000'] = "Tests valides &gt; 1000 copies / ml";
-$lang['label.percentage_non_suppression'] = "Pourcentage sans suppression";
+$lang['label.percentage_non_suppression'] = "Pourcentage non-suppression";
 $lang['label.valid_tests_lt1000'] = "Tests valides &lt; 1000 copies / ml";
 $lang['label.percentage_suppression'] = "Pourcentage suppression";
 $lang['label.baseline_vl'] = "CV de base";
@@ -618,5 +618,7 @@ $lang['label.importing'] = "Importation en cours ...";
 $lang['label.site'] = "Site:";
 $lang['label.site_select'] = "Sélectionnez un site";
 $lang['menu_label.import_file'] = "Importer";
+$lang['menu.refresh'] = "Raffraichir";
+$lang['menu.import.history'] ="Importations effectuées";
 
 

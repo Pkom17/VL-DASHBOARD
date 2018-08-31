@@ -57,14 +57,14 @@ class Trends_model extends MY_Model {
                     $tests = (int) $value['suppressed'] + (int) $value['nonsuppressed'];
 
                     $data['suppression_trends'][$i]['name'] = $value['year'];
-                    $data['suppression_trends'][$i]['data'][] = round((($value['suppressed'] * 100) / $tests), 4, PHP_ROUND_HALF_UP);
+                    $data['suppression_trends'][$i]['data'][] = @round((($value['suppressed'] * 100) / $tests), 4, PHP_ROUND_HALF_UP);
 
 
                     $data['test_trends'][$i]['name'] = $value['year'];
                     $data['test_trends'][$i]['data'][] = $tests;
 
                     $data['rejected_trends'][$i]['name'] = $value['year'];
-                    $data['rejected_trends'][$i]['data'][] = round((($value['rejected'] * 100) / $value['received']), 4, PHP_ROUND_HALF_UP);
+                    $data['rejected_trends'][$i]['data'][] = @round((($value['rejected'] * 100) / $value['received']), 4, PHP_ROUND_HALF_UP);
 
                     $data['tat_trends'][$i]['name'] = $value['year'];
                     $data['tat_trends'][$i]['data'][] = (int) $value['tat4'];
@@ -72,6 +72,7 @@ class Trends_model extends MY_Model {
                     continue(2);
                 }
             }
+            if(isset($value)){
             $data['suppression_trends'][$i]['name'] = $value['year'];
             $data['suppression_trends'][$i]['data'][] = 0;
             $data['test_trends'][$i]['name'] = $value['year'];
@@ -80,6 +81,7 @@ class Trends_model extends MY_Model {
             $data['rejected_trends'][$i]['data'][] = 0;
             $data['tat_trends'][$i]['name'] = $value['year'];
             $data['tat_trends'][$i]['data'][] = 0;
+            }
         }
 
 
@@ -170,6 +172,7 @@ class Trends_model extends MY_Model {
             $year = (int) $value['year'];
             $month = (int) $value['month'];
             $quarter = (int) ceil(($month / 3));
+            //$quarter = ((int) ceil(($month / 3))+1)%4;
             $name = $year . ' Q' . $quarter;
             $m = $quarter - 1;
             $i = ($month % 3 == 0) ? 3 : $month % 3;
@@ -272,7 +275,7 @@ class Trends_model extends MY_Model {
             $data['outcomes'][0]['data'][$i] += (int) $value['nonsuppressed'];
             $data['outcomes'][1]['data'][$i] += (int) $value['suppressed'];
             $val_sup_unsup = ((int) $value['suppressed'] + (int) $value['nonsuppressed']);
-            $data['outcomes'][2]['data'][$i] += round((((int) $value['suppressed'] * 100) / ((int) $value['suppressed'] + (int) $value['nonsuppressed'])), 1);
+            $data['outcomes'][2]['data'][$i] += @round((((int) $value['suppressed'] * 100) / ((int) $value['suppressed'] + (int) $value['nonsuppressed'])), 1);
 
 
             if ($modulo == 0) {
