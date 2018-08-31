@@ -54,7 +54,7 @@ class Summaries_model extends MY_Model {
             'tat4' => $tat4,
             'count' => $count
         );
-        // echo "<pre>";print_r($tat);die();
+         //echo "<pre>";print_r($tat);die();
         foreach ($tat as $key => $value) {
             if ($value['count'] != 0) {
                 $data['tat1'] = round(($value['tat1'] / $value['count']));
@@ -68,7 +68,7 @@ class Summaries_model extends MY_Model {
                 $data['tat4'] = null;
             }
         }
-        // echo "<pre>";print_r($data);die();
+         //echo "<pre>";print_r($data);die();
         return $data;
     }
 
