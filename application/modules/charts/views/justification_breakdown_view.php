@@ -1,16 +1,16 @@
 <div class="row">
     <div id="justification_chart" style="height:450px;" class="col-md-4">
-    	
+
     </div>
     <div class="col-md-2">
-        
+
     </div>
     <div id="justification_chart_percentage" style="height:450px;" class="col-md-4">
-        
+
     </div>
 </div>
 <script type="text/javascript">
-	$(function () {
+    $(function () {
         $('#justification_chart').highcharts({
             chart: {
                 type: 'column'
@@ -19,13 +19,13 @@
                 text: ''
             },
             xAxis: {
-                categories: <?php echo json_encode($outcomes['categories']);?>,
+                categories: <?php echo json_encode($outcomes['categories']); ?>,
                 crosshair: true
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: '<?=  lang('label.tests')?>'
+                    text: '<?= lang('label.tests') ?>'
                 },
                 stackLabels: {
                     enabled: true,
@@ -33,7 +33,7 @@
                         fontWeight: 'bold',
                         color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
                     },
-                    y:-20
+                    y: -20
                 }
             },
             legend: {
@@ -49,7 +49,7 @@
             },
             tooltip: {
                 headerFormat: '<b>{point.x}</b><br/>',
-                pointFormat: '{series.name}: {point.y}<br/>% <?=lang('label.contribution')?>  {point.percentage:.1f}%'
+                pointFormat: '{series.name}: {point.y}<br/>% <?= lang('label.contribution') ?>  {point.percentage:.1f}%'
             },
             plotOptions: {
                 column: {
@@ -62,11 +62,13 @@
                         }
                     }
                 }
-            },colors: [
-                '#F2784B',
-                '#1BA39C'
+            }, colors: [
+                //'#F2784B',
+                //'#2f80d1',
+                '#2f80d1',
+                '#e8ee1d'
             ],
-            series: <?php echo json_encode($outcomes['just_breakdown']);?>
+            series: <?php echo json_encode($outcomes['just_breakdown']); ?>
         });
 
         $('#justification_chart_percentage').highcharts({
@@ -77,13 +79,13 @@
                 text: ''
             },
             xAxis: {
-                categories: <?php echo json_encode($outcomes['categories']);?>,
+                categories: <?php echo json_encode($outcomes['categories']); ?>,
                 crosshair: true
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: '<?=  lang('label.tests')?>'
+                    text: '<?= lang('label.tests') ?>'
                 },
                 stackLabels: {
                     enabled: true,
@@ -91,7 +93,7 @@
                         fontWeight: 'bold',
                         color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
                     },
-                    y:-20
+                    y: -20
                 }
             },
             legend: {
@@ -107,7 +109,7 @@
             },
             tooltip: {
                 headerFormat: '<b>{point.x}</b><br/>',
-                pointFormat: '{series.name}: {point.y}<br/>% <?=lang('label.contribution')?>  {point.percentage:.1f}%'
+                pointFormat: '{series.name}: {point.y}<br/>% <?= lang('label.contribution') ?>  {point.percentage:.1f}%'
             },
             plotOptions: {
                 column: {
@@ -120,11 +122,13 @@
                         }
                     }
                 }
-            },colors: [
-                '#F2784B',
-                '#1BA39C'
+            }, colors: [
+                //'#F2784B',
+                //'#1BA39C',
+                '#e8ee1d',
+                '#2f80d1'
             ],
-            series: <?php echo json_encode($outcomes['just_breakdown']);?>
+            series: <?php echo json_encode($outcomes['just_breakdown']); ?>
         });
     });
 </script>

@@ -25,26 +25,25 @@ class CsvUtils {
             'INITCD4_COUNT' => '', 'INITCD4_PERCENT' => '', 'INITCD4_DATE' => '', 'DEMANDCD4_COUNT' => '', 'DEMANDCD4_PERCENT' => '', 'REASON_OTHER' => '',
             'DEMANDCD4_DATE' => '', 'PRIOR_VL_BENEFIT' => '', 'VL_PREGNANCY' => '', 'VL_SUCKLE' => '', 'PRIOR_VL_Lab' => '', 'PRIOR_VL_Value' => '', 'PRIOR_VL_Date' => ''];
         $toLookFor = [
-            'LABNO'=> '','DRCPT'=> '','DINTV'=> '','SEXE'=> '','AGEANS'=> '','Viral Load'=> '','Type_of_sample'=> '','COMPLETED_DATE'=> '','RELEASED_DATE'=> '','CURRENT1'=> '',
-            'CURRENT2'=> '','CURRENT3'=> '', 'VL_REASON'=> ''
+            'LABNO' => '', 'DRCPT' => '', 'DINTV' => '', 'SEXE' => '', 'AGEANS' => '', 'Viral Load' => '', 'Type_of_sample' => '', 'COMPLETED_DATE' => '', 'RELEASED_DATE' => '', 'CURRENT1' => '',
+            'CURRENT2' => '', 'CURRENT3' => '', 'VL_REASON' => ''
         ];
         foreach ($csvData as $v) {
             $d[] = array_diff_key($v, $toRemove);
         }
-        if(!isset($d[0]) || count(array_diff_key($toLookFor,$d[0]))!=0){
+        if (!isset($d[0]) || count(array_diff_key($toLookFor, $d[0])) != 0) {
             return false;
         }
         return $d;
     }
 
     public static function extractYear(array $row) {
-        $d = (array_key_exists('RELEASED_DATE', $row)) ? ($row['RELEASED_DATE']) : -1;
-        $dAsArray = explode(" ", $d);
-        if (is_array($dAsArray)) {
-            $date = date_create_from_format("d/m/Y", $dAsArray[0]);
-            return intval($date->format("Y"));
+        $d = (array_key_exists('RELEASED_DATE', $row)) ? ($row['RELEASED_DATE']) : ((array_key_exists('COMPLETED_DATE', $row)) ? ($row['COMPLETED_DATE']) : -1);
+        $date = DateTime::createFromFormat("d/m/Y H:i", $d);
+        if ($date == FALSE) {
+            return date("Y");
         }
-        return -1;
+        return intval($date->format("Y"));
     }
 
     public static function extractLabNo(array $row) {
@@ -53,13 +52,12 @@ class CsvUtils {
     }
 
     public static function extractMonth(array $row) {
-        $d = (array_key_exists('RELEASED_DATE', $row)) ? ($row['RELEASED_DATE']) : -1;
-        $dAsArray = explode(" ", $d);
-        if (is_array($dAsArray)) {
-            $date = date_create_from_format("d/m/Y", $dAsArray[0]);
-            return intval($date->format("m"));
+        $d = (array_key_exists('RELEASED_DATE', $row)) ? ($row['RELEASED_DATE']) : ((array_key_exists('COMPLETED_DATE', $row)) ? ($row['COMPLETED_DATE']) : -1);
+        $date = DateTime::createFromFormat("d/m/Y H:i", $d);
+        if ($date == FALSE) {
+            return intval(date("m"))-1;
         }
-        return -1;
+        return intval($date->format("m"));
     }
 
     public static function extractDatimCode(array $row) {
@@ -80,9 +78,9 @@ class CsvUtils {
     public static function extractViralLoad(array $row) {
         $vl = (array_key_exists('Viral Load', $row)) ? ($row['Viral Load']) : 0;
         $nvl = trim($vl);
-        if (strpos($nvl, '<')===0) {
+        if (strpos($nvl, '<') === 0) {
             return '< LL';
-        } elseif (strpos($nvl, '>') ===0) {
+        } elseif (strpos($nvl, '>') === 0) {
             return '1000000';
         } else {
             return intval($nvl);

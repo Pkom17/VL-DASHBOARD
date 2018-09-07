@@ -112,6 +112,9 @@
         $('#agemodal').on('hidden.bs.modal', function () {
             location.reload();
         });
+        $('#justificationmodal').on('hidden.bs.modal', function () {
+            location.reload();
+        });
     });
 
     function date_filter(criteria, id)

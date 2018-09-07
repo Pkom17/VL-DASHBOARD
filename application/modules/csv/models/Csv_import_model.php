@@ -87,14 +87,21 @@ class Csv_import_model extends CI_Model {
                     $setClause[$s] = $s . ' + ' . $v[$s];
                     //$setClause[$s] =  $v[$s];
                 }
-                $setClause['dateupdated'] = '"'.date('d/m/Y H:i:s').'"';
-                $this->db->set($setClause,'',false);
+                $setClause['dateupdated'] = '"' . date('d/m/Y H:i:s') . '"';
+                $this->db->set($setClause, '', false);
                 $this->db->where($whereClause);
                 $this->db->update($table);
             } else {
                 $v['dateupdated'] = date('d/m/Y H:i:s');
                 $this->db->insert($table, $v);
             }
+        }
+    }
+
+    public function saveSummaryData($table, array $data) {
+        foreach ($data as $v) {
+            $v['dateupdated'] = date('d/m/Y H:i:s');
+            $this->db->insert($table, $v);
         }
     }
 

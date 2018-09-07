@@ -74,7 +74,7 @@ $(function () {
                 }
             }
         }, colors: [
-            '#1BA39C'
+            '#2f80d1'
         ],
         series: [
             {
@@ -131,7 +131,7 @@ $(function () {
                 }
             }
         }, colors: [
-            '#1BA39C'
+            '#2f80d1'
         ],
         series: [
             {
@@ -188,7 +188,7 @@ $(function () {
                 }
             }
         }, colors: [
-            '#1BA39C'
+            '#2f80d1'
         ],
         series: [
             {
@@ -250,7 +250,7 @@ $(function () {
                 }
             }
         }, colors: [
-            '#1BA39C'
+            '#2f80d1'
         ],
         series: [
             {
@@ -312,7 +312,7 @@ $(function () {
                 }
             }
         }, colors: [
-            '#1BA39C'
+            '#2f80d1'
         ],
         series: [
             {
@@ -374,7 +374,7 @@ $(function () {
                 }
             }
         }, colors: [
-            '#1BA39C'
+            '#2f80d1'
         ],
         series: [
             {
@@ -436,7 +436,7 @@ $(function () {
                 }
             }
         }, colors: [
-            '#1BA39C'
+            '#2f80d1'
         ],
         series: [
             {
@@ -498,7 +498,7 @@ $(function () {
                 }
             }
         }, colors: [
-            '#1BA39C'
+            '#2f80d1'
         ],
         series: [
             {
@@ -561,7 +561,7 @@ $(function () {
                 }
             }
         }, colors: [
-            '#1BA39C'
+            '#2f80d1'
         ],
         series: [
             {
@@ -623,7 +623,7 @@ $(function () {
                 }
             }
         }, colors: [
-            '#1BA39C'
+            '#2f80d1'
         ],
         series: [
             {
@@ -686,7 +686,7 @@ $(function () {
                 }
             }
         }, colors: [
-            '#1BA39C'
+            '#2f80d1'
         ],
         series: [
             {
@@ -744,7 +744,7 @@ $(function () {
                 }
             }
         }, colors: [
-            '#1BA39C'
+            '#2f80d1'
         ],
         series: [
             {

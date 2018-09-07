@@ -166,12 +166,12 @@ class Csv extends MY_Controller {
         $subcountySummaries = $this->Summary_model->toSubcountySummary();
         $partnerSummaries = $this->Summary_model->toPartnerSummary();
         $labSummaries = $this->Summary_model->toLabSummary();
-        $this->Csv_import_model->saveData('vl_national_summary', $nationalSummaries, array('year', 'month'));
-        $this->Csv_import_model->saveData('vl_site_summary', $siteSummaries, array('year', 'month', 'facility'));
-        $this->Csv_import_model->saveData('vl_county_summary', $countySummaries, array('year', 'month', 'county'));
-        $this->Csv_import_model->saveData('vl_subcounty_summary', $subcountySummaries, array('year', 'month', 'subcounty'));
-        $this->Csv_import_model->saveData('vl_partner_summary', $partnerSummaries, array('year', 'month', 'partner'));
-        $this->Csv_import_model->saveData('vl_lab_summary', $labSummaries, array('year', 'month', 'lab'));
+        $this->Csv_import_model->saveSummaryData('vl_national_summary', $nationalSummaries, array('year', 'month'));
+        $this->Csv_import_model->saveSummaryData('vl_site_summary', $siteSummaries, array('year', 'month', 'facility'));
+        $this->Csv_import_model->saveSummaryData('vl_county_summary', $countySummaries, array('year', 'month', 'county'));
+        $this->Csv_import_model->saveSummaryData('vl_subcounty_summary', $subcountySummaries, array('year', 'month', 'subcounty'));
+        $this->Csv_import_model->saveSummaryData('vl_partner_summary', $partnerSummaries, array('year', 'month', 'partner'));
+        $this->Csv_import_model->saveSummaryData('vl_lab_summary', $labSummaries, array('year', 'month', 'lab'));
     }
 
     // y mettre les id de labo, county, subcounty et partner

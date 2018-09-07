@@ -107,7 +107,7 @@ class Ages_model extends MY_Model
 		// echo "<pre>";print_r($sql);die();
 		$result = $this->db->query($sql)->result_array();
 
-		$color = array('#6BB9F0', '#F2784B', '#1BA39C', '#5C97BF');
+		$color = array('#6BB9F0', '#e8ee1d', '#2f80d1', '#5C97BF');
 
 		$data['vl_outcomes']['name'] = lang('label.tests');
 		$data['vl_outcomes']['colorByPoint'] = true;
@@ -182,8 +182,8 @@ class Ages_model extends MY_Model
 			$data['vl_outcomes']['data'][0]['y'] = (int) $value['undetected']+(int) $value['less1000'];
 			$data['vl_outcomes']['data'][1]['y'] = (int) $value['less5000']+(int) $value['above5000'];
 
-			$data['vl_outcomes']['data'][0]['color'] = '#1BA39C';
-			$data['vl_outcomes']['data'][1]['color'] = '#F2784B';
+			$data['vl_outcomes']['data'][0]['color'] = '#2f80d1';
+			$data['vl_outcomes']['data'][1]['color'] = '#e8ee1d';
 		}
 		$data['vl_outcomes']['data'][0]['sliced'] = true;
 		$data['vl_outcomes']['data'][0]['selected'] = true;

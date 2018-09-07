@@ -76,7 +76,7 @@
 		            },colors: [
 		            	'#EC644B',
 		            	'#1BBC9B',
-		            	'#5C97BF',
+		            	'#5C97BF'
 		            ],
 		            series: [<?php echo json_encode($outcomes['adults']); ?>]
 		        });

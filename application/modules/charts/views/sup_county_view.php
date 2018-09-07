@@ -56,8 +56,10 @@
 			                }
 			            }
 			        },colors: [
-				        '#F2784B',
-				        '#1BA39C'
+				        //'#F2784B',
+				        //'#1BA39C',
+                                        '#e8ee1d',
+                                        '#2f80d1'
 				    ],
 			        series: <?php echo json_encode($suppressions['sup_county']);?>
 			    });

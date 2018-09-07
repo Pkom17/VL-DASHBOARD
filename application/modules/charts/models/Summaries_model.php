@@ -54,7 +54,7 @@ class Summaries_model extends MY_Model {
             'tat4' => $tat4,
             'count' => $count
         );
-         //echo "<pre>";print_r($tat);die();
+        //echo "<pre>";print_r($tat);die();
         foreach ($tat as $key => $value) {
             if ($value['count'] != 0) {
                 $data['tat1'] = round(($value['tat1'] / $value['count']));
@@ -68,7 +68,7 @@ class Summaries_model extends MY_Model {
                 $data['tat4'] = null;
             }
         }
-         //echo "<pre>";print_r($data);die();
+        //echo "<pre>";print_r($data);die();
         return $data;
     }
 
@@ -341,11 +341,10 @@ class Summaries_model extends MY_Model {
             }
         }
         // echo "<pre>";print_r($sites);echo "<pre>";print_r($count);echo "<pre>";print_r(round(@$sites / $count));die();
-        if($count!=0) {
+        if ($count != 0) {
             $data['ul'] .= "<tr> <td colspan=2>" . lang('label.average_sites_sending') . "</td><td colspan=2>" . number_format(round($sites / $count)) . "</td></tr>";
-        }
-        else{
-             $data['ul'] .= "<tr> <td colspan=2>" . lang('label.average_sites_sending') . "</td><td colspan=2>" . number_format(round(0)) . "</td></tr>";
+        } else {
+            $data['ul'] .= "<tr> <td colspan=2>" . lang('label.average_sites_sending') . "</td><td colspan=2>" . number_format(round(0)) . "</td></tr>";
         }
         $count = 1;
         $sites = 0;
@@ -487,8 +486,10 @@ class Summaries_model extends MY_Model {
             $data["just_breakdown"][1]["data"][1] = (int) $value['undetected'] + (int) $value['less1000'];
         }
 
-        $data['just_breakdown'][0]['drilldown']['color'] = '#913D88';
-        $data['just_breakdown'][1]['drilldown']['color'] = '#96281B';
+        //$data['just_breakdown'][0]['drilldown']['color'] = '#913D88';
+        //$data['just_breakdown'][1]['drilldown']['color'] = '#96281B';
+        $data['just_breakdown'][0]['drilldown']['color'] = '#2f80d1';
+        $data['just_breakdown'][1]['drilldown']['color'] = '#e8ee1d';
 
         return $data;
     }
@@ -589,8 +590,11 @@ class Summaries_model extends MY_Model {
             $data["ageGnd"][1]["data"][$loop] = (int) $suppressed;
         }
         // die();
-        $data['ageGnd'][0]['drilldown']['color'] = '#913D88';
-        $data['ageGnd'][1]['drilldown']['color'] = '#96281B';
+        //$data['ageGnd'][0]['drilldown']['color'] = '#913D88';
+        //$data['ageGnd'][1]['drilldown']['color'] = '#96281B';
+        $data['ageGnd'][0]['drilldown']['color'] = '#2f80d1';
+        $data['ageGnd'][1]['drilldown']['color'] = '#e8ee1d';
+
 
         // echo "<pre>";print_r($data);die();
         $data['categories'] = array_values($data['categories']);
@@ -742,8 +746,9 @@ class Summaries_model extends MY_Model {
 
         //$data['gender'][0]['drilldown']['color'] = '#913D88';
         //$data['gender'][1]['drilldown']['color'] = '#96281B';
-        $data['gender'][0]['drilldown']['color'] = '#913D88';
-        $data['gender'][1]['drilldown']['color'] = '#96281B';
+        $data['gender'][0]['drilldown']['color'] = '#2f80d1';
+        $data['gender'][1]['drilldown']['color'] = '#e8ee1d';
+
         // echo "<pre>";print_r($data);die();
         return $data;
     }
@@ -783,7 +788,7 @@ class Summaries_model extends MY_Model {
 
     function sample_types($year = null, $county = null, $partner = null, $all = null) {
         $result = $this->get_sampletypesData($year, $county, $partner);
-       
+
         // echo "<pre>";print_r($result);die();
         $data['sample_types'][0]['name'] = lang('label.sample_type_EDTA');
         $data['sample_types'][1]['name'] = lang('label.sample_type_DBS');
@@ -797,7 +802,7 @@ class Summaries_model extends MY_Model {
         $data["sample_types"][1]["data"][0] = $count;
         $data["sample_types"][2]["data"][0] = $count;
         // $data["sample_types"][3]["data"][0]	= $count;
-        
+
         foreach ($result as $key => $value) {
 
             $data['categories'][$key] = $this->resolve_month($value['month']) . '-' . $value['year'];
@@ -814,7 +819,7 @@ class Summaries_model extends MY_Model {
 
             // $data["sample_types"][3]["data"][$key]	= round($value['suppression'],1);
         }
-        
+
         return $data;
     }
 
@@ -954,7 +959,7 @@ class Summaries_model extends MY_Model {
         }
 
         // echo "<pre>";print_r($result);die();
-        $color = array('#6BB9F0', '#F2784B', '#1BA39C', '#5C97BF');
+        $color = array('#6BB9F0', '#e8ee1d', '#2f80d1', '#5C97BF');
 
         $data['vl_outcomes']['name'] = lang('label.tests');
         $data['vl_outcomes']['colorByPoint'] = true;
@@ -984,8 +989,11 @@ class Summaries_model extends MY_Model {
         $data['vl_outcomes']['data'][0]['y'] = (int) $result->suppressed;
         $data['vl_outcomes']['data'][1]['y'] = (int) $result->nonsuppressed;
 
-        $data['vl_outcomes']['data'][0]['color'] = '#1BA39C';
-        $data['vl_outcomes']['data'][1]['color'] = '#F2784B';
+        //$data['vl_outcomes']['data'][0]['color'] = '#1BA39C';
+        //$data['vl_outcomes']['data'][1]['color'] = '#F2784B';
+        $data['vl_outcomes']['data'][0]['color'] = '#2f80d1';
+        $data['vl_outcomes']['data'][1]['color'] = '#e8ee1d';
+
 
 
         $data['vl_outcomes']['data'][0]['sliced'] = true;
@@ -1044,8 +1052,10 @@ class Summaries_model extends MY_Model {
         $data["gender"][0]["data"][2] = (int) $result->female_nonsuppressed;
         $data["gender"][1]["data"][2] = (int) $result->female_suppressed;
 
-        $data['gender'][0]['drilldown']['color'] = '#913D88';
-        $data['gender'][1]['drilldown']['color'] = '#96281B';
+        //$data['gender'][0]['drilldown']['color'] = '#913D88';
+        //$data['gender'][1]['drilldown']['color'] = '#96281B';
+        $data['gender'][0]['drilldown']['color'] = '#2f80d1';
+        $data['gender'][1]['drilldown']['color'] = '#e8ee1d';
         // echo "<pre>";print_r($data);die();
         return $data;
     }
@@ -1113,8 +1123,11 @@ class Summaries_model extends MY_Model {
         $data["ageGnd"][0]["data"][6] = (int) $result->over25_nonsuppressed;
         $data["ageGnd"][1]["data"][6] = (int) $result->over25_suppressed;
 
-        $data['ageGnd'][0]['drilldown']['color'] = '#913D88';
-        $data['ageGnd'][1]['drilldown']['color'] = '#96281B';
+        //$data['ageGnd'][0]['drilldown']['color'] = '#913D88';
+        //$data['ageGnd'][1]['drilldown']['color'] = '#96281B';
+        $data['ageGnd'][0]['drilldown']['color'] = '#2f80d1';
+        $data['ageGnd'][1]['drilldown']['color'] = '#e8ee1d';
+
         // echo "<pre>";print_r($data);die();
         return $data;
     }

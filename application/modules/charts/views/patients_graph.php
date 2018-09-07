@@ -57,7 +57,7 @@
                             }
                         }
                     },colors: [
-                        '#F2784B'
+                        '#e8ee1d'
                     ],
                     series: [<?php echo json_encode($outcomes);?>]
                 });

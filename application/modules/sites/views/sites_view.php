@@ -104,7 +104,7 @@
 			    <center><div class="loader"></div></center>
 			  </div>
 			  <div>
-                              <center><button class="btn btn-default" onclick="justificationModal();" style="background-color: #1BA39C;color: white;margin-bottom: 1em;"><?=lang('label.modal.click_breakdown');?></button></center>
+                              <center><button class="btn btn-default" onclick="justificationModal();" style="background-color: #2f80d1;color: white;margin-bottom: 1em;"><?=lang('label.modal.click_breakdown');?></button></center>
 			  </div>
 			</div>
 		</div>

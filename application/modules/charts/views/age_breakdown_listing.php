@@ -4,7 +4,7 @@ $function = 'expandSiteListing' . $outcomes['modal_name'];
 <div class="list-group" style="height: 362px;">
     <?php echo $outcomes['ul']; ?>
 </div>
-<button class="btn btn-primary"  onclick="<?= @$function; ?>();" style="background-color: #1BA39C;color: white; margin-top: 1em;margin-bottom: 1em;"><?= lang('label.view_full_listing') ?></button>
+<button class="btn btn-primary"  onclick="<?= @$function; ?>();" style="background-color: #2f80d1;color: white; margin-top: 1em;margin-bottom: 1em;"><?= lang('label.view_full_listing') ?></button>
 
 <div class="modal fade" tabindex="-1" role="dialog" id="<?php echo $outcomes['modal_name']; ?>">
     <div class="modal-dialog modal-lg">

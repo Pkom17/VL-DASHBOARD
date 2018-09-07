@@ -149,8 +149,8 @@ class Nonsuppression_model extends MY_Model
 
 		$data['gnd_gr']['data'][0]['sliced'] = true;
 		$data['gnd_gr']['data'][0]['selected'] = true;
-		$data['gnd_gr']['data'][0]['color'] = '#F2784B';
-		$data['gnd_gr']['data'][1]['color'] = '#1BA39C';
+		$data['gnd_gr']['data'][0]['color'] = '#e8ee1d';
+		$data['gnd_gr']['data'][1]['color'] = '#2f80d1';
 
 		$data['ul'] = '<tr>
 		    		<td>'.lang('label.male').'</td>
@@ -256,8 +256,8 @@ class Nonsuppression_model extends MY_Model
 
 		$data['age_gr']['data'][0]['sliced'] = true;
 		$data['age_gr']['data'][0]['selected'] = true;
-		$data['age_gr']['data'][0]['color'] = '#F2784B';
-		$data['age_gr']['data'][1]['color'] = '#1BA39C';
+		$data['age_gr']['data'][0]['color'] = '#e8ee1d';
+		$data['age_gr']['data'][1]['color'] = '#2f80d1';
                 
                 if($childrenTotal == 0){
                      $val_chil = number_format((int) $children).' ('.round(0,1).'%)';

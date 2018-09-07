@@ -261,7 +261,7 @@ class Sites_model extends MY_Model {
         $this->db->close();
 
         // echo "<pre>";print_r($result);die();
-        $color = array('#6BB9F0', '#F2784B', '#1BA39C', '#5C97BF');
+        $color = array('#6BB9F0', '#e8ee1d', '#2f80d1', '#5C97BF');
 
         $data['vl_outcomes']['name'] = lang('label.tests');
         $data['vl_outcomes']['colorByPoint'] = true;
@@ -337,8 +337,8 @@ class Sites_model extends MY_Model {
             $data['vl_outcomes']['data'][0]['y'] = (int) $value['undetected'] + (int) $value['less1000'];
             $data['vl_outcomes']['data'][1]['y'] = (int) $value['less5000'] + (int) $value['above5000'];
 
-            $data['vl_outcomes']['data'][0]['color'] = '#1BA39C';
-            $data['vl_outcomes']['data'][1]['color'] = '#F2784B';
+            $data['vl_outcomes']['data'][0]['color'] = '#2f80d1';
+            $data['vl_outcomes']['data'][1]['color'] = '#e8ee1d';
         }
 
         $data['vl_outcomes']['data'][0]['sliced'] = true;
@@ -778,7 +778,7 @@ class Sites_model extends MY_Model {
         $this->db->close();
 
         // echo "<pre>";print_r($result);die();
-        $color = array('#6BB9F0', '#F2784B', '#1BA39C', '#5C97BF');
+        $color = array('#6BB9F0', '#e8ee1d', '#2f80d1', '#5C97BF');
 
         $data['vl_outcomes']['name'] = lang('label.tests');
         $data['vl_outcomes']['colorByPoint'] = true;
@@ -790,8 +790,8 @@ class Sites_model extends MY_Model {
         $data['vl_outcomes']['data'][0]['y'] = (int) $result->suppressed;
         $data['vl_outcomes']['data'][1]['y'] = (int) $result->nonsuppressed;
 
-        $data['vl_outcomes']['data'][0]['color'] = '#1BA39C';
-        $data['vl_outcomes']['data'][1]['color'] = '#F2784B';
+        $data['vl_outcomes']['data'][0]['color'] = '#2f80d1';
+        $data['vl_outcomes']['data'][1]['color'] = '#e8ee1d';
 
 
         $data['vl_outcomes']['data'][0]['sliced'] = true;
@@ -850,7 +850,7 @@ class Sites_model extends MY_Model {
         $data['outcomes']['name'] = lang('label.tests');
         $data['outcomes']['data'][0] = (int) $result->total_patients;
         $data['outcomes']['data'][1] = (int) $result->total_tests;
-        $data["outcomes"]["color"] = '#1BA39C';
+        $data["outcomes"]["color"] = '#2f80d1';
 
         return $data;
     }
@@ -904,7 +904,7 @@ class Sites_model extends MY_Model {
         $data['outcomes']['data'][1] = (int) $result->two;
         $data['outcomes']['data'][2] = (int) $result->three;
         $data['outcomes']['data'][3] = (int) $result->three_g;
-        $data["outcomes"]["color"] = '#1BA39C';
+        $data["outcomes"]["color"] = '#2f80d1';
 
         return $data;
     }

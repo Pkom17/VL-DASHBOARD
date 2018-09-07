@@ -2,7 +2,7 @@
     <?php echo $countys['ul']; ?>
 </div>
 
-<button class="btn btn-primary"  onclick="expandCountyListing();" style="background-color: #1BA39C;color: white; margin-top: 1em;margin-bottom: 1em;"><?= lang('label.view_full_listing') ?></button>
+<button class="btn btn-primary"  onclick="expandCountyListing();" style="background-color: #2f80d1;color: white; margin-top: 1em;margin-bottom: 1em;"><?= lang('label.view_full_listing') ?></button>
 
 <div class="modal fade" tabindex="-1" role="dialog" id="expCountyList">
     <div class="modal-dialog">

@@ -39,7 +39,7 @@
 					</div>
 					<div class="form-group">
 						<div class="col-sm-4 col-sm-offset-2">
-							<input id="btnSubmit" name="btnSubmit" type="submit" value="<?=lang('label.contact_submit')?>" class="btn btn-primary" style="color:white; background-color:#1BA39C;">
+							<input id="btnSubmit" name="btnSubmit" type="submit" value="<?=lang('label.contact_submit')?>" class="btn btn-primary" style="color:white; background-color:#2f80d1;">
 						</div>
 						<div class="col-sm-6" id="loading"></div>
 					</div>

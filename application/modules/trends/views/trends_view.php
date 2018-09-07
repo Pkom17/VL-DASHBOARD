@@ -1,7 +1,7 @@
 <div class="row">
 
   <div class="col-md-4 col-md-offset-4">
-    <div id="breadcrum" class="alert" style="background-color: #1BA39C;text-align: center;vertical-align: middle;" onclick="switch_source()">
+    <div id="breadcrum" class="alert" style="background-color: #2f80d1;text-align: center;vertical-align: middle;" onclick="switch_source()">
           <span id="current_source"><?=  lang('label.toggle_quart_year')?></span>   
       </div>
          
