@@ -620,5 +620,10 @@ $lang['label.site_select'] = "Sélectionnez un site";
 $lang['menu_label.import_file'] = "Importer";
 $lang['menu.refresh'] = "Raffraichir";
 $lang['menu.import.history'] ="Importations effectuées";
+$lang['no.valid.data'] ="Données non valides !";
+$lang['data.import.success'] ="Données importées avec succès.";
+$lang['errors.occurred'] ="Erreurs survenues !";
+$lang['rows.num'] ="Nombres de lignes traitées: ";
+$lang['processing.time'] ="Temps de traitement: ";
 
 

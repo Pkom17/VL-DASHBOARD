@@ -96,7 +96,7 @@
             <div class="col-md-9">
                 <form></form>
                 <h3><?= lang("load.csv.file"); ?></h3>
-                <form class="form-horizontal" role="form" method="post" id="import_csv" action="" enctype="multipart/form-data">
+                <form class="form-horizontal" role="form" method="post" id="import_csv" action="<?php echo base_url(); ?>csv/upload" enctype="multipart/form-data">
                     <div class="form-group ">
                       <!--  <label for="select_site" class="control-label col-sm-2"><?= lang("label.site"); ?></label>
                         <div class="form-group col-sm-10">
@@ -122,7 +122,20 @@
                     </div>
                 </form>
                 <br/>
-                <div class=" well well-sm" id="imported_csv_data"></div>
+                <?PHP if(isset($_SESSION['uploaded']) && $_SESSION['uploaded']==TRUE) {?>
+                <div class=" well well-sm" id="imported_csv_data">
+                    <?PHP
+                    if($_SESSION['success'] == TRUE){
+                        echo $_SESSION['message'].'<br/>';
+                        echo lang('rows.num').' '.$_SESSION['nbread'].'<br/>';
+                        echo lang('processing.time').' '.$_SESSION['time'].' s<br/>';
+                    }else{
+                        echo $_SESSION['message'].'<br/>';
+                    }
+                    ?>
+                </div>
+                <?PHP }
+                ?>
             </div>
             <div class="col-md-3">
                 <ul>
@@ -131,45 +144,5 @@
                 </ul>
             </div>
         </div>
-        <script>
-            $(document).ready(function () {
-                $('#imported_csv_data').addClass('hidden');
-                $('#import_csv').on('submit', function (event) {
-                    $('#loader').html('');
-                    event.preventDefault();
-                    $.ajax({
-                        url: "<?php echo base_url(); ?>csv/upload",
-                        method: "POST",
-                        data: new FormData(this),
-                        contentType: false,
-                        cache: false,
-                        processData: false,
-                        beforeSend: function () {
-                            $('#import_csv_btn').attr('disabled', true);
-                            $('#import_csv_btn').html('<?= lang("label.importing"); ?>');
-                            $('#loader').html('<img src="<?PHP echo base_url(); ?>assets/img/loader.gif" width="70" height="70" />');
-                        },
-                        success: function (data)
-                        {
-                            $('#loader').html('');
-                            console.log(data);
-                            var d = JSON.parse(data);
-                            $('#import_csv_btn').html('<?= lang("import.csv"); ?>');
-                            //$('#select_site').reset();
-                            $('#import_csv')[0].reset();
-                            $(".js-example-basic-single").select2();
-                            $('#import_csv_btn').attr('disabled', false);
-                            $('#imported_csv_data').removeClass('hidden');
-                            if (d.success == 1) {
-                                $('#imported_csv_data').append('<p>Fichier charge avec succes</p>');
-                            }
-                            $('#imported_csv_data').append('<p>' + d.nbread + ' lignes lues</p>');
-                        }
-                    });
-                });
-
-                $(".js-example-basic-single").select2();
-            });
-        </script>
     </body>
 </html>

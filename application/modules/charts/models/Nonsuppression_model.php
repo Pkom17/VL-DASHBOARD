@@ -124,7 +124,7 @@ class Nonsuppression_model extends MY_Model
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($result);die();
 
-
+                
 		$data['gnd_gr']['name'] = lang('label.non_suppression');
 		$data['gnd_gr']['colorByPoint'] = true;
 		$female = NULL;
@@ -132,18 +132,18 @@ class Nonsuppression_model extends MY_Model
 		$nodata = NULL;
 
 		foreach ($result as $key => $value) {
-			if ($value['name']=='F') {
+			if ($value['name']=='Feminin') {
 				$data['gnd_gr']['data'][$key]['name'] = lang('label.female');
 				$data['gnd_gr']['data'][$key]['y'] = (int) $value['nonsuppressed'];
 				$female = number_format((int) $value['nonsuppressed']).' ('.round((((int) $value['nonsuppressed'])/@((int) $value['nonsuppressed']+(int) $value['suppressed']))*100,1).'%)';
-			} else if ($value['name']=='M') {
+			} else if ($value['name']=='Masculin') {
 				$data['gnd_gr']['data'][$key]['name'] = lang('label.male');
 				$data['gnd_gr']['data'][$key]['y'] = (int) $value['nonsuppressed'];
 				$male = number_format((int) $value['nonsuppressed']).' ('.round((((int) $value['nonsuppressed'])/@((int) $value['nonsuppressed']+(int) $value['suppressed']))*100,1).'%)';
 			} else {
 				$data['gnd_gr']['data'][$key]['name'] = $value['name'];
 				$data['gnd_gr']['data'][$key]['y'] = (int) $value['nonsuppressed'];
-				$nodata = number_format((int) @$value['nonsuppressed']).' ('.round((((int) @$value['nonsuppressed'])/@((int) $value['nonsuppressed']+(int) $value['suppressed']))*100,1).'%)';
+				$nodata = number_format((int) $value['nonsuppressed']).' ('.round((((int) $value['nonsuppressed'])/@((int) $value['nonsuppressed']+(int) $value['suppressed']))*100,1).'%)';
 			}
 		}
 
@@ -230,13 +230,13 @@ class Nonsuppression_model extends MY_Model
 
 
 		foreach ($result as $key => $value) {
-			if ($value['name']=='Less 2'||$value['name']=='2-9') {
+			if ($value['name']=='<2'||$value['name']=='2-9') {
 				$children += $value['nonsuppressed'];
 				$childrenTotal += $value['nonsuppressed']+$value['suppressed'];
 			} else if ($value['name']=='10-14'||$value['name']=='15-19') {
 				$adolescent += $value['nonsuppressed'];
 				$adolescentTotal += $value['nonsuppressed']+$value['suppressed'];
-			} else if ($value['name']=='20-24'||$value['name']=='25+') {
+			} else if ($value['name']=='20-24'||$value['name']=='>25') {
 				$adults += $value['nonsuppressed'];
 				$adultsTotal += $value['nonsuppressed']+$value['suppressed'];
 			} else {

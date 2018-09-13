@@ -55,7 +55,7 @@ class CsvUtils {
         $d = (array_key_exists('RELEASED_DATE', $row)) ? ($row['RELEASED_DATE']) : ((array_key_exists('COMPLETED_DATE', $row)) ? ($row['COMPLETED_DATE']) : -1);
         $date = DateTime::createFromFormat("d/m/Y H:i", $d);
         if ($date == FALSE) {
-            return intval(date("m"))-1;
+            return intval(date("m")) - 1;
         }
         return intval($date->format("m"));
     }
@@ -78,20 +78,29 @@ class CsvUtils {
     public static function extractViralLoad(array $row) {
         $vl = (array_key_exists('Viral Load', $row)) ? ($row['Viral Load']) : 0;
         $nvl = trim($vl);
-        if (strpos($nvl, '<') === 0) {
-            return '< LL';
-        } elseif (strpos($nvl, '>') === 0) {
+        if (stristr($nvl, '<') != FALSE) {
+            return -1;
+        } elseif (stristr($nvl, '>') != FALSE) {
             return '1000000';
-        } else {
+        } elseif(stristr($nvl, 'X') != FALSE){
+            return -1;
+        }
+        elseif(is_numeric($nvl)){
             return intval($nvl);
+        }
+        else{
+            return -1;
         }
     }
 
     public static function extractVLReason(array $row) {
         $vlReason = (array_key_exists('VL_REASON', $row)) ? ($row['VL_REASON']) : -1;
-        $res = trim(mb_convert_encoding($vlReason, 'UTF-8'));
-        if (strpos($res, "CV contr") != FALSE) {
+        $res = trim($row['VL_REASON']);
+        if (stristr($vlReason, "CV contr") != FALSE || $vlReason == 'CV contrÃ´le sous ARV' || $vlReason == 'CV contrôle sous ARV') {
             $res = "CV contrôle sous ARV";
+        }
+        if (trim($vlReason) == "" || stristr($vlReason, "Autres") != FALSE || trim($vlReason) == "Autres (à  préciser)" || trim($vlReason) == "Autres (Ã Â  prÃ©ciser)") {
+            $res = "Autres";
         }
         return $res;
     }
@@ -113,38 +122,38 @@ class CsvUtils {
 
     public static function extractReceivedDate(array $row) {
         $d = (array_key_exists('DRCPT', $row)) ? ($row['DRCPT']) : -1;
-        $dAsArray = explode(" ", $d);
-        if (is_array($dAsArray)) {
-            return $dAsArray[0];
+                 $date = DateTime::createFromFormat("d/m/Y H:i", $d);
+        if ($date == FALSE) {
+            return self::extractInterviewDate($row);
         }
-        return $dAsArray;
+        return $date->format("d/m/Y");
     }
 
     public static function extractInterviewDate(array $row) {
         $d = (array_key_exists('DINTV', $row)) ? ($row['DINTV']) : -1;
-        $dAsArray = explode(" ", $d);
-        if (is_array($dAsArray)) {
-            return $dAsArray[0];
+         $date = DateTime::createFromFormat("d/m/Y H:i", $d);
+        if ($date == FALSE) {
+            return self::extractCompletedDate($row);
         }
-        return $dAsArray;
+        return $date->format("d/m/Y");
     }
 
     public static function extractCompletedDate(array $row) {
         $d = (array_key_exists('COMPLETED_DATE', $row)) ? ($row['COMPLETED_DATE']) : -1;
-        $dAsArray = explode(" ", $d);
-        if (is_array($dAsArray)) {
-            return $dAsArray[0];
+         $date = DateTime::createFromFormat("d/m/Y H:i", $d);
+        if ($date == FALSE) {
+            return self::extractReleasedDate($row);
         }
-        return $dAsArray;
+        return $date->format("d/m/Y");
     }
 
     public static function extractReleasedDate(array $row) {
         $d = (array_key_exists('RELEASED_DATE', $row)) ? ($row['RELEASED_DATE']) : -1;
-        $dAsArray = explode(" ", $d);
-        if (is_array($dAsArray)) {
-            return $dAsArray[0];
+         $date = DateTime::createFromFormat("d/m/Y H:i", $d);
+        if ($date == FALSE) {
+            return date("d/m/Y"); 
         }
-        return $dAsArray;
+        return $date->format("d/m/Y");
     }
 
     public static function extractTypeOfSample(array $row) {
@@ -260,7 +269,7 @@ class CsvUtils {
 
     public static function addUndetected($vl) {
         $inc = 0;
-        if ($vl == '< LL') {
+        if ($vl == -1) {
             $inc += 1;
         }
         return $inc;
@@ -268,7 +277,7 @@ class CsvUtils {
 
     public static function addLess1000($vl) {
         $inc = 0;
-        if ($vl != '< LL' && $vl < 1000) {
+        if ($vl != -1 && $vl < 1000) {
             $inc += 1;
         }
         return $inc;
@@ -292,7 +301,7 @@ class CsvUtils {
 
     public static function addInvalids($vl) {
         $inc = 0;
-        if ($vl != '< LL' && !is_numeric($inc)) {
+        if ($vl != -1 && !is_numeric($inc)) {
             $inc += 1;
         }
         return $inc;

@@ -221,6 +221,22 @@ class Csv_import_model extends CI_Model {
 
     public function setComputedData() {
         $this->db->update('vl_sample_import', array('computed' => 'O'));
+        if ($this->db->affected_rows() > 0){
+            $this->refreshChartData();
+        }
+    }
+
+    public function refreshChartData() {
+        $procedures = [
+            'maj_vl_national_gender()', 'maj_vl_site_gender()', 'maj_vl_subcounty_gender()', 'maj_vl_county_gender()', 'maj_vl_partner_gender()', 'maj_vl_national_age()',
+            'maj_vl_site_age()', 'maj_vl_subcounty_age()', 'maj_vl_county_age()', 'maj_vl_partner_age()', 'maj_vl_national_regimen()', 'maj_vl_site_regimen()',
+            'maj_vl_subcounty_regimen()', 'maj_vl_county_regimen()', 'maj_vl_partner_regimen()', 'maj_vl_national_justification()', 'maj_vl_site_justification()',
+            'maj_vl_subcounty_justification()', 'maj_vl_county_justification()', 'maj_vl_partner_justification()', 'maj_vl_national_sampletype()', 'maj_vl_site_sampletype()',
+            'maj_vl_subcounty_sampletype()', 'maj_vl_county_sampletype()', 'maj_vl_partner_sampletype()', 'maj_vl_lab_sampletype()', 'maj_vl_national_summary()',
+            'maj_vl_site_summary()', 'maj_vl_subcounty_summary()', 'maj_vl_county_summary()', 'maj_vl_partner_summary()', 'maj_vl_lab_summary()'];
+        foreach ($procedures as $proc) {
+            $this->db->query('CALL '.$proc);
+        }
     }
 
 }

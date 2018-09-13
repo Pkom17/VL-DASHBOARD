@@ -1,8 +1,10 @@
 <?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
-ini_set('max_execution_time', 1500);
-
+        ini_set('max_execution_time', 3000);
+        ini_set('upload_max_filesize', '5M');
+        ini_set('post_max_size', '8M');
+        ini_set('max_input_time', 3000);
 /**
  * Import openelis exported data  into vl_dashboard db
  *
@@ -50,16 +52,17 @@ class Csv extends MY_Controller {
     }
 
     public function upload() {
+        $t1 = time();
         $data = [];
         $config['upload_path'] = './uploads/';
         $config['allowed_types'] = 'csv';
-        $config['max_size'] = 1536;
+        $config['max_size'] = 5096;
         $this->load->library('upload', $config);
         if (!$this->upload->do_upload('csv_file')) {
             //on récupère l'erreur dans une variable 
-            $data['error'] = $this->upload->display_errors();
-            echo json_encode($data);
-            die();
+            $data['message'] = $this->upload->display_errors();
+            $data['success'] = FALSE;
+            redirect("csv");
         }
         $file_data = $this->upload->data();
         $csv_array = $this->csvimport->get_array($file_data['full_path']);
@@ -69,26 +72,29 @@ class Csv extends MY_Controller {
         if (is_array($valid_array)) {
             $samples = $this->getDataFromImport($valid_array);
             $this->Sample_model->saveSample($samples);
-            //$this->Sample_model->emptyTempSample();
-            $nbread = count($csv_array);
-            $ret['success'] = '1';
-            $ret['nbread'] = $nbread;
-            echo json_encode($ret);
+            $nbread = count($valid_array);
+            $data['message'] = lang("data.import.success");
+            $data['success'] = TRUE;
+            $data['nbread'] = $nbread;
         } else {
-            $ret['success'] = '-1';
-            echo json_encode($ret);
+            $data['message'] = lang("errors.occurred").'<br/>'.lang("no.valid.data");
+            $data['success'] = FALSE;
         }
+        $data['time'] = time()-$t1;
+        $data['uploaded'] = TRUE;
+        $this->session->set_flashdata($data);
+        redirect("csv");
     }
 
     public function refresh() {
-        $this->dispatchToAge();
-        $this->dispatchToGender();
-        $this->dispatchToJustification();
-        $this->dispatchToRegimen();
-        $this->dispatchToSampletype();
-        $this->dispatchToSummary();
+//        $this->dispatchToAge();
+//        $this->dispatchToGender();
+//        $this->dispatchToJustification();
+//        $this->dispatchToRegimen();
+//        $this->dispatchToSampletype();
+//        $this->dispatchToSummary();
         $this->Csv_import_model->setComputedData();
-        redirect("Csv");  
+        redirect("csv");
     }
 
     public function dispatchToAge() {
@@ -178,7 +184,6 @@ class Csv extends MY_Controller {
     private function getDataFromImport(array $data) {
         $n = count($data);
         $regimenExtractor = $this->regimen_extractor;
-
         for ($i = 0; $i < $n; $i++) {
             $data[$i]['dateupdated'] = date('d/m/Y H:i:s');
             $data[$i]['labno'] = \CsvUtils::extractLabNo($data[$i]);
@@ -233,11 +238,10 @@ class Csv extends MY_Controller {
 
         return $data;
     }
-    
-    public function import_history()
-    {
-        
-        redirect("Csv"); 
+
+    public function import_history() {
+
+        redirect("csv");
     }
 
 }

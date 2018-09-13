@@ -24,10 +24,10 @@ class Gender_model extends CI_Model {
 	SUM(IF(age>=15 and age < 18,1,0)) less18,SUM(IF(age>=18,1,0)) over18,SUM(IF(age<2,1,0)) less2,
 	SUM(IF(age>=2 and age <9,1,0)) less9, SUM(IF(age>=9 and age <14,1,0)) less14,SUM(IF(age>=14 and age <19,1,0)) less19,
 	SUM(IF(age>=19 and age <=24,1,0)) less24, SUM(IF(age>=25,1,0)) over25
-FROM `vl_sample_import` 
-WHERE computed = "N"
-GROUP BY year,month,gender
-ORDER BY year DESC, month asc';
+        FROM `vl_sample_import` 
+        WHERE computed = "N"
+        GROUP BY year,month,gender
+        ORDER BY year DESC, month asc';
         $query = $this->db->query($sql);
         $rows = $query->result_array();
         return $rows;
