@@ -1,10 +1,11 @@
 <?php
 
 defined('BASEPATH') OR exit('No direct script access allowed');
-        ini_set('max_execution_time', 3000);
-        ini_set('upload_max_filesize', '5M');
-        ini_set('post_max_size', '8M');
-        ini_set('max_input_time', 3000);
+ini_set('max_execution_time', 3000);
+ini_set('upload_max_filesize', '5M');
+ini_set('post_max_size', '8M');
+ini_set('max_input_time', 3000);
+
 /**
  * Import openelis exported data  into vl_dashboard db
  *
@@ -62,6 +63,8 @@ class Csv extends MY_Controller {
             //on récupère l'erreur dans une variable 
             $data['message'] = $this->upload->display_errors();
             $data['success'] = FALSE;
+            $data['uploaded'] = TRUE;
+            $this->session->set_flashdata($data);
             redirect("csv");
         }
         $file_data = $this->upload->data();
@@ -77,10 +80,10 @@ class Csv extends MY_Controller {
             $data['success'] = TRUE;
             $data['nbread'] = $nbread;
         } else {
-            $data['message'] = lang("errors.occurred").'<br/>'.lang("no.valid.data");
+            $data['message'] = lang("errors.occurred") . '<br/>' . lang("no.valid.data");
             $data['success'] = FALSE;
         }
-        $data['time'] = time()-$t1;
+        $data['time'] = time() - $t1;
         $data['uploaded'] = TRUE;
         $this->session->set_flashdata($data);
         redirect("csv");
