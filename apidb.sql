@@ -7585,10 +7585,10 @@ CREATE DEFINER=`root`@`%` PROCEDURE `proc_get_vl_national_yearly_summary` ()  BE
                 FROM `vl_national_summary` `cs`
                 WHERE 1  ";
     
-      SET @QUERY = CONCAT(@QUERY, "  GROUP BY `cs`.`year` ");
+      SET @QUERY = CONCAT(@QUERY, "  GROUP BY `cs`.`year`,`cs`.`month` ");
 
      
-      SET @QUERY = CONCAT(@QUERY, " ORDER BY `cs`.`year` ASC ");
+      SET @QUERY = CONCAT(@QUERY, " ORDER BY `cs`.`year` ASC ,`cs`.`month`");
       
 
     PREPARE stmt FROM @QUERY;
@@ -8066,10 +8066,10 @@ CREATE DEFINER=`root`@`%` PROCEDURE `proc_get_vl_partner_yearly_summary` (IN `P_
       END IF;  
 
     
-      SET @QUERY = CONCAT(@QUERY, "  GROUP BY `cs`.`year` ");
+      SET @QUERY = CONCAT(@QUERY, "  GROUP BY `cs`.`year`,`cs`.`month` ");
 
      
-      SET @QUERY = CONCAT(@QUERY, " ORDER BY `cs`.`year` ASC ");
+      SET @QUERY = CONCAT(@QUERY, " ORDER BY `cs`.`year` ASC,`cs`.`month`  ");
       
 
     PREPARE stmt FROM @QUERY;
@@ -9243,10 +9243,10 @@ CREATE DEFINER=`root`@`%` PROCEDURE `proc_get_vl_yearly_summary` (IN `county` IN
       END IF;  
 
     
-      SET @QUERY = CONCAT(@QUERY, "  GROUP BY `cs`.`year` ");
+      SET @QUERY = CONCAT(@QUERY, "  GROUP BY `cs`.`year` , `cs`.`month`");
 
      
-      SET @QUERY = CONCAT(@QUERY, " ORDER BY `cs`.`year` ASC ");
+      SET @QUERY = CONCAT(@QUERY, " ORDER BY `cs`.`year` ASC, `cs`.`month` ");
       
 
     PREPARE stmt FROM @QUERY;

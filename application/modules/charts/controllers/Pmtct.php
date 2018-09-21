@@ -23,7 +23,7 @@ class Pmtct extends MY_Controller
 			$data['type'] = 'percent';
 			$data['div_name'] = 'pmtct_outcomes_percent';
 		}
-		$this->load->view('pmtct_view',$data);
+		//$this->load->view('pmtct_view',$data);
 	}
 
 	public function pmtct_suppression($year=null,$month=null,$pmtcttype=null,$to_year=null,$to_month=null,$partner=null,$national=null,$county=null,$subcounty=null,$site=null)
@@ -31,26 +31,26 @@ class Pmtct extends MY_Controller
 		$data['trends'] = $this->pmtct_model->suppression($year,$month,$pmtcttype,$to_year,$to_month,$partner,$national,$county,$subcounty,$site);
 		$data['div_name'] = "pmtct_suppression";		
 
-		$this->load->view('trends_outcomes_view', $data);
+		//$this->load->view('trends_outcomes_view', $data);
 	}
 	public function pmtct_vl_outcomes($year=null,$month=null,$pmtcttype=null,$to_year=null,$to_month=null,$partner=null,$national=null,$county=null,$subcounty=null,$site=null)
 	{
 		$data['outcomes'] = $this->pmtct_model->vl_outcomes($year,$month,$pmtcttype,$to_year,$to_month,$partner,$national,$county,$subcounty,$site);
 
-		$this->load->view('vl_outcomes_view', $data);
+		//$this->load->view('vl_outcomes_view', $data);
 	}
 	public function pmtct_breakdown($year=null,$month=null,$pmtcttype=null,$to_year=null,$to_month=null,$county=null,$sub_county=null,$partner=null,$site=null)
 	{
 		$data['outcomes'] = $this->pmtct_model->breakdown($year,$month,$pmtcttype,$to_year,$to_month,$county,$sub_county,$partner,$site);
 		
-		$this->load->view('age_breakdown_listing',$data);
+		//$this->load->view('age_breakdown_listing',$data);
 	}
 	public function pmtct($year=null,$month=null,$pmtcttype=null,$to_year=null,$to_month=null,$county=null,$sub_county=null,$partner=null)
 	{
 		$data['trends'] = $this->pmtct_model->pmtct($year,$month,$pmtcttype,$to_year,$to_month,$county,$sub_county,$partner);
 		$data['div_name'] = "pmtct_outcomes_pmtct";		
 
-		$this->load->view('trends_outcomes_view', $data);
+		//$this->load->view('trends_outcomes_view', $data);
 	}
 }
 ?>

@@ -12,7 +12,16 @@
         <?php
         ?>
         <style type="text/css">
-
+            .msg_success{
+                font-size: 19px;
+                color: #3bc133;
+                font-family: consolas;
+            }
+            .msg_fail{
+                font-size: 19px;
+                color: #e34820;
+                font-family: consolas;
+            }
         </style>
     </head>
     <body>
@@ -51,7 +60,7 @@
                                 <b class="caret"></b></a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo base_url(); ?>county"><?= lang('menu_label.county'); ?></a></li>
-                                <li><a href="<?php echo base_url(); ?>county/pmtct"> <?= lang('menu_label.county_PMTCT'); ?></a></li>
+                                <!--<li><a href="<?php echo base_url(); ?>county/pmtct"> <?= lang('menu_label.county_PMTCT'); ?></a></li>-->
                                 <li><a href="<?php echo base_url(); ?>county/subCounty"><?= lang('menu_label.sub-county'); ?> </a></li>
                             </ul>
                         </li>
@@ -119,11 +128,15 @@
                 <div class=" well well-sm" id="imported_csv_data">
                     <?PHP
                     if($_SESSION['success'] == TRUE){
+                        echo '<div class="msg_success">';
                         echo $_SESSION['message'].'<br/>';
                         echo lang('rows.num').' '.$_SESSION['nbread'].'<br/>';
                         echo lang('processing.time').' '.$_SESSION['time'].' s<br/>';
+                        echo '</div>';
                     }else{
+                        echo '<div class="msg_fail">';
                         echo $_SESSION['message'].'<br/>';
+                        echo '</div>';
                     }
                     ?>
                 </div>

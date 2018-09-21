@@ -99,23 +99,23 @@ class Partner_summaries_model extends MY_Model
 			$routine = ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['less5000'] + (int) $value['above5000']);
 			$routinesus = ((int) $value['less5000'] + (int) $value['above5000']);
 			$table .= "<tr>
-				<td>".$count."</td>
-				<td>".$value['county']."</td>
-				<td>".number_format((int) $value['facilities'])."</td>
-				<td>".number_format((int) $value['received'])."</td>
-				<td>".number_format((int) $value['rejected']) . " (" . 
-					round((($value['rejected']*100)/$value['received']), 1, PHP_ROUND_HALF_UP)."%)</td>
-				<td>".number_format((int) $value['alltests'])."</td>
-				<td>".number_format((int) $value['invalids'])."</td>
+				<td>".$count."</td>";
+				$table .= "<td>".$value['county']."</td>";
+				$table .= "<td>".number_format((int) $value['facilities'])."</td>";
+				$table .= "<td>".number_format((int) $value['received'])."</td>";
+				//$table .= "<td>".number_format((int) $value['rejected']) . " (" . 
+				//	round((($value['rejected']*100)/$value['received']), 1, PHP_ROUND_HALF_UP)."%)</td>";
+				$table .= "<td>".number_format((int) $value['alltests'])."</td>";
+				//$table .= "<td>".number_format((int) $value['invalids'])."</td>";
 
-				<td>".number_format($routine)."</td>
-				<td>".number_format($routinesus)."</td>
-				<td>".number_format((int) $value['baseline'])."</td>
-				<td>".number_format((int) $value['baselinesustxfail'])."</td>
-				<td>".number_format((int) $value['confirmtx'])."</td>
-				<td>".number_format((int) $value['confirm2vl'])."</td>
-				<td>".number_format((int) $routine + (int) $value['baseline'] + (int) $value['confirmtx'])."</td>
-				<td>".number_format((int) $routinesus + (int) $value['baselinesustxfail'] + (int) $value['confirm2vl'])."</td>";
+				$table .= "<td>".number_format($routine)."</td>";
+				$table .= "<td>".number_format($routinesus)."</td>";
+				//$table .= "<td>".number_format((int) $value['baseline'])."</td>";
+				//$table .= "<td>".number_format((int) $value['baselinesustxfail'])."</td>";
+				//$table .= "<td>".number_format((int) $value['confirmtx'])."</td>";
+				//$table .= "<td>".number_format((int) $value['confirm2vl'])."</td>";
+				$table .= "<td>".number_format((int) $routine + (int) $value['baseline'] + (int) $value['confirmtx'])."</td>";
+				$table .= "<td>".number_format((int) $routinesus + (int) $value['baselinesustxfail'] + (int) $value['confirm2vl'])."</td>";
 			$count++;
 		}
 		

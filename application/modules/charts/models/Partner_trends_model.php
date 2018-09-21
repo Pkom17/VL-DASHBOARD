@@ -37,7 +37,7 @@ class Partner_trends_model extends MY_Model {
             'tat_trends' => [],
         ];
 
-                $months = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+        $months = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
         foreach ($months as $m) {
             foreach ($result as $value) {
 
@@ -73,15 +73,15 @@ class Partner_trends_model extends MY_Model {
                     continue(2);
                 }
             }
-            if(isset($value)){
-            $data['suppression_trends'][$i]['name'] = $value['year'];
-            $data['suppression_trends'][$i]['data'][] = 0;
-            $data['test_trends'][$i]['name'] = $value['year'];
-            $data['test_trends'][$i]['data'][] = 0;
-            $data['rejected_trends'][$i]['name'] = $value['year'];
-            $data['rejected_trends'][$i]['data'][] = 0;
-            $data['tat_trends'][$i]['name'] = $value['year'];
-            $data['tat_trends'][$i]['data'][] = 0;
+            if (isset($value)) {
+                $data['suppression_trends'][$i]['name'] = $value['year'];
+                $data['suppression_trends'][$i]['data'][] = 0;
+                $data['test_trends'][$i]['name'] = $value['year'];
+                $data['test_trends'][$i]['data'][] = 0;
+                $data['rejected_trends'][$i]['name'] = $value['year'];
+                $data['rejected_trends'][$i]['data'][] = 0;
+                $data['tat_trends'][$i]['name'] = $value['year'];
+                $data['tat_trends'][$i]['data'][] = 0;
             }
         }
 
@@ -89,7 +89,10 @@ class Partner_trends_model extends MY_Model {
     }
 
     function yearly_summary($partner = NULL) {
-
+        $months = [
+            1 => lang('cal_jan'), 2 => lang('cal_feb'), 3 => lang('cal_mar'), 4 => lang('cal_apr'), 5 => lang('cal_may'), 6 => lang('cal_jun'),
+            7 => lang('cal_jul'), 8 => lang('cal_aug'), 9 => lang('cal_sep'), 10 => lang('cal_oct'), 11 => lang('cal_nov'), 12 => lang('cal_dec')
+        ];
         if ($partner == NULL || $partner == 'NA') {
             $partner = 0;
         }
@@ -118,8 +121,8 @@ class Partner_trends_model extends MY_Model {
         $data['outcomes'][1]['yAxis'] = 1;
 
         foreach ($result as $key => $value) {
-            $data['categories'][$i] = $value['year'];
-
+            $data['categories'][$i] = $months[$value['month']] . '-' . $value['year'];
+            
             $data['outcomes'][0]['data'][$i] = (int) $value['nonsuppressed'];
             $data['outcomes'][1]['data'][$i] = (int) $value['suppressed'];
             $data['outcomes'][2]['data'][$i] = @round(@(((int) $value['suppressed'] * 100) / ((int) $value['suppressed'] + (int) $value['nonsuppressed'])), 1);

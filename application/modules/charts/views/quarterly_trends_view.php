@@ -2,7 +2,7 @@
 <?php
     echo "<div id=" . $div_name . " class='col-md-6'>
 
-</div>";
+</div><br/>";
 
 ?>
 

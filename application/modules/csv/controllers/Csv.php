@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 ini_set('max_execution_time', 3000);
-ini_set('upload_max_filesize', '5M');
+ini_set('upload_max_filesize', '8M');
 ini_set('post_max_size', '8M');
 ini_set('max_input_time', 3000);
 
@@ -57,7 +57,7 @@ class Csv extends MY_Controller {
         $data = [];
         $config['upload_path'] = './uploads/';
         $config['allowed_types'] = 'csv';
-        $config['max_size'] = 5096;
+        $config['max_size'] = 8000;
         $this->load->library('upload', $config);
         if (!$this->upload->do_upload('csv_file')) {
             //on récupère l'erreur dans une variable 

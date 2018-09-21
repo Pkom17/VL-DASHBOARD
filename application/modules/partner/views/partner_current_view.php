@@ -8,7 +8,9 @@
 	}
 	.panel {
 		border-radius: 0px;
-	}
+        }.list-group{
+            overflow: auto;
+        }
 	.panel-primary {
 		border-radius: 0px;
 	}

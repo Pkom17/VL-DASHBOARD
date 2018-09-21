@@ -56,12 +56,10 @@
                         }
                     }
                 }
-            }, colors: [
-                //'#F2784B',
-                //'#1BA39C',
-                '#e8ee1d',
-                '#2f80d1'
-            ],
+           },
+//             colors: [
+//                '#24bf36',
+//            ],
             series: <?php echo json_encode($outcomes['gender']); ?>
         });
     });

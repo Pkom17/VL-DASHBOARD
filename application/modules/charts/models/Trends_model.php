@@ -33,7 +33,7 @@ class Trends_model extends MY_Model {
         $data = [
             'suppression_trends' => [],
             'test_trends' => [],
-            'rejected_trends' => [],
+            //'rejected_trends' => [],
             'tat_trends' => [],
         ];
         $months = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
@@ -63,8 +63,8 @@ class Trends_model extends MY_Model {
                     $data['test_trends'][$i]['name'] = $value['year'];
                     $data['test_trends'][$i]['data'][] = $tests;
 
-                    $data['rejected_trends'][$i]['name'] = $value['year'];
-                    $data['rejected_trends'][$i]['data'][] = @round((($value['rejected'] * 100) / $value['received']), 4, PHP_ROUND_HALF_UP);
+                    //$data['rejected_trends'][$i]['name'] = $value['year'];
+                    //$data['rejected_trends'][$i]['data'][] = @round((($value['rejected'] * 100) / $value['received']), 4, PHP_ROUND_HALF_UP);
 
                     $data['tat_trends'][$i]['name'] = $value['year'];
                     $data['tat_trends'][$i]['data'][] = (int) $value['tat4'];
@@ -77,8 +77,8 @@ class Trends_model extends MY_Model {
             $data['suppression_trends'][$i]['data'][] = 0;
             $data['test_trends'][$i]['name'] = $value['year'];
             $data['test_trends'][$i]['data'][] = 0;
-            $data['rejected_trends'][$i]['name'] = $value['year'];
-            $data['rejected_trends'][$i]['data'][] = 0;
+            //$data['rejected_trends'][$i]['name'] = $value['year'];
+            //$data['rejected_trends'][$i]['data'][] = 0;
             $data['tat_trends'][$i]['name'] = $value['year'];
             $data['tat_trends'][$i]['data'][] = 0;
             }
@@ -89,6 +89,10 @@ class Trends_model extends MY_Model {
     }
 
     function yearly_summary($county = NULL) {
+        $months=[
+            1=>lang('cal_jan'),2=>lang('cal_feb'),3=>lang('cal_mar'),4=>lang('cal_apr'),5=>lang('cal_may'),6=>lang('cal_jun'),
+            7=>lang('cal_jul'),8=>lang('cal_aug'),9=>lang('cal_sep'),10=>lang('cal_oct'),11=>lang('cal_nov'),12=>lang('cal_dec')
+        ];
 
         if ($county == NULL || $county == 48) {
             $county = 0;
@@ -123,7 +127,8 @@ class Trends_model extends MY_Model {
         $data['outcomes'][1]['yAxis'] = 1;
 
         foreach ($result as $key => $value) {
-            $data['categories'][$i] = $value['year'];
+            $data['categories'][$i] = $months[$value['month']].'-'.$value['year'];
+
 
             $data['outcomes'][0]['data'][$i] = (int) $value['nonsuppressed'];
             $data['outcomes'][1]['data'][$i] = (int) $value['suppressed'];
@@ -160,7 +165,7 @@ class Trends_model extends MY_Model {
         $data = [
             'suppression_trends' => [],
             'test_trends' => [],
-            'rejected_trends' => [],
+            //'rejected_trends' => [],
             'tat_trends' => [],
         ];
         $i = 0;
@@ -181,8 +186,8 @@ class Trends_model extends MY_Model {
                 $data['suppression_trends'][$m]['data'][] = 0;
                 $data['test_trends'][$m]['name'] = $name;
                 $data['test_trends'][$m]['data'][] = 0;
-                $data['rejected_trends'][$m]['name'] = $name;
-                $data['rejected_trends'][$m]['data'][] = 0;
+                //$data['rejected_trends'][$m]['name'] = $name;
+                //$data['rejected_trends'][$m]['data'][] = 0;
                 $data['tat_trends'][$m]['name'] = $name;
                 $data['tat_trends'][$m]['data'][] = 0;
                 $x++;
@@ -192,8 +197,8 @@ class Trends_model extends MY_Model {
             $data['suppression_trends'][$m]['data'][] = @round((($value['suppressed'] * 100) / $tests), 4, PHP_ROUND_HALF_UP);
             $data['test_trends'][$m]['name'] = $name;
             $data['test_trends'][$m]['data'][] = $tests;
-            $data['rejected_trends'][$m]['name'] = $name;
-            $data['rejected_trends'][$m]['data'][] = @round((($value['rejected'] * 100) / $value['received']), 4, PHP_ROUND_HALF_UP);
+            //$data['rejected_trends'][$m]['name'] = $name;
+            //$data['rejected_trends'][$m]['data'][] = @round((($value['rejected'] * 100) / $value['received']), 4, PHP_ROUND_HALF_UP);
             $data['tat_trends'][$m]['name'] = $name;
             $data['tat_trends'][$m]['data'][] = (int) $value['tat4'];
             if ($x == 3) {

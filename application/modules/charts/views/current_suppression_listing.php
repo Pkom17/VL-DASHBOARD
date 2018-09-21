@@ -1,7 +1,7 @@
 <div class="list-group" style="height: 362px;">
     <?php echo $cont['ul']; ?>
 </div>
-<button class="btn btn-primary"  onclick="expand_modal( & quot; #<?= @$cont['div']; ?> & quot; );" style="background-color: #2f80d1;color: white; margin-top: 1em;margin-bottom: 1em;"><?= lang('label.view_full_listing') ?></button>
+<button class="btn btn-primary"  onclick="expand_modal( &quot;#<?= @$cont['div']; ?>&quot; );" style="background-color: #2f80d1;color: white; margin-top: 1em;margin-bottom: 1em;"><?= lang('label.view_full_listing') ?></button>
 
 <div class="modal fade" tabindex="-1" role="dialog" id="<?= @$cont['div']; ?>">
     <div class="modal-dialog modal-lg">
@@ -15,11 +15,11 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th><?= lang('label.table.name') ?></th>
+                            <th><?= lang('label.table_name') ?></th>
                             <th><?= lang('label.table_current_suppress') ?></th>
                             <th><?= lang('label.table_patients_tested') ?></th>
-                            <th><?= lang('label.table_patients_on_art_date') ?></th>
-                            <th><?= lang('label.table_coverage') ?> </th>
+                            <!--<th><?= lang('label.table_patients_on_art_date') ?></th>-->
+                            <!--<th><?= lang('label.table_coverage') ?> </th>-->
                         </tr>
                     </thead>
                     <tbody>

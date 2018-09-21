@@ -50,8 +50,8 @@
 
 </style>
 
-<div class="row">
-	<div class="col-md-6 col-sm-6 col-xs-12">
+<div class="col-md-12">
+	<!--<div class="col-md-6 col-sm-6 col-xs-12">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
 		   <?=lang('label.tests_done_by_unique_patients')?><div class="display_date"></div>
@@ -60,7 +60,7 @@
 		    <center><div class="loader"></div></center>
 		  </div>
 		</div>
-	</div>
+	</div> -->
 
 	<div class="col-md-6 col-sm-6 col-xs-12">
 		<div class="panel panel-default">
@@ -74,11 +74,11 @@
 	</div>
 </div>
 
-<div class="row">
+<div class="col-md-12">
 	<center><h3><?=lang('label.current_suppression_rates')?> <div class="display_current_range"></div></h3></center>
 </div>
 
-<div class="row">
+<div class="col-md-12">
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -131,11 +131,11 @@
 	</div>
 </div>
 
-<div class="row">
+<div class="col-md-12">
 	<center><h3><?=lang('label.current_sup_supped_age.data')?><div class="display_current_range"></div></h3></center>
 </div>
 
-<div class="row">
+<div class="col-md-12">
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -188,11 +188,11 @@
 	</div>
 </div>
 
-<div class="row">
+<div class="col-md-12">
 	<center><h3><?=lang('label.current_sup_supped_age.data')?><div class="display_current_range"></div></h3></center>
 </div>
 
-<div class="row">
+<div class="col-md-12">
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">
@@ -245,11 +245,11 @@
 	</div>
 </div>
 
-<div class="row">
+<div class="col-md-12">
 	<center><h3><?=lang('label.current_sup_gender.data')?><div class="display_current_range"></div></h3></center>
 </div>
 
-<div class="row">
+<div class="col-md-12">
 	<div class="col-md-3">
 		<div class="panel panel-default">
 			<div class="panel-heading">

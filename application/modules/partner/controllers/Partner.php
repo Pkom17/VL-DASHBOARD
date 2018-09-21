@@ -100,7 +100,7 @@ class Partner extends MY_Controller
 		$this->clear_all_session_data();
 		$this->data['content_view'] = 'partner/partner_pmtct_view';
 		// echo "<pre>";print_r($this->data);die();
-		$this -> template($this->data);
+		//$this -> template($this->data);
 	}
 
 	public function get_selected_partner()

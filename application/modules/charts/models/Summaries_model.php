@@ -301,9 +301,9 @@ class Summaries_model extends MY_Model {
 	    		<td>' . number_format($less) . '</td>
 	    		<td>' . lang('label.percentage_suppression') . '</td>
 	    		<td>' . $val_ls . '%</td>
-	    	</tr>
+	    	</tr>';
  
-	    	<tr>
+	    /*	$data['ul'] .= '<tr>
 	    		<td>&nbsp;&nbsp;&nbsp;' . lang('label.baseline_vl') . '</td>
 	    		<td>' . number_format($value['baseline']) . '</td>
 	    		<td>' . lang('label.non_suppression_gt_1000') . '</td>
@@ -321,7 +321,7 @@ class Summaries_model extends MY_Model {
 	    		<td>' . number_format($value['rejected']) . '</td>
 	    		<td>' . lang('label.percentage_rejection_rate') . '</td>
 	    		<td>' . $val_rej . '%</td>
-	    	</tr>';
+	    	</tr>'; */
 
             $data['vl_outcomes']['data'][0]['y'] = (int) $value['undetected'] + (int) $value['less1000'];
             $data['vl_outcomes']['data'][1]['y'] = (int) $value['less5000'] + (int) $value['above5000'];
@@ -341,11 +341,11 @@ class Summaries_model extends MY_Model {
             }
         }
         // echo "<pre>";print_r($sites);echo "<pre>";print_r($count);echo "<pre>";print_r(round(@$sites / $count));die();
-        if ($count != 0) {
-            $data['ul'] .= "<tr> <td colspan=2>" . lang('label.average_sites_sending') . "</td><td colspan=2>" . number_format(round($sites / $count)) . "</td></tr>";
-        } else {
-            $data['ul'] .= "<tr> <td colspan=2>" . lang('label.average_sites_sending') . "</td><td colspan=2>" . number_format(round(0)) . "</td></tr>";
-        }
+//        if ($count != 0) {
+//            $data['ul'] .= "<tr> <td colspan=2>" . lang('label.average_sites_sending') . "</td><td colspan=2>" . number_format(round($sites / $count)) . "</td></tr>";
+//        } else {
+//            $data['ul'] .= "<tr> <td colspan=2>" . lang('label.average_sites_sending') . "</td><td colspan=2>" . number_format(round(0)) . "</td></tr>";
+//        }
         $count = 1;
         $sites = 0;
 
@@ -790,9 +790,9 @@ class Summaries_model extends MY_Model {
         $result = $this->get_sampletypesData($year, $county, $partner);
 
         // echo "<pre>";print_r($result);die();
-        $data['sample_types'][0]['name'] = lang('label.sample_type_EDTA');
+        $data['sample_types'][0]['name'] = lang('label.sample_type_plasma');
         $data['sample_types'][1]['name'] = lang('label.sample_type_DBS');
-        $data['sample_types'][2]['name'] = lang('label.sample_type_plasma');
+        $data['sample_types'][2]['name'] = lang('label.sample_type_EDTA');
         // $data['sample_types'][3]['name'] = 'Suppression';
 
         $count = 0;
@@ -808,13 +808,13 @@ class Summaries_model extends MY_Model {
             $data['categories'][$key] = $this->resolve_month($value['month']) . '-' . $value['year'];
 
             if ($all == 1) {
-                $data["sample_types"][0]["data"][$key] = (int) $value['alledta'];
+                $data["sample_types"][0]["data"][$key] = (int) $value['allplasma'];
                 $data["sample_types"][1]["data"][$key] = (int) $value['alldbs'];
-                $data["sample_types"][2]["data"][$key] = (int) $value['allplasma'];
+                $data["sample_types"][2]["data"][$key] = (int) $value['alledta'];
             } else {
-                $data["sample_types"][0]["data"][$key] = (int) $value['edta'];
+                $data["sample_types"][0]["data"][$key] = (int) $value['plasma'];
                 $data["sample_types"][1]["data"][$key] = (int) $value['dbs'];
-                $data["sample_types"][2]["data"][$key] = (int) $value['plasma'];
+                $data["sample_types"][2]["data"][$key] = (int) $value['edta'];
             }
 
             // $data["sample_types"][3]["data"][$key]	= round($value['suppression'],1);
@@ -1192,8 +1192,8 @@ class Summaries_model extends MY_Model {
                         break;
                 }
                 $patients = ($value['suppressed'] + $value['nonsuppressed']);
-                $suppression = round(($value['suppressed'] * 100 / $patients), 1);
-                $coverage = round(($patients * 100 / $value['totallstrpt']), 1);
+                $suppression = @round(($value['suppressed'] * 100 / $patients), 1);
+                $coverage = @round(($patients * 100 / $value['totallstrpt']), 1);
 
                 if ($count < 16) {
                     $li .= '<a href="javascript:void(0);" class="list-group-item" ><strong>' . $count . '.</strong>&nbsp;' . $name . ':&nbsp;' . $suppression . '%</a>';
@@ -1204,8 +1204,8 @@ class Summaries_model extends MY_Model {
                 $table .= '<td>' . $name . '</td>';
                 $table .= '<td>' . $suppression . '%</td>';
                 $table .= '<td>' . $patients . '</td>';
-                $table .= '<td>' . ($value['totallstrpt']) . '</td>';
-                $table .= '<td>' . $coverage . '%</td>';
+                //$table .= '<td>' . ($value['totallstrpt']) . '</td>';
+                //`$table .= '<td>' . $coverage . '%</td>';
                 $table .= '</tr>';
                 $count++;
             }

@@ -124,27 +124,27 @@ class Samples_model extends MY_Model {
 	    		<td>' . number_format($less) . '</td>
 	    		<td>' . lang('label.percentage_suppression') . '</td>
 	    		<td>' . @round((($less / $total) * 100), 1) . '%</td>
-	    	</tr>
- 
-	    	<tr>
-	    		<td>&nbsp;&nbsp;&nbsp;' . lang('label.baseline_vl') . '</td>
-	    		<td>' . number_format($value['baseline']) . '</td>
-	    		<td>' . lang('label.non_suppression_gt_1000') . '</td>
-	    		<td>' . number_format($value['baselinesustxfail']) . ' (' . @round(($value['baselinesustxfail'] * 100 / $value['baseline']), 1) . '%)' . '</td>
-	    	</tr>
-	    	<tr>
-	    		<td>&nbsp;&nbsp;&nbsp;Confirmatory Repeat Tests:</td>
-	    		<td>' . number_format($value['confirmtx']) . '</td>
-	    		<td>' . lang('label.non_suppression_gt_1000') . '</td>
-	    		<td>' . number_format($value['confirm2vl']) . ' (' . @round(($value['confirm2vl'] * 100 / $value['confirmtx']), 1) . '%)' . '</td>
-	    	</tr>
- 
-	    	<tr>
-	    		<td>' . lang('label.rejected_samples') . '</td>
-	    		<td>' . number_format($value['rejected']) . '</td>
-	    		<td>' . lang('label.percentage_rejection_rate') . '</td>
-	    		<td>' . @round((($value['rejected'] * 100) / $value['alltests']), 1, PHP_ROUND_HALF_UP) . '%</td>
 	    	</tr>';
+
+            /*    	 $data['ul'] .= '<tr>
+              <td>&nbsp;&nbsp;&nbsp;' . lang('label.baseline_vl') . '</td>
+              <td>' . number_format($value['baseline']) . '</td>
+              <td>' . lang('label.non_suppression_gt_1000') . '</td>
+              <td>' . number_format($value['baselinesustxfail']) . ' (' . @round(($value['baselinesustxfail'] * 100 / $value['baseline']), 1) . '%)' . '</td>
+              </tr>
+              <tr>
+              <td>&nbsp;&nbsp;&nbsp;Confirmatory Repeat Tests:</td>
+              <td>' . number_format($value['confirmtx']) . '</td>
+              <td>' . lang('label.non_suppression_gt_1000') . '</td>
+              <td>' . number_format($value['confirm2vl']) . ' (' . @round(($value['confirm2vl'] * 100 / $value['confirmtx']), 1) . '%)' . '</td>
+              </tr>
+
+              <tr>
+              <td>' . lang('label.rejected_samples') . '</td>
+              <td>' . number_format($value['rejected']) . '</td>
+              <td>' . lang('label.percentage_rejection_rate') . '</td>
+              <td>' . @round((($value['rejected'] * 100) / $value['alltests']), 1, PHP_ROUND_HALF_UP) . '%</td>
+              </tr>'; */
 
             $data['vl_outcomes']['data'][0]['y'] = (int) $value['undetected'] + (int) $value['less1000'];
             $data['vl_outcomes']['data'][1]['y'] = (int) $value['less5000'] + (int) $value['above5000'];
@@ -202,7 +202,7 @@ class Samples_model extends MY_Model {
             $data["gender"][0]["data"][0] = (int) $value['maletest'];
             $data["gender"][0]["data"][1] = (int) $value['femaletest'];
         }
-
+        $data["gender"][0]['color'] = '#24bf36';
         // $data['gender'][0]['drilldown']['color'] = '#913D88';
         // $data['gender'][0]['drilldown']['color'] = '#913D88';
 
@@ -263,6 +263,7 @@ class Samples_model extends MY_Model {
             $data["ageGnd"][0]["data"][5] = (int) $value['less24'];
             $data["ageGnd"][0]["data"][6] = (int) $value['over25'];
         }
+        $data["ageGnd"][0]['color'] = '#24bf36';
         // $data['gender'][0]['drilldown']['color'] = '#913D88';
         // $data['gender'][0]['drilldown']['color'] = '#913D88';
 

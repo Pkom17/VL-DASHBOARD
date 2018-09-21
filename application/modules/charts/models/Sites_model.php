@@ -100,24 +100,24 @@ class Sites_model extends MY_Model {
             $routine = ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['less5000'] + (int) $value['above5000']);
             $routinesus = ((int) $value['less5000'] + (int) $value['above5000']);
             $table .= "<tr>
-				<td>" . $count . "</td>
-				<td>" . $value['MFLCode'] . "</td>
-				<td>" . $value['name'] . "</td>
-				<td>" . $value['county'] . "</td>
-				<td>" . number_format((int) $value['received']) . "</td>
-				<td>" . number_format((int) $value['rejected']) . " (" .
-                    round((($value['rejected'] * 100) / $value['received']), 1, PHP_ROUND_HALF_UP) . "%)</td>
-				<td>" . number_format((int) $value['alltests']) . "</td>
-				<td>" . number_format((int) $value['invalids']) . "</td>
+				<td>" . $count . "</td>";
+				//$table .= "<td>" . $value['MFLCode'] . "</td>";
+				$table .= "<td>" . $value['name'] . "</td>";
+				$table .= "<td>" . $value['county'] . "</td>";
+				$table .= "<td>" . number_format((int) $value['received']) . "</td>";
+				//$table .= "<td>" . number_format((int) $value['rejected']) . " (" .
+                    //round((($value['rejected'] * 100) / $value['received']), 1, PHP_ROUND_HALF_UP) . "%)</td>";
+				$table .= "<td>" . number_format((int) $value['alltests']) . "</td>";
+				//$table .= "<td>" . number_format((int) $value['invalids']) . "</td>";
 
-				<td>" . number_format($routine) . "</td>
-				<td>" . number_format($routinesus) . "</td>
-				<td>" . number_format((int) $value['baseline']) . "</td>
-				<td>" . number_format((int) $value['baselinesustxfail']) . "</td>
-				<td>" . number_format((int) $value['confirmtx']) . "</td>
-				<td>" . number_format((int) $value['confirm2vl']) . "</td>
-				<td>" . number_format((int) $routine + (int) $value['baseline'] + (int) $value['confirmtx']) . "</td>
-				<td>" . number_format((int) $routinesus + (int) $value['baselinesustxfail'] + (int) $value['confirm2vl']) . "</td>";
+				$table .= "<td>" . number_format($routine) . "</td>";
+				$table .= "<td>" . number_format($routinesus) . "</td>";
+				//$table .= "<td>" . number_format((int) $value['baseline']) . "</td>";
+				//$table .= "<td>" . number_format((int) $value['baselinesustxfail']) . "</td>";
+				//$table .= "<td>" . number_format((int) $value['confirmtx']) . "</td>";
+				//$table .= "<td>" . number_format((int) $value['confirm2vl']) . "</td>";
+				$table .= "<td>" . number_format((int) $routine + (int) $value['baseline'] + (int) $value['confirmtx']) . "</td>";
+				$table .= "<td>" . number_format((int) $routinesus + (int) $value['baselinesustxfail'] + (int) $value['confirm2vl']) . "</td>";
             $count++;
         }
 
@@ -205,9 +205,9 @@ class Sites_model extends MY_Model {
         // echo "<pre>";print_r($result);die();
         $months = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
 
-        $data['sample_types'][0]['name'] = lang('label.sample_type_EDTA');
+        $data['sample_types'][0]['name'] = lang('label.sample_type_plasma');
         $data['sample_types'][1]['name'] = lang('label.sample_type_DBS');
-        $data['sample_types'][2]['name'] = lang('label.sample_type_plasma');
+        $data['sample_types'][2]['name'] = lang('label.sample_type_EDTA');
 
         $data['categories'] = array(lang('cal_jan'), lang('cal_feb'), lang('cal_mar'), lang('cal_apr'), lang('cal_may'), lang('cal_jun'), lang('cal_jul'), lang('cal_aug'), lang('cal_sep'), lang('cal_oct'), lang('cal_nov'), lang('cal_dec'));
         /* $data["sample_types"][0]["data"][0] = $count;
@@ -216,9 +216,9 @@ class Sites_model extends MY_Model {
         foreach ($months as $value) {
             foreach ($result as $value1) {
                 if ((int) $value == (int) $value1['month']) {
-                    $data["sample_types"][0]["data"][] = (int) $value1['edta'];
+                    $data["sample_types"][0]["data"][] = (int) $value1['plasma'];
                     $data["sample_types"][1]["data"][] = (int) $value1['dbs'];
-                    $data["sample_types"][2]["data"][] = (int) $value1['plasma'];
+                    $data["sample_types"][2]["data"][] = (int) $value1['edta'];
                     continue(2);
                 }
             }
@@ -311,9 +311,9 @@ class Sites_model extends MY_Model {
 	    		<td>' . number_format($less) . '</td>
 	    		<td>' . lang('label.percentage_suppression') . '</td>
 	    		<td>' . @round((($less / $total) * 100), 1) . '%</td>
-	    	</tr>
+	    	</tr>';
  
-	    	<tr>
+	    /*	$data['ul'] .= '<tr>
 	    		<td>&nbsp;&nbsp;&nbsp;' . lang('label.baseline_vl') . '</td>
 	    		<td>' . number_format($value['baseline']) . '</td>
 	    		<td>' . lang('label.non_suppression_gt_1000') . '</td>
@@ -332,7 +332,7 @@ class Sites_model extends MY_Model {
 	    		<td>' . number_format($value['rejected']) . '</td>
 	    		<td>' . lang('label.percentage_rejection_rate') . '</td>
 	    		<td>' . @round((($value['rejected'] * 100) / $value['received']), 1, PHP_ROUND_HALF_UP) . '%</td>
-	    	</tr>';
+	    	</tr>'; */
 
             $data['vl_outcomes']['data'][0]['y'] = (int) $value['undetected'] + (int) $value['less1000'];
             $data['vl_outcomes']['data'][1]['y'] = (int) $value['less5000'] + (int) $value['above5000'];
@@ -777,8 +777,8 @@ class Sites_model extends MY_Model {
 
         $this->db->close();
 
-        // echo "<pre>";print_r($result);die();
-        $color = array('#6BB9F0', '#e8ee1d', '#2f80d1', '#5C97BF');
+         //echo "<pre>";print_r($result);
+        //$color = array('#6BB9F0', '#e8ee1d', '#2f80d1', '#5C97BF');
 
         $data['vl_outcomes']['name'] = lang('label.tests');
         $data['vl_outcomes']['colorByPoint'] = true;

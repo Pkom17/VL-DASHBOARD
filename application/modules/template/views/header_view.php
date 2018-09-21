@@ -96,6 +96,9 @@
             .nav {
                 color: black;
             }
+         .list-group{
+            overflow: auto;
+        }
         </style>
     </head>
     <body>

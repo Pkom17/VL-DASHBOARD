@@ -78,8 +78,8 @@
 			</div>
 		</div>
 
-	<div class="row">
-		<div class="col-md-6 col-sm-6 col-xs-12">
+	<div class="col-md-12">
+		<!--<div class="col-md-6 col-sm-6 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
 			    &nbsp;&nbsp;&nbsp;&nbsp; <?=lang('label.tests_done_by_unique_patients')?><div class="display_date"></div>
@@ -88,7 +88,7 @@
 			    <center><div class="loader"></div></center>
 			  </div>
 			</div>
-		</div>
+		</div> -->
 
 		<div class="col-md-6 col-sm-6 col-xs-12">
 			<div class="panel panel-default">

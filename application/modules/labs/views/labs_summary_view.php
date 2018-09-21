@@ -10,7 +10,6 @@
 	
 </style>
 <div id="first">
-	<div class="row">
 	  <div class="col-md-12 col-sm-12 col-xs-12">
 	    <div class="panel panel-default">
 	      <div class="panel-heading">
@@ -21,10 +20,9 @@
 	      </div>
 	    </div>
 	  </div>
-	</div>
 
 
-	<div class="row">
+	<div class="col-md-12">
 		<!-- Map of the country -->
 		<div style="color:red;"><center><?=lang('label.labs_click_labs_legende_view_labs')?></center></div>
 		<div class="col-md-6 col-sm-12 col-xs-12">
@@ -40,7 +38,7 @@
 		</div>
 		<!-- Map of the country -->
 		<!-- Map of the country -->
-		<div class="col-md-6 col-sm-12 col-xs-12">
+		<!-- <div class="col-md-6 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
 			  	<?=lang('label.labs_rejection.trends')?> <div class="display_date" ></div>
@@ -50,11 +48,11 @@
 			  </div>
 			  
 			</div>
-		</div>
+		</div> -->
 		<!-- Map of the country -->
 		
 	</div>
-	<div class="row">
+	<div class="col-md-12">
 		<div class="col-md-5 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading">
@@ -77,7 +75,7 @@
 			</div>
 		</div>
 	</div>
-	<div class="row">
+	<div class="col-md-12">
 		<!-- Map of the country -->
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
@@ -93,20 +91,20 @@
 </div>
 
 <div id="second">
-	<div class="row">
+	<div class="col-md-12">
 		<div id="lab_summary">
   
   		</div>
 	</div>
 
-	<div class="row">
+	<div class="col-md-12">
 		<div id="graphs">
   
   		</div>
 	</div>
 	
 </div>
-
+<!-- 
 <div id="third">
 	<div class="row">
 	  <div class="col-md-12 col-sm-12 col-xs-12">
@@ -121,6 +119,6 @@
 	  </div>
 	</div>
 	
-</div>
+</div> -->
 		
 <?php $this->load->view('labs_summary_view_footer'); ?>

@@ -83,13 +83,13 @@ class CsvUtils {
         } elseif (stristr($nvl, '>') != FALSE) {
             return '1000000';
         } elseif(stristr($nvl, 'X') != FALSE){
-            return -1;
+            return -2;
         }
         elseif(is_numeric($nvl)){
             return intval($nvl);
         }
         else{
-            return -1;
+            return -2;
         }
     }
 

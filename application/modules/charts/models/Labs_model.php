@@ -35,24 +35,24 @@ class Labs_model extends MY_Model {
             $routine = ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['less5000'] + (int) $value['above5000']);
             $routinesus = ((int) $value['less5000'] + (int) $value['above5000']);
             $ul .= "<tr>
-						<td>" . ($key + 1) . "</td>
-						<td>" . $value['name'] . "</td>
-						<td>" . number_format((int) $value['sitesending']) . "</td>
-						<td>" . number_format((int) $value['received']) . "</td>
-						<td>" . number_format((int) $value['rejected']) . " (" .
-                    @round((($value['rejected'] * 100) / $value['received']), 1, PHP_ROUND_HALF_UP) . "%)</td>
-						<td>" . number_format((int) $value['alltests']) . "</td>
-						<td>" . number_format((int) $value['invalids']) . "</td>
-						<td>" . number_format((int) $value['eqa']) . "</td>
+						<td>" . ($key + 1) . "</td>";
+						$ul .= "<td>" . $value['name'] . "</td>";
+//						$ul .= "<td>" . number_format((int) $value['sitesending']) . "</td>";
+						$ul .= "<td>" . number_format((int) $value['received']) . "</td>";
+//						$ul .= "<td>" . number_format((int) $value['rejected']) . " (" .
+//                    @round((($value['rejected'] * 100) / $value['received']), 1, PHP_ROUND_HALF_UP) . "%)</td>";
+						$ul .= "<td>" . number_format((int) $value['alltests']) . "</td>";
+//						$ul .= "<td>" . number_format((int) $value['invalids']) . "</td>";
+//						$ul .= "<td>" . number_format((int) $value['eqa']) . "</td>";
 
-						<td>" . number_format($routine) . "</td>
-						<td>" . number_format($routinesus) . "</td>
-						<td>" . number_format((int) $value['baseline']) . "</td>
-						<td>" . number_format((int) $value['baselinesustxfail']) . "</td>
-						<td>" . number_format((int) $value['confirmtx']) . "</td>
-						<td>" . number_format((int) $value['confirm2vl']) . "</td>
-						<td>" . number_format((int) $routine + (int) $value['baseline'] + (int) $value['confirm2vl']) . "</td>
-						<td>" . number_format((int) $routinesus + (int) $value['baselinesustxfail'] + (int) $value['confirmtx']) . "</td>
+						$ul .= "<td>" . number_format($routine) . "</td>";
+						$ul .= "<td>" . number_format($routinesus) . "</td>";
+//						$ul .= "<td>" . number_format((int) $value['baseline']) . "</td>";
+//						$ul .= "<td>" . number_format((int) $value['baselinesustxfail']) . "</td>";
+//						$ul .= "<td>" . number_format((int) $value['confirmtx']) . "</td>";
+//						$ul .= "<td>" . number_format((int) $value['confirm2vl']) . "</td>";
+						$ul .= "<td>" . number_format((int) $routine + (int) $value['baseline'] + (int) $value['confirm2vl']) . "</td>";
+						$ul .= "<td>" . number_format((int) $routinesus + (int) $value['baselinesustxfail'] + (int) $value['confirmtx']) . "</td>
 						
 					</tr>";
         }
@@ -170,6 +170,7 @@ class Labs_model extends MY_Model {
                              * comment this line cause bug until eqa,confirmtx,etc. are defined
                              */
                             //$data['test_trends'][$key]['data'][$count] = (int) $value2['alltests'] + (int) $value['eqa'] + (int) $value['confirmtx'];
+                            $data['test_trends'][$key]['data'][$count] = (int) $value2['alltests'];
                         }
                     }
                     $count++;
@@ -284,9 +285,9 @@ class Labs_model extends MY_Model {
         // echo "<pre>";print_r($sql);die();
         $result = $this->db->query($sql)->result_array();
 
-        $data['sample_types'][0]['name'] = lang('label.sample_type_EDTA');
+        $data['sample_types'][0]['name'] = lang('label.sample_type_plasma');
         $data['sample_types'][1]['name'] = lang('label.sample_type_DBS');
-        $data['sample_types'][2]['name'] = lang('label.sample_type_plasma');
+        $data['sample_types'][2]['name'] = lang('label.sample_type_EDTA');
 
         $count = 0;
 
@@ -299,9 +300,9 @@ class Labs_model extends MY_Model {
 
                 $data['categories'][$key] = $value['labname'];
 
-                $data["sample_types"][0]["data"][$key] = (int) $value['edta'];
+                $data["sample_types"][0]["data"][$key] = (int) $value['plasma'];
                 $data["sample_types"][1]["data"][$key] = (int) $value['dbs'];
-                $data["sample_types"][2]["data"][$key] = (int) $value['plasma'];
+                $data["sample_types"][2]["data"][$key] = (int) $value['edta'];
             }
         }
 

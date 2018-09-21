@@ -1,7 +1,7 @@
 <?php //echo"<pre>";print_r($outcomes);  ?>
 <div class="panel-body" id="<?= @$div; ?>">
 
-</div>
+</div><br/>
 <script type="text/javascript">
     $(function () {
         $('#<?= @$div; ?>').highcharts({

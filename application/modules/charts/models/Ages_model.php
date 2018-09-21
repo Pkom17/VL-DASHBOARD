@@ -157,9 +157,9 @@ class Ages_model extends MY_Model
 	    		<td>'.number_format($less).'</td>
 	    		<td>'.lang('label.percentage_non_suppression').'</td>
 	    		<td>'.@round((($less/$total)*100),1).'%</td>
-	    	</tr>
+	    	</tr>';
  
-	    	<tr>
+	    /*	$data['ul'] .= '<tr>
 	    		<td>&nbsp;&nbsp;&nbsp;'.lang('label.baseline_vl').'</td>
 	    		<td>'.number_format($value['baseline']).'</td>
 	    		<td>'.lang('label.non_suppression_gt_1000').'</td>
@@ -177,7 +177,7 @@ class Ages_model extends MY_Model
 	    		<td>'.number_format($value['rejected']).'</td>
 	    		<td>'.lang('label.percentage_rejection_rate').'</td>
 	    		<td>'. @round((($value['rejected']*100)/$value['alltests']), 1, PHP_ROUND_HALF_UP).'%</td>
-	    	</tr>';
+	    	</tr>'; */
 						
 			$data['vl_outcomes']['data'][0]['y'] = (int) $value['undetected']+(int) $value['less1000'];
 			$data['vl_outcomes']['data'][1]['y'] = (int) $value['less5000']+(int) $value['above5000'];
@@ -246,10 +246,8 @@ class Ages_model extends MY_Model
 			$data["gender"][0]["data"][2]	= (int) $value['nodatanonsuppressed'];
 			$data["gender"][1]["data"][2]	= (int) $value['nodatasuppressed'];
 		}
-
-		// $data['gender'][0]['drilldown']['color'] = ;
-		// $data['gender'][1]['drilldown']['color'] = '#1BA39C';
-		// echo "<pre>";print_r($data);die();
+                $data["gender"][0]['color'] = '#e8ee1d';
+                $data["gender"][1]['color'] = '#2f80d1';
 		return $data;
 	}
 
@@ -297,9 +295,9 @@ class Ages_model extends MY_Model
 	{
 		$result = $this->get_sampletypesData($year,$age_cat,$partner);
 
-		$data['sample_types'][0]['name'] = lang('label.sample_type_EDTA');
+		$data['sample_types'][0]['name'] = lang('label.sample_type_plasma');
 		$data['sample_types'][1]['name'] = lang('label.sample_type_DBS');
-		$data['sample_types'][2]['name'] = lang('label.sample_type_plasma');
+		$data['sample_types'][2]['name'] = lang('label.sample_type_EDTA');
 		$data['sample_types'][3]['name'] = lang('label.sample_type_suppression');
 
 		$data['sample_types'][0]['type'] = "column";
@@ -328,9 +326,9 @@ class Ages_model extends MY_Model
 			
 				$data['categories'][$key] = $this->resolve_month($value['month']).'-'.$value['year'];
  
-				$data["sample_types"][0]["data"][$key]	= (int) $value['edta'];
+				$data["sample_types"][0]["data"][$key]	= (int) $value['plasma'];
 				$data["sample_types"][1]["data"][$key]	= (int) $value['dbs'];
-				$data["sample_types"][2]["data"][$key]	= (int) $value['plasma'];
+				$data["sample_types"][2]["data"][$key]	= (int) $value['edta'];
 				$data["sample_types"][3]["data"][$key]	= round($value['suppression'],1);
 			
 		}
@@ -351,7 +349,7 @@ class Ages_model extends MY_Model
 	    $f = fopen('php://memory', 'w');
 	    /** loop through array  */
 
-	    $b = array(lang('date_months'), lang('date_year'), lang('label.sample_type_EDTA'), lang('label.sample_type_DBS'), lang('label.sample_type_plasma'), lang('label.suppressed'), lang('label.tests'), lang('label.suppression'));
+	    $b = array(lang('date_months'), lang('date_year'),  lang('label.sample_type_plasma'), lang('label.sample_type_DBS'), lang('label.sample_type_EDTA'),lang('label.suppressed'), lang('label.tests'), lang('label.suppression'));
 
 	    fputcsv($f, $b, $delimiter);
 

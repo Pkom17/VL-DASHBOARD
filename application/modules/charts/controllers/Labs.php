@@ -41,7 +41,7 @@ class Labs extends MY_Controller
 		$data['trends'] = $this->labs_model->lab_rejection_trends($year);
 		// $data['trends'] = $this->lab_model->lab_rejection_trends($year);
 
-		$this->load->view('labs_rejection_trends',$data);
+		//$this->load->view('labs_rejection_trends',$data);
 	}
 
 	function sample_types($year=NULL,$month=NULL,$to_year=NULL,$to_month=NULL)
@@ -78,7 +78,7 @@ class Labs extends MY_Controller
 		$data['trends'] = $this->labs_model->rejections($lab, $year,$month,$to_year,$to_month);
 		$data['div_name'] = "total_lab_rejections";
 		
-		$this->load->view('trends_outcomes_view', $data);
+		//$this->load->view('trends_outcomes_view', $data);
 	}
 
 	function display_date()
@@ -119,12 +119,12 @@ class Labs extends MY_Controller
 
 		
 
-		$data['trends'] = $obj['rejected_trends'];
-		$data['title'] = lang('label.rejected_rate_trends');
-		$data['div_name'] = "rejects";
-		$data['suffix'] = "%";
-		$data['yAxis'] = lang('label.rejection_percent');
-		$this->load->view('yearly_trends_view', $data);
+//		$data['trends'] = $obj['rejected_trends'];
+//		$data['title'] = lang('label.rejected_rate_trends');
+//		$data['div_name'] = "rejects";
+//		$data['suffix'] = "%";
+//		$data['yAxis'] = lang('label.rejection_percent');
+//		$this->load->view('yearly_trends_view', $data);
 
 
 		$data['trends'] = $obj['tat_trends'];
