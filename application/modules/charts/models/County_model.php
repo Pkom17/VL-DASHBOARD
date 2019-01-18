@@ -39,7 +39,7 @@ class County_model extends MY_Model
 		$sql = "CALL `proc_get_vl_county_subcounty_outcomes`('".$county."','".$year."','".$month."','".$to_year."','".$to_month."')";
 		// echo "<pre>";print_r($sql);die();
 		$result = $this->db->query($sql)->result_array();
-
+// echo "<pre>";print_r($result);echo "</pre>";
 		$data['county_outcomes'][0]['name'] = lang('label.not_suppressed_');
 		$data['county_outcomes'][1]['name'] =  lang('label.suppressed_');
 
@@ -49,21 +49,37 @@ class County_model extends MY_Model
 		$data["county_outcomes"][1]["data"][0]	= $count;
 		$data['categories'][0]					= lang('label.no_data');
 
-		$data['outcomes'][0]['name'] =  lang('label.not_suppressed_');
-		$data['outcomes'][1]['name'] =  lang('label.suppressed_');
-		$data['outcomes'][2]['name'] = lang('label.suppression');
+		$data['outcomes'][0]['name'] =  lang('label.gt1000');
+		$data['outcomes'][1]['name'] =  lang('label.lt1000');
+		$data['outcomes'][2]['name'] =  lang('label.undetectable');
+		$data['outcomes'][3]['name'] =  lang('label.invalids');
+		$data['outcomes2'][0]['name'] =  lang('label.not_suppressed_');
+		$data['outcomes2'][1]['name'] =  lang('label.suppressed_');
+		$data['outcomes2'][2]['name'] = lang('label.suppression');
 
 		$data['outcomes'][0]['type'] = "column";
 		$data['outcomes'][1]['type'] = "column";
-		$data['outcomes'][2]['type'] = "spline";
+		$data['outcomes'][2]['type'] = "column";
+		$data['outcomes'][3]['type'] = "column";
+		$data['outcomes2'][0]['type'] = "column";
+		$data['outcomes2'][1]['type'] = "column";
+		$data['outcomes2'][2]['type'] = "spline";
 		
 
 		$data['outcomes'][0]['yAxis'] = 1;
 		$data['outcomes'][1]['yAxis'] = 1;
+		$data['outcomes'][2]['yAxis'] = 1;
+		$data['outcomes'][3]['yAxis'] = 1;
+		$data['outcomes2'][0]['yAxis'] = 1;
+		$data['outcomes2'][1]['yAxis'] = 1;
 
 		$data['outcomes'][0]['tooltip'] = array("valueSuffix" => ' ');
 		$data['outcomes'][1]['tooltip'] = array("valueSuffix" => ' ');
-		$data['outcomes'][2]['tooltip'] = array("valueSuffix" => ' %');
+		$data['outcomes'][2]['tooltip'] = array("valueSuffix" => ' ');
+		$data['outcomes'][3]['tooltip'] = array("valueSuffix" => ' ');
+		$data['outcomes2'][0]['tooltip'] = array("valueSuffix" => ' ');
+		$data['outcomes2'][1]['tooltip'] = array("valueSuffix" => ' ');
+		$data['outcomes2'][2]['tooltip'] = array("valueSuffix" => ' %');
 
 		$data['title'] = "";
 
@@ -73,14 +89,15 @@ class County_model extends MY_Model
 			$data["county_outcomes"][0]["data"][$key]	=  (int) $value['nonsuppressed'];
 			$data["county_outcomes"][1]["data"][$key]	=  (int) $value['suppressed'];
 			
-			$data['outcomes'][0]['data'][$key] = (int) $value['nonsuppressed'];
-			$data['outcomes'][1]['data'][$key] = (int) $value['suppressed'];
-			$data['outcomes'][2]['data'][$key] = round(@(((int) $value['suppressed']*100)/((int) $value['suppressed']+(int) $value['nonsuppressed'])),1);
+			$data['outcomes'][0]['data'][$key] = (int) $value['all_nonsuppressed'];
+			$data['outcomes'][1]['data'][$key] = (int) $value['all_less1000'];
+			$data['outcomes'][2]['data'][$key] = (int) $value['all_undetected'];
+			$data['outcomes'][3]['data'][$key] = (int) $value['all_invalids'];
+			$data['outcomes2'][0]['data'][$key] = (int) $value['nonsuppressed'];
+			$data['outcomes2'][1]['data'][$key] = (int) $value['suppressed'];
+			$data['outcomes2'][2]['data'][$key] = round(@(((int) $value['suppressed']*100)/((int) $value['suppressed']+(int) $value['nonsuppressed'])),1);
 		}
-
-
-
-		// echo "<pre>";print_r($data);die();
+		 //echo "<pre>";print_r($data);die();
 		return $data;
 
 	}
@@ -109,33 +126,28 @@ class County_model extends MY_Model
 		$sql = "CALL `proc_get_vl_county_details`('".$year."','".$month."','".$to_year."','".$to_month."')";
 		// echo "<pre>";print_r($sql);die();
 		$result = $this->db->query($sql)->result_array();
-		// echo "<pre>";print_r($sql);die();
 		foreach ($result as $key => $value) {
-			$routine = ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['less5000'] + (int) $value['above5000']);
-			$routinesus = ((int) $value['less5000'] + (int) $value['above5000']);
+			$vl = ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['less5000'] + (int) $value['above5000']);
+			$vl_und = ((int) $value['undetected']);
+			$suppressed = ((int) $value['undetected'] + (int) $value['less1000'] );
+			$non_suppressed = ((int) $value['less5000'] + (int) $value['above5000']);
+			$all_non_suppressed = ((int) $value['all_less5000'] + (int) $value['all_above5000']);
 			$table .= "<tr>
 						<td>".($key+1)."</td>
 						<td>".$value['county']."</td>";
-						//$table .="<td>".number_format((int) $value['sitesending'])."</td>";
-						$table .="<td>".number_format((int) $value['received'])."</td>";
-						//$table .="<td>".number_format((int) $value['rejected']) . " ("@round((($value['rejected']*100)/$value['received']), 1, PHP_ROUND_HALF_UP)."%)</td>";
-						$table .="<td>".number_format((int) $value['alltests'])."</td>";
-						//$table .="<td>".number_format((int) $value['invalids'])."</td>";
-
-						$table .="<td>".number_format($routine)."</td>";
-						$table .="<td>".number_format($routinesus)."</td>";
-						//$table .="<td>".number_format((int) $value['baseline'])."</td>";
-						//$table .="<td>".number_format((int) $value['baselinesustxfail'])."</td>";
-						//$table .="<td>".number_format((int) $value['confirmtx'])."</td>";
-						//$table .="<td>".number_format((int) $value['confirm2vl'])."</td>";
-						$table .="<td>".number_format((int) $routine + (int) $value['baseline'] + (int) $value['confirmtx'])."</td>";
-						$table .="<td>".number_format((int) $routinesus + (int) $value['baselinesustxfail'] + (int) $value['confirm2vl'])."</td>";
-						
+						$table .="<td>".number_format((int) $value['all_tests'])."</td>";
+						$table .="<td>".number_format((int) $value['all_invalids'])."</td>";
+						$table .="<td>".number_format((int) $value['all_undetected'])."</td>";
+						$table .="<td>".number_format((int) $value['all_less1000'])."</td>";
+						$table .="<td>".number_format((int) $all_non_suppressed)."</td>";
+						$table .="<td>".number_format($vl)."</td>";
+						$table .="<td>".number_format($vl_und)."</td>";
+						$table .="<td>".number_format((int) $value['less1000'])."</td>";
+						//$table .="<td>".number_format($suppressed)."</td>";	
+						$table .="<td>".number_format($non_suppressed)."</td>";	
 					$table .="</tr>";
 			$count++;
 		}
-		
-
 		return $table;
 	}
 
@@ -226,28 +238,26 @@ class County_model extends MY_Model
 		$result = $this->db->query($sql)->result_array();
 		// echo "<pre>";print_r($sql);die();
 		foreach ($result as $key => $value) {
-			$routine = ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['less5000'] + (int) $value['above5000']);
-			$routinesus = ((int) $value['less5000'] + (int) $value['above5000']);
+			$vl = ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['less5000'] + (int) $value['above5000']);
+			$vl_und = ((int) $value['undetected']);
+			$suppressed = ((int) $value['undetected'] + (int) $value['less1000'] );
+			$non_suppressed = ((int) $value['less5000'] + (int) $value['above5000']);
+			$all_non_suppressed = ((int) $value['all_less5000'] + (int) $value['all_above5000']);
 			$table .= "<tr>
 						<td>".($key+1)."</td>";
 						$table .= "<td>".$value['subcounty']."</td>";
-						//$table .= "<td>".number_format((int) $value['sitesending'])."</td>";
-						$table .= "<td>".number_format((int) $value['received'])."</td>";
-						//$table .= "<td>".number_format((int) $value['rejected']) . " (" . 
-							//round((($value['rejected']*100)/$value['received']), 1, PHP_ROUND_HALF_UP)."%)</td>";
-						$table .= "<td>".number_format((int) $value['alltests'])."</td>";
-						//$table .= "<td>".number_format((int) $value['invalids'])."</td>";
-
-						$table .= "<td>".number_format($routine)."</td>";
-						$table .= "<td>".number_format($routinesus)."</td>";
-						//$table .= "<td>".number_format((int) $value['baseline'])."</td>";
-						//$table .= "<td>".number_format((int) $value['baselinesustxfail'])."</td>";
-						//$table .= "<td>".number_format((int) $value['confirmtx'])."</td>";
-						//$table .= "<td>".number_format((int) $value['confirm2vl'])."</td>";
-						$table .= "<td>".number_format((int) $routine + (int) $value['baseline'] + (int) $value['confirmtx'])."</td>";
-						$table .= "<td>".number_format((int) $routinesus + (int) $value['baselinesustxfail'] + (int) $value['confirm2vl'])."</td>
+						$table .="<td>".number_format((int) $value['all_tests'])."</td>";
+						$table .="<td>".number_format((int) $value['all_invalids'])."</td>";
+						$table .="<td>".number_format((int) $value['all_undetected'])."</td>";
+						$table .="<td>".number_format((int) $value['all_less1000'])."</td>";
+						$table .="<td>".number_format((int) $all_non_suppressed)."</td>";
+						$table .="<td>".number_format($vl)."</td>";
+						$table .="<td>".number_format($vl_und)."</td>";
+						$table .="<td>".number_format((int) $value['less1000'])."</td>";
+						//$table .="<td>".number_format($suppressed)."</td>";	
+						$table .="<td>".number_format($non_suppressed)."</td>";		
 						
-					</tr>";
+					$table .="</tr>";
 			$count++;
 		}
 		
@@ -350,27 +360,26 @@ class County_model extends MY_Model
 			if ($value['partner'] == NULL || $value['partner'] == 'NULL') {
 				$value['partner'] = lang('label.no_partner');
 			}
-			$routine = ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['less5000'] + (int) $value['above5000']);
-			$routinesus = ((int) $value['less5000'] + (int) $value['above5000']);
+			$vl = ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['less5000'] + (int) $value['above5000']);
+			$vl_und = ((int) $value['undetected']);
+			$suppressed = ((int) $value['undetected'] + (int) $value['less1000'] );
+			$non_suppressed = ((int) $value['less5000'] + (int) $value['above5000']);
+			$all_non_suppressed = ((int) $value['all_less5000'] + (int) $value['all_above5000']);
 			$table .= "<tr>
 						<td>".($key+1)."</td>";
 						$table .= "<td>".$value['partner']."</td>";
-						$table .= "<td>".number_format((int) $value['received'])."</td>";
-						//$table .= "<td>".number_format((int) $value['rejected']) . " (" . 
-						//	round((($value['rejected']*100)/$value['received']), 1, PHP_ROUND_HALF_UP)."%)</td>";
-						$table .= "<td>".number_format((int) $value['alltests'])."</td>";
-						//$table .= "<td>".number_format((int) $value['invalids'])."</td>";
-
-						$table .= "<td>".number_format($routine)."</td>";
-						$table .= "<td>".number_format($routinesus)."</td>";
-						//$table .= "<td>".number_format((int) $value['baseline'])."</td>";
-						//$table .= "<td>".number_format((int) $value['baselinesustxfail'])."</td>";
-						//$table .= "<td>".number_format((int) $value['confirmtx'])."</td>";
-						//$table .= "<td>".number_format((int) $value['confirm2vl'])."</td>";
-						$table .= "<td>".number_format((int) $routine + (int) $value['baseline'] + (int) $value['confirmtx'])."</td>";
-						$table .= "<td>".number_format((int) $routinesus + (int) $value['baselinesustxfail'] + (int) $value['confirm2vl'])."</td>
+						$table .="<td>".number_format((int) $value['all_tests'])."</td>";
+						$table .="<td>".number_format((int) $value['all_invalids'])."</td>";
+						$table .="<td>".number_format((int) $value['all_undetected'])."</td>";
+						$table .="<td>".number_format((int) $value['all_less1000'])."</td>";
+						$table .="<td>".number_format((int) $all_non_suppressed)."</td>";
+						$table .="<td>".number_format($vl)."</td>";
+						$table .="<td>".number_format($vl_und)."</td>";
+						$table .="<td>".number_format((int) $value['less1000'])."</td>";
+						//$table .="<td>".number_format($suppressed)."</td>";	
+						$table .="<td>".number_format($non_suppressed)."</td>";
 						
-					</tr>";
+					$table .="</tr>";
 			$count++;
 		}
 		

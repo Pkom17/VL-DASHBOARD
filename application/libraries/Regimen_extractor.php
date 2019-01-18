@@ -82,6 +82,8 @@ class Regimen_extractor {
             case '3TC': $val = self::TC;
                 break;
             case 'EFZ':
+            case 'EF':
+            case 'EV':
             case 'EFV':
             case 'EFV600':
             case 'EFVO': $val = self::EFV;

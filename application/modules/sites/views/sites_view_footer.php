@@ -1,5 +1,9 @@
 <script type="text/javascript">
     $().ready(function () {
+        localStorage.setItem("view_site1", 0);
+        localStorage.setItem("view_site2", 0);
+        localStorage.setItem("view_age", 0);
+        localStorage.setItem("view_gender", 0);
         $.get("<?php echo base_url(); ?>template/dates", function (data) {
             obj = $.parseJSON(data);
 
@@ -13,7 +17,7 @@
             $(".display_current_range").html(data);
         });
         var site = <?php echo json_encode($this->session->userdata("site_filter")); ?>;
-        console.log(site);
+        //console.log(site);
         if (!site) {
             $("#siteOutcomes").load("<?php echo base_url('charts/sites/site_outcomes'); ?>");
 
@@ -53,7 +57,7 @@
 
             // Put the results in a div
             posting.done(function (data) {
-                console.log(data);
+                //console.log(data);
                 $.get("<?php echo base_url(); ?>template/dates", function (data) {
                     obj = $.parseJSON(data);
 
@@ -231,6 +235,81 @@
     {
         $('#justificationmodal').modal('show');
         $("#CatJust").load("<?php echo base_url('charts/sites/justificationbreakdown'); ?>");
+    }
+
+    function switch_source_site1() {
+        var view = localStorage.getItem("view_site1");
+        if (view == 0) {
+            localStorage.setItem("view_site1", 1);
+            $("#vl_county_pie_tests").hide();
+            $("#vl_county_pie_pat").show();
+            $("#switchButton_site").val('<?= lang('label.switch_all_tests') ?>');
+            $(".vl_site_heading").html('<?= lang('title_tested_patients_by_site') ?> ');
+            $('#vl_county_pie_pat').highcharts().reflow();
+        } else {
+            localStorage.setItem("view_site1", 0);
+            $("#vl_county_pie_tests").show();
+            $("#vl_county_pie_pat").hide();
+            $("#switchButton_site").val('<?= lang('label.switch_routine_tests_trends') ?> ');
+            $(".vl_site_heading").html('<?= lang('title_test_done_by_site') ?> ');
+            $('#vl_county_pie_tests').highcharts().reflow();
+        }
+    }
+
+
+    function switch_source_siteGender() {
+        var view = localStorage.getItem("view_gender");
+        if (view == 0) {
+            localStorage.setItem("view_gender", 1);
+            $("#gender_pie_tests").hide();
+            $("#gender_pie_pat").show();
+            $("#switchButton_site_gender").val('<?= lang('label.switch_all_tests') ?>');
+            $(".vl_gender_heading").html('<?= lang('title_tested_patients_by_gender') ?> ');
+            $('#gender_pie_pat').highcharts().reflow();
+        } else {
+            localStorage.setItem("view_gender", 0);
+            $("#gender_pie_tests").show();
+            $("#gender_pie_pat").hide();
+            $("#switchButton_site_gender").val('<?= lang('label.switch_routine_tests_trends') ?> ');
+            $(".vl_gender_heading").html('<?= lang('title_tested_done_by_gender') ?> ');
+            $('#gender_pie_tests').highcharts().reflow();
+        }
+    }
+    function switch_source_siteAge() {
+        var view = localStorage.getItem("view_age");
+        if (view == 0) {
+            localStorage.setItem("view_age", 1);
+            $("#ageGroups_pie_tests").hide();
+            $("#ageGroups_pie_pat").show();
+            $("#switchButton_site_age").val('<?= lang('label.switch_all_tests') ?>');
+            $(".vl_age_heading").html('<?= lang('title_tested_patients_by_age') ?> ');
+            $('#ageGroups_pie_pat').highcharts().reflow();
+        } else {
+            localStorage.setItem("view_age", 0);
+            $("#ageGroups_pie_tests").show();
+            $("#ageGroups_pie_pat").hide();
+            $("#switchButton_site_age").val('<?= lang('label.switch_routine_tests_trends') ?> ');
+            $(".vl_age_heading").html('<?= lang('title_tested_done_by_age') ?> ');
+            $('#ageGroups_pie_tests').highcharts().reflow();
+        }
+    }
+    function switch_source_vl_site() {
+        var view = localStorage.getItem("view_site2");
+        if (view == 0) {
+            localStorage.setItem("view_site2", 1);
+            $("#vl_outcomes_pie_tests").hide();
+            $("#vl_outcomes_pie_pat").show();
+            $("#switchButton_site_vl").val('<?= lang('label.switch_all_tests') ?>');
+            $(".vl_site_vl_heading").html('<?= lang('title_tested_patients_by_county') ?> ');
+            $('#vlOutcomes_pie_pat').highcharts().reflow();
+        } else {
+            localStorage.setItem("view_site2", 0);
+            $("#vl_outcomes_pie_tests").show();
+            $("#vl_outcomes_pie_pat").hide();
+            $("#switchButton_site_vl").val('<?= lang('label.switch_routine_tests_trends') ?> ');
+            $(".vl_site_vl_heading").html('<?= lang('title_test_done_by_county') ?> ');
+            $('#vlOutcomes_pie_tests').highcharts().reflow();
+        }
     }
 
 </script>

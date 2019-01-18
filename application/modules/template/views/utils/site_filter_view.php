@@ -50,6 +50,8 @@
   <div class="col-md-5" id="year-month-filter">
  <div class="filter">
             <?= lang('date_year'); ?>  
+           <a href="javascript:void(0)" onclick="date_filter('yearly', 2016 )" class="alert-link"> 2016 </a>&nbsp;|&nbsp;
+           <a href="javascript:void(0)" onclick="date_filter('yearly', 2017 )" class="alert-link"> 2017 </a>&nbsp;|&nbsp;
             <a href="javascript:void(0)" onclick="date_filter('yearly', 2018)" class="alert-link"> 2018 </a>
         </div>
         <div class="filter">

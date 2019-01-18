@@ -338,14 +338,14 @@ class Baseline_model extends MY_Model
 		$data['county_outcomes'][0]['name'] = lang('label.tests');
  
 		foreach ($result as $key => $value) {
-			$data['categories'][0] = lang('label.sample_type_plasma');
-			$data["county_outcomes"][0]["data"][0] = (int) $value['plasma'];
+			//$data['categories'][0] = lang('label.sample_type_plasma');
+			//$data["county_outcomes"][0]["data"][0] = (int) $value['plasma'];
 
-			$data['categories'][1] = lang('label.sample_type_DBS');
-			$data["county_outcomes"][0]["data"][1] = (int) $value['dbs'];
+			$data['categories'][0] = lang('label.sample_type_DBS');
+			$data["county_outcomes"][0]["data"][0] = (int) $value['dbs'];
 
-			$data['categories'][2] = lang('label.sample_type_EDTA');
-			$data["county_outcomes"][0]["data"][2] = (int) $value['edta'];
+			$data['categories'][1] = lang('label.sample_type_EDTA');
+			$data["county_outcomes"][0]["data"][1] = (int) $value['edta'];
 		}
 		// die();
 		$data['county_outcomes'][0]['drilldown']['color'] = '#913D88';

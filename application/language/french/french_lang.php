@@ -17,10 +17,10 @@ $lang['menu_label.sub-county'] = "Districts";
 $lang['menu_label.partners'] = "Partenaires";
 $lang['menu_label.partner_facilities'] = "Etablissements par partenaires";
 $lang['menu_label.partner_age'] = "Partenaire par âge";
-$lang['menu_label.partner_regimen'] = "Partenaire par régime de traitement";
+$lang['menu_label.partner_regimen'] = "Régime de traitement par partenaire";
 $lang['menu_label.partner_counties'] = "Partenaire par régions";
 $lang['menu_label.partner_PMTCT'] = "Partenaire par PTME";
-$lang['menu_label.partner_current_supp'] = "Partenaire par suppression courante";
+$lang['menu_label.partner_current_supp'] = "Suppression courante par partenaire";
 $lang['menu_label.lab_perform'] = "Performance du labo";
 $lang['menu_label.facilities'] = "Etablissements";
 $lang['menu_label.facilities_PMTCT'] = "Etablissements par PTME";
@@ -88,24 +88,24 @@ $lang['label.all_sub_counties'] = "Tous les districts";
 //Template.php
 $lang['label.all_sites'] = "Tous les Sites ";
 //age_view.php
-$lang['label.age_outcomes'] = "Résultats par âge";
-$lang['label.testing_trends'] = "Tendances des tests";
-$lang['label.vl_outcomes'] = "Résultats Charge Virale";
-$lang['label.gender'] = "Sexe";
+$lang['label.age_outcomes'] = "Nombre de tests réalisés par âge";
+$lang['label.testing_trends'] = "Tendances des tests réalisés";
+$lang['label.vl_outcomes'] = "Nombre de tests réalisés";
+$lang['label.gender'] = "Genre";
 $lang['label.counties_cap'] = "Régions";
 $lang['label.partners'] = "Partenaires";
 $lang['label.sub_counties'] = "Districts";
 $lang['label.facilities'] = "Sites";
-$lang['label.county_outcomes'] = "Résultat Régional";
+$lang['label.county_outcomes'] = "Nombre de tests réalisés par région";
 //baseline_view.php
 $lang['label.not_suppressed'] = "Non Supprimé";
 $lang['label.tests_by_sample'] = "Tests par type d'échantillon";
-$lang['label.tests_by_gender'] = "Tests par sexe";
+$lang['label.tests_by_gender'] = "Tests par genre";
 $lang['label.tests_by_age'] = "Tests par tranche d'âge";
 $lang['label.modal.click_breakdown'] = "Cliquez ici pour la repartition";
-$lang['label.partner_outcomes'] = "Résultats des partenaires";
-$lang['label.sub_county_outcomes'] = "Résultats des Districts";
-$lang['label.facilities_outcomes'] = "Résultats des sites";
+$lang['label.partner_outcomes'] = "Nombre de tests réalisés par partenaires";
+$lang['label.sub_county_outcomes'] = "Nombre de tests réalisés par Districts";
+$lang['label.facilities_outcomes'] = "Nombre de tests réalisés par sites";
 //application/modules/charts/views/age_breakdown_listing.php
 $lang['label.view_full_listing'] = "Voir la liste complète";
 $lang['label.full_listing'] = "Liste complète";
@@ -198,8 +198,8 @@ $lang['label.table_eqa_tests'] = "Tests EEQ";
 //application/modules/charts/views/lab_results_outcome.php
 //application/modules/charts/views/lab_tat_view.php
 //application/modules/charts/views/lab_turnaround_key_view.php
-$lang['label.key'] = "Clé";
-$lang['label.collection_receipt_cr'] = "De la réception au Prélevement";
+$lang['label.key'] = "Légende";
+$lang['label.collection_receipt_cr'] = "Du Prélevement à la réception";
 $lang['label.receipt_process'] = "Réception au traitement";
 $lang['label.process_dispatch'] = "Du Traitement à l'envoi";
 $lang['label.collection_dispatch_cd'] = "Du Prélèvement a l'envoi";
@@ -226,7 +226,7 @@ $lang['label.outcomes'] = "Résultats";
 $lang['label.total_patients_as_date'] = "Total des patients à la date de ";
 $lang['label.total_patients_with_vl_done'] = "patients atteints de charge virale ";
 $lang['label.total_VL_done'] = "Total des charges virales";
-$lang['label.table_total_VL_tests'] = "Total des Tests de charge virale ";
+$lang['label.table_total_VL_tests'] = "Total des Tests réalisés ";
 $lang['label.table_1_VL'] = "1  charge virale";
 $lang['label.table_2_VL'] = "2  charge virale";
 $lang['label.table_3_VL'] = "3  charge virale";
@@ -273,26 +273,26 @@ $lang['label.view_for_year_quart_selected'] = "Cliquez sur la légende à affich
 //application/modules/suppression/views/nosuppression_view.php
 $lang['label.loading'] = "Chargement...";
 $lang['label.age_category'] = "Catégorie d'âge";
-$lang['label.justification'] = "Justification";
+$lang['label.justification'] = "Motif de la demande";
 $lang['label.age'] = "Age";
 $lang['label.non_suppress_rates'] = "Taux de non suppression";
 $lang['label.sub_sp_counties'] = "Districts";
 $lang['label.VL_county_suppress'] = "Suppression de CV par région";
 //application/modules/suppression/views/nosuppression_view_footer.php
 //application/modules/summary/views/summary_view_footer.php
-$lang['label.county_sites_outcomes'] = "Résultats des sites de la Région";
-$lang['label.testing_trends_for_all_tests'] = "Tendances des tests pour tous les tests";
-$lang['label.switch_routine_tests_trends'] = "Cliquez pour passer à la tendance des tests de routine";
-$lang['label.testing_trends_for_routine_VL'] = "Tendances des tests pour la routine charge virale";
-$lang['label.switch_all_tests'] = "Cliquez pour passer à tous les tests";
+$lang['label.county_sites_outcomes'] = "Nombre de tests réalisés par sites de la Région";
+$lang['label.testing_trends_for_all_tests'] = "Tendances de tous les tests effectués";
+$lang['label.switch_routine_tests_trends'] = "Voir par patients";
+$lang['label.testing_trends_for_routine_VL'] = "Tendances des patients testés";
+$lang['label.switch_all_tests'] = "Voir par tests";
 //application/modules/summary/views/summary_view.php
 $lang['label.VL_coverage_percent'] = "Couverture de la CV (%)";
 $lang['label.national_tat'] = "Temps d'exécution National";
 $lang['label.days'] = "Jours";
-$lang['label.routine_VL_outcomes_gender'] = "Résultats des Charges Virales de routine par sexe";
-$lang['label.routine_VLs_outcomes_by_gender'] = "Résultats des Charges Virales de routine par sexe";
-$lang['label.routine_VL_outcomes_age'] = "Résultats des Charges Virales de routine par âge";
-$lang['label.justification_tests'] = "Justification des tests";
+$lang['label.routine_VL_outcomes_gender'] = "Nombre de tests réalisés par genre";
+$lang['label.routine_VLs_outcomes_by_gender'] = "Nombre de tests  réalisés par genre";
+$lang['label.routine_VL_outcomes_age'] = "Nombre de tests  réalisés par âge";
+$lang['label.justification_tests'] = "Motif de la demande des tests réalisés";
 $lang['label.age_category_breakdown'] = "Répartition par catégorie d'âge";
 $lang['label.pregnant_lactating_mothers'] = "Les Mères enceintes et allaitantes";
 /**
@@ -301,7 +301,7 @@ $lang['label.pregnant_lactating_mothers'] = "Les Mères enceintes et allaitantes
 //application/modules/counties/views/county.php
 $lang['label.counties'] = "Régions";
 //application/modules/counties/views/county_footer.php
-$lang['label.sub-counties_outcomes'] = "Résultats des Districts";
+$lang['label.sub-counties_outcomes'] = "Nombre de tests  par Districts";
 //application/modules/county/views/county_map.php
 $lang['alert_error'] = "Error";
 $lang['label.preganant_mothers'] = "Mères enceintes";
@@ -310,56 +310,56 @@ $lang['label.lactating_mothers'] = "Mères allaitantes";
 $lang['alert_select_county'] = "Sélectionnez d'abord une région";
 //application/modules/county/views/county_pmtct_view.php
 $lang['label.all_PMTCT'] = "Tous les PTME";
-$lang['label.counties_outcomes_Routine_VL'] = "Résultats des Régions(Routine de Charge Virale)";
+$lang['label.counties_outcomes_Routine_VL'] = "Nombre de tests réalisés  par Régions";
 $lang['label.PMTCT_outcomes_Routine_VL'] = " Résultat des PTME (Routine de CV )";
-$lang['label.PMTCT_suppression_outcomes_Routine_VL'] = "Résultats de la suppression de la PTME (routine de CV)";
-$lang['label.counties_PMTCT_outcomes_Routine_VL'] = "Résultats de la PTME dans les Régions (routine de CV)";
+$lang['label.PMTCT_suppression_outcomes_Routine_VL'] = "Nombre de tests pour la suppression de la PTME (routine de CV)";
+$lang['label.counties_PMTCT_outcomes_Routine_VL'] = "Nombre de tests par PTME dans les Régions (routine de CV)";
 $lang['label.PMTCT_suppression_Routine_VL'] = "Suppression des PTME (routine de CV)";
 //application/modules/county/views/county_view.php
-$lang['label.counties_outcomes'] = "Résultats des Régions";
+$lang['label.counties_outcomes'] = "Nombre de tests réalisés  par Régions";
 $lang['label.sub-counties_suppression'] = "Suppression des Districts";
 $lang['label.sub-counties'] = "Districts ";
 $lang['label.facilities_PMTCT'] = "Sites PTME ";
-$lang['label.subcounties_outcomes'] = "Résultats des Districts ";
+$lang['label.subcounties_outcomes'] = "Nombre de tests réalisés par Districts ";
 $lang['label.subcounties'] = "Districts ";
-$lang['label.testing_trends_for_routine'] = "Test de tendances pour la routine ";
+$lang['label.testing_trends_for_routine'] = "Tendance des tests réalisés ";
 $lang['label.Click_to_switch'] = "Cliquez pour passer ";
-$lang['label.routine_by_age'] = "Résultats des charges Virale de routine par âge";
+$lang['label.routine_by_age'] = "Nombre de tests réalisés par âge";
 $lang['label.sub-county_sites'] = "les Sites du District";
 //application/modules/partner/views/partner_age_view.php
 $lang['label.select_age_category:'] = "Sélectionnez la catégorie d'âge";
 $lang['label.all_age_categories'] = "Toutes les catégories d'âge";
-$lang['label.age_outcomes'] = " Résultats par âge";
+$lang['label.age_outcomes'] = " Nombre de tests réalisés par âge";
 //application/modules/partner/views/partner_annual_view.php
 $lang['label.suppression_rate'] = "Taux de suppression";
-$lang['label.current_by_gender'] = "Suppression actuelle par sexe";
+$lang['label.current_by_gender'] = "Suppression actuelle par genre";
 $lang['label.current_by_age'] = "Suppression actuelle par âge";
 $lang['label.current_suppression_rates'] = "Taux de suppression actuels";
 $lang['label.current_suppression_data'] = "Données de suppression actuelle supprimées par âge";
 $lang['label.current_non_suppression_data'] = "Données de suppression actuelle non supprimées par âge";
 $lang['label.current_gender_data'] = "Données de suppression actuelle par genre";
 //application/modules/partner/views/partner_counties_view.php
-$lang['label.partners_outcomes'] = "Résultats des partenaires";
-$lang['label.county_outcomes'] = "Résultat Régional";
-$lang['label.partners_counties'] = "Partenaires Régionaux ";
+$lang['label.partners_outcomes'] = "Nombre de tests réalisés  par partenaires";
+$lang['label.county_outcomes'] = "Nombre de tests réalisés par région";
+$lang['label.partners_counties'] = "Régions du partenaire";
 //application/modules/partner/views/partner_no_suppression_view.php
-$lang['label.by_gender'] = " Par sexe";
+$lang['label.by_gender'] = " Par genre";
 $lang['label.by_age'] = " Par age";
-$lang['label.by_justification'] = " Par justification";
-$lang['label.by_sample_types'] = " Par types d'échantillons";
+$lang['label.by_justification'] = " Par Motif de la demande";
+$lang['label.by_sample_types'] = " Par Specimens";
 $lang['label.facility'] = " Site ";
 $lang['label.by_regimen'] = " Par régime";
 //application/modules/partner/views/partner_pmtct_view
-$lang['label.partners_outcomes_Routine_VL'] = " Résultats des partenaires PMO (routine VL)";
-$lang['label.PMTCT_outcomes'] = " Résultats PMTCT";
-$lang['label.PMTCT_suppression_outcomes'] = " Résultats de la suppression du PTME";
-$lang['label.partners_PMTCT_outcomes_Routine_VL'] = " Résultats des partenaires de la PTME (routine Charge Virale)";
-$lang['label.regimen_outcomes'] = " Résultats du régime";
+$lang['label.partners_outcomes_Routine_VL'] = " Nombre de tests réalisés  par partenaires ";
+$lang['label.PMTCT_outcomes'] = " Nombre de tests réalisés par PTME";
+$lang['label.PMTCT_suppression_outcomes'] = " Nombre de tests réalisés pour la suppression du PTME";
+$lang['label.partners_PMTCT_outcomes_Routine_VL'] = " Nombre de tests réalisés  par partenaires de la PTME";
+$lang['label.regimen_outcomes'] = " Nombre de tests réalisés par  régime";
 //application/modules/partner/views/partner_sites_view.php
-$lang['label.sites_outcomes'] = "  Résultats des sites ";
-$lang['label.partner_sites'] = "Les Sites partenaires";
+$lang['label.sites_outcomes'] = "  Nombre de tests  réalisés par sites ";
+$lang['label.partner_sites'] = "Les Sites par partenaires";
 //application/modules/partner/views/partner_summary_view.php
-$lang['label.justification_for_tests'] = "Justification des tests";
+$lang['label.justification_for_tests'] = "Motif de la demande des tests";
 $lang['label.pregnant_and_lactating_mothers'] = "Mères enceintes et allaitantes";
 $lang['label.tests_done_by_unique_patients'] = "Tests effectués par des patients uniques";
 $lang['label.click_on_selected'] = "cliquez sur sélectionné";
@@ -387,11 +387,11 @@ $lang['label.current_sub.counties'] = "Districts";
 $lang['label.current_facilities'] = "Etablissements";
 $lang['label.current_partners'] = "Partenaires";
 $lang['label.current_counties'] = "Régions";
-$lang['label.current_sub.facilities'] = "Dispensaires ";
+$lang['label.current_sub.facilities'] = "Etablissements ";
 $lang['label.current_current_sup.age.data'] = "Données de suppression actuelle non supprimées par age";
 $lang['label.current_counties'] = "Régions";
 $lang['label.current_subcounties'] = "Districts";
-$lang['label.current_sup_gender.data'] = "Taux de suppression rangé par sexe";
+$lang['label.current_sup_gender.data'] = "Taux de suppression rangé par genre";
 $lang['label.current_sup_supped_age.data'] = "Taux de suppression rangés par age";
 
 //application/modules/labs/views/labs_summary_view.php
@@ -399,9 +399,9 @@ $lang['label.labs_performance.stat'] = "STATISTIQUES DE PERFORMANCE DU LABORATOI
 $lang['label.labs_click_labs_legende_view_labs'] = "Cliquez sur Laboratoire (s) dans la légende pour afficher uniquement le ou les labos sélectionnés";
 $lang['label.labs_testing.trends'] = "Tendances des tests des labos";
 $lang['label.labs_rejection.trends'] = "Tendances de rejet des labos";
-$lang['label.labs_routine.vls_tested.sampletype'] = "Routine de Charge Virale testés par type d'échantillon";
+$lang['label.labs_routine.vls_tested.sampletype'] = "Tests réalisés par specimens";
 $lang['label.labs_turn_around.time'] = "Délai d'exécution";
-$lang['label.labs_routine_vls_result.outcomes'] = "Résultat de Routine de Charge Virale";
+$lang['label.labs_routine_vls_result.outcomes'] = "Nombre de tests réalisés";
 $lang['label.labs_samples.rejections'] = "Rejets d'échantillons";
 
 //application/modules/live/views/live_view.php
@@ -412,8 +412,8 @@ $lang['label.live_year_date_month.date'] = "Année courante/Mois actuel";
 $lang['label.live_received.samples'] = "Échantillons reçus";
 $lang['label.live_Waiting_Testing.samples'] = "Echantillons en attente(test)";
 $lang['label.live_in_process.samples'] = "Échantillons en traitement";
-$lang['label.live_results_pending.approval'] = "Résultats en attente d'approbation";
-$lang['label.live_results_dispatched.today'] = "Résultats diffusés aujourd'hui";
+$lang['label.live_results_pending.approval'] = "Tests en attente de validation";
+$lang['label.live_results_dispatched.today'] = "Nombre de resultats de tests délivrés aujourd'hui";
 $lang['label.live_sample.entry'] = "Entrée d'échantillons";
 $lang['label.live_sample_entry_vs.received'] = "Echantillons entrées contre ceux reçus";
 $lang['label.live_site_entry.bylab'] = "Entrée des site par labo";
@@ -422,7 +422,7 @@ $lang['label.live_inqueue_samples_by.lab'] = "Echantillons dans la file d'attent
 $lang['label.live_in_process_samples_by.lab'] = "Echantillons en cours traitement par labo";
 $lang['label.live_in_process.platform'] = "Plateforme en cours de traitement";
 $lang['label.live_pends.approval'] = "En attente d'approbation";
-$lang['label.live_dispatched.results'] = "Résultats diffusés";
+$lang['label.live_dispatched.results'] = "Nombre de résultats délivrés";
 $lang['label.live_oldest_samples_in.queue'] = "Les plus anciens échantillons en file d'attente";
 $lang['label.live_ageing_samples.national'] = "Vieillissement des échantillons(National)";
 $lang['label.live_Ageing_amples_based_date.drawn'] = "Vieillissement des échantillons (basé sur la date tirée)";
@@ -440,16 +440,16 @@ $lang['label.entered_not_received_same_day'] = "Saisie non reçue le même jour"
 $lang['label.total'] = "Total";
 
 //application/modules/pmtct_view.php
-$lang['label.pmtct.outcomes'] = "Résultats par PTME";
-$lang['label.pmtct_supp.outcomes'] = "Résultats des suppressions par PTME";
+$lang['label.pmtct.outcomes'] = "Nombre de tests réalisés par PTME";
+$lang['label.pmtct_supp.outcomes'] = "Nombre de tests  par suppressions par PTME";
 $lang['label.pmtct_testing.trends'] = "Tendances des tests";
-$lang['label.pmtct_vl.outcomes'] = "Résultats de Charge Virale ";
+$lang['label.pmtct_vl.outcomes'] = "Nombre de tests réalisés ";
 
 //application/modules/regimen_view.php
-$lang['label.regimen.outcomes'] = "Résultat du régime de traitement";
+$lang['label.regimen.outcomes'] = "Nombre de tests réalisés par régime de traitement";
 
 //application/modules/sample_view.php
-$lang['label.sample_outcomes'] = "Résultats d'échantillons";
+$lang['label.sample_outcomes'] = "Nombre de tests réalisés par échantillons";
 $lang['label.sample_suppression'] = "Suppression";
 
 //application/modules/shortcodes_view.php
@@ -459,22 +459,22 @@ $lang['label.shortcodes_facilities.requesting'] = "Demandes des sites";
 //application/modules/site_pmtct_view.php
 $lang['label.site_select.pmtct'] = "Selectionnez PTME:";
 $lang['label.site_all.pmtct'] = "Tous les PTME";
-$lang['label.site_outcomes_routine.vl'] = "Résultats des sites (routine CV)";
-$lang['label.site_pmtctoutcomes_routine.vl'] = "Résultats (routine CV) pour PTME ";
-$lang['label.site_pmtct_sup.outcomes_routine.vl'] = "Résultats après suppression de la PTME (routine de CV)";
+$lang['label.site_outcomes_routine.vl'] = "Nombre de tests réalisés par sites (routine CV)";
+$lang['label.site_pmtctoutcomes_routine.vl'] = "Nombre de tests réalisés par PTME ";
+$lang['label.site_pmtct_sup.outcomes_routine.vl'] = "Nombre de tests après suppression de la PTME (routine de CV)";
 $lang['label.site_pmtctsup_routine.vl'] = "Suppression des PTME (Routine de CV)";
-$lang['label.site_pmtctoutcomes_routine.vl'] = "Résultats des sites de la PTME (routine de CV)";
-$lang['label.site_vl.outcomes'] = "Résultats de charge virale";
+$lang['label.site_pmtctoutcomes_routine.vl'] = "Nombre de tests  par sites de la PTME (routine de CV)";
+$lang['label.site_vl.outcomes'] = "Nombre de tests réalisés";
 //application/modules/site_view.php
-$lang['label.site_outcomes'] = "Résultats";
-$lang['label.site_trends'] = "Tendances";
-$lang['label.site_routinevls_outcomes.byage'] = "Résultats des routine de CV par âge";
-$lang['label.site_routinevls_outcomes.bygender'] = "Résultats des routine de CV par sexe";
-$lang['label.site_justification_for_tests'] = "Justification pour les tests";
+$lang['label.site_outcomes'] = "Nombre de tests réalisés";
+$lang['label.site_trends'] = "Tendances des tests réalisés";
+$lang['label.site_routinevls_outcomes.byage'] = "Nombre de tests  réalisés par âge";
+$lang['label.site_routinevls_outcomes.bygender'] = "Nombre de tests  réalisés par genre";
+$lang['label.site_justification_for_tests'] = "Motif de la demande des tests réalisés";
 $lang['label.site_suppression.rate'] = "Taux de suppression";
 $lang['label.site_testsdone_unique.patients'] = "Tests effectués par des patients uniques";
 $lang['label.site_longitudinalpatient_trackg.statistics'] = "Statistiques longitudinales sur le suivi des patients";
-$lang['label.site_patients.outcomes'] = "Résultats des patients";
+$lang['label.site_patients.outcomes'] = "Nombre de tests réalisés  par patients";
 $lang['label.site_patients.graphs'] = "Graphs des Patients ";
 $lang['label.site_age_category.breakdown'] = "Répartition par catégorie d'âge";
 $lang['label.site_pregnant_lactating.mothers'] = "Mères enceintes et allaitantes";
@@ -487,9 +487,9 @@ $lang['label.not_suppressed_'] = "Non supprimé";
 $lang['label.suppressed_'] = "Supprimé";
 $lang['label.total_vl_tests_done'] = "Total des tests CV effectués";
 $lang['label.routine_vl_tests_valid_outcomes'] = "Tests routine de CV avec des résultats valides";
-$lang['label.valid_tests_gt1000'] = "Tests valides &gt; 1000 copies / ml";
+$lang['label.valid_tests_gt1000'] = "Resultats valides &gt; 1000 copies / ml";
 $lang['label.percentage_non_suppression'] = "Pourcentage non-suppression";
-$lang['label.valid_tests_lt1000'] = "Tests valides &lt; 1000 copies / ml";
+$lang['label.valid_tests_lt1000'] = "Resultats valides &lt; 1000 copies / ml";
 $lang['label.percentage_suppression'] = "Pourcentage suppression";
 $lang['label.baseline_vl'] = "CV de base";
 $lang['label.non_suppression_gt_1000'] = "Non Suppression ( &gt; 1000cpml)";
@@ -499,20 +499,20 @@ $lang['label.percentage_rejection_rate'] = "Taux de rejet en pourcentage";
 $lang['label.male'] = "Homme";
 $lang['label.female'] = "Femme";
 $lang['label.no_data'] = "Aucune donnée";
-$lang['label.sample_type_EDTA'] = "EDTA";
+$lang['label.sample_type_EDTA'] = "EDTA/Plasma";
 $lang['label.sample_type_DBS'] = "DBS";
 $lang['label.sample_type_plasma'] = "Plasma";
 $lang['label.sample_type_suppression'] = "Suppression";
 //
 $lang['label.suppression_trends'] = "Tendances des suppressions";
 $lang['label.suppression_rate_percent'] = "Taux de suppression (%)";
-$lang['label.number_valid_tests'] = "Nombre de tests valides";
+$lang['label.number_valid_tests'] = "Nombre de tests réalisés resultat valide";
 $lang['label.rejected_rate_trends'] = "Tendances des taux de rejet";
 $lang['label.rejection_percent'] = "Rejet (%)";
 $lang['label.turn_around_time_cd'] = "Délai d'exécution ";
-$lang['label.collection_dispatch'] = "Prelevement - Rendu de resultats";
+$lang['label.collection_dispatch'] = "Prélevement - Rendu de résultats";
 $lang['label.TAT_days'] = "Temps de traitement (Jours)";
-$lang['label.no_gender'] = "sans sexe";
+$lang['label.no_gender'] = "sans genre";
 $lang['label.no_age'] = "sans Age";
 $lang['label.less2'] = "<2";
 $lang['label.less9'] = "2-9";
@@ -531,10 +531,10 @@ $lang['label.county_listing_age_non_suppressed'] = "Liste par âges par régions
 $lang['label.sub_county_listing_age_non_suppressed'] = "Liste par âges par districts non supprimés";
 $lang['label.partner_listing_age_non_suppressed'] = "Liste par âges par partenaire non supprimés";
 $lang['label.facility_listing_age_non_suppressed'] = "Liste par âges par établissements non supprimés";
-$lang['label.county_listing_gender'] = "Liste par sexe par région";
-$lang['label.sub_county_listing_gender'] = "Liste par sexe par district";
-$lang['label.partner_listing_gender'] = "Liste par sexe par partenaire";
-$lang['label.facility_listing_gender'] = "Liste par sexe par établissements";
+$lang['label.county_listing_gender'] = "Liste par genre par région";
+$lang['label.sub_county_listing_gender'] = "Liste par genre par district";
+$lang['label.partner_listing_gender'] = "Liste par genre par partenaire";
+$lang['label.facility_listing_gender'] = "Liste par genre par établissements";
 $lang['label.children_lt10'] = "Enfants (<10)";
 $lang['label.adolescents_lt19'] = "Adolescents (10-19)";
 $lang['label.adults_gt20'] = "Adultes (>20)";
@@ -569,7 +569,7 @@ $lang['label.total_samples_received'] = "total des échantillons reçus";
 $lang['label.rejection_rate'] = "Taux de rejet";
 $lang['label.redraws_after_testing'] = "Révisions (après tests)";
 $lang['label.all_samples_run'] = "Tous les échantillons traités";
-$lang['label.valid_test_results'] = "Résultats de test valides";
+$lang['label.valid_test_results'] = "Nombre de tests réalisés avec résultat valide";
 $lang['label.eqa_qa_iqc_tests'] = "";
 $lang['label.confirmatory_repeat_tests'] = "Confirmation de reprise de tests";
 $lang['label.total_tests_performed'] = "Total des tests effectués";
@@ -618,12 +618,78 @@ $lang['label.importing'] = "Importation en cours ...";
 $lang['label.site'] = "Site:";
 $lang['label.site_select'] = "Sélectionnez un site";
 $lang['menu_label.import_file'] = "Importer";
-$lang['menu.refresh'] = "Raffraichir";
+$lang['menu.refresh'] = "Rafraichir";
 $lang['menu.import.history'] ="Importations effectuées";
 $lang['no.valid.data'] ="Données non valides !";
 $lang['data.import.success'] ="Données importées avec succès.";
 $lang['errors.occurred'] ="Erreurs survenues !";
-$lang['rows.num'] ="Nombres de lignes traitées: ";
+$lang['rows.num'] ="Nombre de lignes traitées: ";
 $lang['processing.time'] ="Temps de traitement: ";
+$lang['file.name'] ="Nom du fichier";
+$lang['file.size'] ="Taille du fichier";
+$lang['label.invalids'] = "Invalides";
+$lang['label.undetectable'] = "&lt; LL";
+$lang['label.result_undetectables'] = "Resultats Indetectables (< LL)";
+$lang['label.result_invalids'] = "Résultats invalides";
+$lang['label.lt1000'] = "&lt; 1000 copies/ml";
+$lang['label.gt1000'] = "&gt; 1000 copies/ml";
+$lang['label.percentage'] = "Pourcentage";
+//#############//
+//#############//
+//#############//
+$lang['total_tested_patient'] = "Nombre total de patients testés";
+$lang['total_tested_patient_valides'] = "Nombre total de patients testés avec résultat valides";
+$lang['total_suppressed_patient'] = "Nombre total de patients supprimés";
+$lang['total_non_suppressed_patient'] = "Nombre total de patients non-supprimés";
+$lang['total_done_test'] = "Nombre total de tests réalisés";
+$lang['total_done_test_valid'] = "Nombre total de tests avec des résultats valides";
+$lang['total_patient_result_lt1000'] = "Patients avec résultats &lt; 1000 copies / ml";
+$lang['total_patient_result_gt1000'] = "Patients avec résultats &gt; 1000 copies / ml";
+$lang['total_patient_result_und'] = "Patients avec résultats indetectables (< LL)";
+$lang['total_patient_result_inv'] = "Patients avec résultats invalides";
+$lang['total_test_result_lt1000'] = "Nombre de tests avec résultats &lt; 1000 copies / ml";
+$lang['total_test_result_gt1000'] = "Nombre de tests avec résultats &gt; 1000 copies / ml";
+$lang['total_test_result_inv'] = "Nombre de tests avec résultats invalides";
+$lang['total_test_result_und'] = "Nombre de tests avec résultats indetectables (< LL)";
+$lang['title_tested_patients'] = "Patients testés";
+$lang['title_tested_patients_by_gender'] = "Nombre de patients testés par genre";
+$lang['title_tested_done_by_gender'] = "Nombre de tests réalisés par genre";
+$lang['title_tested_patients_by_reg'] = "Nombre de patients testés par regime de traitement";
+$lang['title_tested_done_by_reg'] = "Nombre de tests réalisés par regime de traitement";
+$lang['title_tested_patients_by_age'] = "Nombre de patients testés par tranche d&apos;âge";
+$lang['title_tested_done_by_age'] = "Nombre de tests réalisés par tranche d&apos;âge";
+$lang['title_tested_patients_by_county'] = "Nombre de patients testés par régions";
+$lang['title_test_done_by_county'] = "Nombre de tests réalisés par régions";
+$lang['title_tested_patients_by_subcounty'] = "Nombre de patients testés par districts";
+$lang['title_test_done_by_subcounty'] = "Nombre de tests réalisés par districts";
+$lang['title_test_done_by_a_subcounty'] = "Nombre de tests réalisés pour le district";
+$lang['title_tested_patients_by_site'] = "Nombre de patients testés par sites";
+$lang['title_test_done_by_site'] = "Nombre de tests réalisés par sites";
+$lang['menu_organization'] = "Organisations";
+$lang['menu_help'] = "Aide";
+$lang['title_testing_trends'] = "Tendances des tests réalisés";
+$lang['title_test_partner_outcomes'] = "Nombre de tests réalisés par partenaire";
+$lang['title_patient_partner_outcomes'] = "Nombre de patients testés par partenaire";
+$lang['title_test_lab_outcomes'] = "Nombre de tests réalisés par laboratoire";
+$lang['title_patient_lab_outcomes'] = "Nombre de patients testés par laboratoire";
+$lang['title_partenaire_test_by_sample'] = "Nombre de tests réalisés par specimens";
+$lang['title_test_done_by_sample'] = "Nombre de tests réalisés par specimens";
+$lang['table_subcounty'] = "District";
+$lang['label.testing_trends_by_sample'] = "Tendances des tests réalisés par specimens";
+$lang['result_invalids'] = "Résultats invalides";
+$lang['result_undetectable'] = "Résultats indetectables";
+$lang['result_lt1000'] = "Résultats &lt; 1000 copies / ml";
+$lang['result_gt1000'] = "Résultats &gt; 1000 copies / ml";
+$lang['patient_undetectable'] = "Patients indetectables";
+$lang['patient_lt1000'] = "Patients &lt; 1000 copies / ml";
+$lang['patient_suppressed'] = "Patients supprimés";
+$lang['patient_nonsuppressed'] = "Patients non supprimés";
+$lang['test_done'] = "Tests réalisés";
+$lang['tested_patient'] = "Patients testés";
+$lang['title_test_result_trends'] = "Tendance des résultats des tests";
+
+
+
+
 
 

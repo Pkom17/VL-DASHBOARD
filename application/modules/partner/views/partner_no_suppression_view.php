@@ -54,7 +54,7 @@
 		<div class="row">
 			<div class="col-md-7">
 				<div class="panel panel-default">
-					<div class="panel-heading">
+					<div class="panel-heading chart_title">
 					 <?=lang('label.by_gender')?> <div class="display_date"></div>
 					</div>
 				  	<div class="panel-body" id="genderGrp">
@@ -64,7 +64,7 @@
 			</div>
 			<div class="col-md-5">
 				<div class="panel panel-default">
-					<div class="panel-heading">
+					<div class="panel-heading chart_title">
 					  <?=lang('label.by_age')?> <div class="display_date"></div>
 					</div>
 				  	<div class="panel-body" id="ageGrp">
@@ -79,7 +79,7 @@
 			<div class="col-md-7">
 				<!-- Begining of Justification -->
 				<div class="panel panel-default">
-					<div class="panel-heading">
+					<div class="panel-heading chart_title">
 						<?=lang('label.by_justification')?> <div class="display_date"></div>
 					</div>
 					  <div class="panel-body">
@@ -93,7 +93,7 @@
 			<div class="col-md-5">
 				<!-- Begining of Sample Types -->
 				<div class="panel panel-default">
-						<div class="panel-heading">
+						<div class="panel-heading chart_title">
 							<?=lang('label.by_sample_types')?> <div class="display_date"></div>
 						</div>
 					  <div class="panel-body">
@@ -112,7 +112,7 @@
 	<div class="col-md-5">
 		
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading chart_title">
 			 	<?=lang('label.facility')?> <div class="display_date"></div>
 			</div>
 			<div class="panel-body" id="sites_listing">
@@ -122,7 +122,7 @@
 		
 		<!-- Begining of Regimen -->
 		<div class="panel panel-default">
-				<div class="panel-heading">
+				<div class="panel-heading chart_title">
 					<?=lang('label.by_regimen')?> <div class="display_date"></div>
 				</div>
 			  <div class="panel-body">

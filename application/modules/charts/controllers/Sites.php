@@ -21,9 +21,9 @@ class Sites extends MY_Controller
 		$this->load->view('trends_outcomes_view', $data);
 	}
 
-	function partner_sites($year=NULL,$month=NULL,$partner=NULL,$to_year=NULL,$to_month=NULL)
+	function partner_sites($year=NULL,$month=NULL,$partner=NULL,$to_year=NULL,$to_month=NULL,$all="0")
 	{
-		$data['outcomes'] = $this->sites_model->partner_sites_outcomes($year,$month,$partner,$to_year,$to_month);
+		$data['outcomes'] = $this->sites_model->partner_sites_outcomes($year,$month,$partner,$to_year,$to_month,$all);
 
 		$link = $year . '/' . $month . '/' . $partner . '/' . $to_year . '/' . $to_month;
 		$data['link'] =  base_url('charts/sites/download_partner_sites/' . $link);
@@ -115,9 +115,6 @@ class Sites extends MY_Controller
 		$data = $this->sites_model->site_patients($site,$year,$month,$to_year,$to_month);
 
 		//echo "<pre>";print_r($data);die();
-
-
-
 		$this->load->view('sites_gender_view',$data);
 	}
 

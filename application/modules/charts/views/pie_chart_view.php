@@ -1,7 +1,6 @@
 <p>
-	<?= lang('label.pie.suppress_patient'); ?> - <?php echo number_format($outcomes['total'][0]) ; ?> <br />
-	<?= lang('label.pie_non_suppress_patient'); ?> - <?php echo number_format($outcomes['total'][1]) ; ?> <br />
-	<?= lang('label.pie_msg_exclude_tests'); ?>
+	<?= lang('label.pie.suppress_patient'); ?> : <?php echo number_format($outcomes['total'][0]) ; ?> <br />
+	<?= lang('label.pie_non_suppress_patient'); ?> : <?php echo number_format($outcomes['total'][1]) ; ?> <br />
 </p>
 <div id="<?php echo $div_name; ?>"></div>
 

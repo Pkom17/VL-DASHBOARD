@@ -55,7 +55,7 @@
 <div class="row">
 	<div class="col-md-4 col-sm-12 col-xs-12">
 		<div class="panel panel-default">
-		  <div class="panel-heading">
+		  <div class="panel-heading chart_title">
 		    <?=lang('label.suppression_rate')?> <div class="display_current_range"></div>
 		  </div>
 		  <div class="panel-body" id="current_sup">
@@ -66,7 +66,7 @@
 
 	<div class="col-md-4 col-sm-12 col-xs-12">
 		<div class="panel panel-default">
-		  <div class="panel-heading">
+		  <div class="panel-heading chart_title">
 		    <?=lang('label.current_by_gender')?> <div class="display_current_range"></div>
 		  </div>
 		  <div class="panel-body" id="current_sup_gender">
@@ -77,7 +77,7 @@
 
 	<div class="col-md-4 col-sm-12 col-xs-12">
 		<div class="panel panel-default">
-		  <div class="panel-heading">
+		  <div class="panel-heading chart_title">
 		    <?=lang('label.current_by_age')?> <div class="display_current_range"></div>
 		  </div>
 		  <div class="panel-body" id="current_sup_age">
@@ -96,7 +96,7 @@
 <div class="row">
 	<div class="col-md-3">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading chart_title">
 			  <?=lang('label.counties')?>
 			</div>
 		  	<div class="panel-body">
@@ -109,7 +109,7 @@
 	</div>
 	<div class="col-md-3">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading chart_title">
 			  <?=lang('label.sub_counties')?>
 			</div>
 		  	<div class="panel-body">
@@ -121,7 +121,7 @@
 	</div>
 	<div class="col-md-3">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading chart_title">
 			  <?=lang('label.facilities')?>
 			</div>
 		  	<div class="panel-body">
@@ -133,7 +133,7 @@
 	</div>
 	<div class="col-md-3">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading chart_title">
 			  <?=lang('label.partners')?>
 			</div>
 		  	<div class="panel-body">
@@ -155,7 +155,7 @@
 <div class="row">
 	<div class="col-md-3">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading chart_title">
 			  <?=lang('label.counties')?>
 			</div>
 		  	<div class="panel-body">
@@ -168,7 +168,7 @@
 	</div>
 	<div class="col-md-3">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading chart_title">
 			  <?=lang('label.sub_counties')?>
 			</div>
 		  	<div class="panel-body">
@@ -180,7 +180,7 @@
 	</div>
 	<div class="col-md-3">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading chart_title">
 			  <?=lang('label.facilities')?>
 			</div>
 		  	<div class="panel-body">
@@ -192,7 +192,7 @@
 	</div>
 	<div class="col-md-3">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading chart_title">
 			  <?=lang('label.partners')?>
 			</div>
 		  	<div class="panel-body">
@@ -212,7 +212,7 @@
 <div class="row">
 	<div class="col-md-3">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading chart_title">
 			  <?=lang('label.counties')?>
 			</div>
 		  	<div class="panel-body">
@@ -225,7 +225,7 @@
 	</div>
 	<div class="col-md-3">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading chart_title">
 			  <?=lang('label.sub_counties')?> 
 			</div>
 		  	<div class="panel-body">
@@ -237,7 +237,7 @@
 	</div>
 	<div class="col-md-3">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading chart_title">
 			  <?=lang('label.facilities')?> 
 			</div>
 		  	<div class="panel-body">
@@ -249,7 +249,7 @@
 	</div>
 	<div class="col-md-3">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading chart_title">
 			  <?=lang('label.partners')?>
 			</div>
 		  	<div class="panel-body">
@@ -269,7 +269,7 @@
 <div class="row">
 	<div class="col-md-3">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading chart_title">
 			  <?=lang('label.counties')?>
 			</div>
 		  	<div class="panel-body">
@@ -282,7 +282,7 @@
 	</div>
 	<div class="col-md-3">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading chart_title">
 			  <?=lang('label.sub_counties')?>
 			</div>
 		  	<div class="panel-body">
@@ -294,7 +294,7 @@
 	</div>
 	<div class="col-md-3">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading chart_title">
 			  <?=lang('label.facilities')?>
 			</div>
 		  	<div class="panel-body">
@@ -306,7 +306,7 @@
 	</div>
 	<div class="col-md-3">
 		<div class="panel panel-default">
-			<div class="panel-heading">
+			<div class="panel-heading chart_title">
 			  <?=lang('label.partners')?>
 			</div>
 		  	<div class="panel-body">

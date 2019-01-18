@@ -133,12 +133,12 @@ class Nonsuppression_model extends MY_Model
 
 		foreach ($result as $key => $value) {
 			if ($value['name']=='Feminin') {
-				$data['gnd_gr']['data'][$key]['name'] = lang('label.female');
-				$data['gnd_gr']['data'][$key]['y'] = (int) $value['nonsuppressed'];
+				$data['gnd_gr']['data'][0]['name'] = lang('label.female');
+				$data['gnd_gr']['data'][0]['y'] = (int) $value['nonsuppressed'];
 				$female = number_format((int) $value['nonsuppressed']).' ('.round((((int) $value['nonsuppressed'])/@((int) $value['nonsuppressed']+(int) $value['suppressed']))*100,1).'%)';
 			} else if ($value['name']=='Masculin') {
-				$data['gnd_gr']['data'][$key]['name'] = lang('label.male');
-				$data['gnd_gr']['data'][$key]['y'] = (int) $value['nonsuppressed'];
+				$data['gnd_gr']['data'][1]['name'] = lang('label.male');
+				$data['gnd_gr']['data'][1]['y'] = (int) $value['nonsuppressed'];
 				$male = number_format((int) $value['nonsuppressed']).' ('.round((((int) $value['nonsuppressed'])/@((int) $value['nonsuppressed']+(int) $value['suppressed']))*100,1).'%)';
 			} else {
 				$data['gnd_gr']['data'][$key]['name'] = $value['name'];
@@ -149,7 +149,7 @@ class Nonsuppression_model extends MY_Model
 
 		$data['gnd_gr']['data'][0]['sliced'] = true;
 		$data['gnd_gr']['data'][0]['selected'] = true;
-		$data['gnd_gr']['data'][0]['color'] = '#e8ee1d';
+		$data['gnd_gr']['data'][0]['color'] = '#e81dee';
 		$data['gnd_gr']['data'][1]['color'] = '#2f80d1';
 
 		$data['ul'] = '<tr>
@@ -227,7 +227,6 @@ class Nonsuppression_model extends MY_Model
 		$adultsTotal = 0;
 		$nodata = 0;
 		$nodataTotal = 0;
-
 
 		foreach ($result as $key => $value) {
 			if ($value['name']=='<2'||$value['name']=='2-9') {
@@ -558,7 +557,7 @@ class Nonsuppression_model extends MY_Model
 			$data["sup_county"][0]["data"][$key]	=  (int) $value['nonsuppressed'];
 			$data["sup_county"][1]["data"][$key]	=  (int) $value['suppressed'];
 		}
-		// echo "<pre>";print_r($data);die();
+//		 echo "<pre>";print_r($data);echo '</pre>';
 		return $data;
 	}
 

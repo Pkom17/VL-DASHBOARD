@@ -41,6 +41,7 @@ class Template_model extends MY_Model {
 
     function get_counties_dropdown() {
         $dropdown = '';
+         $this->db->order_by("name", "asc");
         $county_data = $this->db->get('countys')->result_array();
 
         foreach ($county_data as $key => $value) {
@@ -102,7 +103,7 @@ class Template_model extends MY_Model {
 
     function get_site_dropdown() {
         $dropdown = '';
-        $site_data = $this->db->query('SELECT DISTINCT `view_facilitys`.`ID`, `view_facilitys`.`name` FROM `vl_site_summary` JOIN `view_facilitys` ON `vl_site_summary`.`facility` = `view_facilitys`.`ID`')->result_array();
+        $site_data = $this->db->query('SELECT DISTINCT `view_facilitys`.`ID`, `view_facilitys`.`name` FROM `vl_summary` JOIN `view_facilitys` ON `vl_summary`.`facility` = `view_facilitys`.`ID` order by `view_facilitys`.`name`')->result_array();
 
         foreach ($site_data as $key => $value) {
             $dropdown .= '<option value="' . $value['ID'] . '">' . $value['name'] . '</option>';

@@ -4,25 +4,19 @@
             <th rowspan="2"><?= lang('label.table_no') ?></th>
             <th rowspan="2"><?= lang('label.table_name') ?></th>
             <?php if (isset($sub_county)) { ?><th rowspan="2"><?= lang('label.table_county') ?></th><?php  } ?>
-          <?php if ($sites) { ?> <!-- <th rowspan="2"><?= lang('label.table_facilities_send_samp') ?></th> --><?php } ?>
-            <th rowspan="2"><?= lang('label.table_received_samp') ?></th> 
-            <!--<th rowspan="2"><?= lang('label.table_rejected_samp') ?></th>--> 
-            <th rowspan="2"><?= lang('label.table_all_tests_done_lab') ?></th>
-            <!--<th rowspan="2"><?= lang('label.table_redraw_at') ?></th>-->
-            <th colspan="2"><?= lang('label.table_routine_vl_tests') ?></th>
-            <!--<th colspan="2"><?= lang('label.table_baseline_vl_tests') ?></th>-->
-            <!--<th colspan="2"><?= lang('label.table_confirm_repeat_tests') ?></th>-->
-            <th colspan="2"><?= lang('label.table_total_tests_wvo') ?></th>
+            <th colspan="5" class="text-center"><?= lang('test_done') ?></th>
+            <th colspan="4" class="text-center"><?= lang('tested_patient') ?></th>
         </tr>
-        <tr>
-<!--            <th><?= lang('label.tests') ?></th>
-            <th>&gt; 1000</th>
-            <th><?= lang('label.tests') ?></th>
-            <th>&gt; 1000</th>-->
-            <th><?= lang('label.tests') ?></th>
-            <th>&gt; 1000</th>
-            <th><?= lang('label.tests') ?></th>
-            <th>&gt; 1000</th>
+        <tr class="colhead">
+            <th><?= lang('label.total') ?></th>
+            <th><?= lang('result_invalids') ?></th>
+            <th><?= lang('result_undetectable') ?></th>
+            <th><?= lang('result_lt1000') ?></th>
+            <th><?= lang('result_gt1000') ?></th>
+            <th><?= lang('label.total') ?></th>
+            <th><?= lang('patient_undetectable') ?></th>
+            <th><?= lang('patient_lt1000') ?></th>
+            <th><?= lang('patient_nonsuppressed') ?></th>
         </tr>
     </thead>
     <tbody>

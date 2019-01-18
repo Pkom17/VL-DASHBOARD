@@ -32,13 +32,6 @@ class Partner_trends extends MY_Controller
 		$this->load->view('yearly_trends_view', $data);
 
 		
-//
-//		$data['trends'] = $obj['rejected_trends'];
-//		$data['title'] = lang('label.rejected_rate_trends');
-//		$data['div_name'] = "rejects";
-//		$data['suffix'] = "%";
-//		$data['yAxis'] = lang('label.rejection_percent');
-//		$this->load->view('yearly_trends_view', $data);
 
 
 		$data['trends'] = $obj['tat_trends'];

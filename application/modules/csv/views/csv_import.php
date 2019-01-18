@@ -13,19 +13,21 @@
         ?>
         <style type="text/css">
             .msg_success{
-                font-size: 19px;
-                color: #3bc133;
-                font-family: consolas;
+                font-size: 17px;
+                color: #0a861c;
+                font-family: monospace;
+                font-weight: 100;
             }
             .msg_fail{
-                font-size: 19px;
+                font-size: 17px;
                 color: #e34820;
-                font-family: consolas;
+                font-family: monospace;
+                font-weight: 100;
             }
         </style>
     </head>
     <body>
-        <div class="navbar navbar-default" style="height: 135px;">
+        <div class="navbar navbar-default" style="height: 85px;">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -33,7 +35,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="javascript:void(0)" style="padding:0px;padding-top:4px;padding-left:1px;"><img src="<?php echo base_url(); ?>assets/img/logo_moh.jpg" style="width:160px;height:130px;"/></a>
+                    <a class="navbar-brand" href="javascript:void(0)" style="padding:0px;padding-top:4px;padding-left:1px;"><img src="<?php echo base_url(); ?>assets/img/logo_moh.jpg" style="width:100px;height:80px;"/></a>
                 </div>
                 <div class="navbar-collapse collapse navbar-responsive-collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -132,6 +134,7 @@
                         echo $_SESSION['message'].'<br/>';
                         echo lang('rows.num').' '.$_SESSION['nbread'].'<br/>';
                         echo lang('processing.time').' '.$_SESSION['time'].' s<br/>';
+                        echo lang('file.name').': '.$_SESSION['filename'].', '.lang('file.size').': '.$_SESSION['filesize'].' Ko<br/>';
                         echo '</div>';
                     }else{
                         echo '<div class="msg_fail">';

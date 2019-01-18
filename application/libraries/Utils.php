@@ -7,25 +7,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  *
  * @author IT
  */
-class CsvUtils {
+class Utils {
 
     const AGE_ADULT = 21;
     const AGE_PAEDS = 15;
     const SAMPLE_EDTA = 'Tube EDTA - Violet';
-    const SAMPLE_EDTA_IN_BASE = 'EDTA';
+    const SAMPLE_EDTA_IN_BASE = 'EDTA/Plasma';
     const SAMPLE_DBS = 'DBS';
-    const SAMPLE_PLASMA = 'Plasma';
+
+    //const SAMPLE_PLASMA = 'Plasma';
 
     public static function validData($csvData) {
         if (!is_array($csvData)) {
             return false;
         }
-        $toRemove = ['ECHSTAT' => '', 'SUJETNO' => '', 'ETUDE' => '', 'SUJETSIT' => '', 'NOM_SITE' => '', 'CODE_SITE' => '', 'NOM_SITE_DATIM' => '', 'DATENAIS' => '', 'AGEMOIS' => '', 'AGESEMS' => '', 'Viral Load log' => '',
+        $toRemove = ['ECHSTAT' => '','ETUDE' => '', 'NOM_SITE' => '', 'CODE_SITE' => '', 'NOM_SITE_DATIM' => '', 'DATENAIS' => '', 'AGEMOIS' => '', 'AGESEMS' => '', 'Viral Load log' => '',
             'STARTED_DATE' => '', 'STATVIH' => '', 'NOMMED' => '', 'NOMPRELEV' => '', 'ARV_INIT_DATE' => '', 'ARVREG' => '', 'CURRENT4' => '', 'CURRENT_ART' => '',
             'INITCD4_COUNT' => '', 'INITCD4_PERCENT' => '', 'INITCD4_DATE' => '', 'DEMANDCD4_COUNT' => '', 'DEMANDCD4_PERCENT' => '', 'REASON_OTHER' => '',
             'DEMANDCD4_DATE' => '', 'PRIOR_VL_BENEFIT' => '', 'VL_PREGNANCY' => '', 'VL_SUCKLE' => '', 'PRIOR_VL_Lab' => '', 'PRIOR_VL_Value' => '', 'PRIOR_VL_Date' => ''];
         $toLookFor = [
-            'LABNO' => '', 'DRCPT' => '', 'DINTV' => '', 'SEXE' => '', 'AGEANS' => '', 'Viral Load' => '', 'Type_of_sample' => '', 'COMPLETED_DATE' => '', 'RELEASED_DATE' => '', 'CURRENT1' => '',
+            'LABNO' => '', 'SUJETSIT' => '','SUJETNO' => '', 'DRCPT' => '', 'DINTV' => '', 'SEXE' => '', 'AGEANS' => '', 'Viral Load' => '', 'Type_of_sample' => '', 'COMPLETED_DATE' => '', 'RELEASED_DATE' => '', 'CURRENT1' => '',
             'CURRENT2' => '', 'CURRENT3' => '', 'VL_REASON' => ''
         ];
         foreach ($csvData as $v) {
@@ -51,6 +52,14 @@ class CsvUtils {
         return trim($d);
     }
 
+    public static function extractPatientNo(array $row) {
+        $d1 = (array_key_exists('SUJETSIT', $row)) ? ($row['SUJETSIT']) : -1;
+        if($d1 == null || $d1 == ''){
+            $d1 = (array_key_exists('SUJETNO', $row)) ? ($row['SUJETNO']) : -1;
+        }
+        return trim($d1);
+    }
+
     public static function extractMonth(array $row) {
         $d = (array_key_exists('RELEASED_DATE', $row)) ? ($row['RELEASED_DATE']) : ((array_key_exists('COMPLETED_DATE', $row)) ? ($row['COMPLETED_DATE']) : -1);
         $date = DateTime::createFromFormat("d/m/Y H:i", $d);
@@ -58,6 +67,15 @@ class CsvUtils {
             return intval(date("m")) - 1;
         }
         return intval($date->format("m"));
+    }
+
+    public static function extractDay(array $row) {
+        $d = (array_key_exists('RELEASED_DATE', $row)) ? ($row['RELEASED_DATE']) : ((array_key_exists('COMPLETED_DATE', $row)) ? ($row['COMPLETED_DATE']) : -1);
+        $date = DateTime::createFromFormat("d/m/Y H:i", $d);
+        if ($date == FALSE) {
+            return intval(date("d")) - 1;
+        }
+        return intval($date->format("d"));
     }
 
     public static function extractDatimCode(array $row) {
@@ -70,25 +88,24 @@ class CsvUtils {
         return intval($age);
     }
 
-    public static function extractSexe(array $row) {
-        $sexe = (array_key_exists('SEXE', $row)) ? ($row['SEXE']) : -1;
+    public static function extractGender(array $row) {
+        $sexe_1 = (array_key_exists('SEXE', $row)) ? ($row['SEXE']) : -1;
+        $sexe = ($sexe_1!= 1 || $sexe_1 !=2) ? ($sexe_1) : 2;
         return intval($sexe);
     }
 
     public static function extractViralLoad(array $row) {
         $vl = (array_key_exists('Viral Load', $row)) ? ($row['Viral Load']) : 0;
         $nvl = trim($vl);
-        if (stristr($nvl, '<') != FALSE) {
+        if (stristr($nvl, '<') != FALSE || stristr($nvl, 'LL') != FALSE) {
             return -1;
         } elseif (stristr($nvl, '>') != FALSE) {
-            return '1000000';
-        } elseif(stristr($nvl, 'X') != FALSE){
+            return '10000000';
+        } elseif (stristr($nvl, 'X') != FALSE) {
             return -2;
-        }
-        elseif(is_numeric($nvl)){
+        } elseif (is_numeric($nvl)) {
             return intval($nvl);
-        }
-        else{
+        } else {
             return -2;
         }
     }
@@ -122,7 +139,7 @@ class CsvUtils {
 
     public static function extractReceivedDate(array $row) {
         $d = (array_key_exists('DRCPT', $row)) ? ($row['DRCPT']) : -1;
-                 $date = DateTime::createFromFormat("d/m/Y H:i", $d);
+        $date = DateTime::createFromFormat("d/m/Y H:i", $d);
         if ($date == FALSE) {
             return self::extractInterviewDate($row);
         }
@@ -131,7 +148,7 @@ class CsvUtils {
 
     public static function extractInterviewDate(array $row) {
         $d = (array_key_exists('DINTV', $row)) ? ($row['DINTV']) : -1;
-         $date = DateTime::createFromFormat("d/m/Y H:i", $d);
+        $date = DateTime::createFromFormat("d/m/Y H:i", $d);
         if ($date == FALSE) {
             return self::extractCompletedDate($row);
         }
@@ -140,7 +157,7 @@ class CsvUtils {
 
     public static function extractCompletedDate(array $row) {
         $d = (array_key_exists('COMPLETED_DATE', $row)) ? ($row['COMPLETED_DATE']) : -1;
-         $date = DateTime::createFromFormat("d/m/Y H:i", $d);
+        $date = DateTime::createFromFormat("d/m/Y H:i", $d);
         if ($date == FALSE) {
             return self::extractReleasedDate($row);
         }
@@ -149,9 +166,9 @@ class CsvUtils {
 
     public static function extractReleasedDate(array $row) {
         $d = (array_key_exists('RELEASED_DATE', $row)) ? ($row['RELEASED_DATE']) : -1;
-         $date = DateTime::createFromFormat("d/m/Y H:i", $d);
+        $date = DateTime::createFromFormat("d/m/Y H:i", $d);
         if ($date == FALSE) {
-            return date("d/m/Y"); 
+            return date("d/m/Y");
         }
         return $date->format("d/m/Y");
     }
@@ -197,7 +214,7 @@ class CsvUtils {
 
     public static function addEdta($sample) {
         $inc = 0;
-        if ($sample == \CsvUtils::SAMPLE_EDTA_IN_BASE) {
+        if ($sample == \Utils::SAMPLE_EDTA_IN_BASE) {
             $inc += 1;
         }
         return $inc;
@@ -205,7 +222,7 @@ class CsvUtils {
 
     public static function addDbs($sample) {
         $inc = 0;
-        if ($sample == \CsvUtils::SAMPLE_DBS) {
+        if ($sample == \Utils::SAMPLE_DBS) {
             $inc += 1;
         }
         return $inc;
@@ -213,7 +230,7 @@ class CsvUtils {
 
     public static function addPlasma($sample) {
         $inc = 0;
-        if ($sample == \CsvUtils::SAMPLE_PLASMA) {
+        if ($sample == \Utils::SAMPLE_PLASMA) {
             $inc += 1;
         }
         return $inc;
@@ -301,7 +318,7 @@ class CsvUtils {
 
     public static function addInvalids($vl) {
         $inc = 0;
-        if ($vl != -1 && !is_numeric($inc)) {
+        if ($vl != -2 && !is_numeric($inc)) {
             $inc += 1;
         }
         return $inc;
@@ -395,6 +412,16 @@ class CsvUtils {
         return $inc;
     }
 
+    public static function getCop($year, $month) {
+        $cop = 'COP ';
+        if (in_array($month, [10, 11, 12])) {
+            $cop .= intval(substr($year, -2));
+        } elseif (in_array($month, [1, 2, 3, 4, 5, 6, 7, 8, 9])) {
+            $cop .= (intval(substr($year, -2)) - 1);
+        }
+        return $cop;
+    }
+
     public static function getAgeCategorysub1($age) {
         $cat = '';
         if ($age < 5) {
@@ -427,6 +454,10 @@ class CsvUtils {
             $cat = '>25';
         }
         return $cat;
+    }
+
+    public static function getQuarter($mois) {
+        return ceil($mois/3);
     }
 
 }

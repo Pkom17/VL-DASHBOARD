@@ -8,7 +8,7 @@
             <th rowspan="2"><?= lang('label.table_received_samp') ?></th>
             <!--<th rowspan="2"><?= lang('label.table_rejected_samp') ?></th>-->
             <th rowspan="2"><?= lang('label.table_all_tests_done_lab') ?></th>
-            <!--<th rowspan="2"><?= lang('label.table_redraw_at') ?></th>-->
+            <th rowspan="2"><?= lang('label.table_redraw_at') ?></th>
             <!--<th rowspan="2"><?= lang('label.table_eqa_tests') ?></th>-->
             <th colspan="2"><?= lang('label.table_routine_vl_tests') ?></th>
             <!--<th colspan="2"><?= lang('label.table_baseline_vl_tests') ?></th>-->

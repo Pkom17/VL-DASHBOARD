@@ -11,3 +11,18 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
 }
+    #samples_heading,.chart_title{
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 1.3em;
+    }
+    .switchButton{
+        font-size: 0.9em;
+    }
+    
+    .bold{
+        font-weight: bold;
+    }
+    .modal-dialog{
+        max-width: 100%;
+    }

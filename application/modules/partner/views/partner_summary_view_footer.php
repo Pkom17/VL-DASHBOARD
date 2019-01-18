@@ -1,6 +1,10 @@
 <script type="text/javascript">
     $().ready(function () {
-        localStorage.setItem("my_var", 0);
+        localStorage.setItem("my_var", 1);
+        localStorage.setItem("view_part", 0);
+        localStorage.setItem("view_site2", 0);
+        localStorage.setItem("view_age", 1);
+        localStorage.setItem("view_gender", 1);
         $.get("<?php echo base_url(); ?>template/dates", function (data) {
             obj = $.parseJSON(data);
 
@@ -70,13 +74,13 @@
                     $("#gender").load("<?php echo base_url('charts/summaries/gender'); ?>/" + null + "/" + null + "/" + null + "/" + data);
                     $("#long_tracking").load("<?php echo base_url('charts/summaries/get_patients'); ?>/" + null + "/" + null + "/" + null + "/" + data);
                     $("#current_sup").load("<?php echo base_url('charts/summaries/current_suppression'); ?>/" + null + "/" + data);
-                    // $("#partner").load("<?php //echo base_url('charts/sites/site_outcomes');   ?>/"+null+"/"+null+"/"+data);
+                    // $("#partner").load("<?php //echo base_url('charts/sites/site_outcomes');        ?>/"+null+"/"+null+"/"+data);
                     $("#partner_div").load("<?php echo base_url('charts/summaries/county_outcomes'); ?>/" + null + "/" + null + "/" + 1 + "/" + data);
+                    $('#CatAge').load('<?php echo base_url(); ?>charts/summaries/agebreakdown');
 
-
-                    //$("#pat_stats").load("<?php //echo base_url('charts/summaries/get_patients');  ?>/"+null+"/"+null+"/"+null+"/"+data);
-                    //$("#pat_out").load("<?php //echo base_url('charts/summaries/get_patients_outcomes');  ?>/"+null+"/"+null+"/"+null+"/"+data);
-                    //$("#pat_graph").load("<?php //echo base_url('charts/summaries/get_patients_graph');  ?>/"+null+"/"+null+"/"+null+"/"+data);
+                    //$("#pat_stats").load("<?php //echo base_url('charts/summaries/get_patients');       ?>/"+null+"/"+null+"/"+null+"/"+data);
+                    //$("#pat_out").load("<?php //echo base_url('charts/summaries/get_patients_outcomes');       ?>/"+null+"/"+null+"/"+null+"/"+data);
+                    //$("#pat_graph").load("<?php //echo base_url('charts/summaries/get_patients_graph');       ?>/"+null+"/"+null+"/"+null+"/"+data);
                 }
             });
         });
@@ -131,7 +135,7 @@
                         $("#ageGroups").load("<?php echo base_url('charts/summaries/age'); ?>/" + from[1] + "/" + from[0] + "/" + null + "/" + partner + "/" + to[1] + "/" + to[0]);
                         $("#gender").load("<?php echo base_url('charts/summaries/gender'); ?>/" + from[1] + "/" + from[0] + "/" + null + "/" + partner + "/" + to[1] + "/" + to[0]);
                         $("#partner_div").load("<?php echo base_url('charts/summaries/county_outcomes'); ?>/" + from[1] + "/" + from[0] + "/" + 1 + "/" + partner + "/" + null + "/" + to[1] + "/" + to[0]);
-
+                        $('#CatAge').load('<?php echo base_url(); ?>charts/summaries/agebreakdown');
                         $("#long_tracking").load("<?php echo base_url('charts/summaries/get_patients'); ?>/" + from[1] + "/" + from[0] + "/" + null + "/" + partner + "/" + to[1] + "/" + to[0]);
 
                     }
@@ -140,12 +144,6 @@
 
         });
 
-        $('#agemodal').on('hidden.bs.modal', function () {
-            location.reload();
-        });
-        $('#justificationmodal').on('hidden.bs.modal', function () {
-            location.reload();
-        });
     });
 
     function date_filter(criteria, id)
@@ -203,7 +201,7 @@
                     $("#ageGroups").load("<?php echo base_url('charts/summaries/age'); ?>/" + year + "/" + month + "/" + null + "/" + partner);
                     $("#gender").load("<?php echo base_url('charts/summaries/gender'); ?>/" + year + "/" + month + "/" + null + "/" + partner);
                     $("#partner_div").load("<?php echo base_url('charts/summaries/county_outcomes'); ?>/" + year + "/" + month + "/" + 1 + "/" + partner);
-
+                    $('#CatAge').load('<?php echo base_url(); ?>charts/summaries/agebreakdown');
                     $("#long_tracking").load("<?php echo base_url('charts/summaries/get_patients'); ?>/" + year + "/" + month + "/" + null + "/" + partner);
                 }
             });
@@ -245,5 +243,79 @@
     {
         $('#justificationmodal').modal('show');
         $('#CatJust').load('<?php echo base_url(); ?>charts/summaries/justificationbreakdown');
+    }
+
+    function switch_source_part() {
+        var view = localStorage.getItem("view_part");
+        if (view == 0) {
+            localStorage.setItem("view_part", 1);
+            $("#vl_county_pie_tests").hide();
+            $("#vl_county_pie_pat").show();
+            $("#switchButton_part").val('<?= lang('label.switch_all_tests') ?>');
+            $(".vl_part_heading").html('<?= lang('title_patient_partner_outcomes') ?> ');
+            $('#vl_county_pie_pat').highcharts().reflow();
+        } else {
+            localStorage.setItem("view_part", 0);
+            $("#vl_county_pie_tests").show();
+            $("#vl_county_pie_pat").hide();
+            $("#switchButton_part").val('<?= lang('label.switch_routine_tests_trends') ?> ');
+            $(".vl_part_heading").html('<?= lang('title_test_partner_outcomes') ?> ');
+            $('#vl_county_pie_tests').highcharts().reflow();
+        }
+    }
+
+    function switch_source_siteGender() {
+        var view = localStorage.getItem("view_gender");
+        if (view == 0) {
+            localStorage.setItem("view_gender", 1);
+            $("#gender_pie_tests").hide();
+            $("#gender_pie_pat").show();
+            $("#switchButton_site_gender").val('<?= lang('label.switch_all_tests') ?>');
+            $(".vl_gender_heading").html('<?= lang('title_tested_patients_by_gender') ?> ');
+            $('#gender_pie_pat').highcharts().reflow();
+        } else {
+            localStorage.setItem("view_gender", 0);
+            $("#gender_pie_tests").show();
+            $("#gender_pie_pat").hide();
+            $("#switchButton_site_gender").val('<?= lang('label.switch_routine_tests_trends') ?> ');
+            $(".vl_gender_heading").html('<?= lang('title_tested_done_by_gender') ?> ');
+            $('#gender_pie_tests').highcharts().reflow();
+        }
+    }
+    function switch_source_siteAge() {
+        var view = localStorage.getItem("view_age");
+        if (view == 0) {
+            localStorage.setItem("view_age", 1);
+            $("#ageGroups_pie_tests").hide();
+            $("#ageGroups_pie_pat").show();
+            $("#switchButton_site_age").val('<?= lang('label.switch_all_tests') ?>');
+            $(".vl_age_heading").html('<?= lang('title_tested_patients_by_age') ?> ');
+            $('#ageGroups_pie_pat').highcharts().reflow();
+        } else {
+            localStorage.setItem("view_age", 0);
+            $("#ageGroups_pie_tests").show();
+            $("#ageGroups_pie_pat").hide();
+            $("#switchButton_site_age").val('<?= lang('label.switch_routine_tests_trends') ?> ');
+            $(".vl_age_heading").html('<?= lang('title_tested_done_by_age') ?> ');
+            $('#ageGroups_pie_tests').highcharts().reflow();
+        }
+    }
+    function switch_source_vl_site() {
+        var view = localStorage.getItem("view_site2");
+        if (view == 0) {
+            localStorage.setItem("view_site2", 1);
+            $("#vl_outcomes_pie_tests").hide();
+            $("#vl_outcomes_pie_pat").show();
+            $("#switchButton_site_vl").val('<?= lang('label.switch_all_tests') ?>');
+            $(".vl_site_vl_heading").html('<?= lang('title_tested_patients') ?> ');
+            $('#vlOutcomes_pie_pat').highcharts().reflow();
+        } else {
+            localStorage.setItem("view_site2", 0);
+            $("#vl_outcomes_pie_tests").show();
+            $("#vl_outcomes_pie_pat").hide();
+            $("#switchButton_site_vl").val('<?= lang('label.switch_routine_tests_trends') ?> ');
+            $(".vl_site_vl_heading").html('<?= lang('label.vl_outcomes') ?> ');
+            $('#vlOutcomes_pie_tests').highcharts().reflow();
+        }
     }
 </script>

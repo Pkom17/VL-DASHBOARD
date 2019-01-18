@@ -1,4 +1,6 @@
-<div id="national_sample_types" style="height:450px;"></div>
+<div id="national_sample_types" style="height:450px;">
+    
+</div>
 <div class="row" id="excels">
     <div class="col-md-6 col-md-offset-3">
         <center><a href="<?php  echo $link; ?>"><button id="download_link" class="btn btn-primary" style="background-color: #2f80d1;color: white;"><?=lang('label.export_excel');?></button></a></center>
@@ -72,7 +74,7 @@
 //                        '#52B3D9',
 //                        '#E26A6A',
 //                        '#913D88'
-                        '#AA9999',
+                        //'#AA9999',
                         '#E26A6A',
                         '#A15B98'
                     ],

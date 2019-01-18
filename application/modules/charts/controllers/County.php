@@ -73,7 +73,6 @@ class County extends MY_Controller
 	{
 		$data['trends'] = $this->county_model->subcounty_outcomes($year,$month,$county,$to_year,$to_month);
 		$data['div_name'] = "county_subcounties_outcomes";		
-
 		$this->load->view('trends_outcomes_view', $data);
 	}
 

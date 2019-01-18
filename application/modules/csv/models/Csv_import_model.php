@@ -71,55 +71,6 @@ class Csv_import_model extends CI_Model {
         return $ages;
     }
 
-    public function saveData($table, array $data, array $where) {
-        foreach ($data as $v) {
-            $set = array_diff(array_keys($v), $where, array('dateupdated'));
-            $whereClause = [];
-            foreach ($where as $w) {
-                $whereClause[$w] = $v[$w];
-            }
-            $this->db->where($whereClause);
-            $q = $this->db->get($table);
-            $this->db->reset_query();
-            if ($q->num_rows() > 0) {
-                $setClause = [];
-                foreach ($set as $s) {
-                    $setClause[$s] = $s . ' + ' . $v[$s];
-                    //$setClause[$s] =  $v[$s];
-                }
-                $setClause['dateupdated'] = '"' . date('d/m/Y H:i:s') . '"';
-                $this->db->set($setClause, '', false);
-                $this->db->where($whereClause);
-                $this->db->update($table);
-            } else {
-                $v['dateupdated'] = date('d/m/Y H:i:s');
-                $this->db->insert($table, $v);
-            }
-        }
-    }
-
-    public function saveSummaryData($table, array $data) {
-        foreach ($data as $v) {
-            $v['dateupdated'] = date('d/m/Y H:i:s');
-            $this->db->insert($table, $v);
-        }
-    }
-
-    public function removeData($table, array $data, array $where) {
-        foreach ($data as $v) {
-            $set = array_diff(array_keys($v), $where, array('dateupdated'));
-            $whereClause = [];
-            foreach ($where as $w) {
-                $whereClause[$w] = $v[$w];
-            }
-            $setClause = [];
-            foreach ($set as $s) {
-                $setClause[$s] = $s . ' -' . $v[$s];
-            }
-            $this->db->update($table, $setClause, $whereClause);
-        }
-    }
-
     public function findDistrictIdByDatimCode($datimcode) {
         $sql = 'select d.ID ID from districts d join  facilitys f on f.district = d.ID  where f.DATIMcode = ? ';
         $query = $this->db->query($sql, array($datimcode));
@@ -219,24 +170,103 @@ class Csv_import_model extends CI_Model {
         }
     }
 
-    public function setComputedData() {
+    public function computeData() {
+        $interval = $this->getIntervalDateToUpdate();
+        $min_date = $interval['min_date'];
+        $max_date = $interval['max_date'];
+        $min_year = substr($min_date, 0, 4);
+        $min_month = substr($min_date, 4, 2);
+        $max_year = substr($max_date, 0, 4);
+        $max_month = substr($max_date, 4, 2);
+//        echo $min_month.'<br>';
+//        echo $min_year.'<br>';
+//        echo $max_month.'<br>';
+//        echo $max_year.'<br>';        //die();
         $this->db->update('vl_sample_import', array('computed' => 'O'));
-        if ($this->db->affected_rows() > 0){
-            $this->refreshChartData();
+        $affected_rows = $this->db->affected_rows();
+        if (($min_date != '' || $min_date != null) && ($max_date != '' || $max_date != null)) {
+            $this->defineLastTestByPatient($min_date, $max_date);
+            if ($affected_rows > 0) {
+                $this->refreshChartData($min_date, $max_date, $min_month, $min_year, $max_month, $max_year);
+            }
         }
     }
 
-    public function refreshChartData() {
-        $procedures = [
-            'maj_vl_national_gender()', 'maj_vl_site_gender()', 'maj_vl_subcounty_gender()', 'maj_vl_county_gender()', 'maj_vl_partner_gender()', 'maj_vl_national_age()',
-            'maj_vl_site_age()', 'maj_vl_subcounty_age()', 'maj_vl_county_age()', 'maj_vl_partner_age()', 'maj_vl_national_regimen()', 'maj_vl_site_regimen()',
-            'maj_vl_subcounty_regimen()', 'maj_vl_county_regimen()', 'maj_vl_partner_regimen()', 'maj_vl_national_justification()', 'maj_vl_site_justification()',
-            'maj_vl_subcounty_justification()', 'maj_vl_county_justification()', 'maj_vl_partner_justification()', 'maj_vl_national_sampletype()', 'maj_vl_site_sampletype()',
-            'maj_vl_subcounty_sampletype()', 'maj_vl_county_sampletype()', 'maj_vl_partner_sampletype()', 'maj_vl_lab_sampletype()', 'maj_vl_national_summary()',
-            'maj_vl_site_summary()', 'maj_vl_subcounty_summary()', 'maj_vl_county_summary()', 'maj_vl_partner_summary()', 'maj_vl_lab_summary()'];
+    private function getIntervalDateToUpdate() {
+        $sql = 'select min(yearmonth) min_date, max(yearmonth) max_date from vl_sample_import  where computed = ?';
+        $query = $this->db->query($sql, array('N'));
+        $rows = $query->result_array();
+        // print_r($rows); die();
+        return ($rows[0]);
+    }
+
+    public function refreshChartData($min_date, $max_date, $min_month, $min_year, $max_month, $max_year) {
+        $procedures = ['maj_vl_gender', 'maj_vl_age', 'maj_vl_regimen', 'maj_vl_justification', 'maj_vl_sampletype', 'maj_vl_summary'];
         foreach ($procedures as $proc) {
-            $this->db->query('CALL '.$proc);
+            //echo $proc.'('. $min_date . ',' . $max_date .','.$min_month.','.$min_year.','.$max_month.','.$max_year. ')<br>';            
+            $this->db->query('CALL ' . $proc . '(' . $min_date . ',' . $max_date . ',' . $min_month . ',' . $min_year . ',' . $max_month . ',' . $max_year . ')');
         }
+        $this->db->query('CALL maj_vl_site_suppression');
+        // die();
+    }
+
+    public function defineLastTestByPatient($min_date, $max_date) {
+        $min_year = substr($min_date, 0, 4);
+        $max_year = substr($max_date, 0, 4);
+        $sql0 = 'update vl_sample_import set lastTestInYear=0,lastTestInCop = 0 where year between ? and ?';
+        $this->db->query($sql0, array($min_year, $max_year));
+        $sql1 = 'select distinct year,cop from vl_sample_import where year between ? and ?';
+        $query1 = $this->db->query($sql1, array($min_year, $max_year));
+        $rows = $query1->result_array();
+        $num = count($rows);
+        $years = [];
+        $unique_years = [];
+        $cops = [];
+        $unique_cops = [];
+        $a = 0;
+        foreach ($rows as $v) {
+            $years[$a] = $v['year'];
+            $cops[$a] = $v['cop'];
+            $a++;
+        }
+        for ($j = 0; $j < $num; $j++) {
+            if (in_array($years[$j], $unique_years)) {
+                continue;
+            }
+            $unique_years[] = $years[$j];
+        }
+        for ($j = 0; $j < $num; $j++) {
+            if (in_array($cops[$j], $unique_cops)) {
+                continue;
+            }
+            $unique_cops[] = $cops[$j];
+        }
+        //lastInYear
+        $years_id = [];
+        $d_years = implode(',', $unique_years);
+        $sql2 = 'select max(id) id from vl_sample_import where year in (' . $d_years . ') group by patientno';
+        $query2 = $this->db->query($sql2);
+        $rows2 = $query2->result_array();
+        foreach ($rows2 as $r) {
+            $years_id[] = $r['id'];
+        }
+        //lastInCop
+        $cops_id = [];
+        $d_cops = implode('\',\'', $unique_cops);
+        $sql21 = 'select max(id) id from vl_sample_import where cop in (\'' . $d_cops . '\') group by patientno';
+        $query21 = $this->db->query($sql21);
+        $rows21 = $query21->result_array();
+        foreach ($rows21 as $r) {
+            $cops_id[] = $r['id'];
+        }
+
+        $ids1 = implode(',', $years_id);
+        $sql5 = 'update vl_sample_import set lastTestInYear = 1 where id in (' . $ids1 . ')';
+        $ids11 = implode(',', $cops_id);
+        $sql51 = 'update vl_sample_import set lastTestInCop = 1 where id in (' . $ids11 . ')';
+        $this->db->query($sql5);
+        $this->db->query($sql51);
+        // echo '</pre>';
     }
 
 }

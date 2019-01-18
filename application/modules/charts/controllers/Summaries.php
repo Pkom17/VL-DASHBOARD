@@ -27,7 +27,8 @@ class Summaries extends MY_Controller {
 	{
 		// echo "die";die();
 		$data['trends'] = $this->summaries_model->county_outcomes($year,$month,$pfil,$partner,$county,$to_year,$to_month);
-		$data['div_name'] = "summary_county_outcomes";		
+		$data['div_name'] = "summary_county_outcomes_patient";		
+		$data['div_name2'] = "summary_county_outcomes";		
 		
 		$this->load->view('trends_outcomes_view', $data);
 	}
@@ -74,14 +75,14 @@ class Summaries extends MY_Controller {
     	$this->load->view('gender_view',$data);
 	}
 
-	function sample_types($year=NULL,$county=NULL,$partner=NULL, $all=NULL)
+	function sample_types($year=NULL,$county=NULL,$partner=NULL, $all=1)
 	{
 		$data['outcomes'] = $this->summaries_model->sample_types($year,$county,$partner, $all);
 		$link = $year . '/' . $county . '/' . $partner;
 
 		$data['link'] = base_url('charts/summaries/download_sampletypes/' . $link);
     	
-                $this->load->view('national_sample_types',$data);
+               $this->load->view('national_sample_types',$data);
 	}
 
 	function download_sampletypes($year=NULL,$county=NULL,$partner=NULL)
@@ -106,12 +107,14 @@ class Summaries extends MY_Controller {
 	}
 
 	function current_age($type, $param_type=1, $param=NULL,$annual=NULL){
-		$data['outcomes'] = $this->summaries_model->current_age_chart($type,$param_type,$param,$annual);		
+		$data['outcomes'] = $this->summaries_model->current_age_chart($type,$param_type,$param,$annual);
+                $data['div_name'] = "current_sup_age";
     	$this->load->view('agegroup_view',$data);
 	}
 
 	function current_gender($type, $param_type=1, $param=NULL,$annual=NULL){
 		$data['outcomes'] = $this->summaries_model->current_gender_chart($type,$param_type,$param,$annual);
+                $data['div_name'] = "current_sup_gender";
     	$this->load->view('gender_view',$data);
 	}
 
@@ -142,7 +145,7 @@ class Summaries extends MY_Controller {
 		$data['cont']['title'] = lang('label.partner_listing');
 		$data['cont']['table_div'] = 'partner_sup_listings_table';
 
-		$this->load->view('current_suppression_listing',$data);
+                $this->load->view('current_suppression_listing',$data);
 	}
 
 	function site_listing($type, $param_type=1, $param=NULL,$annual=NULL){

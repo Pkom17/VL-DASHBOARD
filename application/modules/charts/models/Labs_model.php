@@ -36,23 +36,23 @@ class Labs_model extends MY_Model {
             $routinesus = ((int) $value['less5000'] + (int) $value['above5000']);
             $ul .= "<tr>
 						<td>" . ($key + 1) . "</td>";
-						$ul .= "<td>" . $value['name'] . "</td>";
+            $ul .= "<td>" . $value['name'] . "</td>";
 //						$ul .= "<td>" . number_format((int) $value['sitesending']) . "</td>";
-						$ul .= "<td>" . number_format((int) $value['received']) . "</td>";
+            $ul .= "<td>" . number_format((int) $value['received']) . "</td>";
 //						$ul .= "<td>" . number_format((int) $value['rejected']) . " (" .
 //                    @round((($value['rejected'] * 100) / $value['received']), 1, PHP_ROUND_HALF_UP) . "%)</td>";
-						$ul .= "<td>" . number_format((int) $value['alltests']) . "</td>";
-//						$ul .= "<td>" . number_format((int) $value['invalids']) . "</td>";
+            $ul .= "<td>" . number_format((int) $value['alltests']) . "</td>";
+            $ul .= "<td>" . number_format((int) $value['invalids']) . "</td>";
 //						$ul .= "<td>" . number_format((int) $value['eqa']) . "</td>";
 
-						$ul .= "<td>" . number_format($routine) . "</td>";
-						$ul .= "<td>" . number_format($routinesus) . "</td>";
+            $ul .= "<td>" . number_format($routine) . "</td>";
+            $ul .= "<td>" . number_format($routinesus) . "</td>";
 //						$ul .= "<td>" . number_format((int) $value['baseline']) . "</td>";
 //						$ul .= "<td>" . number_format((int) $value['baselinesustxfail']) . "</td>";
 //						$ul .= "<td>" . number_format((int) $value['confirmtx']) . "</td>";
 //						$ul .= "<td>" . number_format((int) $value['confirm2vl']) . "</td>";
-						$ul .= "<td>" . number_format((int) $routine + (int) $value['baseline'] + (int) $value['confirm2vl']) . "</td>";
-						$ul .= "<td>" . number_format((int) $routinesus + (int) $value['baselinesustxfail'] + (int) $value['confirmtx']) . "</td>
+            $ul .= "<td>" . number_format((int) $routine + (int) $value['baseline'] + (int) $value['confirm2vl']) . "</td>";
+            $ul .= "<td>" . number_format((int) $routinesus + (int) $value['baselinesustxfail'] + (int) $value['confirmtx']) . "</td>
 						
 					</tr>";
         }
@@ -163,6 +163,7 @@ class Labs_model extends MY_Model {
             $count = 0;
             foreach ($categories as $key => $value) {
                 foreach ($months as $key1 => $value1) {
+                    $data['test_trends'][$key]['data'][$count] = null;
                     foreach ($result as $key2 => $value2) {
                         if ((int) $value1 == (int) $value2['month'] && $value == $value2['labname']) {
                             $data['test_trends'][$key]['name'] = $value;
@@ -192,13 +193,16 @@ class Labs_model extends MY_Model {
 
         $i = count($data['test_trends']);
         $count = 0;
-        foreach ($result2 as $key => $value) {
-
-            $data['test_trends'][$i]['name'] = lang('label.average_lab_testing_vol');
-            $data['test_trends'][$i]['data'][$count] = (int) $value['alltests'];
+        foreach ($months as $key1 => $value1) {
+            $data['test_trends'][$i]['data'][$count] = null;
+            foreach ($result2 as $key => $value) {
+                if ((int) $value1 == (int) $value['month']) {
+                    $data['test_trends'][$i]['name'] = lang('label.average_lab_testing_vol');
+                    $data['test_trends'][$i]['data'][$count] = (int) $value['alltests'];
+                }
+            }
             $count++;
         }
-
 
         //echo "<pre>";print_r($result2);die();
         return $data;
@@ -285,24 +289,24 @@ class Labs_model extends MY_Model {
         // echo "<pre>";print_r($sql);die();
         $result = $this->db->query($sql)->result_array();
 
-        $data['sample_types'][0]['name'] = lang('label.sample_type_plasma');
-        $data['sample_types'][1]['name'] = lang('label.sample_type_DBS');
-        $data['sample_types'][2]['name'] = lang('label.sample_type_EDTA');
+        //$data['sample_types'][0]['name'] = lang('label.sample_type_plasma');
+        $data['sample_types'][0]['name'] = lang('label.sample_type_DBS');
+        $data['sample_types'][1]['name'] = lang('label.sample_type_EDTA');
 
         $count = 0;
 
         $data['categories'][0] = lang('label.no_data');
+        //$data["sample_types"][0]["data"][0] = $count;
         $data["sample_types"][0]["data"][0] = $count;
         $data["sample_types"][1]["data"][0] = $count;
-        $data["sample_types"][2]["data"][0] = $count;
         if ($result) {
             foreach ($result as $key => $value) {
 
                 $data['categories'][$key] = $value['labname'];
 
-                $data["sample_types"][0]["data"][$key] = (int) $value['plasma'];
-                $data["sample_types"][1]["data"][$key] = (int) $value['dbs'];
-                $data["sample_types"][2]["data"][$key] = (int) $value['edta'];
+                //$data["sample_types"][0]["data"][$key] = (int) $value['plasma'];
+                $data["sample_types"][0]["data"][$key] = (int) $value['all_dbs'];
+                $data["sample_types"][1]["data"][$key] = (int) $value['all_edta'];
             }
         }
 
@@ -449,19 +453,31 @@ class Labs_model extends MY_Model {
         // echo "<pre>";print_r($sql);die();
         $result = $this->db->query($sql)->result_array();
 
-        $data['lab_outcomes'][0]['name'] = lang('label.not_suppressed_');
-        $data['lab_outcomes'][1]['name'] = lang('label.suppressed_');
+        $data['lab_outcomes'][0]['name'] = lang('label.gt1000');
+        $data['lab_outcomes'][1]['name'] = lang('label.lt1000');
+        $data['lab_outcomes'][2]['name'] = lang('label.undetectable');
+        $data['lab_outcomes'][3]['name'] = lang('label.invalids');
+        $data['lab_outcomes2'][0]['name'] = lang('label.not_suppressed');
+        $data['lab_outcomes2'][1]['name'] = lang('label.suppressed');
 
         $count = 0;
 
         $data["lab_outcomes"][0]["data"][0] = $count;
         $data["lab_outcomes"][1]["data"][0] = $count;
+        $data["lab_outcomes"][2]["data"][0] = $count;
+        $data["lab_outcomes"][3]["data"][0] = $count;
+        $data["lab_outcomes2"][0]["data"][0] = $count;
+        $data["lab_outcomes2"][1]["data"][0] = $count;
         $data['categories'][0] = lang('label.no_data');
 
         foreach ($result as $key => $value) {
             $data['categories'][$key] = $value['labname'];
-            $data["lab_outcomes"][0]["data"][$key] = (int) $value['sustxfl'];
-            $data["lab_outcomes"][1]["data"][$key] = (int) $value['detectableNless1000'];
+            $data["lab_outcomes"][0]["data"][$key] = (int) $value['all_less5000'] + (int) $value['all_above5000'];
+            $data["lab_outcomes"][1]["data"][$key] = (int) $value['all_less1000'];
+            $data["lab_outcomes"][2]["data"][$key] = (int) $value['all_undetected'];
+            $data["lab_outcomes"][3]["data"][$key] = (int) $value['all_invalids'];
+            $data["lab_outcomes2"][0]["data"][$key] = (int) $value['less5000'] + (int) $value['above5000'];
+            $data["lab_outcomes2"][1]["data"][$key] = (int) $value['less1000'] + (int) $value['undetected'];
         }
 
         // echo "<pre>";print_r($data);die();
@@ -482,58 +498,45 @@ class Labs_model extends MY_Model {
         $data = [
             'suppression_trends' => [],
             'test_trends' => [],
-            'rejected_trends' => [],
+            // 'rejected_trends' => [],
             'tat_trends' => [],
         ];
 
         $months = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
-        foreach ($months as $m) {
-            foreach ($result as $value) {
-                if ($b) {
-                    $b = false;
-                    $year = (int) $value['year'];
-                }
 
-                $y = (int) $value['year'];
-                if ($value['year'] != $year) {
-                    $i++;
-                    $year--;
-                }
-
-                $month = (int) $value['month'];
-                //$month--;
-                if ((int) $m == (int) $month) {
-
-                    $tests = (int) $value['suppressed'] + (int) $value['nonsuppressed'];
-
-                    $data['suppression_trends'][$i]['name'] = $value['year'];
-                    $data['suppression_trends'][$i]['data'][] = round(@(($value['suppressed'] * 100) / $tests), 1, PHP_ROUND_HALF_UP);
-
-
-                    $data['test_trends'][$i]['name'] = $value['year'];
-                    $data['test_trends'][$i]['data'][] = $tests;
-
-                    $data['rejected_trends'][$i]['name'] = $value['year'];
-                    $data['rejected_trends'][$i]['data'][] = round(@(($value['rejected'] * 100) / $value['received']), 1, PHP_ROUND_HALF_UP);
-
-                    $data['tat_trends'][$i]['name'] = $value['year'];
-                    $data['tat_trends'][$i]['data'][] = (int) $value['tat4'];
-
-                    continue(2);
-                }
-            }
-            if(isset($value)){
-            $data['suppression_trends'][$i]['name'] = $value['year'];
-            $data['suppression_trends'][$i]['data'][] =0;
-            $data['test_trends'][$i]['name'] = $value['year'];
-            $data['test_trends'][$i]['data'][] = 0;
-            $data['rejected_trends'][$i]['name'] = $value['year'];
-            $data['rejected_trends'][$i]['data'][] = 0;
-            $data['tat_trends'][$i]['name'] = $value['year'];
-            $data['tat_trends'][$i]['data'][] = 0;
-            }
+        //extract years
+        $years = [];
+        foreach ($result as $row) {
+            $years[] = $row['year'];
         }
+        $unique_years = array_unique($years);
 
+        foreach ($unique_years as $unique_year) {
+            $y = 0;
+            foreach ($months as $m) {
+                $data['suppression_trends'][$i]['data'][$y] = null;
+                $data['test_trends'][$i]['data'][$y] = null;
+                //$data['rejected_trends'][$i]['data'][] = 0;
+                $data['tat_trends'][$i]['data'][$y] = null;
+                foreach ($result as $value) {
+                    if ((int) $value['year'] == (int) $unique_year) {
+                        $data['suppression_trends'][$i]['name'] = $unique_year;
+                        $data['test_trends'][$i]['name'] = $unique_year;
+                        //$data['rejected_trends'][$i]['name'] = $unique_year;
+                        $data['tat_trends'][$i]['name'] = $unique_year;
+                        if ((int) $m == (int) $value['month']) {
+                            $tests = (int) $value['suppressed'] + (int) $value['nonsuppressed'];
+                            $data['suppression_trends'][$i]['data'][$y] = @round((($value['suppressed'] * 100) / $tests), 4, PHP_ROUND_HALF_UP);
+                            $data['test_trends'][$i]['data'][$y] = $tests;
+                            //$data['rejected_trends'][$i]['data'][] = @round((($value['rejected'] * 100) / $value['received']), 4, PHP_ROUND_HALF_UP);
+                            $data['tat_trends'][$i]['data'][$y] = (int) $value['tat4'];
+                        }
+                    }
+                }
+                $y++;
+            }
+            $i++;
+        }
         return $data;
     }
 
@@ -555,11 +558,13 @@ class Labs_model extends MY_Model {
 
         $result = $this->db->query($sql)->result_array();
         // echo "<pre>";print_r($result);die();
-
-        $data['outcomes'][0]['name'] = lang('label.non_suppressed_');
-        $data['outcomes'][1]['name'] = lang('label.suppressed_');
-        $data['outcomes'][2]['name'] = lang('label.suppression');
-
+        $data['outcomes'][0]['name'] = lang('label.gt1000');
+        $data['outcomes'][1]['name'] = lang('label.lt1000');
+        $data['outcomes'][2]['name'] = lang('label.undetectable');
+        $data['outcomes'][3]['name'] = lang('label.invalids');
+        $data['outcomes2'][0]['name'] = lang('label.non_suppressed_');
+        $data['outcomes2'][1]['name'] = lang('label.suppressed_');
+        $data['outcomes2'][2]['name'] = lang('label.suppression');
 
         //$data['outcomes'][0]['drilldown']['color'] = '#913D88';
         //$data['outcomes'][1]['drilldown']['color'] = '#96281B';
@@ -567,21 +572,47 @@ class Labs_model extends MY_Model {
 
         $data['outcomes'][0]['type'] = "column";
         $data['outcomes'][1]['type'] = "column";
-        $data['outcomes'][2]['type'] = "spline";
+        $data['outcomes'][2]['type'] = "column";
+        $data['outcomes'][3]['type'] = "column";
+        $data['outcomes2'][0]['type'] = "column";
+        $data['outcomes2'][1]['type'] = "column";
+        $data['outcomes2'][2]['type'] = "spline";
+
 
         $data['outcomes'][0]['yAxis'] = 1;
         $data['outcomes'][1]['yAxis'] = 1;
+        $data['outcomes'][2]['yAxis'] = 1;
+        $data['outcomes'][3]['yAxis'] = 1;
+        $data['outcomes2'][0]['yAxis'] = 1;
+        $data['outcomes2'][1]['yAxis'] = 1;
+
+//        foreach ($result as $key => $value) {
+//            $data['categories'][$key] = $this->resolve_month($value['month']) . '-' . $value['year'];
+//
+//            $data['outcomes'][0]['data'][$key] = (int) $value['nonsuppressed'];
+//            $data['outcomes'][1]['data'][$key] = (int) $value['suppressed'];
+//            $data['outcomes'][2]['data'][$key] = round(@(((int) $value['suppressed'] * 100) / ((int) $value['suppressed'] + (int) $value['nonsuppressed'])), 1);
+//        }
+        $data['outcomes'][0]['tooltip'] = array("valueSuffix" => ' ');
+        $data['outcomes'][1]['tooltip'] = array("valueSuffix" => ' ');
+        $data['outcomes'][2]['tooltip'] = array("valueSuffix" => ' ');
+        $data['outcomes'][3]['tooltip'] = array("valueSuffix" => ' ');
+        $data['outcomes2'][0]['tooltip'] = array("valueSuffix" => ' ');
+        $data['outcomes2'][1]['tooltip'] = array("valueSuffix" => ' ');
+        $data['outcomes2'][2]['tooltip'] = array("valueSuffix" => ' %');
+
+        $data['title'] = "";
 
         foreach ($result as $key => $value) {
             $data['categories'][$key] = $this->resolve_month($value['month']) . '-' . $value['year'];
-
-            $data['outcomes'][0]['data'][$key] = (int) $value['nonsuppressed'];
-            $data['outcomes'][1]['data'][$key] = (int) $value['suppressed'];
-            $data['outcomes'][2]['data'][$key] = round(@(((int) $value['suppressed'] * 100) / ((int) $value['suppressed'] + (int) $value['nonsuppressed'])), 1);
+            $data['outcomes'][0]['data'][$key] = (int) $value['all_nonsuppressed'];
+            $data['outcomes'][1]['data'][$key] = (int) $value['all_less1000'];
+            $data['outcomes'][2]['data'][$key] = (int) $value['all_undetected'];
+            $data['outcomes'][3]['data'][$key] = (int) $value['all_invalids'];
+            $data['outcomes2'][0]['data'][$key] = (int) $value['nonsuppressed'];
+            $data['outcomes2'][1]['data'][$key] = (int) $value['suppressed'];
+            $data['outcomes2'][2]['data'][$key] = @round((((int) $value['suppressed'] * 100) / ((int) $value['suppressed'] + (int) $value['nonsuppressed'])), 1);
         }
-        $data['outcomes'][0]['tooltip'] = array("valueSuffix" => ' ');
-        $data['outcomes'][1]['tooltip'] = array("valueSuffix" => ' ');
-        $data['outcomes'][2]['tooltip'] = array("valueSuffix" => ' %');
 
         $data['title'] = lang('label.outcomes');
 

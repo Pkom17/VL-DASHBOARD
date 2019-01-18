@@ -30,15 +30,6 @@ class County extends MY_Controller {
 		$this->template($this->data);
 	}
 
-	public function pmtct()
-	{
-		$this->load->module('charts/summaries');
-		$this->load->module('charts/pmtct');
-		$this->clear_all_session_data();
-		//$this->data['content_view'] = 'county/county_pmtct_view';
-		// echo "<pre>";print_r($this->data);die();
-		//$this -> template($this->data);
-	}
 
 	function countyMap()
 	{

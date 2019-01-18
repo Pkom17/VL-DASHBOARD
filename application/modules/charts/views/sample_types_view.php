@@ -31,6 +31,8 @@
 
                         }
                     },
+                    min:0,
+                    max:100,
                     title: {
                         text: 'Percentage',
                         style: {
@@ -75,7 +77,7 @@
                         // }
             },
             legend: {
-                layout: 'vertical',
+                layout: 'horizontal',
                 align: 'right',
                 x: -100,
                 verticalAlign: 'top',
@@ -89,7 +91,7 @@
                 }
             },
             colors: [
-                '#AA9999',
+                //'#AA9999',
                 '#E26A6A',
                 '#A15B98',
                 '#913D88'

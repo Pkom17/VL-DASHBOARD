@@ -119,7 +119,7 @@ class MY_Controller extends MX_Controller {
             $filter_data = array(
                 'county_filter' => null,
                 'partner_filter' => null,
-                'filter_year' => Date('Y'),
+                'filter_year' => Date('Y')-1,
                 'filter_month' => null
             );
             $this->session->set_userdata($filter_data);
