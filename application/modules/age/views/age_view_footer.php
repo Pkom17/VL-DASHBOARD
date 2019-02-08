@@ -11,7 +11,7 @@
     	});
 		$("#second").hide();
 
-		$("#age_outcomes").load("<?php echo base_url('charts/ages/age_outcomes');?>");
+		$("#age_outcomes").load("<?php echo base_url('charts/ages/age_outcomes_sup');?>");
 
 		$("select").change(function(){
 			em = $(this).val();
@@ -39,7 +39,7 @@
 	        		$("#first").show();
 
 	        		$("#age_outcomes").html("<center><div class='loader'></div></center>");
-	        		$("#age_outcomes").load("<?php echo base_url('charts/ages/age_outcomes');?>");
+	        		$("#age_outcomes").load("<?php echo base_url('charts/ages/age_outcomes_sup');?>");
 	        	} else {
 	        		$("#first").hide();
 	        		$("#second").show();
@@ -88,7 +88,7 @@
 		        		$("#first").show();
 
 		        		$("#age_outcomes").html("<center><div class='loader'></div></center>");
-		        		$("#age_outcomes").load("<?php echo base_url('charts/ages/age_outcomes');?>/"+from[1]+"/"+from[0]+"/"+to[1]+"/"+to[0]);
+		        		$("#age_outcomes").load("<?php echo base_url('charts/ages/age_outcomes_sup');?>/"+from[1]+"/"+from[0]+"/"+to[1]+"/"+to[0]);
 					} else {
 						$("#first").hide();
 		        		$("#second").show();
@@ -146,7 +146,7 @@
 	        		$("#first").show();
 
 	        		$("#age_outcomes").html("<center><div class='loader'></div></center>");
-	        		$("#age_outcomes").load("<?php echo base_url('charts/ages/age_outcomes');?>/"+year+"/"+month);
+	        		$("#age_outcomes").load("<?php echo base_url('charts/ages/age_outcomes_sup');?>/"+year+"/"+month);
 				} else {
 					$("#first").hide();
 	        		$("#second").show();

@@ -147,6 +147,7 @@
             $(".display_range").html("( " + obj['prev_year'] + " - " + obj['year'] + " )");
 
         });
+ //       console.log(year +" : "+ month);
 
         $("#nattat").html("<div><?= lang('label.loading') ?></div>");
         $("#samples").html("<center><div class='loader'></div></center>");
@@ -166,6 +167,7 @@
         $("#county_patient").load("<?php echo base_url('charts/summaries/county_outcomes'); ?>/" + year + "/" + month);
         $("#county").load("<?php echo base_url('charts/summaries/county_outcomes'); ?>/" + year + "/" + month);
         $('#CatAge').load('<?php echo base_url(); ?>charts/summaries/agebreakdown');
+ //       console.log(year +" : "+ month);
     }
 
     function switch_source() {

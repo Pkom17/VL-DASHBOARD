@@ -14,7 +14,7 @@ elseif ($div_name == 'age_county_outcomes') {
 ?>
 <div id="<?php echo $div_name; ?>">
     <?PHP
-    if ($div_name == 'age_summary_outcomes' || $div_name == 'regimen_summary_outcomes' || $div_name == 'regimen_county_outcomes' || $div_name == 'age_county_outcomes') { ?>
+    if ($div_name == 'age_summary_outcomes_sup' || $div_name == 'regimen_summary_outcomes_sup' || $div_name == 'regimen_county_outcomes' || $div_name == 'age_county_outcomes') { ?>
         <div class = "panel-body" id = "vl_county_pie_pat<?PHP echo $n; ?>" style = "height:450px;padding-bottom:0px;">
         <center><div class = "loader"></div></center>
         </div>
@@ -73,7 +73,7 @@ elseif ($div_name == 'age_county_outcomes') {
 <br/>
 <script type="text/javascript">
     $(function () {
-<?PHP if ($n == 's' || $div_name == 'age_summary_outcomes' || $div_name == 'regimen_summary_outcomes' || $div_name == 'regimen_county_outcomes' || $div_name == 'age_county_outcomes') { ?>
+<?PHP if ($n == 's' || $div_name == 'age_summary_outcomes_sup' || $div_name == 'regimen_summary_outcomes_sup' || $div_name == 'regimen_county_outcomes' || $div_name == 'age_county_outcomes') { ?>
         $("#vl_county_pie_pat<?PHP echo $n; ?>").show();
 <?PHP }
 else{ ?>

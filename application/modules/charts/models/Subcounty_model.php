@@ -435,26 +435,13 @@ class Subcounty_model extends MY_Model {
         //$data['sample_types'][0]['name'] = lang('label.sample_type_plasma');
         $data['sample_types'][0]['name'] = lang('label.sample_type_DBS');
         $data['sample_types'][1]['name'] = lang('label.sample_type_EDTA');
-        // $data['sample_types'][3]['name'] = 'Suppression';
-        // $data['sample_types'][0]['type'] = "column";
-        // $data['sample_types'][1]['type'] = "column";
-        // $data['sample_types'][2]['type'] = "column";
-        // $data['sample_types'][3]['type'] = "spline";
-        // $data['sample_types'][0]['yAxis'] = 1;
-        // $data['sample_types'][1]['yAxis'] = 1;
-        // $data['sample_types'][2]['yAxis'] = 1;
-        //$data['sample_types'][0]['tooltip'] = array("valueSuffix" => ' ');
         $data['sample_types'][0]['tooltip'] = array("valueSuffix" => ' ');
         $data['sample_types'][1]['tooltip'] = array("valueSuffix" => ' ');
-        // $data['sample_types'][3]['tooltip'] = array("valueSuffix" => ' %');
-
         $count = 0;
 
         $data['categories'][0] = lang('label.no_data');
-        //$data["sample_types"][0]["data"][0]	= $count;
         $data["sample_types"][0]["data"][0] = $count;
         $data["sample_types"][1]["data"][0] = $count;
-        // $data["sample_types"][3]["data"][0]	= $count;
 
         foreach ($result as $key => $value) {
 
@@ -477,7 +464,11 @@ class Subcounty_model extends MY_Model {
 
     function download_sampletypes($year = null, $subcounty = null) {
         $data = $this->get_sampletypesData($year, $subcounty);
-        // echo "<pre>";print_r($result);die();
+                $to_remove = ['edta' => '', 'dbs' => '', 'plasma' => '', 'all_plasma' => '', 'suppressed' => '', 'all_suppressed' => '', 'tests' => '', 'suppression' => ''];
+        foreach ($data as $v) {
+            $data1[] = array_diff_key($v, $to_remove);
+        }
+         //echo "<pre>";print_r($data1);die();
         $this->load->helper('file');
         $this->load->helper('download');
         $delimiter = ",";
@@ -487,13 +478,11 @@ class Subcounty_model extends MY_Model {
         $f = fopen('php://memory', 'w');
         /** loop through array  */
         $b = array(lang('date_months'), lang('date_year'),
-            lang('label.sample_type_EDTA'), lang('label.sample_type_DBS'), lang('label.sample_type_plasma'),
-            lang('label.sample_type_all_EDTA'), lang('label.sample_type_all_DBS'), lang('label.sample_type_all_plasma'),
-            lang('label.suppressed_'), lang('label.tests'), lang('label.suppression'));
+            lang('label.sample_type_EDTA'), lang('label.sample_type_DBS'), lang('label.all_tests'));
 
         fputcsv($f, $b, $delimiter);
 
-        foreach ($data as $line) {
+        foreach ($data1 as $line) {
             /** default php csv handler * */
             fputcsv($f, $line, $delimiter);
         }

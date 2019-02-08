@@ -19,6 +19,13 @@ class Ages extends MY_Controller
 
 		$this->load->view('trends_outcomes_view', $data);
 	}
+	function age_outcomes_sup($year=NULL,$month=NULL,$to_year=NULL,$to_month=NULL,$partner=NULL)
+	{
+		$data['trends']= $this->ages_model->ages_outcomes($year,$month,$to_year,$to_month,$partner);
+		$data['div_name'] = "age_summary_outcomes_sup";		
+
+		$this->load->view('trends_outcomes_view', $data);
+	}
 
 	function age_county_outcomes($year=NULL,$month=NULL,$age=NULL,$to_year=NULL,$to_month=NULL,$partner=NULL)
 	{

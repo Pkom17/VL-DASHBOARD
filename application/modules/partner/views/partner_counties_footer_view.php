@@ -13,10 +13,11 @@
         });
         $("#partner_counties").hide();
         $("#partners_all").show();
-        $("#partnerOutcomes").load("<?php echo base_url('charts/sites/site_outcomes'); ?>");
+        //$("#partnerOutcomes").load("<?php echo base_url('charts/sites/site_outcomes'); ?>");
+        $("#partnerCountiesAll").load("<?php echo base_url('charts/partner_summaries/partner_counties_table'); ?>");
 
         $("select").change(function () {
-            $("#partnerCounties").html("<center><div class='loader'></div></center>");
+            $("#partnerCountiesAll").html("<center><div class='loader'></div></center>");
             em = $(this).val();
 
             // Send the data using post
@@ -34,8 +35,10 @@
             if (em == "NA") {
                 $("#partner_counties").hide();
                 $("#partners_all").show();
-                $("#partnerOutcomes").html("<center><div class='loader'></div></center>");
-                $("#partnerOutcomes").load("<?php echo base_url('charts/sites/site_outcomes'); ?>");
+//                $("#partnerOutcomes").html("<center><div class='loader'></div></center>");
+//                $("#partnerOutcomes").load("<?php echo base_url('charts/sites/site_outcomes'); ?>");
+                $("#partnerCountiesAll").html("<center><div class='loader'></div></center>");
+                $("#partnerCountiesAll").load("<?php echo base_url('charts/partner_summaries/partner_counties_table'); ?>");
             } else {
                 $("#partners_all").hide();
                 $("#partner_counties").show();

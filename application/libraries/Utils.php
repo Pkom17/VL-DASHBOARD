@@ -455,6 +455,35 @@ class Utils {
         }
         return $cat;
     }
+    public static function getAgeCategorysub3($age) {
+        $cat = '';
+        if ($age < 1) {
+            $cat = '<1';
+        } elseif ($age >= 1 && $age <=4) {
+            $cat = '1-4';
+        } elseif ($age >= 5 && $age <= 9) {
+            $cat = '5-9';
+        } elseif ($age >= 10 && $age <= 14) {
+            $cat = '10-14';
+        } elseif ($age >= 15 && $age <= 19) {
+            $cat = '15-19';
+        }elseif ($age >= 20 && $age <= 24) {
+            $cat = '20-24';
+        }elseif ($age >= 25 && $age <= 29) {
+            $cat = '25-29';
+        }elseif ($age >= 30 && $age <= 34) {
+            $cat = '30-34';
+        }elseif ($age >= 35 && $age <= 39) {
+            $cat = '35-39';
+        }elseif ($age >= 40 && $age <= 44) {
+            $cat = '40-44';
+        }elseif ($age >= 45 && $age <= 49) {
+            $cat = '45-49';
+        } elseif ($age >= 50) {
+            $cat = '50+';
+        }
+        return $cat;
+    }
 
     public static function getQuarter($mois) {
         return ceil($mois/3);

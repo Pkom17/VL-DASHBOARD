@@ -3,7 +3,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- about this site -->
         <meta name="description" content="<?=lang('site_description');?>" />
         <meta name="keywords" content="<?=lang('site_keywords');?>" />
@@ -107,14 +107,14 @@
         <div class="navbar navbar-default" style="height: 85px;">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#vl_navbar" aria-expanded="false" aria-controls="navbar">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="javascript:void(0)" style="padding:0px;padding-top:4px;padding-left:1px;"><img src="<?php echo base_url(); ?>assets/img/logo_moh.jpg" style="width:100px;height:80px;"/></a>
+                    <a class="navbar-brand" href="<?php echo base_url(); ?>" style="padding:0px;padding-top:4px;padding-left:1px;"><img src="<?php echo base_url(); ?>assets/img/logo_moh.jpg" style="width:100px;height:80px;"/></a>
                 </div>
-                <div class="navbar-collapse collapse navbar-responsive-collapse">
+                <div id="vl_navbar" class="navbar-collapse collapse navbar-responsive-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <form action = "<?php echo base_url(); ?>/template/load_lang" class="navbar-form" method="post" accept-charset="utf-8">
@@ -127,7 +127,7 @@
                                 </form>
                         </li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-left">
+                    <ul class="nav navbar-nav">
                         <li><a href="<?php echo base_url(); ?>"><?php echo lang('menu_label.summary'); ?></a></li>
                         <li><a href="<?php echo base_url(); ?>trends"><?=lang('menu_label.trends'); ?></a></li>
                         <li class="dropdown">
@@ -167,7 +167,7 @@
                             </ul>
                         </li>
                         <li><a href="<?php echo base_url(); ?>csv"><?=lang('menu_label.import_file'); ?> </a></li>
-                        <li><a href=""><?=lang('menu_help'); ?> </a></li>
+                        <li><a href="<?php echo base_url(); ?>uploads/Guide_utilisateur_VL_DashBoard.pdf" target="_blank"><?=lang('menu_help'); ?> </a></li>
                         <!-- <li><a href="<?php echo base_url(); ?>live"><?=lang('menu_label.live_data'); ?> </a></li>
                         <li><a href="<?php echo base_url(); ?>contacts"><?=lang('menu_label.contact'); ?> </a></li> -->
                         <!-- <li><a href="<?php echo base_url(); ?>county">County View</a></li> -->

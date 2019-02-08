@@ -487,12 +487,12 @@ $lang['label.not_suppressed_'] = "Non supprimé";
 $lang['label.suppressed_'] = "Supprimé";
 $lang['label.total_vl_tests_done'] = "Total des tests CV effectués";
 $lang['label.routine_vl_tests_valid_outcomes'] = "Tests routine de CV avec des résultats valides";
-$lang['label.valid_tests_gt1000'] = "Resultats valides &gt; 1000 copies / ml";
+$lang['label.valid_tests_gt1000'] = "Resultats valides &gt;= 1000 copies / ml";
 $lang['label.percentage_non_suppression'] = "Pourcentage non-suppression";
 $lang['label.valid_tests_lt1000'] = "Resultats valides &lt; 1000 copies / ml";
 $lang['label.percentage_suppression'] = "Pourcentage suppression";
 $lang['label.baseline_vl'] = "CV de base";
-$lang['label.non_suppression_gt_1000'] = "Non Suppression ( &gt; 1000cpml)";
+$lang['label.non_suppression_gt_1000'] = "Non Suppression ( &gt;= 1000cpml)";
 $lang['label.confirmatory_repeat_tests'] = "Confirmation de reprise des tests:";
 $lang['label.rejected_samples'] = "Échantillons rejetés";
 $lang['label.percentage_rejection_rate'] = "Taux de rejet en pourcentage";
@@ -590,7 +590,7 @@ $lang['label.select_a_lab'] = "Choisir un labo";
 $lang['label.age_cat_1week'] = "1 semaine";
 $lang['label.age_cat_2week'] = "2 semaines";
 $lang['label.age_cat_3week'] = "3 semaines";
-$lang['label.age_cat_gt4week'] = "&gt; 4 semaines";
+$lang['label.age_cat_gt4week'] = "&gt;= 4 semaines";
 $lang['label.total_'] = "Total:";
 //datatables
 $lang['dt.decimal'] = " ";
@@ -632,7 +632,7 @@ $lang['label.undetectable'] = "&lt; LL";
 $lang['label.result_undetectables'] = "Resultats Indetectables (< LL)";
 $lang['label.result_invalids'] = "Résultats invalides";
 $lang['label.lt1000'] = "&lt; 1000 copies/ml";
-$lang['label.gt1000'] = "&gt; 1000 copies/ml";
+$lang['label.gt1000'] = "&gt;= 1000 copies/ml";
 $lang['label.percentage'] = "Pourcentage";
 //#############//
 //#############//
@@ -644,11 +644,11 @@ $lang['total_non_suppressed_patient'] = "Nombre total de patients non-supprimés
 $lang['total_done_test'] = "Nombre total de tests réalisés";
 $lang['total_done_test_valid'] = "Nombre total de tests avec des résultats valides";
 $lang['total_patient_result_lt1000'] = "Patients avec résultats &lt; 1000 copies / ml";
-$lang['total_patient_result_gt1000'] = "Patients avec résultats &gt; 1000 copies / ml";
+$lang['total_patient_result_gt1000'] = "Patients avec résultats &gt;= 1000 copies / ml";
 $lang['total_patient_result_und'] = "Patients avec résultats indetectables (< LL)";
 $lang['total_patient_result_inv'] = "Patients avec résultats invalides";
 $lang['total_test_result_lt1000'] = "Nombre de tests avec résultats &lt; 1000 copies / ml";
-$lang['total_test_result_gt1000'] = "Nombre de tests avec résultats &gt; 1000 copies / ml";
+$lang['total_test_result_gt1000'] = "Nombre de tests avec résultats &gt;= 1000 copies / ml";
 $lang['total_test_result_inv'] = "Nombre de tests avec résultats invalides";
 $lang['total_test_result_und'] = "Nombre de tests avec résultats indetectables (< LL)";
 $lang['title_tested_patients'] = "Patients testés";
@@ -679,7 +679,7 @@ $lang['label.testing_trends_by_sample'] = "Tendances des tests réalisés par sp
 $lang['result_invalids'] = "Résultats invalides";
 $lang['result_undetectable'] = "Résultats indetectables";
 $lang['result_lt1000'] = "Résultats &lt; 1000 copies / ml";
-$lang['result_gt1000'] = "Résultats &gt; 1000 copies / ml";
+$lang['result_gt1000'] = "Résultats &gt;= 1000 copies / ml";
 $lang['patient_undetectable'] = "Patients indetectables";
 $lang['patient_lt1000'] = "Patients &lt; 1000 copies / ml";
 $lang['patient_suppressed'] = "Patients supprimés";
@@ -687,6 +687,7 @@ $lang['patient_nonsuppressed'] = "Patients non supprimés";
 $lang['test_done'] = "Tests réalisés";
 $lang['tested_patient'] = "Patients testés";
 $lang['title_test_result_trends'] = "Tendance des résultats des tests";
+$lang['title_partners_counties'] = "Régions par partenaire";
 
 
 

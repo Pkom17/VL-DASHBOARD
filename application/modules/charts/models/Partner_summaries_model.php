@@ -91,7 +91,7 @@ class Partner_summaries_model extends MY_Model {
         return $data;
     }
 
-    function partner_counties_table($year = NULL, $month = NULL, $partner = NULL, $to_year = null, $to_month = null) {
+    function partner_counties_table($year = NULL, $month = NULL, $partner = null, $to_year = null, $to_month = null) {
         $table = '';
         $count = 1;
         if ($year == null || $year == 'null') {
@@ -109,6 +109,9 @@ class Partner_summaries_model extends MY_Model {
         }
         if ($to_year == null || $to_year == 'null') {
             $to_year = 0;
+        }
+        if ($partner == null || $partner == 'null') {
+            $partner = 0;
         }
 
         $sql = "CALL `proc_get_vl_partner_county_details`('" . $partner . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";

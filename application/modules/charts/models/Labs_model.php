@@ -32,29 +32,23 @@ class Labs_model extends MY_Model {
         // echo "<pre>";print_r($result);echo "</pre>";die();
         $ul = '';
         foreach ($result as $key => $value) {
-            $routine = ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['less5000'] + (int) $value['above5000']);
-            $routinesus = ((int) $value['less5000'] + (int) $value['above5000']);
+            $all_nonsuppressed =  (int) $value['all_less5000'] + (int) $value['all_above5000'];
+            $total = ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['less5000'] + (int) $value['above5000']);
+            $nonsuppressed = ((int) $value['less5000'] + (int) $value['above5000']);
             $ul .= "<tr>
 						<td>" . ($key + 1) . "</td>";
             $ul .= "<td>" . $value['name'] . "</td>";
-//						$ul .= "<td>" . number_format((int) $value['sitesending']) . "</td>";
-            $ul .= "<td>" . number_format((int) $value['received']) . "</td>";
-//						$ul .= "<td>" . number_format((int) $value['rejected']) . " (" .
-//                    @round((($value['rejected'] * 100) / $value['received']), 1, PHP_ROUND_HALF_UP) . "%)</td>";
             $ul .= "<td>" . number_format((int) $value['alltests']) . "</td>";
-            $ul .= "<td>" . number_format((int) $value['invalids']) . "</td>";
-//						$ul .= "<td>" . number_format((int) $value['eqa']) . "</td>";
+            $ul .= "<td>" . number_format((int) $value['all_invalids']) . "</td>";
+            $ul .= "<td>" . number_format((int) $value['all_undetected']) . "</td>";
+            $ul .= "<td>" . number_format((int) $value['all_less1000']) . "</td>";
+            $ul .= "<td>" . number_format((int) $all_nonsuppressed) . "</td>";
+            $ul .= "<td>" . number_format($total) . "</td>";
+            $ul .= "<td>" . number_format((int) $value['undetected']) . "</td>";
+            $ul .= "<td>" . number_format((int) $value['less1000']) . "</td>";
+            $ul .= "<td>" . number_format($nonsuppressed) . "</td>";
 
-            $ul .= "<td>" . number_format($routine) . "</td>";
-            $ul .= "<td>" . number_format($routinesus) . "</td>";
-//						$ul .= "<td>" . number_format((int) $value['baseline']) . "</td>";
-//						$ul .= "<td>" . number_format((int) $value['baselinesustxfail']) . "</td>";
-//						$ul .= "<td>" . number_format((int) $value['confirmtx']) . "</td>";
-//						$ul .= "<td>" . number_format((int) $value['confirm2vl']) . "</td>";
-            $ul .= "<td>" . number_format((int) $routine + (int) $value['baseline'] + (int) $value['confirm2vl']) . "</td>";
-            $ul .= "<td>" . number_format((int) $routinesus + (int) $value['baselinesustxfail'] + (int) $value['confirmtx']) . "</td>
-						
-					</tr>";
+            $ul .= "</tr>";
         }
 
         return $ul;

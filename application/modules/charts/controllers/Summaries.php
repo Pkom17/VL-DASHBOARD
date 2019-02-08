@@ -58,7 +58,7 @@ class Summaries extends MY_Controller {
 	function age($year=NULL,$month=NULL,$county=NULL,$partner=NULL,$to_year=NULL,$to_month=NULL)
 	{
 		$data['outcomes'] = $this->summaries_model->age($year,$month,$county,$partner,$to_year,$to_month);
-                
+                $data['div_name']='';
     	$this->load->view('agegroup_view',$data);
 	}
 
@@ -72,6 +72,7 @@ class Summaries extends MY_Controller {
 	function gender($year=NULL,$month=NULL,$county=NULL,$partner=NULL,$to_year=NULL,$to_month=NULL)
 	{
 		$data['outcomes'] = $this->summaries_model->gender($year,$month,$county,$partner,$to_year,$to_month);
+                $data['div_name']='';
     	$this->load->view('gender_view',$data);
 	}
 

@@ -3,7 +3,7 @@
 
         localStorage.setItem("my_lab", 0);
         localStorage.setItem("view_lab1", 0);
-        
+        $("#second").hide();
         $("#lab_perfomance_stats").load("<?php echo base_url(); ?>charts/labs/lab_performance_stats");
         //$("#rejected").load("<?php echo base_url(); ?>charts/labs/rejection_trends");
         $("#test_trends").load("<?php echo base_url('charts/labs/testing_trends'); ?>");

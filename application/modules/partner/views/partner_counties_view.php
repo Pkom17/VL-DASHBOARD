@@ -22,22 +22,32 @@
 
 <div class="row" id="partners_all">
     <div class="col-md-12">
-        <div class="panel panel-default">
-            <div class="panel-heading" style="min-height: 4em;">
-                <div class="col-sm-7">
-                    <div class="chart_title vl_subcounty_heading">
-                        <?= lang('title_test_partner_outcomes') ?> 
+        <!--        <div class="panel panel-default">
+                    <div class="panel-heading" style="min-height: 4em;">
+                        <div class="col-sm-7">
+                            <div class="chart_title vl_subcounty_heading">
+        <?= lang('title_test_partner_outcomes') ?> 
+                            </div>
+                            <div class="display_date"></div>
+                        </div> 
+                        <div class="col-sm-5">
+                            <input type="submit" class="btn btn-primary switchButton" id="switchButton_cpart1" onclick="switch_source_cpart1()" value="<?= lang('label.switch_routine_tests_trends'); ?>"> 
+                        </div>
                     </div>
-                    <div class="display_date"></div>
-                </div> 
-                <div class="col-sm-5">
-                    <input type="submit" class="btn btn-primary switchButton" id="switchButton_cpart1" onclick="switch_source_cpart1()" value="<?= lang('label.switch_routine_tests_trends'); ?>"> 
-                </div>
+        
+                    <div class="panel-body" id="partnerOutcomes">
+                        <center><div class="loader"></div></center>
+                    </div>
+                </div>-->
+        <div class="panel panel-default">
+            <div class="panel-heading chart_title" style="min-height: 4em;"> 
+                <?= lang('title_partners_counties') ?> <div class="display_date"></div>
             </div>
-
-            <div class="panel-body" id="partnerOutcomes">
+            <div class="panel-body" id="partnerCountiesAll">
                 <center><div class="loader"></div></center>
             </div>
+            <hr>
+            <hr>
         </div>
     </div>
 </div>

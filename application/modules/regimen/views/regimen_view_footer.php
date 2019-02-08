@@ -11,7 +11,7 @@
     	});
 		$("#second").hide();
 
-		$("#regimen_outcomes").load("<?php echo base_url('charts/regimen/regimen_outcomes');?>");
+		$("#regimen_outcomes").load("<?php echo base_url('charts/regimen/regimen_outcomes_sup');?>");
 
 
 		$("select").change(function(){
@@ -39,7 +39,7 @@
 	        		$("#second").hide();
 	        		$("#first").show();
 
-	        		$("#regimen_outcomes").load("<?php echo base_url('charts/regimen/regimen_outcomes');?>");
+	        		$("#regimen_outcomes").load("<?php echo base_url('charts/regimen/regimen_outcomes_sup');?>");
 	        	} else {
 	        		data = $.parseJSON(data);
 	        		$("#first").hide();
@@ -92,7 +92,7 @@
 						$("#second").hide();
 		        		$("#first").show();
 
-		        		$("#regimen_outcomes").load("<?php echo base_url('charts/regimen/regimen_outcomes');?>/"+from[1]+"/"+from[0]+"/"+to[1]+"/"+to[0]);
+		        		$("#regimen_outcomes").load("<?php echo base_url('charts/regimen/regimen_outcomes_sup');?>/"+from[1]+"/"+from[0]+"/"+to[1]+"/"+to[0]);
 					} else {
 						$("#first").hide();
 		        		$("#second").show();
@@ -151,7 +151,7 @@
 					$("#second").hide();
 	        		$("#first").show();
 
-	        		$("#regimen_outcomes").load("<?php echo base_url('charts/regimen/regimen_outcomes');?>/"+year+"/"+month);
+	        		$("#regimen_outcomes").load("<?php echo base_url('charts/regimen/regimen_outcomes_sup');?>/"+year+"/"+month);
 				} else {
 					$("#first").hide();
 	        		$("#second").show();

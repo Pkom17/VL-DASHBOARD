@@ -139,7 +139,7 @@ class Summaries_model extends MY_Model {
         }
         // echo "<pre>";print_r($sql);echo "</pre>";die();
         $result = $this->db->query($sql)->result_array();
-        // echo "<pre>";print_r($result);die();
+        //echo "<pre>";print_r($result);die();
 
         $data['outcomes'][0]['name'] = lang('label.gt1000');
         $data['outcomes'][1]['name'] = lang('label.lt1000');
@@ -163,6 +163,18 @@ class Summaries_model extends MY_Model {
         $data['outcomes'][3]['yAxis'] = 1;
         $data['outcomes2'][0]['yAxis'] = 1;
         $data['outcomes2'][1]['yAxis'] = 1;
+//
+//        $count = 0;
+//        $data['outcomes']['data'][0]['y'] = $count;
+//        $data['outcomes']['data'][1]['y'] = $count;
+//        $data['outcomes']['data'][2]['y'] = $count;
+//        $data['outcomes']['data'][3]['y'] = $count;
+//        $data['categories'][0] = $count;
+//        $data['outcomes2']['data'][0]['y'] = $count;
+//        $data['outcomes2']['data'][1]['y'] = $count;
+//        $data['outcomes2']['data'][2]['y'] = $count;
+//        $data['categories2'][0] = $count;
+
 
 
         $data['outcomes'][0]['tooltip'] = array("valueSuffix" => ' ');
@@ -864,8 +876,8 @@ class Summaries_model extends MY_Model {
                 $data["sample_types"][1]["data"][$key] = (int) $value['alledta'];
             } else {
                 //$data["sample_types"][0]["data"][$key] = (int) $value['plasma'];
-                $data["sample_types"][0]["data"][$key] = (int) $value['dbs'];
-                $data["sample_types"][1]["data"][$key] = (int) $value['edta'];
+                $data["sample_types"][0]["data"][$key] = (int) $value['alldbs'];
+                $data["sample_types"][1]["data"][$key] = (int) $value['alledta'];
             }
 
             // $data["sample_types"][3]["data"][$key]	= round($value['suppression'],1);
@@ -1091,7 +1103,7 @@ class Summaries_model extends MY_Model {
         // echo "<pre>";print_r($result);die();
         $data['gender2'][0]['name'] = lang('label.not_suppressed_');
         $data['gender2'][1]['name'] = lang('label.suppressed_');
-        $data['gender']='';
+        $data['gender'] = '';
 
         $data['categories'][0] = lang('label.no_data');
         $data["gender2"][0]["data"][0] = (int) $result->nogender_nonsuppressed;
@@ -1147,7 +1159,7 @@ class Summaries_model extends MY_Model {
         // echo "<pre>";print_r($result);die();
         $data['ageGnd2'][0]['name'] = lang('label.not_suppressed_');
         $data['ageGnd2'][1]['name'] = lang('label.suppressed_');
-        $data['ageGnd']='';
+        $data['ageGnd'] = '';
 
         $data['categories'][0] = lang('label.no_data');
         $data["ageGnd2"][0]["data"][0] = (int) $result->noage_nonsuppressed;

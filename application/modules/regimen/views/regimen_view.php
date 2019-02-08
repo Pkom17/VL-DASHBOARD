@@ -3,7 +3,7 @@
 		<div class="col-md-12 col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			  <div class="panel-heading chart_title">
-			    <?=lang('label.regimen.outcomes')?> <div class="display_date"></div>
+			    <?=lang('title_tested_patients_by_reg')?> <div class="display_date"></div>
 			  </div>
 			  <div class="panel-body" id="regimen_outcomes">
 			    <center><div class="loader"></div></center>
