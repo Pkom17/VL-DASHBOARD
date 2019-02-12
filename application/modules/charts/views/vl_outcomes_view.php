@@ -51,7 +51,14 @@
                     },
                     showInLegend: true
                 }
-            },
+            }
+            , colors: [
+                '#000000',
+                '#00ff99',
+                '#2f80d1',
+                '#e8ee1d'
+            ]
+            ,
             series: [<?php echo json_encode($outcomes['vl_outcomes']); ?>]
 
         });
@@ -81,7 +88,11 @@
                     },
                     showInLegend: true
                 }
-            },
+            }, colors: [
+                '#DAA520',//'#40bf80',
+                '#f72109',
+                '#00ff99'
+            ],
             series: [<?php echo json_encode($outcomes['vl_outcomes2']); ?>]
 
         });

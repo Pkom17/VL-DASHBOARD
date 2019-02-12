@@ -391,12 +391,12 @@ class Sites_model extends MY_Model {
             $data['vl_outcomes']['data'][3]['y'] = (int) $value['all_less5000'] + (int) $value['all_above5000'];
             $data['vl_outcomes2']['data'][0]['y'] = (int) $value['undetected'] + (int) $value['less1000'];
             $data['vl_outcomes2']['data'][1]['y'] = (int) $value['less5000'] + (int) $value['above5000'];
-            $data['vl_outcomes']['data'][0]['color'] = '#000000';
-            $data['vl_outcomes']['data'][1]['color'] = '#00ff99';
-            $data['vl_outcomes']['data'][2]['color'] = '#2f80d1';
-            $data['vl_outcomes']['data'][3]['color'] = '#e8ee1d';
-            $data['vl_outcomes2']['data'][0]['color'] = '#40bf80';
-            $data['vl_outcomes2']['data'][1]['color'] = '#f72109';
+//            $data['vl_outcomes']['data'][0]['color'] = '#000000';
+//            $data['vl_outcomes']['data'][1]['color'] = '#00ff99';
+//            $data['vl_outcomes']['data'][2]['color'] = '#2f80d1';
+//            $data['vl_outcomes']['data'][3]['color'] = '#e8ee1d';
+//            $data['vl_outcomes2']['data'][0]['color'] = '#40bf80';
+//            $data['vl_outcomes2']['data'][1]['color'] = '#f72109';
         }
 
         $data['vl_outcomes']['data'][3]['sliced'] = true;
@@ -453,6 +453,7 @@ class Sites_model extends MY_Model {
         $data["ageGnd"][3]["data"][0] = $count;
         $data["ageGnd2"][0]["data"][0] = $count;
         $data["ageGnd2"][1]["data"][0] = $count;
+        $data["ageGnd2"][2]["data"][0] = $count;
         $data['categories'][0] = lang('label.no_data');
 
         $data['ageGnd'][0]['type'] = "column";

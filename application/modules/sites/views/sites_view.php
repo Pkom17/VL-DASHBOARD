@@ -95,12 +95,12 @@
                 <div class="panel-heading" style="min-height: 4em;">
                     <div class="col-sm-8">
                         <div class="chart_title vl_age_heading">
-                            <?= lang('title_tested_done_by_age'); ?>
+                            <?= lang('title_tested_patients_by_age'); ?>
                         </div>
                         <div class="display_date"></div>
                     </div>
                     <div class="col-sm-4">
-                        <input type="submit" class="btn btn-primary switchButton" id="switchButton_site_age" onclick="switch_source_siteAge()" value="<?= lang('label.switch_routine_tests_trends'); ?>">
+                        <input type="submit" class="btn btn-primary switchButton" id="switchButton_site_age" onclick="switch_source_siteAge()" value="<?= lang('label.switch_all_tests'); ?>">
                     </div>
                 </div>
                 <div class="panel-body" id="ageGroups">
@@ -115,12 +115,12 @@
                 <div class="panel-heading" style="min-height: 4em;">
                     <div class="col-sm-7">
                         <div class="chart_title vl_gender_heading">
-                            <?= lang('title_tested_done_by_gender'); ?>
+                            <?= lang('title_tested_patients_by_gender'); ?>
                         </div>
                         <div class="display_date"></div>
                     </div>
                     <div class="col-sm-5">
-                        <input type="submit" class="btn btn-primary switchButton" id="switchButton_site_gender" onclick="switch_source_siteGender()" value="<?= lang('label.switch_routine_tests_trends'); ?>">
+                        <input type="submit" class="btn btn-primary switchButton" id="switchButton_site_gender" onclick="switch_source_siteGender()" value="<?= lang('label.switch_all_tests'); ?>">
                     </div>
                 </div>
                 <div class="panel-body" id="gender" style="padding-bottom:0px;">

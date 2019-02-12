@@ -52,5 +52,14 @@ class Age_model extends CI_Model {
             return 0;
         }
     }
+    public function getAgeCat3Id($agecat) {
+        $query = $this->db->query('select ID from agecategory where name= ? and  subID = 3', [$agecat]);
+        $rows = $query->result_array();
+        if (is_array($rows) && isset($rows[0]['ID'])) {
+            return $rows[0]['ID'];
+        } else {
+            return 0;
+        }
+    }
 
 }

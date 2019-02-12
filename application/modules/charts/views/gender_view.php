@@ -126,7 +126,7 @@
                 }
             }, colors: [
                 '#f72109',
-                '#40bf80',
+               '#DAA520',// '#40bf80',
                 '#00ff99'
             ],
             series: <?php echo json_encode($outcomes['gender2']); ?>

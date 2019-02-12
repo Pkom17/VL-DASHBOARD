@@ -46,7 +46,12 @@
                     showInLegend: true
                 }
             },
-            
+//            colors: [
+//                '#f72109',
+//                '#DAA520',//'#40bf80',
+//                '#00ff99'
+//            ],
+//            
             series: [<?php echo json_encode($suppressions['age_gr']); ?>]
 
         });

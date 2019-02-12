@@ -255,7 +255,7 @@ class Ages_model extends MY_Model {
             $data["gender"][1]["data"][2] = (int) $value['nodatasuppressed'];
         }
         $data["gender"][0]['color'] = '#f72109';
-        $data["gender"][1]['color'] = '#40bf80';
+        $data["gender"][1]['color'] = '#DAA520';//#40bf80';
 
         return $data;
     }

@@ -119,6 +119,7 @@ class Csv extends MY_Controller {
             $data[$i]['age'] = $age;
             $data[$i]['agecat1'] = $this->Age_model->getAgeCat1Id(\Utils::getAgeCategorysub1($age));
             $data[$i]['agecat2'] = $this->Age_model->getAgeCat2Id(\Utils::getAgeCategorysub2($age));
+            $data[$i]['agecat3'] = $this->Age_model->getAgeCat3Id(\Utils::getAgeCategorysub3($age));
             $data[$i]['gender'] =  \Utils::extractGender($data[$i]);
             $m1 = \Utils::extractVLCurrent1($data[$i]);
             $m2 = \Utils::extractVLCurrent2($data[$i]);

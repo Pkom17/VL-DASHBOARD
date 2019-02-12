@@ -2,8 +2,8 @@
     $().ready(function () {
         localStorage.setItem("view_site1", 0);
         localStorage.setItem("view_site2", 0);
-        localStorage.setItem("view_age", 0);
-        localStorage.setItem("view_gender", 0);
+        localStorage.setItem("view_age", 1);
+        localStorage.setItem("view_gender", 1);
         $.get("<?php echo base_url(); ?>template/dates", function (data) {
             obj = $.parseJSON(data);
 
