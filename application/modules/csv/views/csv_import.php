@@ -76,7 +76,6 @@
                                 <li><a href="<?php echo base_url(); ?>partner/age"><?= lang('menu_label.partner_age'); ?> </a></li>
                                 <li><a href="<?php echo base_url(); ?>partner/regimen"><?= lang('menu_label.partner_regimen'); ?> </a></li>
                                 <li><a href="<?php echo base_url(); ?>partner/counties"><?= lang('menu_label.partner_counties'); ?> </a></li>
-                                <li><a href="<?php echo base_url(); ?>partner/current"><?= lang('menu_label.partner_current_supp'); ?> </a></li>
                             </ul>
                         </li>
                         <li><a href="<?php echo base_url(); ?>labs"><?= lang('menu_label.lab_perform'); ?></a></li>
@@ -95,7 +94,6 @@
                                 <li><a href="<?php echo base_url(); ?>regimen"><?= lang('menu_label.regimen_analysis'); ?> </a></li>
                                 <li><a href="<?php echo base_url(); ?>age"><?= lang('menu_label.age_analysis'); ?> </a></li>
                                 <li><a href="<?php echo base_url(); ?>sample"><?= lang('menu_label.sample_analysis'); ?> </a></li>
-                                <li><a href="<?php echo base_url(); ?>current"><?= lang('menu_label.current_supp'); ?> </a></li>
                             </ul>
                         </li>
                         <li><a href="<?php echo base_url(); ?>csv"><?= lang('menu_label.import_file'); ?> </a></li>

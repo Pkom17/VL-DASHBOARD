@@ -178,10 +178,7 @@ class Csv_import_model extends CI_Model {
         $min_month = substr($min_date, 4, 2);
         $max_year = substr($max_date, 0, 4);
         $max_month = substr($max_date, 4, 2);
-//        echo $min_month.'<br>';
-//        echo $min_year.'<br>';
-//        echo $max_month.'<br>';
-//        echo $max_year.'<br>';        //die();
+
         $this->db->update('vl_sample_import', array('computed' => 'O'));
         $affected_rows = $this->db->affected_rows();
         if (($min_date != '' || $min_date != null) && ($max_date != '' || $max_date != null)) {
@@ -201,12 +198,12 @@ class Csv_import_model extends CI_Model {
     }
 
     public function refreshChartData($min_date, $max_date, $min_month, $min_year, $max_month, $max_year) {
-        $procedures = ['maj_vl_gender', 'maj_vl_age', 'maj_vl_regimen', 'maj_vl_justification', 'maj_vl_sampletype', 'maj_vl_summary'];
+        $procedures = ['maj_vl_gender', 'maj_vl_age','maj_vl_pepfar_age', 'maj_vl_regimen', 'maj_vl_justification', 'maj_vl_sampletype', 'maj_vl_summary'];
         foreach ($procedures as $proc) {
             //echo $proc.'('. $min_date . ',' . $max_date .','.$min_month.','.$min_year.','.$max_month.','.$max_year. ')<br>';      
             $this->db->query('CALL ' . $proc . '(' . $min_date . ',' . $max_date . ',' . $min_month . ',' . $min_year . ',' . $max_month . ',' . $max_year . ')');
         }
-        $this->db->query('CALL maj_vl_site_suppression');
+        $this->db->query('CALL maj_vl_site_suppression('.$min_year.','.$max_year.')');
         // die();
     }
 
