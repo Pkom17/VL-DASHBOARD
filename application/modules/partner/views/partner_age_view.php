@@ -24,7 +24,7 @@
                         <div class="display_date"></div>
                     </div> 
                     <div class="col-sm-5">
-                        <input type="submit" class="btn btn-primary switchButton" id="switchButton_vl_age" onclick="switch_source_vl_age1()" value="<?= lang('label.switch_routine_tests_trends'); ?>"> 
+                        <input type="submit" class="btn btn-primary switchButton" id="switchButton_vl_age" onclick="switch_source_vl_p_age1()" value="<?= lang('label.switch_routine_tests_trends'); ?>"> 
                     </div>
                 </div>
                 <div class="panel-body" id="age_outcomes">

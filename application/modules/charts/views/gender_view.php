@@ -1,9 +1,9 @@
 
 <?PHP if ($div_name != 'current_sup_gender') { ?>
-    <div id="gender_pie_tests" style="height:540px;">
+    <div id="gender_pie_tests" style="height:97%;">
     </div>
 <?PHP } ?>
-<div id="gender_pie_pat" style="height:540px;">
+<div id="gender_pie_pat" style="height:97%;">
 
 </div>
 

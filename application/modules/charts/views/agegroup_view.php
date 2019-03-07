@@ -61,8 +61,6 @@
                     }
                 }
             }, colors: [
-                //'#F2784B',
-                //'#1BA39C',
                 '#e8ee1d',
                 '#2f80d1',
                 '#00ff99',
@@ -70,6 +68,7 @@
             ],
             series: <?php echo json_encode($outcomes['ageGnd']); ?>
         });
+        // ---
         $('#ageGroups_pie_pat').highcharts({
             chart: {
                 type: 'column'
@@ -78,24 +77,44 @@
                 text: ''
             },
             xAxis: {
-                categories: <?php echo json_encode($outcomes['categories']); ?>,
-                crosshair: true
+                categories: <?php echo json_encode($outcomes['categories']); ?>
             },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: '<?= lang('label.tests') ?>'
-                },
-                stackLabels: {
-                    rotation: 0,
-                    enabled: true,
-                    style: {
-                        fontWeight: 'bold',
-                        color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+            yAxis: [{
+                    gridLineWidth: 1,
+                    min: 0,
+                    title: {
+                        text: '<?= lang('label.tests') ?>'
                     },
-                    y: -10
+                    stackLabels: {
+                        rotation: 0,
+                        enabled: true,
+                        style: {
+                            fontWeight: 'bold',
+                            color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray'
+                        },
+                        y: -10
+                    }
+                },
+                {
+                    min: 0,
+                    max: 100,
+                    labels: {
+                        formatter: function () {
+                            return this.value + '%';
+                        },
+                        style: {
+                            color: '#89A54E'
+                        }
+                    },
+                    title: {
+                        text: '<?= lang('label.percentage') ?>',
+                        style: {
+                            color: '#89A54E'
+                        }
+                    },
+                    opposite: true
                 }
-            },
+            ],
             legend: {
                 align: 'right',
                 verticalAlign: 'bottom',
@@ -106,23 +125,15 @@
                 shadow: true
             },
             tooltip: {
-                headerFormat: '<b>{point.x}</b><br/>',
-                pointFormat: '{series.name}: {point.y}<br/>% <?= lang('label.contribution') ?>  {point.percentage:.1f}%'
+                shared: true
             },
             plotOptions: {
                 column: {
-                    stacking: 'normal',
-                    dataLabels: {
-                        enabled: false,
-                        color: (Highcharts.theme && Highcharts.theme.dataLabelsColor) || 'white',
-                        style: {
-                            textShadow: '0 0 3px black'
-                        }
-                    }
+                    stacking: 'normal'
                 }
             }, colors: [
                 '#f72109',
-                '#DAA520',//'#40bf80',
+                '#DAA520', //'#40bf80',
                 '#00ff99'
             ],
             series: <?php echo json_encode($outcomes['ageGnd2']); ?>

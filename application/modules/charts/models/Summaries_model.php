@@ -163,18 +163,6 @@ class Summaries_model extends MY_Model {
         $data['outcomes'][3]['yAxis'] = 1;
         $data['outcomes2'][0]['yAxis'] = 1;
         $data['outcomes2'][1]['yAxis'] = 1;
-//
-//        $count = 0;
-//        $data['outcomes']['data'][0]['y'] = $count;
-//        $data['outcomes']['data'][1]['y'] = $count;
-//        $data['outcomes']['data'][2]['y'] = $count;
-//        $data['outcomes']['data'][3]['y'] = $count;
-//        $data['categories'][0] = $count;
-//        $data['outcomes2']['data'][0]['y'] = $count;
-//        $data['outcomes2']['data'][1]['y'] = $count;
-//        $data['outcomes2']['data'][2]['y'] = $count;
-//        $data['categories2'][0] = $count;
-
 
 
         $data['outcomes'][0]['tooltip'] = array("valueSuffix" => ' ');
@@ -545,7 +533,8 @@ class Summaries_model extends MY_Model {
             }
         }
         // echo "<pre>";print_r($sql);die();
-        $result = $this->db->query($sql)->result_array();
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
         // echo "<pre>";print_r($result);die();
         $count = 0;
         $loop = 0;
@@ -564,7 +553,6 @@ class Summaries_model extends MY_Model {
         $data['ageGnd'][3]['name'] = lang('label.invalids');
         $data['ageGnd2'][0]['name'] = lang('label.not_suppressed');
         $data['ageGnd2'][1]['name'] = lang('label.suppressed');
-        $data['ageGnd2'][1]['name'] = lang('label.suppression');
 
         $count = 0;
 
@@ -657,7 +645,115 @@ class Summaries_model extends MY_Model {
         $data["ageGnd"][3]["data"] = array_values($data["ageGnd"][3]["data"]);
         $data["ageGnd2"][0]["data"] = array_values($data["ageGnd2"][0]["data"]);
         $data["ageGnd2"][1]["data"] = array_values($data["ageGnd2"][1]["data"]);
-        // echo "<pre>";print_r($data);die();
+//         echo "<pre>";print_r($data);die();
+        return $data;
+    }
+
+    function p_age($year = null, $month = null, $county = null, $subcounty = null, $site = null, $partner = null, $to_year = null, $to_month = null) {
+        if ($county == null) {
+            $county_filter = $this->session->userdata('county_filter');
+            $county = ($county_filter != null) ? $county_filter : 0;
+        }
+        if ($subcounty == null) {
+            $sub_county_filter = $this->session->userdata('sub_county_filter');
+            $subcounty = ($sub_county_filter != null) ? $sub_county_filter : 0;
+        }
+        if ($site == null) {
+            $site_filter = $this->session->userdata('site_filter');
+            $site = ($site_filter != null) ? $site_filter : 0;
+        }
+        if ($partner == null) {
+            $partner_filter = $this->session->userdata('partner_filter');
+            $partner = ($partner_filter != null) ? $partner_filter : 0;
+        }
+        if ($to_month == null || $to_month == 'null') {
+            $to_month = 0;
+        }
+        if ($to_year == null || $to_year == 'null') {
+            $to_year = 0;
+        }
+
+        if ($year == null || $year == 'null') {
+            $year = $this->session->userdata('filter_year');
+        }
+        if ($month == null || $month == 'null') {
+            if ($this->session->userdata('filter_month') != null) {
+                $month = $this->session->userdata('filter_month');
+            } else {
+                $month = 0;
+            }
+        }
+
+        $sql = "CALL `proc_get_p_age`('" . $county . "','" . $subcounty . "','" . $site . "','" . $partner . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
+
+        //  echo "<pre>";print_r($sql);die();
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
+        // echo "<pre>";print_r($result);die();
+        // echo "<pre>";print_r($result);die();
+        $data['ageGnd'][0]['name'] = lang('label.gt1000');
+        $data['ageGnd'][1]['name'] = lang('label.lt1000');
+        $data['ageGnd'][2]['name'] = lang('label.undetectable');
+        $data['ageGnd'][3]['name'] = lang('label.invalids');
+        $data['ageGnd2'][0]['name'] = lang('label.not_suppressed');
+        $data['ageGnd2'][1]['name'] = lang('label.suppressed');
+        $data['ageGnd2'][2]['name'] = lang('label.suppression');
+        
+        
+        $data['ageGnd'][0]['yAxis'] = 0;
+        $data['ageGnd'][1]['yAxis'] = 0;
+        $data['ageGnd'][2]['yAxis'] = 0;
+        $data['ageGnd'][3]['yAxis'] = 0;
+        $data['ageGnd2'][0]['yAxis'] = 0;
+        $data['ageGnd2'][1]['yAxis'] = 0;
+        $data['ageGnd2'][2]['yAxis'] = 1;
+        
+        $data['ageGnd'][0]['type'] = "column";
+        $data['ageGnd'][1]['type'] = "column";
+        $data['ageGnd'][2]['type'] = "column";
+        $data['ageGnd'][3]['type'] = "column";
+        $data['ageGnd2'][0]['type'] = "column";
+        $data['ageGnd2'][1]['type'] = "column";
+        $data['ageGnd2'][2]['type'] = "spline";
+        
+        $data['ageGnd'][0]['tooltip'] = array("valueSuffix" => ' ');
+        $data['ageGnd'][1]['tooltip'] = array("valueSuffix" => ' ');
+        $data['ageGnd'][2]['tooltip'] = array("valueSuffix" => ' ');
+        $data['ageGnd'][3]['tooltip'] = array("valueSuffix" => ' ');
+        $data['ageGnd2'][0]['tooltip'] = array("valueSuffix" => ' ');
+        $data['ageGnd2'][1]['tooltip'] = array("valueSuffix" => ' ');
+        $data['ageGnd2'][2]['tooltip'] = array("valueSuffix" => ' %');
+
+        $count = 0;
+
+        $data["ageGnd"][0]["data"][0] = $count;
+        $data["ageGnd"][1]["data"][0] = $count;
+        $data["ageGnd"][2]["data"][0] = $count;
+        $data["ageGnd"][3]["data"][0] = $count;
+        $data["ageGnd2"][0]["data"][0] = $count;
+        $data["ageGnd2"][1]["data"][0] = $count;
+        $data['categories'][0] = lang('label.no_data');
+
+        foreach ($result as $key => $value) {
+            $data['categories'][$key] = $value['name'];
+            $data["ageGnd"][0]["data"][$key] = (int) $value['all_nonsuppressed'];
+            $data["ageGnd"][1]["data"][$key] = (int) $value['all_less1000'];
+            $data["ageGnd"][2]["data"][$key] = (int) $value['all_undetected'];
+            $data["ageGnd"][3]["data"][$key] = (int) $value['all_invalids'];
+            $data["ageGnd2"][0]["data"][$key] = (int) $value['nonsuppressed'];
+            $data["ageGnd2"][1]["data"][$key] = (int) $value['undetected'] + (int) $value['less1000'];
+            $data['ageGnd2'][2]['data'][$key] = round(@((((int) $value['undetected'] + (int) $value['less1000']) * 100) / ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['nonsuppressed'] )), 1);
+        }
+
+        $data['categories'] = array_values($data['categories']);
+        $data["ageGnd"][0]["data"] = array_values($data["ageGnd"][0]["data"]);
+        $data["ageGnd"][1]["data"] = array_values($data["ageGnd"][1]["data"]);
+        $data["ageGnd"][2]["data"] = array_values($data["ageGnd"][2]["data"]);
+        $data["ageGnd"][3]["data"] = array_values($data["ageGnd"][3]["data"]);
+        $data["ageGnd2"][0]["data"] = array_values($data["ageGnd2"][0]["data"]);
+        $data["ageGnd2"][1]["data"] = array_values($data["ageGnd2"][1]["data"]);
+        $data["ageGnd2"][2]["data"] = array_values($data["ageGnd2"][2]["data"]);
+        //echo "<pre>";print_r($data);die();
         return $data;
     }
 
@@ -1055,7 +1151,7 @@ class Summaries_model extends MY_Model {
 
         //$data['vl_outcomes']['data'][0]['color'] = '#1BA39C';
         //$data['vl_outcomes']['data'][1]['color'] = '#F2784B';
-        $data['vl_outcomes']['data'][0]['color'] = '#DAA520';//#40bf80';
+        $data['vl_outcomes']['data'][0]['color'] = '#DAA520'; //#40bf80';
         $data['vl_outcomes']['data'][1]['color'] = '#f72109';
 
 

@@ -38,7 +38,7 @@ class Subcounties extends MY_Controller {
     function subcounty_vl_outcomes($year = NULL, $month = NULL, $subcounty = NULL, $to_year = NULL, $to_month = NULL) {
         $data['outcomes'] = $this->subcounty_model->subcounty_vl_outcomes($year, $month, $subcounty, $to_year, $to_month);
 
-        $this->load->view('vl_outcomes_view', $data);
+        $this->load->view('vl_outcomes_view_subcounty', $data);
     }
 
     function subcounty_gender($year = NULL, $month = NULL, $subcounty = NULL, $to_year = NULL, $to_month = NULL) {
@@ -49,6 +49,12 @@ class Subcounties extends MY_Controller {
 
     function subcounty_age($year = NULL, $month = NULL, $subcounty = NULL, $to_year = NULL, $to_month = NULL) {
         $data['outcomes'] = $this->subcounty_model->subcounty_age($year, $month, $subcounty, $to_year, $to_month);
+        // $this->load->view('agegroup_view',$data);
+        $data['div_name'] = '';
+        $this->load->view('agegroup_view', $data);
+    }
+    function subcounty_p_age($year = NULL, $month = NULL, $subcounty = NULL, $to_year = NULL, $to_month = NULL) {
+        $data['outcomes'] = $this->subcounty_model->subcounty_p_age($year, $month, $subcounty, $to_year, $to_month);
         // $this->load->view('agegroup_view',$data);
         $data['div_name'] = '';
         $this->load->view('agegroup_view', $data);

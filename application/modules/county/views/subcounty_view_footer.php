@@ -5,6 +5,7 @@
         localStorage.setItem("view_gender", 1);
         localStorage.setItem("view_age", 1);
         localStorage.setItem("view_site", 0);
+        localStorage.setItem("view_cat_age", 0);
         //$("#vl_county_pie_pat").hide();
         $.get("<?php echo base_url(); ?>template/dates", function (data) {
             obj = $.parseJSON(data);
@@ -36,6 +37,7 @@
                 /*$.get("<?php echo base_url(); ?>template/breadcrum/"+subcounty+"/"+null+"/"+null+"/"+1, function(data){
                  $("#breadcrum").html(data);
                  });*/
+                var view_age_cat = localStorage.getItem("view_cat_age");
                 $.get("<?php echo base_url(); ?>template/dates", function (data) {
                     obj = $.parseJSON(data);
 
@@ -64,7 +66,11 @@
 
                     $("#vlOutcomes").load("<?php echo base_url('charts/subcounties/subcounty_vl_outcomes'); ?>");
                     $("#gender").load("<?php echo base_url('charts/subcounties/subcounty_gender'); ?>/" + null + "/" + null + "/" + subcounty);
-                    $("#age").load("<?php echo base_url('charts/subcounties/subcounty_age'); ?>/" + null + "/" + null + "/" + subcounty);
+                    if (view_age_cat == 0) {
+                        $("#age").load("<?php echo base_url('charts/subcounties/subcounty_age'); ?>/" + null + "/" + null + "/" + subcounty);
+                    } else {
+                        $("#age").load("<?php echo base_url('charts/summaries/p_age'); ?>/" + null + "/" + null + "/" + null + "/" + subcounty);
+                    }
                     $("#samples").load("<?php echo base_url('charts/subcounties/sample_types'); ?>/" + null + "/" + subcounty + "/" + all);
                     $("#sub_counties").load("<?php echo base_url('charts/subcounties/subcounty_sites'); ?>/" + null + "/" + null + "/" + subcounty);
 
@@ -88,7 +94,7 @@
             to = format_date(second);
             var error_check = check_error_date_range(from, to);
             var all = localStorage.getItem("my_var");
-
+            var view_age_cat = localStorage.getItem("view_cat_age");
             if (!error_check) {
                 $.get("<?php echo base_url('county/check_subcounty_select'); ?>", function (data) {
                     data = $.parseJSON(data);
@@ -110,7 +116,13 @@
 
                         $("#vlOutcomes").load("<?php echo base_url('charts/subcounties/subcounty_vl_outcomes'); ?>/" + from[1] + "/" + from[0] + "/" + data + "/" + to[1] + "/" + to[0]);
                         $("#gender").load("<?php echo base_url('charts/subcounties/subcounty_gender'); ?>/" + from[1] + "/" + from[0] + "/" + data + "/" + to[1] + "/" + to[0]);
-                        $("#age").load("<?php echo base_url('charts/subcounties/subcounty_age'); ?>/" + from[1] + "/" + from[0] + "/" + data + "/" + to[1] + "/" + to[0]);
+
+                        if (view_age_cat == 0) {
+                            $("#age").load("<?php echo base_url('charts/subcounties/subcounty_age'); ?>/" + from[1] + "/" + from[0] + "/" + data + "/" + to[1] + "/" + to[0]);
+                        } else {
+                            $("#age").load("<?php echo base_url('charts/summaries/p_age'); ?>/" + from[1] + "/" + from[0] + "/" + null + "/" + data + "/" + "/" + null + "/" + null + "/" + to[1] + "/" + to[0]);
+                        }
+
                         $("#samples").load("<?php echo base_url('charts/subcounties/sample_types'); ?>/" + from[1] + "/" + data + "/" + all);
                         $("#subcounties").load("<?php echo base_url('charts/subcounties/subcounty_sites'); ?>/" + from[1] + "/" + from[0] + "/" + data + "/" + to[1] + "/" + to[0]);
                     }
@@ -132,7 +144,7 @@
         // console.log(year+"<___>"+month);
         var posting = $.post('<?php echo base_url(); ?>template/filter_date_data', {'year': year, 'month': month});
         var all = localStorage.getItem("my_var");
-
+        var view_age_cat = localStorage.getItem("view_cat_age");
         // Put the results in a div
         posting.done(function (data) {
             obj = $.parseJSON(data);
@@ -163,7 +175,11 @@
 
                     $("#vlOutcomes").load("<?php echo base_url('charts/subcounties/subcounty_vl_outcomes'); ?>/" + year + "/" + month + "/" + data);
                     $("#gender").load("<?php echo base_url('charts/subcounties/subcounty_gender'); ?>/" + year + "/" + month + "/" + data);
-                    $("#age").load("<?php echo base_url('charts/subcounties/subcounty_age'); ?>/" + year + "/" + month + "/" + data);
+                    if (view_age_cat == 0) {
+                        $("#age").load("<?php echo base_url('charts/subcounties/subcounty_age'); ?>/" + year + "/" + month + "/" + data);
+                    } else {
+                        $("#age").load("<?php echo base_url('charts/summaries/p_age'); ?>/" + year + "/" + month + "/" + null + "/" + data);
+                    }
                     $("#samples").load("<?php echo base_url('charts/subcounties/sample_types'); ?>/" + year + "/" + data + "/" + all);
                     $("#subcounties").load("<?php echo base_url('charts/subcounties/subcounty_sites'); ?>/" + year + "/" + month + "/" + data);
                 }
@@ -201,7 +217,7 @@
             $("#vl_outcomes_pie_tests").hide();
             $("#vl_outcomes_pie_pat").show();
             $("#switchButton2").val('<?= lang('label.switch_all_tests') ?>');
-            $(".vl_outcomes_heading").html('<?= lang('title_tested_patients') ?> '); 
+            $(".vl_outcomes_heading").html('<?= lang('title_tested_patients') ?> ');
             $('#vlOutcomes_pie_pat').highcharts().reflow();
         } else {
             localStorage.setItem("view", 0);
@@ -219,7 +235,7 @@
             $("#gender_pie_tests").hide();
             $("#gender_pie_pat").show();
             $("#switchButton_gender").val('<?= lang('label.switch_all_tests') ?>');
-            $(".vl_gender_heading").html('<?= lang('title_tested_patients_by_gender') ?> '); 
+            $(".vl_gender_heading").html('<?= lang('title_tested_patients_by_gender') ?> ');
             $('#gender_pie_pat').highcharts().reflow();
         } else {
             localStorage.setItem("view_gender", 0);
@@ -237,7 +253,7 @@
             $("#ageGroups_pie_tests").hide();
             $("#ageGroups_pie_pat").show();
             $("#switchButton_age").val('<?= lang('label.switch_all_tests') ?>');
-            $(".vl_age_heading").html('<?= lang('title_tested_patients_by_age') ?> '); 
+            $(".vl_age_heading").html('<?= lang('title_tested_patients_by_age') ?> ');
             $('#ageGroups_pie_pat').highcharts().reflow();
         } else {
             localStorage.setItem("view_age", 0);
@@ -265,6 +281,17 @@
             $("#switchButton_subcounty").val('<?= lang('label.switch_routine_tests_trends') ?> ');
             $(".vl_subcounty_heading").html('<?= lang('title_test_done_by_subcounty') ?> ');
             $('#vl_county_pie_tests').highcharts().reflow();
+        }
+    }
+
+    function switch_age_cat() {
+        var view = localStorage.getItem("view_cat_age");
+        if (view == 0) {
+            localStorage.setItem("view_cat_age", 1);
+            $("#age").load("<?php echo base_url('charts/summaries/p_age'); ?>");
+        } else {
+            localStorage.setItem("view_cat_age", 0);
+            $("#age").load("<?php echo base_url('charts/subcounties/subcounty_age'); ?>");
         }
     }
 </script>

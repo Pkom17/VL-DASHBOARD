@@ -51,7 +51,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6 col-sm-3 col-xs-12">
+        <div class="col-md-12 col-xs-12">
             <div class="panel panel-default">
                 <div class="panel-heading chart_title">
                     <?= lang('label.vl_outcomes') ?> <div class="display_date" ></div>
@@ -62,7 +62,27 @@
 
             </div>
         </div>
-        <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="col-md-12 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading" style="min-height: 4em;">
+                    <div class="col-sm-7">
+                        <div class="chart_title vl_regimen_gender">
+                            <?= lang('title_tested_patients_by_age') ?>
+                        </div>
+                        <div class="display_date"></div>
+                    </div> 
+
+                    <div class="col-sm-5">
+                        <input type="submit" class="btn btn-primary switchButton" id="switchButton_vl_regimen_gender" onclick="switch_source_vl_p_regimen_gender()" value="<?= lang('label.switch_routine_tests_trends'); ?>"> 
+                    </div>
+                </div>
+                <div class="panel-body" id="regimen_gender">
+                    <center><div class="loader"></div></center>
+                </div>
+
+            </div>
+        </div>
+<!--        <div class="col-md-6 col-xs-12">
             <div class="panel panel-default">
                 <div class="panel-heading chart_title">
                     <?= lang('title_tested_patients_by_gender') ?> <div class="display_date" ></div>
@@ -73,7 +93,7 @@
 
             </div>
         </div>
-        <div class="col-md-3 col-sm-3 col-xs-12">
+        <div class="col-md-6 col-xs-12">
             <div class="panel panel-default">
                 <div class="panel-heading chart_title">
                     <?= lang('title_tested_patients_by_age') ?> <div class="display_date" ></div>
@@ -83,22 +103,8 @@
                 </div>
 
             </div>
-        </div>
+        </div>-->
     </div>
-    <div class="row">
-        <!-- Map of the country -->
-        <!-- <div class="col-md-12 col-sm-12 col-xs-12">
-                <div class="panel panel-default">
-                  <div class="panel-heading" id="heading">
-                        County Outcomes <div class="display_date"></div>
-                  </div>
-                  <div class="panel-body" id="county">
-                    <center><div class="loader"></div></center>
-                  </div>
-                </div>
-        </div> -->
-    </div>
-
 </div>
 
 <?php $this->load->view('partner_regimen_view_footer'); ?>

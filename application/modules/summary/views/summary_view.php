@@ -122,7 +122,7 @@
                     <input type="submit" class="btn btn-primary switchButton" id="switchButton_gender" onclick="switch_source_gender1()" value="<?= lang('label.switch_all_tests'); ?>">
                 </div>
             </div>
-            <div class="panel-body" id="gender" style="height:650px;padding-bottom:0px;">
+            <div class="panel-body" id="gender" style="height:585px;padding-bottom:0px;">
                 <center><div class="loader"></div></center>
             </div>
         </div>
@@ -144,7 +144,7 @@
 
     <div class="col-md-6">
         <div class="panel panel-default">
-            <div class="panel-heading" style="min-height: 4em;">
+            <div class="panel-heading" style="min-height: 6em;">
                 <div class="col-sm-8">
                     <div class="chart_title vl_age_heading">
                         <?= lang('title_tested_patients_by_age'); ?>
@@ -159,9 +159,9 @@
                 <center><div class="loader"></div></center>
             </div>
             <div>
-                <center>
-                    <a type="button" class="btn btn-default" data-toggle="modal" data-target="#agemodal" style="background-color: #2f80d1;color: white; margin-top: 1em;margin-bottom: 1em;" > 
-                        <?= lang('label.modal.click_breakdown'); ?></a>
+               <center>
+                   <a type="button" class="btn btn-default"  style="background-color: #2f80d1;color: white; margin-top: 1em;margin-bottom: 1em;" onclick="switch_age_cat()" > 
+                        <?= lang('label_click_to_switch_agecat'); ?></a>
                 </center>
             </div>
         </div>

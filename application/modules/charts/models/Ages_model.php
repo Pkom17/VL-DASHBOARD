@@ -88,7 +88,7 @@ class Ages_model extends MY_Model {
             $data['outcomes2'][1]['data'][$key] = (int) $value['suppressed'];
             $data['outcomes2'][2]['data'][$key] = round(@(((int) $value['suppressed'] * 100) / ((int) $value['suppressed'] + (int) $value['nonsuppressed'])), 1);
         }
-    //    echo "<pre>";print_r($data);die();
+        //    echo "<pre>";print_r($data);die();
         return $data;
     }
 
@@ -115,13 +115,17 @@ class Ages_model extends MY_Model {
         if ($partner == null || $partner == 'null') {
             $partner = null;
         }
-
-        if ($partner == null) {
-            $sql = "CALL `proc_get_vl_age_vl_outcomes`('" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
+        if ($age_cat >= 12) { // pepfar agecategory
+            $partner = ($partner == null) ? 0 : $partner;
+            $sql = "CALL `proc_get_vl_p_age_vl_outcomes`('" . $age_cat . "','" . $partner . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
         } else {
-            $sql = "CALL `proc_get_vl_partner_age_vl_outcomes`('" . $partner . "','" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
-        }
 
+            if ($partner == null) {
+                $sql = "CALL `proc_get_vl_age_vl_outcomes`('" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
+            } else {
+                $sql = "CALL `proc_get_vl_partner_age_vl_outcomes`('" . $partner . "','" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
+            }
+        }
         // echo "<pre>";print_r($sql);die();
         $result = $this->db->query($sql)->result_array();
 
@@ -224,12 +228,16 @@ class Ages_model extends MY_Model {
             $partner = null;
         }
 
-        if ($partner == null) {
-            $sql = "CALL `proc_get_vl_age_gender`('" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
+        if ($age_cat >= 12) { // pepfar agecategory
+            $partner = ($partner == null) ? 0 : $partner;
+            $sql = "CALL `proc_get_vl_p_age_gender`('" . $age_cat . "','" . $partner . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
         } else {
-            $sql = "CALL `proc_get_vl_partner_age_gender`('" . $partner . "','" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
+            if ($partner == null) {
+                $sql = "CALL `proc_get_vl_age_gender`('" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
+            } else {
+                $sql = "CALL `proc_get_vl_partner_age_gender`('" . $partner . "','" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
+            }
         }
-
 
 
         // echo "<pre>";print_r($sql);die();
@@ -255,8 +263,173 @@ class Ages_model extends MY_Model {
             $data["gender"][1]["data"][2] = (int) $value['nodatasuppressed'];
         }
         $data["gender"][0]['color'] = '#f72109';
-        $data["gender"][1]['color'] = '#DAA520';//#40bf80';
+        $data["gender"][1]['color'] = '#DAA520'; //#40bf80';
 
+        return $data;
+    }
+
+    function p_ages_gender2($year = NULL, $month = NULL, $age_cat = NULL, $partner = null, $to_year = null, $to_month = null) {
+        $data = [];
+        if ($age_cat == null || $age_cat == 'null') {
+            $age_cat = $this->session->userdata('age_category_filter');
+        }
+        if ($to_month == null || $to_month == 'null') {
+            $to_month = 0;
+        }
+        if ($to_year == null || $to_year == 'null') {
+            $to_year = 0;
+        }
+        if ($year == null || $year == 'null') {
+            $year = $this->session->userdata('filter_year');
+        }
+        if ($month == null || $month == 'null') {
+            if ($this->session->userdata('filter_month') == null || $this->session->userdata('filter_month') == 'null') {
+                $month = 0;
+            } else {
+                $month = $this->session->userdata('filter_month');
+            }
+        }
+        $part = ($partner == null || $partner == 'null') ? 0 : $partner;
+
+        $sql = "CALL `proc_get_vl_p_age_gender2`('" . $age_cat . "','" . $part . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
+
+        // echo "<pre>";print_r($sql);die();
+        $result = $this->db->query($sql)->result_array();
+        // echo "<pre>";print_r($result);die();
+//        $data['gender'][0]['name'] = lang('label.non_suppressed');
+//        $data['gender'][1]['name'] = lang('label.suppressed');
+
+        $count = 0;
+
+        $data["gender"]['male'][0]["data"][0][0] = $count;
+        $data["gender"]['male'][1]["data"][0][0] = $count;
+        $data["gender"]['female'][0]["data"][0][0] = $count;
+        $data["gender"]['female'][1]["data"][0][0] = $count;
+        $data['categories']['gender'][0] = lang('label.male');
+        $data['categories']['gender'][1] = lang('label.female');
+        $data["gender"]['male'][0]["name"] = lang('label.male') . ' - ' . lang('label.non_suppressed');
+        $data["gender"]['male'][1]["name"] = lang('label.male') . ' - ' . lang('label.suppressed');
+        $data["gender"]['female'][0]["name"] = lang('label.female') . ' - ' . lang('label.non_suppressed');
+        $data["gender"]['female'][1]["name"] = lang('label.female') . ' - ' . lang('label.suppressed');
+        $data["gender_all"]['male'][0]["name"] = lang('label.male') . ' - ' . lang('label.gt1000');
+        $data["gender_all"]['male'][1]["name"] = lang('label.male') . ' - ' . lang('label.lt1000');
+        $data["gender_all"]['male'][2]["name"] = lang('label.male') . ' - ' . lang('label.undetectable');
+        $data["gender_all"]['male'][3]["name"] = lang('label.male') . ' - ' . lang('label.invalids');
+        $data["gender_all"]['female'][0]["name"] = lang('label.female') . ' - ' . lang('label.gt1000');
+        $data["gender_all"]['female'][1]["name"] = lang('label.female') . ' - ' . lang('label.lt1000');
+        $data["gender_all"]['female'][2]["name"] = lang('label.female') . ' - ' . lang('label.undetectable');
+        $data["gender_all"]['female'][3]["name"] = lang('label.female') . ' - ' . lang('label.invalids');
+        foreach ($result as $key => $value) {
+            $data['categories']['age'][$key] = $value['name'];
+            $data["gender"]['male'][0]["data"][$key] = ((int) $value['malenonsuppressed']) * -1;
+            $data["gender"]['male'][1]["data"][$key] = ((int) $value['malesuppressed']) * -1;
+            $data["gender"]['female'][0]["data"][$key] = (int) $value['femalenonsuppressed'];
+            $data["gender"]['female'][1]["data"][$key] = (int) $value['femalesuppressed'];
+            $data["gender_all"]['male'][0]["data"][$key] = ((int) $value['all_maleless5000'] + (int) $value['all_maleabove5000'] ) * -1;
+            $data["gender_all"]['male'][1]["data"][$key] = ((int) $value['all_maleless1000']) * -1;
+            $data["gender_all"]['male'][2]["data"][$key] = ((int) $value['all_maleundetected']) * -1;
+            $data["gender_all"]['male'][3]["data"][$key] = ((int) $value['all_maleinvalids']) * -1;
+            $data["gender_all"]['female'][0]["data"][$key] = (int) $value['all_femaleless5000'] + (int) $value['all_femaleabove5000'];
+            $data["gender_all"]['female'][1]["data"][$key] = (int) $value['all_femaleless1000'];
+            $data["gender_all"]['female'][2]["data"][$key] = (int) $value['all_femaleundetected'];
+            $data["gender_all"]['female'][3]["data"][$key] = (int) $value['all_femaleinvalids'];
+        }
+        $data["gender"]['male'][0]['color'] = '#f72109'; //#40bf80';
+        $data["gender"]['male'][1]['color'] = '#DAA520';
+        $data["gender"]['female'][0]['color'] = '#f72109'; //#40bf80';
+        $data["gender"]['female'][1]['color'] = '#DAA520';
+        $data["gender_all"]['male'][0]['color'] = '#e8ee1d';
+        $data["gender_all"]['male'][1]['color'] = '#2f80d1';
+        $data["gender_all"]['male'][2]['color'] = '#00ff99';
+        $data["gender_all"]['male'][3]['color'] = '#000000';
+        $data["gender_all"]['female'][0]['color'] = '#e8ee1d';
+        $data["gender_all"]['female'][1]['color'] = '#2f80d1';
+        $data["gender_all"]['female'][2]['color'] = '#00ff99';
+        $data["gender_all"]['female'][3]['color'] = '#000000';
+        // echo "<pre>";print_r($data);die();
+        return $data;
+    }
+
+    function p_ages_gender_regimen($year = NULL, $month = NULL, $age_cat = NULL, $partner = null, $regimen = null, $to_year = null, $to_month = null) {
+        $data = [];
+        if ($age_cat == null || $age_cat == 'null') {
+            $age_cat = $this->session->userdata('age_category_filter');
+        }
+        if ($to_month == null || $to_month == 'null') {
+            $to_month = 0;
+        }
+        if ($to_year == null || $to_year == 'null') {
+            $to_year = 0;
+        }
+        if ($year == null || $year == 'null') {
+            $year = $this->session->userdata('filter_year');
+        }
+        if ($month == null || $month == 'null') {
+            if ($this->session->userdata('filter_month') == null || $this->session->userdata('filter_month') == 'null') {
+                $month = 0;
+            } else {
+                $month = $this->session->userdata('filter_month');
+            }
+        }
+        $part = ($partner == null || $partner == 'null') ? 0 : $partner;
+        $regim = ($regimen == null || $regimen == 'null') ? 0 : $regimen;
+
+        $sql = "CALL `proc_get_vl_p_age_gender_regimen`('" . $age_cat . "','" . $part . "','" . $regim . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
+
+        // echo "<pre>";print_r($sql);die();
+        $result = $this->db->query($sql)->result_array();
+        // echo "<pre>";print_r($result);die();
+//        $data['gender'][0]['name'] = lang('label.non_suppressed');
+//        $data['gender'][1]['name'] = lang('label.suppressed');
+
+        $count = 0;
+
+        $data["gender"]['male'][0]["data"][0][0] = $count;
+        $data["gender"]['male'][1]["data"][0][0] = $count;
+        $data["gender"]['female'][0]["data"][0][0] = $count;
+        $data["gender"]['female'][1]["data"][0][0] = $count;
+        $data['categories']['gender'][0] = lang('label.male');
+        $data['categories']['gender'][1] = lang('label.female');
+        $data["gender"]['male'][0]["name"] = lang('label.male') . ' - ' . lang('label.non_suppressed');
+        $data["gender"]['male'][1]["name"] = lang('label.male') . ' - ' . lang('label.suppressed');
+        $data["gender"]['female'][0]["name"] = lang('label.female') . ' - ' . lang('label.non_suppressed');
+        $data["gender"]['female'][1]["name"] = lang('label.female') . ' - ' . lang('label.suppressed');
+        $data["gender_all"]['male'][0]["name"] = lang('label.male') . ' - ' . lang('label.gt1000');
+        $data["gender_all"]['male'][1]["name"] = lang('label.male') . ' - ' . lang('label.lt1000');
+        $data["gender_all"]['male'][2]["name"] = lang('label.male') . ' - ' . lang('label.undetectable');
+        $data["gender_all"]['male'][3]["name"] = lang('label.male') . ' - ' . lang('label.invalids');
+        $data["gender_all"]['female'][0]["name"] = lang('label.female') . ' - ' . lang('label.gt1000');
+        $data["gender_all"]['female'][1]["name"] = lang('label.female') . ' - ' . lang('label.lt1000');
+        $data["gender_all"]['female'][2]["name"] = lang('label.female') . ' - ' . lang('label.undetectable');
+        $data["gender_all"]['female'][3]["name"] = lang('label.female') . ' - ' . lang('label.invalids');
+        foreach ($result as $key => $value) {
+            $data['categories']['age'][$key] = $value['name'];
+            $data["gender"]['male'][0]["data"][$key] = ((int) $value['malenonsuppressed']) * -1;
+            $data["gender"]['male'][1]["data"][$key] = ((int) $value['malesuppressed']) * -1;
+            $data["gender"]['female'][0]["data"][$key] = (int) $value['femalenonsuppressed'];
+            $data["gender"]['female'][1]["data"][$key] = (int) $value['femalesuppressed'];
+            $data["gender_all"]['male'][0]["data"][$key] = ((int) $value['all_maleless5000'] + (int) $value['all_maleabove5000'] ) * -1;
+            $data["gender_all"]['male'][1]["data"][$key] = ((int) $value['all_maleless1000']) * -1;
+            $data["gender_all"]['male'][2]["data"][$key] = ((int) $value['all_maleundetected']) * -1;
+            $data["gender_all"]['male'][3]["data"][$key] = ((int) $value['all_maleinvalids']) * -1;
+            $data["gender_all"]['female'][0]["data"][$key] = (int) $value['all_femaleless5000'] + (int) $value['all_femaleabove5000'];
+            $data["gender_all"]['female'][1]["data"][$key] = (int) $value['all_femaleless1000'];
+            $data["gender_all"]['female'][2]["data"][$key] = (int) $value['all_femaleundetected'];
+            $data["gender_all"]['female'][3]["data"][$key] = (int) $value['all_femaleinvalids'];
+        }
+        $data["gender"]['male'][0]['color'] = '#f72109'; //#40bf80';
+        $data["gender"]['male'][1]['color'] = '#DAA520';
+        $data["gender"]['female'][0]['color'] = '#f72109'; //#40bf80';
+        $data["gender"]['female'][1]['color'] = '#DAA520';
+        $data["gender_all"]['male'][0]['color'] = '#e8ee1d';
+        $data["gender_all"]['male'][1]['color'] = '#2f80d1';
+        $data["gender_all"]['male'][2]['color'] = '#00ff99';
+        $data["gender_all"]['male'][3]['color'] = '#000000';
+        $data["gender_all"]['female'][0]['color'] = '#e8ee1d';
+        $data["gender_all"]['female'][1]['color'] = '#2f80d1';
+        $data["gender_all"]['female'][2]['color'] = '#00ff99';
+        $data["gender_all"]['female'][3]['color'] = '#000000';
+        // echo "<pre>";print_r($data);die();
         return $data;
     }
 
@@ -280,14 +453,19 @@ class Ages_model extends MY_Model {
         }
         $from = $to - 1;
 
-        if ($partner == null) {
-            $sql = "CALL `proc_get_vl_age_sample_types`('" . $age_cat . "','" . $from . "')";
-            $sql2 = "CALL `proc_get_vl_age_sample_types`('" . $age_cat . "','" . $to . "')";
+        if ($age_cat >= 12) { // pepfar agecategory
+            $partner = ($partner == null) ? 0 : $partner;
+            $sql = "CALL `proc_get_vl_p_age_sample_types`('" . $age_cat . "','" . $partner . "','" . $from . "')";
+            $sql2 = "CALL `proc_get_vl_p_age_sample_types`('" . $age_cat . "','" . $partner . "','" . $to . "')";
         } else {
-            $sql = "CALL `proc_get_vl_partner_age_sample_types`('" . $partner . "','" . $age_cat . "','" . $from . "')";
-            $sql2 = "CALL `proc_get_vl_partner_age_sample_types`('" . $partner . "','" . $age_cat . "','" . $to . "')";
+            if ($partner == null) {
+                $sql = "CALL `proc_get_vl_age_sample_types`('" . $age_cat . "','" . $from . "')";
+                $sql2 = "CALL `proc_get_vl_age_sample_types`('" . $age_cat . "','" . $to . "')";
+            } else {
+                $sql = "CALL `proc_get_vl_partner_age_sample_types`('" . $partner . "','" . $age_cat . "','" . $from . "')";
+                $sql2 = "CALL `proc_get_vl_partner_age_sample_types`('" . $partner . "','" . $age_cat . "','" . $to . "')";
+            }
         }
-
         // echo "<pre>";print_r($sql);die();
         $array1 = $this->db->query($sql)->result_array();
 
@@ -330,11 +508,8 @@ class Ages_model extends MY_Model {
         foreach ($result as $key => $value) {
 
             $data['categories'][$key] = $this->resolve_month($value['month']) . '-' . $value['year'];
-
-            //$data["sample_types"][0]["data"][$key]	= (int) $value['plasma'];
             $data["sample_types"][0]["data"][$key] = (int) $value['dbs'];
             $data["sample_types"][1]["data"][$key] = (int) $value['edta'];
-            //$data["sample_types"][2]["data"][$key] = round($value['suppression'], 1);
         }
 
         return $data;
@@ -393,27 +568,46 @@ class Ages_model extends MY_Model {
         if ($age_cat == null || $age_cat == 'null') {
             $age_cat = $this->session->userdata('age_category_filter');
         }
-
-        if ($county == 1 || $county == '1') {
-            $sql = "CALL `proc_get_vl_age_breakdowns_outcomes`('" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "','" . $county . "','" . $default . "','" . $default . "','" . $default . "')";
-            $div_name = 'countyLising';
-            $modal_name = 'countyModal';
-        } elseif ($partner == 1 || $partner == '1') {
-            $sql = "CALL `proc_get_vl_age_breakdowns_outcomes`('" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "','" . $default . "','" . $partner . "','" . $default . "','" . $default . "')";
-            $div_name = 'partnerLising';
-            $modal_name = 'partnerModal';
-        } elseif ($subcounty == 1 || $subcounty == '1') {
-            $sql = "CALL `proc_get_vl_age_breakdowns_outcomes`('" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "','" . $default . "','" . $default . "','" . $subcounty . "','" . $default . "')";
-            $div_name = 'subcountyLising';
-            $modal_name = 'subcountyModal';
-        } elseif ($site == 1 || $site == '1') {
-            $sql = "CALL `proc_get_vl_age_breakdowns_outcomes`('" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "','" . $default . "','" . $default . "','" . $default . "','" . $site . "')";
-            $div_name = 'siteLising';
-            $modal_name = 'siteModal';
+        if ($age_cat >= 12) {
+            if ($county == 1 || $county == '1') {
+                $sql = "CALL `proc_get_vl_p_age_breakdowns_outcomes`('" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "','" . $county . "','" . $default . "','" . $default . "','" . $default . "')";
+                $div_name = 'countyLising';
+                $modal_name = 'countyModal';
+            } elseif ($partner == 1 || $partner == '1') {
+                $sql = "CALL `proc_get_vl_p_age_breakdowns_outcomes`('" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "','" . $default . "','" . $partner . "','" . $default . "','" . $default . "')";
+                $div_name = 'partnerLising';
+                $modal_name = 'partnerModal';
+            } elseif ($subcounty == 1 || $subcounty == '1') {
+                $sql = "CALL `proc_get_vl_p_age_breakdowns_outcomes`('" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "','" . $default . "','" . $default . "','" . $subcounty . "','" . $default . "')";
+                $div_name = 'subcountyLising';
+                $modal_name = 'subcountyModal';
+            } elseif ($site == 1 || $site == '1') {
+                $sql = "CALL `proc_get_vl_p_age_breakdowns_outcomes`('" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "','" . $default . "','" . $default . "','" . $default . "','" . $site . "')";
+                $div_name = 'siteLising';
+                $modal_name = 'siteModal';
+            }
+        } else {
+            if ($county == 1 || $county == '1') {
+                $sql = "CALL `proc_get_vl_age_breakdowns_outcomes`('" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "','" . $county . "','" . $default . "','" . $default . "','" . $default . "')";
+                $div_name = 'countyLising';
+                $modal_name = 'countyModal';
+            } elseif ($partner == 1 || $partner == '1') {
+                $sql = "CALL `proc_get_vl_age_breakdowns_outcomes`('" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "','" . $default . "','" . $partner . "','" . $default . "','" . $default . "')";
+                $div_name = 'partnerLising';
+                $modal_name = 'partnerModal';
+            } elseif ($subcounty == 1 || $subcounty == '1') {
+                $sql = "CALL `proc_get_vl_age_breakdowns_outcomes`('" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "','" . $default . "','" . $default . "','" . $subcounty . "','" . $default . "')";
+                $div_name = 'subcountyLising';
+                $modal_name = 'subcountyModal';
+            } elseif ($site == 1 || $site == '1') {
+                $sql = "CALL `proc_get_vl_age_breakdowns_outcomes`('" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "','" . $default . "','" . $default . "','" . $default . "','" . $site . "')";
+                $div_name = 'siteLising';
+                $modal_name = 'siteModal';
+            }
         }
 
         $result = $this->db->query($sql)->result_array();
-
+// echo '<pre>';print_r($sql);die();
         $count = 1;
 
         if ($result) {
@@ -469,20 +663,23 @@ class Ages_model extends MY_Model {
         if ($age_cat == null || $age_cat == 'null') {
             $age_cat = $this->session->userdata('age_category_filter');
         }
-
-        if ($partner == null) {
-            $sql = "CALL `proc_get_vl_county_age_outcomes`('" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
+        if ($age_cat >= 12) { // pepfar agecategory
+            $partner = ($partner == null) ? 0 : $partner;
+            $sql = "CALL `proc_get_vl_county_p_age_outcomes`('" . $partner . "','" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
         } else {
-            $sql = "CALL `proc_get_vl_partner_county_age_outcomes`('" . $partner . "','" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
+            if ($partner == null) {
+                $sql = "CALL `proc_get_vl_county_age_outcomes`('" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
+            } else {
+                $sql = "CALL `proc_get_vl_partner_county_age_outcomes`('" . $partner . "','" . $age_cat . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
+            }
         }
-
         $result = $this->db->query($sql)->result_array();
         // echo "<pre>";print_r($result);die();
 
         $data['outcomes2'][0]['name'] = lang('label.not_suppressed_');
         $data['outcomes2'][1]['name'] = lang('label.suppressed_');
         $data['outcomes2'][2]['name'] = lang('label.suppression');
-        $data['outcomes'] ='';
+        $data['outcomes'] = '';
 
         $data['outcomes2'][0]['type'] = "column";
         $data['outcomes2'][1]['type'] = "column";

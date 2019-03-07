@@ -441,7 +441,7 @@ class Utils {
     public static function getAgeCategorysub2($age) {
         $cat = '';
         if ($age < 2) {
-            $cat = '<2';
+            $cat = '&lt;2';
         } elseif ($age >= 2 && $age < 10) {
             $cat = '2-9';
         } elseif ($age >= 10 && $age < 15) {
@@ -451,14 +451,14 @@ class Utils {
         } elseif ($age >= 20 && $age < 25) {
             $cat = '20-24';
         } elseif ($age >= 25) {
-            $cat = '>25';
+            $cat = '&gt;25';
         }
         return $cat;
     }
     public static function getAgeCategorysub3($age) {
         $cat = '';
         if ($age < 1) {
-            $cat = '<1';
+            $cat = '&lt;1';
         } elseif ($age >= 1 && $age <=4) {
             $cat = '1-4';
         } elseif ($age >= 5 && $age <= 9) {

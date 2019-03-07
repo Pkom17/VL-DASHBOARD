@@ -168,12 +168,16 @@ class Regimen_model extends MY_Model {
                 <tr>
 	    		<td>' . lang('total_done_test') . '</td>
 	    		<td>' . number_format($all_tests) . '</td>
+	    	</tr> 
+	    	<tr>
                         <td>' . lang('total_done_test_valid') . '</td>
                         <td>' . number_format($valid_tests) . '</td>
 	    	</tr> 
 	    	<tr>
 	    		<td>' . lang('total_test_result_inv') . '</td>
 	    		<td>' . $invalids . '<br/><b> ( ' . $all_val_inv . '% )</b></td>
+	    	</tr>
+	    	<tr>
 	    		<td>' . lang('total_test_result_und') . '</td>
 	    		<td>' . $undetected . '<br/><b> ( ' . $all_val_und . '% )</b></td>
 	    	</tr>
@@ -181,6 +185,8 @@ class Regimen_model extends MY_Model {
 	    	<tr>
 	    		<td>' . lang('total_test_result_lt1000') . '</td>
 	    		<td>' . $less1000 . '<br/><b> ( ' . $all_val_ls . '% )</b></td>
+	    	<tr>
+	    	</tr>
 	    		<td>' . lang('total_test_result_gt1000') . '</td>
 	    		<td>' . $greater . '<br/><b> ( ' . $all_val_gt . '% )</b></td>
 	    	</tr>';
@@ -284,9 +290,18 @@ class Regimen_model extends MY_Model {
         } else {
             $sql = "CALL `proc_get_vl_partner_regimen_age`('" . $partner . "','" . $regimen . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
         }
-        // echo "<pre>";print_r($sql);die();
-        $result = $this->db->query($sql)->result_array();
-        // echo "<pre>";print_r($result);die();
+        if($partner== null) {
+            $partner = '0';
+        }
+        $sql_p = "CALL `proc_get_vl_regimen_p_age`('" . $partner . "','" . $regimen . "','" . $year . "','" . $month . "','" . $to_year . "','" . $to_month . "')";
+        
+        // echo "<pre>";print_r($sql_p);die();
+        $query = $this->db->query($sql);
+        $result = $query->result_array();
+        $query->next_result(); 
+        $query->free_result();
+        $result_p = $this->db->query($sql_p)->result_array();
+         // echo "<pre>";print_r($result_p);die();
         $data['ageGnd'][0]['name'] = lang('label.tests');
 
         $count = 0;
@@ -311,9 +326,38 @@ class Regimen_model extends MY_Model {
             $data["ageGnd"][0]["data"][5] = (int) $value['less24'];
             $data["ageGnd"][0]["data"][6] = (int) $value['over25'];
         }
+        
+        foreach ($result_p as $key => $value) {
+            $data['p_categories'][0] = lang('label.no_age');
+            $data['p_categories'][1] = lang('label.pless1');
+            $data['p_categories'][2] = lang('label.pless4');
+            $data['p_categories'][3] = lang('label.pless9');
+            $data['p_categories'][4] = lang('label.pless14');
+            $data['p_categories'][5] = lang('label.pless19');
+            $data['p_categories'][6] = lang('label.pless24');
+            $data['p_categories'][7] = lang('label.pless29');
+            $data['p_categories'][8] = lang('label.pless34');
+            $data['p_categories'][9] = lang('label.pless39');
+            $data['p_categories'][10] = lang('label.pless44');
+            $data['p_categories'][11] = lang('label.pless49');
+            $data['p_categories'][12] = lang('label.pover50');
+            $data["p_ageGnd"][0]["data"][0] = (int) $value['noage'];
+            $data["p_ageGnd"][0]["data"][1] = (int) $value['pless1'];
+            $data["p_ageGnd"][0]["data"][2] = (int) $value['pless4'];
+            $data["p_ageGnd"][0]["data"][3] = (int) $value['pless9'];
+            $data["p_ageGnd"][0]["data"][4] = (int) $value['pless14'];
+            $data["p_ageGnd"][0]["data"][5] = (int) $value['pless19'];
+            $data["p_ageGnd"][0]["data"][6] = (int) $value['pless24'];
+            $data["p_ageGnd"][0]["data"][7] = (int) $value['pless29'];
+            $data["p_ageGnd"][0]["data"][8] = (int) $value['pless34'];
+            $data["p_ageGnd"][0]["data"][9] = (int) $value['pless39'];
+            $data["p_ageGnd"][0]["data"][10] = (int) $value['pless44'];
+            $data["p_ageGnd"][0]["data"][11] = (int) $value['pless49'];
+            $data["p_ageGnd"][0]["data"][12] = (int) $value['pover50'];
+        }
         // $data['gender'][0]['drilldown']['color'] = '#913D88';
         // $data['gender'][0]['drilldown']['color'] = '#913D88';
-
+     //   echo '<pre>';print_r($data);die();
         return $data;
     }
 

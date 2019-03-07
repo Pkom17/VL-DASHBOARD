@@ -4,6 +4,7 @@
         localStorage.setItem("view_site2", 0);
         localStorage.setItem("view_age", 1);
         localStorage.setItem("view_gender", 1);
+        localStorage.setItem("view_cat_age", 0);
         $.get("<?php echo base_url(); ?>template/dates", function (data) {
             obj = $.parseJSON(data);
 
@@ -17,6 +18,7 @@
             $(".display_current_range").html(data);
         });
         var site = <?php echo json_encode($this->session->userdata("site_filter")); ?>;
+        var view_age_cat = localStorage.getItem("view_cat_age");
         //console.log(site);
         if (!site) {
             $("#siteOutcomes").load("<?php echo base_url('charts/sites/site_outcomes'); ?>");
@@ -39,7 +41,11 @@
             $("#tsttrends").load("<?php echo base_url('charts/sites/site_trends'); ?>/" + null + "/" + null + "/" + site);
             $("#stoutcomes").load("<?php echo base_url('charts/sites/site_outcomes_chart'); ?>/" + null + "/" + null + "/" + site);
             $("#vlOutcomes").load("<?php echo base_url('charts/sites/site_Vlotcomes'); ?>/" + null + "/" + null + "/" + site);
-            $("#ageGroups").load("<?php echo base_url('charts/sites/site_agegroups'); ?>/" + null + "/" + null + "/" + site);
+            if (view_age_cat == 0) {
+                $("#ageGroups").load("<?php echo base_url('charts/sites/site_agegroups'); ?>/" + null + "/" + null + "/" + site);
+            } else {
+                $("#ageGroups").load("<?php echo base_url('charts/summaries/p_age'); ?>/" + null + "/" + null + "/" + null + "/" + null + "/" + site);
+            }
             $("#gender").load("<?php echo base_url('charts/sites/site_gender'); ?>/" + null + "/" + null + "/" + site);
             $("#justification").load("<?php echo base_url('charts/sites/site_justification'); ?>/" + null + "/" + null + "/" + site);
             $("#long_tracking").load("<?php echo base_url('charts/sites/get_patients'); ?>/" + null + "/" + null + "/" + site);
@@ -54,7 +60,6 @@
             // Send the data using post
             var posting = $.post("<?php echo base_url(); ?>template/filter_site_data", {site: em});
 
-
             // Put the results in a div
             posting.done(function (data) {
                 //console.log(data);
@@ -67,11 +72,11 @@
                     $(".display_date").html("( " + obj['year'] + " " + obj['month'] + " )");
                     $(".display_range").html("( " + obj['year'] + " )");
                 });
+                var view_age_cat = localStorage.getItem("view_cat_age");
 
                 /*$.get("<?php echo base_url(); ?>template/breadcrum", function(data){
                  $("#breadcrum").html(data);
                  });*/
-
                 if (em == "NA") {
                     $("#siteOutcomes").html("<center><div class='loader'></div></center>");
                     $("#siteOutcomes").load("<?php echo base_url('charts/sites/site_outcomes'); ?>");
@@ -94,6 +99,11 @@
                     $("#tsttrends").load("<?php echo base_url('charts/sites/site_trends'); ?>/" + null + "/" + null + "/" + em);
                     $("#stoutcomes").load("<?php echo base_url('charts/sites/site_outcomes_chart'); ?>/" + null + "/" + null + "/" + em);
                     $("#vlOutcomes").load("<?php echo base_url('charts/sites/site_Vlotcomes'); ?>/" + null + "/" + null + "/" + em);
+                    if (view_age_cat == 0) {
+                        $("#ageGroups").load("<?php echo base_url('charts/sites/site_agegroups'); ?>/" + null + "/" + null + "/" + em);
+                    } else {
+                        $("#ageGroups").load("<?php echo base_url('charts/summaries/p_age'); ?>/" + null + "/" + null + "/" + null + "/" + null + "/" + em);
+                    }
                     $("#ageGroups").load("<?php echo base_url('charts/sites/site_agegroups'); ?>/" + null + "/" + null + "/" + em);
                     $("#gender").load("<?php echo base_url('charts/sites/site_gender'); ?>/" + null + "/" + null + "/" + em);
                     $("#justification").load("<?php echo base_url('charts/sites/site_justification'); ?>/" + null + "/" + null + "/" + em);
@@ -109,7 +119,6 @@
             second = $(".date-picker[name=endDate]").val();
 
             var new_title = set_multiple_date(first, second);
-
             $(".display_date").html(new_title);
 
             from = format_date(first);
@@ -118,7 +127,7 @@
              [1] => year*/
             to = format_date(second);
             var error_check = check_error_date_range(from, to);
-
+            var view_age_cat = localStorage.getItem("view_cat_age");
             if (!error_check) {
                 $.get("<?php echo base_url('sites/check_site_select'); ?>", function (site) {
                     //Checking if site was previously selected and calling the relevant views
@@ -141,7 +150,11 @@
                         $("#tsttrends").load("<?php echo base_url('charts/sites/site_trends'); ?>/" + from[1] + "/" + from[0] + "/" + site + "/" + to[1] + "/" + to[0]);
                         $("#stoutcomes").load("<?php echo base_url('charts/sites/site_outcomes_chart'); ?>/" + from[1] + "/" + from[0] + "/" + site + "/" + to[1] + "/" + to[0]);
                         $("#vlOutcomes").load("<?php echo base_url('charts/sites/site_Vlotcomes'); ?>/" + from[1] + "/" + from[0] + "/" + site + "/" + to[1] + "/" + to[0]);
-                        $("#ageGroups").load("<?php echo base_url('charts/sites/site_agegroups'); ?>/" + from[1] + "/" + from[0] + "/" + site + "/" + to[1] + "/" + to[0]);
+                        if (view_age_cat == 0) {
+                            $("#ageGroups").load("<?php echo base_url('charts/sites/site_agegroups'); ?>/" + from[1] + "/" + from[0] + "/" + site + "/" + to[1] + "/" + to[0]);
+                        } else {
+                            $("#ageGroups").load("<?php echo base_url('charts/summaries/p_age'); ?>/" + from[1] + "/" + from[0] + "/" + null + "/" + null + "/" + site + null + "/" + to[1] + "/" + to[0]);
+                        }
                         $("#gender").load("<?php echo base_url('charts/sites/site_gender'); ?>/" + from[1] + "/" + from[0] + "/" + site + "/" + to[1] + "/" + to[0]);
                         $("#justification").load("<?php echo base_url('charts/sites/site_justification'); ?>/" + from[1] + "/" + from[0] + "/" + site + "/" + to[1] + "/" + to[0]);
                         $("#long_tracking").load("<?php echo base_url('charts/sites/get_patients'); ?>/" + from[1] + "/" + from[0] + "/" + site + "/" + to[1] + "/" + to[0]);
@@ -158,7 +171,6 @@
     function date_filter(criteria, id)
     {
         // $("#partner").html("<div>Loading...</div>");
-
         if (criteria === "monthly") {
             year = null;
             month = id;
@@ -168,7 +180,7 @@
         }
 
         var posting = $.post('<?php echo base_url(); ?>template/filter_date_data', {'year': year, 'month': month});
-
+        var view_age_cat = localStorage.getItem("view_cat_age");
         // Put the results in a div
         posting.done(function (data) {
 
@@ -194,7 +206,7 @@
 
             site = localStorage.getItem("site");
             console.log(site);
-
+            localStorage.setItem("view_cat_age", 0);
             if (site == "NA") {
                 $("#siteOutcomes").html("<center><div class='loader'></div></center>");
                 $("#siteOutcomes").load("<?php echo base_url('charts/sites/site_outcomes'); ?>/" + year + "/" + month);
@@ -211,7 +223,11 @@
                 $("#tsttrends").load("<?php echo base_url('charts/sites/site_trends'); ?>/" + year + "/" + month + "/" + site);
                 $("#stoutcomes").load("<?php echo base_url('charts/sites/site_outcomes_chart'); ?>/" + year + "/" + month + "/" + site);
                 $("#vlOutcomes").load("<?php echo base_url('charts/sites/site_Vlotcomes'); ?>/" + year + "/" + month + "/" + site);
-                $("#ageGroups").load("<?php echo base_url('charts/sites/site_agegroups'); ?>/" + year + "/" + month + "/" + site);
+                if (view_age_cat == 0) {
+                    $("#ageGroups").load("<?php echo base_url('charts/sites/site_agegroups'); ?>/" + year + "/" + month + "/" + site);
+                } else {
+                    $("#ageGroups").load("<?php echo base_url('charts/summaries/p_age'); ?>/" + year + "/" + month + "/" + null + "/" + null + "/" + site);
+                }
                 $("#gender").load("<?php echo base_url('charts/sites/site_gender'); ?>/" + year + "/" + month + "/" + site);
                 $("#justification").load("<?php echo base_url('charts/sites/site_justification'); ?>/" + year + "/" + month + "/" + site);
                 $("#long_tracking").load("<?php echo base_url('charts/sites/get_patients'); ?>/" + year + "/" + month + "/" + site);
@@ -219,17 +235,7 @@
             }
         });
 
-        ///console.log(county);
-
-
     }
-
-    // function ageModal()
-    // {
-    // 	$('#agemodal').modal('show');
-    // 	// $('#CatAge').load('<?php echo base_url(); ?>charts/summaries/agebreakdown');
-    // }
-
 
     function justificationModal()
     {
@@ -309,6 +315,16 @@
             $("#switchButton_site_vl").val('<?= lang('label.switch_routine_tests_trends') ?> ');
             $(".vl_site_vl_heading").html('<?= lang('title_test_done_by_county') ?> ');
             $('#vlOutcomes_pie_tests').highcharts().reflow();
+        }
+    }
+    function switch_age_cat() {
+        var view = localStorage.getItem("view_cat_age");
+        if (view == 0) {
+            localStorage.setItem("view_cat_age", 1);
+            $("#ageGroups").load("<?php echo base_url('charts/summaries/p_age'); ?>");
+        } else {
+            localStorage.setItem("view_cat_age", 0);
+            $("#ageGroups").load("<?php echo base_url('charts/sites/site_agegroups'); ?>");
         }
     }
 

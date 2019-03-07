@@ -48,6 +48,18 @@ class Ages extends MY_Controller
 
                 $this->load->view('age_regimen_gender_view',$data);
 	}
+	function p_age_gender2($year=NULL,$month=NULL,$age=NULL,$partner=NULL,$to_year=NULL,$to_month=NULL)
+	{
+		$data['outcomes'] = $this->ages_model->p_ages_gender2($year,$month,$age,$partner,$to_year,$to_month);
+
+                $this->load->view('p_age_regimen_gender_view',$data);
+	}
+	function p_age_gender_regimen($year=NULL,$month=NULL,$age=NULL,$partner=NULL,$regimen=NULL,$to_year=NULL,$to_month=NULL)
+	{
+		$data['outcomes'] = $this->ages_model->p_ages_gender_regimen($year,$month,$age,$partner,$regimen,$to_year,$to_month);
+
+                $this->load->view('p_age_regimen_gender_view',$data);
+	}
 
 	function age_breakdowns($year=NULL,$month=NULL,$age=NULL,$to_year=NULL,$to_month=NULL,$county=null,$partner=null,$subcounty=null,$site=null)
 	{

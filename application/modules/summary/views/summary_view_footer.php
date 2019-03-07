@@ -4,6 +4,7 @@
         localStorage.setItem("view", 0);
         localStorage.setItem("view_gender", 1);
         localStorage.setItem("view_age", 1);
+        localStorage.setItem("view_cat_age", 0);
         localStorage.setItem("view_county", 0);
         $.get("<?php echo base_url(); ?>template/dates", function (data) {
             obj = $.parseJSON(data);
@@ -20,6 +21,7 @@
         $("#vlOutcomes").load("<?php echo base_url('charts/summaries/vl_outcomes'); ?>");
         $("#justification").load("<?php echo base_url('charts/summaries/justification'); ?>");
         $("#ageGroups").load("<?php echo base_url('charts/summaries/age'); ?>");
+        // $("#ageGroups").load("<?php echo base_url('charts/summaries/p_age'); ?>");
         $("#gender").load("<?php echo base_url('charts/summaries/gender'); ?>");
         $("#county_patient").load("<?php echo base_url('charts/summaries/county_outcomes'); ?>");
         $("#county").load("<?php echo base_url('charts/summaries/county_outcomes'); ?>");
@@ -29,6 +31,11 @@
         $(".display_range").load("<?php echo base_url('charts/summaries/display_range'); ?>");
 
         $("select").change(function () {
+            localStorage.setItem("view", 0);
+            localStorage.setItem("view_gender", 1);
+            localStorage.setItem("view_age", 1);
+            localStorage.setItem("view_cat_age", 0);
+            localStorage.setItem("view_county", 0);
             em = $(this).val();
             var all = localStorage.getItem("my_var");
 
@@ -53,8 +60,8 @@
                     $(".display_range").html("( " + obj['prev_year'] + " - " + obj['year'] + " )");
                 });
 
-                // alert(data);
-                    
+                console.log(data);
+                var view_age_cat = localStorage.getItem("view_cat_age");
                 $('.vl_county_heading').html('<?= lang('label.county_sites_outcomes') ?> ');
                 $("#nattat").html("<div><?= lang('label.loading') ?></div>");
                 $("#coverage").html("<div><?= lang('label.loading') ?></div>");
@@ -74,7 +81,11 @@
                 $("#samples").load("<?php echo base_url('charts/summaries/sample_types'); ?>/" + null + "/" + data + "/" + null + "/" + all);
                 $("#vlOutcomes").load("<?php echo base_url('charts/summaries/vl_outcomes'); ?>/" + null + "/" + null + "/" + data);
                 $("#justification").load("<?php echo base_url('charts/summaries/justification'); ?>/" + null + "/" + null + "/" + data);
-                $("#ageGroups").load("<?php echo base_url('charts/summaries/age'); ?>/" + null + "/" + null + "/" + data);
+                if (view_age_cat == 0) {
+                    $("#ageGroups").load("<?php echo base_url('charts/summaries/age'); ?>/" + null + "/" + null + "/" + data);
+                } else {
+                    $("#ageGroups").load("<?php echo base_url('charts/summaries/p_age'); ?>/" + null + "/" + null + "/" + data);
+                }
                 $("#gender").load("<?php echo base_url('charts/summaries/gender'); ?>/" + null + "/" + null + "/" + data);
                 $("#county_patient").load("<?php echo base_url('charts/summaries/county_outcomes'); ?>/" + null + "/" + null + "/" + null + "/" + null + "/" + data);
                 $("#county").load("<?php echo base_url('charts/summaries/county_outcomes'); ?>/" + null + "/" + null + "/" + null + "/" + null + "/" + data);
@@ -83,12 +94,18 @@
         });
 
         $("button").click(function () {
+            localStorage.setItem("view", 0);
+            localStorage.setItem("view_gender", 1);
+            localStorage.setItem("view_age", 1);
+            localStorage.setItem("view_cat_age", 0);
+            localStorage.setItem("view_county", 0);
             var first, second;
             first = $(".date-picker[name=startDate]").val();
             second = $(".date-picker[name=endDate]").val();
             var all = localStorage.getItem("my_var");
 
             var new_title = set_multiple_date(first, second);
+            var view_age_cat = localStorage.getItem("view_cat_age");
 
             $(".display_date").html(new_title);
 
@@ -113,7 +130,11 @@
                 $("#samples").load("<?php echo base_url('charts/summaries/sample_types'); ?>/" + from[1] + "/" + null + "/" + null + "/" + all);
                 $("#vlOutcomes").load("<?php echo base_url('charts/summaries/vl_outcomes'); ?>/" + from[1] + "/" + from[0] + "/" + null + "/" + null + "/" + to[1] + "/" + to[0]);
                 $("#justification").load("<?php echo base_url('charts/summaries/justification'); ?>/" + from[1] + "/" + from[0] + "/" + null + "/" + null + "/" + to[1] + "/" + to[0]);
-                $("#ageGroups").load("<?php echo base_url('charts/summaries/age'); ?>/" + from[1] + "/" + from[0] + "/" + null + "/" + null + "/" + to[1] + "/" + to[0]);
+                if (view_age_cat == 0) {
+                    $("#ageGroups").load("<?php echo base_url('charts/summaries/age'); ?>/" + from[1] + "/" + from[0] + "/" + null + "/" + null + "/" + to[1] + "/" + to[0]);
+                } else {
+                    $("#ageGroups").load("<?php echo base_url('charts/summaries/p_age'); ?>/" + from[1] + "/" + from[0] + "/" + null + "/" + null + "/" + "/" + null + "/" + null + "/" + to[1] + "/" + to[0]);
+                }
                 $("#gender").load("<?php echo base_url('charts/summaries/gender'); ?>/" + from[1] + "/" + from[0] + "/" + null + "/" + null + "/" + to[1] + "/" + to[0]);
                 $("#county_patient").load("<?php echo base_url('charts/summaries/county_outcomes'); ?>/" + from[1] + "/" + from[0] + "/" + null + "/" + null + "/" + null + "/" + to[1] + "/" + to[0]);
                 $("#county").load("<?php echo base_url('charts/summaries/county_outcomes'); ?>/" + from[1] + "/" + from[0] + "/" + null + "/" + null + "/" + null + "/" + to[1] + "/" + to[0]);
@@ -125,6 +146,11 @@
 
     function date_filter(criteria, id)
     {
+        localStorage.setItem("view", 0);
+        localStorage.setItem("view_gender", 1);
+        localStorage.setItem("view_age", 1);
+        localStorage.setItem("view_cat_age", 0);
+        localStorage.setItem("view_county", 0);
         if (criteria === "monthly") {
             year = null;
             month = id;
@@ -132,7 +158,7 @@
             year = id;
             month = null;
         }
-
+        var view_age_cat = localStorage.getItem("view_cat_age");
         var all = localStorage.getItem("my_var");
         var posting = $.post('<?php echo base_url(); ?>template/filter_date_data', {'year': year, 'month': month});
 
@@ -147,7 +173,7 @@
             $(".display_range").html("( " + obj['prev_year'] + " - " + obj['year'] + " )");
 
         });
- //       console.log(year +" : "+ month);
+        //       console.log(year +" : "+ month);
 
         $("#nattat").html("<div><?= lang('label.loading') ?></div>");
         $("#samples").html("<center><div class='loader'></div></center>");
@@ -162,12 +188,16 @@
         $("#samples").load("<?php echo base_url('charts/summaries/sample_types'); ?>/" + year + "/" + null + "/" + null + "/" + all);
         $("#vlOutcomes").load("<?php echo base_url('charts/summaries/vl_outcomes'); ?>/" + year + "/" + month);
         $("#justification").load("<?php echo base_url('charts/summaries/justification'); ?>/" + year + "/" + month);
-        $("#ageGroups").load("<?php echo base_url('charts/summaries/age'); ?>/" + year + "/" + month);
+        if (view_age_cat == 0) {
+            $("#ageGroups").load("<?php echo base_url('charts/summaries/age'); ?>/" + year + "/" + month);
+        } else {
+            $("#ageGroups").load("<?php echo base_url('charts/summaries/p_age'); ?>/" + year + "/" + month);
+        }
         $("#gender").load("<?php echo base_url('charts/summaries/gender'); ?>/" + year + "/" + month);
         $("#county_patient").load("<?php echo base_url('charts/summaries/county_outcomes'); ?>/" + year + "/" + month);
         $("#county").load("<?php echo base_url('charts/summaries/county_outcomes'); ?>/" + year + "/" + month);
         $('#CatAge').load('<?php echo base_url(); ?>charts/summaries/agebreakdown');
- //       console.log(year +" : "+ month);
+        //       console.log(year +" : "+ month);
     }
 
     function switch_source() {
@@ -194,7 +224,7 @@
             $("#vl_outcomes_pie_tests").hide();
             $("#vl_outcomes_pie_pat").show();
             $("#switchButton2").val('<?= lang('label.switch_all_tests') ?>');
-            $(".vl_outcomes_heading").html('<?= lang('title_tested_patients') ?> '); 
+            $(".vl_outcomes_heading").html('<?= lang('title_tested_patients') ?> ');
             $('#vlOutcomes_pie_pat').highcharts().reflow();
         } else {
             localStorage.setItem("view", 0);
@@ -212,7 +242,7 @@
             $("#gender_pie_tests").hide();
             $("#gender_pie_pat").show();
             $("#switchButton_gender").val('<?= lang('label.switch_all_tests') ?>');
-            $(".vl_gender_heading").html('<?= lang('title_tested_patients_by_gender') ?> '); 
+            $(".vl_gender_heading").html('<?= lang('title_tested_patients_by_gender') ?> ');
             $('#gender_pie_pat').highcharts().reflow();
         } else {
             localStorage.setItem("view_gender", 0);
@@ -230,7 +260,7 @@
             $("#ageGroups_pie_tests").hide();
             $("#ageGroups_pie_pat").show();
             $("#switchButton_age").val('<?= lang('label.switch_all_tests') ?>');
-            $(".vl_age_heading").html('<?= lang('title_tested_patients_by_age') ?> '); 
+            $(".vl_age_heading").html('<?= lang('title_tested_patients_by_age') ?> ');
             $('#ageGroups_pie_pat').highcharts().reflow();
         } else {
             localStorage.setItem("view_age", 0);
@@ -248,7 +278,7 @@
             $("#vl_county_pie_tests").hide();
             $("#vl_county_pie_pat").show();
             $("#switchButton_county").val('<?= lang('label.switch_all_tests') ?>');
-            $(".vl_county_heading").html('<?= lang('title_tested_patients_by_county') ?> '); 
+            $(".vl_county_heading").html('<?= lang('title_tested_patients_by_county') ?> ');
             $('#vl_county_pie_pat').highcharts().reflow();
         } else {
             localStorage.setItem("view_county", 0);
@@ -257,6 +287,16 @@
             $("#switchButton_county").val('<?= lang('label.switch_routine_tests_trends') ?> ');
             $(".vl_county_heading").html('<?= lang('title_test_done_by_county') ?> ');
             $('#vl_county_pie_tests').highcharts().reflow();
+        }
+    }
+    function switch_age_cat() {
+        var view = localStorage.getItem("view_cat_age");
+        if (view == 0) {
+            localStorage.setItem("view_cat_age", 1);
+            $("#ageGroups").load("<?php echo base_url('charts/summaries/p_age'); ?>");
+        } else {
+            localStorage.setItem("view_cat_age", 0);
+            $("#ageGroups").load("<?php echo base_url('charts/summaries/age'); ?>");
         }
     }
 </script>

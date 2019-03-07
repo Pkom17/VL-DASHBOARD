@@ -19,7 +19,7 @@ $function = 'expandSiteListing' . $outcomes['modal_name'];
                         <tr>
                             <th>#</th>
                             <th><?= lang('label.name') ?></th>
-                            <th><?= lang('label.tests') ?></th> 
+                            <th><?= lang('tested_patient') ?></th> 
                             <th><?= lang('label.suppressed') ?></th>
                             <th><?= lang('label.non_suppressed') ?></th>
                             <th><?= lang('label.non_suppression') ?></th>

@@ -4,21 +4,19 @@ if ($div_name == 'quarterly_trends') {
     $n = 'q';
 } elseif ($div_name == 'partner_county_outcomes') {
     $n = 'pvl';
-}
-elseif ($div_name == 'regimen_county_outcomes') {
+} elseif ($div_name == 'regimen_county_outcomes') {
     $n = 'rco';
-}
-elseif ($div_name == 'age_county_outcomes') {
+} elseif ($div_name == 'age_county_outcomes') {
     $n = 'aco';
 }
 ?>
 <div id="<?php echo $div_name; ?>">
-    <?PHP
-    if ($div_name == 'age_summary_outcomes_sup' || $div_name == 'regimen_summary_outcomes_sup' || $div_name == 'regimen_county_outcomes' || $div_name == 'age_county_outcomes') { ?>
+    <?PHP if ($div_name == 'age_summary_outcomes_sup' || $div_name == 'regimen_summary_outcomes_sup' || $div_name == 'regimen_county_outcomes' || $div_name == 'age_county_outcomes') { ?>
         <div class = "panel-body" id = "vl_county_pie_pat<?PHP echo $n; ?>" style = "height:450px;padding-bottom:0px;">
-        <center><div class = "loader"></div></center>
+            <center><div class = "loader"></div></center>
         </div>
-    <?php } elseif ($div_name == 'county_subcounties_outcomes') {
+        <?php
+    } elseif ($div_name == 'county_subcounties_outcomes') {
         $n = 's';
         ?>
         <div class="col-md-6 col-sm-12 col-xs-12" >
@@ -26,7 +24,7 @@ elseif ($div_name == 'age_county_outcomes') {
                 <div class="panel-heading" id="heading" style="min-height: 4em;">
                     <div class="col-sm-12">
                         <div class="chart_title vl_subcounty_heading">
-    <?= lang('title_test_done_by_subcounty') ?>
+                            <?= lang('title_test_done_by_subcounty') ?>
                         </div>
                         <div class="display_date"></div>
                     </div> 
@@ -41,7 +39,7 @@ elseif ($div_name == 'age_county_outcomes') {
                 <div class="panel-heading" id="heading" style="min-height: 4em;">
                     <div class="col-sm-12">
                         <div class="chart_title vl_subcounty_heading">
-    <?= lang('title_tested_patients_by_subcounty') ?>
+                            <?= lang('title_tested_patients_by_subcounty') ?>
                         </div>
                         <div class="display_date"></div>
                     </div> 
@@ -51,34 +49,34 @@ elseif ($div_name == 'age_county_outcomes') {
                 </div>
             </div>
         </div>
-    <?PHP
-} else {
-    //
-    ?>
+        <?PHP
+    } else {
+        //
+        ?>
 
         <div class="col-md-12 col-sm-12 col-xs-12">
-        <?PHP if ($div_name != 'current_sup_gender' && $div_name != 'current_sup_age') { ?>
+            <?PHP if ($div_name != 'current_sup_gender' && $div_name != 'current_sup_age') { ?>
                 <div class="panel-body" id="vl_county_pie_tests<?PHP echo $n; ?>" style="height:450px;padding-bottom:0px;">
                     <center><div class="loader"></div></center>
                 </div>
-    <?PHP } ?>
-    <?PHP if ($div_name != 'quarterly_trends' && $div_name != 'partner_trends') { ?>
+            <?PHP } ?>
+            <?PHP if ($div_name != 'quarterly_trends' && $div_name != 'partner_trends') { ?>
                 <div  class="panel-body" id="vl_county_pie_pat<?PHP echo $n; ?>" style="height:450px;padding-bottom:0px;">
                     <center><div class="loader"></div></center>
                 </div>
             </div>
-    <?PHP } ?>
+        <?PHP } ?>
     </div>
-    <?PHP } ?>
+<?PHP } ?>
 <br/>
 <script type="text/javascript">
     $(function () {
 <?PHP if ($n == 's' || $div_name == 'age_summary_outcomes_sup' || $div_name == 'regimen_summary_outcomes_sup' || $div_name == 'regimen_county_outcomes' || $div_name == 'age_county_outcomes') { ?>
         $("#vl_county_pie_pat<?PHP echo $n; ?>").show();
-<?PHP }
-else{ ?>
-$("#vl_county_pie_pat<?PHP echo $n; ?>").hide();
-<?PHP    
+<?PHP } else {
+    ?>
+        $("#vl_county_pie_pat<?PHP echo $n; ?>").hide();
+    <?PHP
 }
 ?>
     $('#vl_county_pie_tests<?PHP echo $n; ?>').highcharts({
@@ -175,7 +173,8 @@ $("#vl_county_pie_pat<?PHP echo $n; ?>").hide();
             categories: <?php echo json_encode($trends['categories']); ?>
             }],
             yAxis: [
-            {// Primary yAxis
+            {
+            // Primary yAxis
             min: 0,
                     max: 100,
                     labels: {
@@ -230,7 +229,7 @@ $("#vl_county_pie_pat<?PHP echo $n; ?>").hide();
                     backgroundColor: '#FFFFFF'
             }, colors: [
             '#f72109',
-            '#DAA520',//'#40bf80',
+            '#DAA520', //'#40bf80',
             '#00ff99'
     ],
             series: <?php echo json_encode($trends['outcomes2']); ?>

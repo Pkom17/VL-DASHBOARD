@@ -231,40 +231,45 @@ class Subcounty_model extends MY_Model {
                 <tr>
 	    		<td>' . lang('total_done_test') . '</td>
 	    		<td>' . number_format($all_total_tests) . '</td>
+                </tr> 
+	    	<tr>
                         <td>' . lang('total_done_test_valid') . '</td>
                         <td>' . number_format($all_total) . '</td>
 	    	</tr> 
 	    	<tr>
 	    		<td>' . lang('total_test_result_inv') . '</td>
-	    		<td>' . $all_invalids . '<br/><b> ( ' . $all_val_inv . '% )</b></td>
+	    		<td>' . $all_invalids . '&nbsp;<b> (' . $all_val_inv . '%)</b></td>
+                </tr> 
+	    	<tr>
 	    		<td>' . lang('total_test_result_und') . '</td>
-	    		<td>' . $all_undetected . '<br/><b> ( ' . $all_val_und . '% )</b></td>
+	    		<td>' . $all_undetected . '&nbsp;<b> (' . $all_val_und . '%)</b></td>
 	    	</tr>
- 
 	    	<tr>
 	    		<td>' . lang('total_test_result_lt1000') . '</td>
-	    		<td>' . $all_less1000 . '<br/><b> ( ' . $all_val_ls . '% )</b></td>
+	    		<td>' . $all_less1000 . '&nbsp;<b> (' . $all_val_ls . '%)</b></td>
+                </tr> 
+	    	<tr>
 	    		<td>' . lang('total_test_result_gt1000') . '</td>
-	    		<td>' . $all_greater . '<br/><b> ( ' . $all_val_gt . '% )</b></td>
+	    		<td>' . $all_greater . '&nbsp;<b> (' . $all_val_gt . '%)</b></td>
 	    	</tr>';
             $data['ul2'] .= '
 			<tr>
 	    		<td>&nbsp;' . lang('total_tested_patient') . '</td>
-	    		<td>' . number_format($total_tests) . '</td>
+	    		<td>' . number_format($total_tests) . '</td> </tr><tr>
                         <td>' . lang('total_suppressed_patient') . '</td>
-                        <td>' . number_format($suppressed) . '<br/><b> ( ' . $val_sup . '% )</td>
+                        <td>' . number_format($suppressed) . '&nbsp;<b> (' . $val_sup . '%)</td>
 	    	</tr>
 	    	<tr>
 	    		<td>&nbsp;' . lang('total_patient_result_inv') . '</td>
-	    		<td>' . number_format($invalids) . '<br/><b> ( ' . $val_inv . '% )</b></td>
+	    		<td>' . number_format($invalids) . '&nbsp;<b> (' . $val_inv . '%)</b></td></tr><tr>
 	    		<td>' . lang('total_patient_result_und') . '</td>
-	    		<td>' . number_format($undetected) . '<br/><b> ( ' . $val_und . '% )</b></td>
+	    		<td>' . number_format($undetected) . '&nbsp;<b> (' . $val_und . '%)</b></td>
 	    	</tr>
 	    	<tr>
 	    		<td>&nbsp;' . lang('total_patient_result_lt1000') . '</td>
-	    		<td>' . number_format($less1000) . '<br/><b> ( ' . $val_ls . '% )</b></td>
+	    		<td>' . number_format($less1000) . '&nbsp;<b> (' . $val_ls . '%)</b></td></tr><tr>
 	    		<td>' . lang('total_patient_result_gt1000') . '</td>
-	    		<td>' . number_format($greater) . '<br/><b> ( ' . $val_gt . '% )</b></td>
+	    		<td>' . number_format($greater) . '&nbsp;<b> (' . $val_gt . '%)</b></td>
 	    	</tr>';
 
             $data['vl_outcomes']['data'][0]['y'] = (int) $value['all_invalids'];
@@ -464,11 +469,11 @@ class Subcounty_model extends MY_Model {
 
     function download_sampletypes($year = null, $subcounty = null) {
         $data = $this->get_sampletypesData($year, $subcounty);
-                $to_remove = ['edta' => '', 'dbs' => '', 'plasma' => '', 'all_plasma' => '', 'suppressed' => '', 'all_suppressed' => '', 'tests' => '', 'suppression' => ''];
+        $to_remove = ['edta' => '', 'dbs' => '', 'plasma' => '', 'all_plasma' => '', 'suppressed' => '', 'all_suppressed' => '', 'tests' => '', 'suppression' => ''];
         foreach ($data as $v) {
             $data1[] = array_diff_key($v, $to_remove);
         }
-         //echo "<pre>";print_r($data1);die();
+        //echo "<pre>";print_r($data1);die();
         $this->load->helper('file');
         $this->load->helper('download');
         $delimiter = ",";
@@ -525,7 +530,7 @@ class Subcounty_model extends MY_Model {
         foreach ($result as $key => $value) {
             $vl = ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['less5000'] + (int) $value['above5000']);
             $vl_und = ((int) $value['undetected']);
-           //$suppressed = ((int) $value['undetected'] + (int) $value['less1000'] );
+            //$suppressed = ((int) $value['undetected'] + (int) $value['less1000'] );
             $non_suppressed = ((int) $value['less5000'] + (int) $value['above5000']);
             $all_non_suppressed = ((int) $value['all_less5000'] + (int) $value['all_above5000']);
             $table .= "<tr>

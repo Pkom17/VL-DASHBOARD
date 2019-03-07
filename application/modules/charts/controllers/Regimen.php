@@ -41,7 +41,7 @@ class Regimen extends MY_Controller
 		$data['outcomes']= $this->regimen_model->regimen_vl_outcomes($year,$month,$regimen,$to_year,$to_month,$partner);
 
 		// $this->load->view('vl_outcomes_view',$data);
-		$this->load->view('vl_outcomes_view',$data);
+		$this->load->view('vl_outcomes_view_regimen',$data);
 	}
 
 	function regimen_gender($year=NULL,$month=NULL,$regimen=NULL,$to_year=NULL,$to_month=NULL,$partner=NULL)
