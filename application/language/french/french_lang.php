@@ -17,7 +17,7 @@ $lang['menu_label.sub-county'] = "Districts";
 $lang['menu_label.partners'] = "Partenaires";
 $lang['menu_label.partner_facilities'] = "Etablissements par partenaires";
 $lang['menu_label.partner_age'] = "Partenaire par âge";
-$lang['menu_label.partner_regimen'] = "Régime de traitement par partenaire";
+$lang['menu_label.partner_regimen'] = "Régime thérapeutique par partenaire";
 $lang['menu_label.partner_counties'] = "Partenaire par régions";
 $lang['menu_label.partner_PMTCT'] = "Partenaire par PTME";
 $lang['menu_label.partner_current_supp'] = "Suppression courante par partenaire";
@@ -25,7 +25,7 @@ $lang['menu_label.lab_perform'] = "Performance du labo";
 $lang['menu_label.facilities'] = "Etablissements";
 $lang['menu_label.facilities_PMTCT'] = "Etablissements par PTME";
 $lang['menu_label.non_supp'] = "Suppression virale";
-$lang['menu_label.regimen_analysis'] = "Analyse par régime de traitement";
+$lang['menu_label.regimen_analysis'] = "Analyse par régime thérapeutique";
 $lang['menu_label.age_analysis'] = "Analyse par age";
 $lang['menu_label.sample_analysis'] = "Analyse par échantillons";
 $lang['menu_label.current_supp'] = "Suppression courante";
@@ -74,7 +74,7 @@ $lang['label.all_partner'] = "Tous les partenaires";
 //regimen_filter_view
 $lang['label.select_PMTCT'] = "Choisir un PTME";
 $lang['label.all_PMTCT'] = "Tous les PTME";
-$lang['label.select_regimen'] = "Choisir régime de traitement";
+$lang['label.select_regimen'] = "Choisir régime thérapeutique";
 $lang['label.all_regimen'] = "Tous les régimes";
 //sample_filter_view
 $lang['label.select_sample_type'] = "Choisir type d'échantillon";
@@ -411,7 +411,7 @@ $lang['label.live_last.update'] = "Dernière mise à jour";
 $lang['label.live_year_date_month.date'] = "Année courante/Mois actuel";
 $lang['label.live_received.samples'] = "Échantillons reçus";
 $lang['label.live_Waiting_Testing.samples'] = "Echantillons en attente(test)";
-$lang['label.live_in_process.samples'] = "Échantillons en traitement";
+$lang['label.live_in_process.samples'] = "Échantillons en cours traitement";
 $lang['label.live_results_pending.approval'] = "Tests en attente de validation";
 $lang['label.live_results_dispatched.today'] = "Nombre de resultats de tests délivrés aujourd'hui";
 $lang['label.live_sample.entry'] = "Entrée d'échantillons";
@@ -446,7 +446,7 @@ $lang['label.pmtct_testing.trends'] = "Tendances des tests";
 $lang['label.pmtct_vl.outcomes'] = "Nombre de tests réalisés ";
 
 //application/modules/regimen_view.php
-$lang['label.regimen.outcomes'] = "Nombre de tests réalisés par régime de traitement";
+$lang['label.regimen.outcomes'] = "Nombre de tests réalisés par régime thérapeutique";
 
 //application/modules/sample_view.php
 $lang['label.sample_outcomes'] = "Nombre de tests réalisés par échantillons";
@@ -666,8 +666,8 @@ $lang['total_test_result_und'] = "Nombre de tests avec résultats indetectables 
 $lang['title_tested_patients'] = "Patients testés";
 $lang['title_tested_patients_by_gender'] = "Nombre de patients testés par genre";
 $lang['title_tested_done_by_gender'] = "Nombre de tests réalisés par genre";
-$lang['title_tested_patients_by_reg'] = "Nombre de patients testés par regime de traitement";
-$lang['title_tested_done_by_reg'] = "Nombre de tests réalisés par regime de traitement";
+$lang['title_tested_patients_by_reg'] = "Nombre de patients testés par régime thérapeutique";
+$lang['title_tested_done_by_reg'] = "Nombre de tests réalisés par régime thérapeutique";
 $lang['title_tested_patients_by_age'] = "Nombre de patients testés par tranche d&apos;âge";
 $lang['title_tested_done_by_age'] = "Nombre de tests réalisés par tranche d&apos;âge";
 $lang['title_tested_patients_by_county'] = "Nombre de patients testés par régions";
