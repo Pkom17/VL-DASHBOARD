@@ -545,6 +545,7 @@ class Summaries_model extends MY_Model {
         $over1000 = 0;
         $non_suppressed = 0;
         $suppressed = 0;
+        $suppression = 0;
 
         // echo "<pre>";print_r($result);die();
         $data['ageGnd'][0]['name'] = lang('label.gt1000');
@@ -553,7 +554,11 @@ class Summaries_model extends MY_Model {
         $data['ageGnd'][3]['name'] = lang('label.invalids');
         $data['ageGnd2'][0]['name'] = lang('label.not_suppressed');
         $data['ageGnd2'][1]['name'] = lang('label.suppressed');
+        $data['ageGnd2'][2]['name'] = lang('label.suppression');
 
+         $data['ageGnd2'][2]['type'] = "spline";
+         $data['ageGnd2'][2]['yAxis'] = 1;
+        $data['ageGnd2'][2]['tooltip'] = array("valueSuffix" => ' %');
         $count = 0;
 
         $data["ageGnd"][0]["data"][0] = $count;
@@ -562,6 +567,7 @@ class Summaries_model extends MY_Model {
         $data["ageGnd"][3]["data"][0] = $count;
         $data["ageGnd2"][0]["data"][0] = $count;
         $data["ageGnd2"][1]["data"][0] = $count;
+        $data["ageGnd2"][2]["data"][0] = $count;
         $data['categories'][0] = lang('label.no_data');
 
         foreach ($result as $key => $value) {
@@ -574,6 +580,7 @@ class Summaries_model extends MY_Model {
                 $over1000 = $value['all_nonsuppressed'];
                 $non_suppressed = $value['nonsuppressed'];
                 $suppressed = (int) $value['undetected'] + (int) $value['less1000'];
+                $suppression = round(@(($suppressed * 100) / ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['nonsuppressed'] )), 1);
             } else if ($value['name'] == lang('label.less2')) {
                 $loop = $key;
                 $name = $value['name'];
@@ -583,6 +590,7 @@ class Summaries_model extends MY_Model {
                 $over1000 = $value['all_nonsuppressed'];
                 $non_suppressed = $value['nonsuppressed'];
                 $suppressed = (int) $value['undetected'] + (int) $value['less1000'];
+                $suppression = round(@(($suppressed * 100) / ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['nonsuppressed'] )), 1);
             } else if ($value['name'] == lang('label.less9')) {
                 $loop = $key;
                 $name = $value['name'];
@@ -592,6 +600,7 @@ class Summaries_model extends MY_Model {
                 $over1000 = $value['all_nonsuppressed'];
                 $non_suppressed = $value['nonsuppressed'];
                 $suppressed = (int) $value['undetected'] + (int) $value['less1000'];
+                $suppression = round(@(($suppressed * 100) / ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['nonsuppressed'] )), 1);
             } else if ($value['name'] == lang('label.less14')) {
                 $loop = $key;
                 $name = $value['name'];
@@ -601,6 +610,7 @@ class Summaries_model extends MY_Model {
                 $over1000 = $value['all_nonsuppressed'];
                 $non_suppressed = $value['nonsuppressed'];
                 $suppressed = (int) $value['undetected'] + (int) $value['less1000'];
+                $suppression = round(@(($suppressed * 100) / ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['nonsuppressed'] )), 1);
             } else if ($value['name'] == lang('label.less19')) {
                 $loop = $key;
                 $name = $value['name'];
@@ -610,6 +620,7 @@ class Summaries_model extends MY_Model {
                 $over1000 = $value['all_nonsuppressed'];
                 $non_suppressed = $value['nonsuppressed'];
                 $suppressed = (int) $value['undetected'] + (int) $value['less1000'];
+                $suppression = round(@(($suppressed * 100) / ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['nonsuppressed'] )), 1);
             } else if ($value['name'] == lang('label.less24')) {
                 $loop = $key;
                 $name = $value['name'];
@@ -619,6 +630,7 @@ class Summaries_model extends MY_Model {
                 $over1000 = $value['all_nonsuppressed'];
                 $non_suppressed = $value['nonsuppressed'];
                 $suppressed = (int) $value['undetected'] + (int) $value['less1000'];
+                $suppression = round(@(($suppressed * 100) / ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['nonsuppressed'] )), 1);
             } else if ($value['name'] == lang('label.over25')) {
                 $loop = $key;
                 $name = $value['name'];
@@ -628,6 +640,7 @@ class Summaries_model extends MY_Model {
                 $over1000 = $value['all_nonsuppressed'];
                 $non_suppressed = $value['nonsuppressed'];
                 $suppressed = (int) $value['undetected'] + (int) $value['less1000'];
+                $suppression = round(@(($suppressed * 100) / ((int) $value['undetected'] + (int) $value['less1000'] + (int) $value['nonsuppressed'] )), 1);
             }
 
             $data['categories'][$loop] = $name;
@@ -637,6 +650,7 @@ class Summaries_model extends MY_Model {
             $data["ageGnd"][3]["data"][$loop] = (int) $invalids;
             $data["ageGnd2"][0]["data"][$loop] = (int) $non_suppressed;
             $data["ageGnd2"][1]["data"][$loop] = (int) $suppressed;
+            $data["ageGnd2"][2]["data"][$loop] = $suppression;
         }
         $data['categories'] = array_values($data['categories']);
         $data["ageGnd"][0]["data"] = array_values($data["ageGnd"][0]["data"]);
@@ -645,6 +659,7 @@ class Summaries_model extends MY_Model {
         $data["ageGnd"][3]["data"] = array_values($data["ageGnd"][3]["data"]);
         $data["ageGnd2"][0]["data"] = array_values($data["ageGnd2"][0]["data"]);
         $data["ageGnd2"][1]["data"] = array_values($data["ageGnd2"][1]["data"]);
+        $data["ageGnd2"][2]["data"] = array_values($data["ageGnd2"][2]["data"]);
 //         echo "<pre>";print_r($data);die();
         return $data;
     }

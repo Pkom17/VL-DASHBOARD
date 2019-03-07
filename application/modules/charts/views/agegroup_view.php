@@ -1,8 +1,8 @@
 <?PHP if ($div_name != 'current_sup_age') { ?>
-    <div id="ageGroups_pie_tests" style="height:450px;">
+    <div id="ageGroups_pie_tests" style="height:400px;">
     </div>
 <?PHP } ?>
-<div id="ageGroups_pie_pat" style="height:450px;">
+<div id="ageGroups_pie_pat" style="height:400px;">
 
 </div>
 <script type="text/javascript">
@@ -79,11 +79,12 @@
             xAxis: {
                 categories: <?php echo json_encode($outcomes['categories']); ?>
             },
-            yAxis: [{
+            yAxis: [
+        {
                     gridLineWidth: 1,
                     min: 0,
                     title: {
-                        text: '<?= lang('label.tests') ?>'
+                        text: '<?= lang('title_tested_patients') ?>'
                     },
                     stackLabels: {
                         rotation: 0,
@@ -94,6 +95,7 @@
                         },
                         y: -10
                     }
+                    ,endOnTick: true
                 },
                 {
                     min: 0,
@@ -113,6 +115,7 @@
                         }
                     },
                     opposite: true
+                    ,endOnTick: true
                 }
             ],
             legend: {
