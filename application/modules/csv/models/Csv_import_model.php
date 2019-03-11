@@ -203,7 +203,7 @@ class Csv_import_model extends CI_Model {
             //echo $proc.'('. $min_date . ',' . $max_date .','.$min_month.','.$min_year.','.$max_month.','.$max_year. ')<br>';      
             $this->db->query('CALL ' . $proc . '(' . $min_date . ',' . $max_date . ',' . $min_month . ',' . $min_year . ',' . $max_month . ',' . $max_year . ')');
         }
-        $this->db->query('CALL maj_vl_site_suppression('.$min_year.','.$max_year.')');
+        $this->db->query('CALL maj_vl_site_suppression()');
         // die();
     }
 
