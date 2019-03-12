@@ -34,6 +34,7 @@ class County extends MY_Controller {
 	function countyMap()
 	{
 		$this->data['county'] = TRUE;
+                
 		$this->data['content_view'] = 'county/county_map';
 		$this -> template($this->data);
 	}

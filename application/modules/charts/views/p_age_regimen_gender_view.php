@@ -17,7 +17,7 @@
 
 <script type="text/javascript">
     $(function () {
-        $('#p_age_gender_pat').hide();
+        $('#p_age_gender_tests').hide();
         $('#p_age_gender_pat_male').highcharts({
             chart: {
                 type: 'bar'
@@ -41,15 +41,6 @@
                         step: 1
                     }
                 }
-//                ,{
-//                    opposite: true,
-//                    reversed: false,
-//                    categories: <?php echo json_encode($outcomes['categories']['age']); ?>,
-//                    linkedTo: 0,
-//                    labels: {
-//                        step: 1
-//                    }
-//                }
             ],
             yAxis: {
                 title: {
@@ -74,10 +65,20 @@
             },
             tooltip: {
                 formatter: function () {
-                    return '<b>' + this.series.name + ', age ' + this.point.category + '</b>: ' +
-                            Highcharts.numberFormat(Math.abs(this.point.y), 0) + '<br/>' +
-                            'Total: ' + Highcharts.numberFormat(Math.abs(this.point.stackTotal), 0);
-                }
+                    var s = '<b>' + this.x + '</b>',
+                            sum = 0;
+                    $.each(this.points, function (i, point) {
+                        s += '<br/> <span style="color: '+point.series.color+'">\u25CF</span> '+ point.series.name + ': ' +
+                               '<b>'+Highcharts.numberFormat(Math.abs(point.y),0)+'</b>  ('+ Highcharts.numberFormat(point.percentage,1) +'%)';
+                        sum += point.y;
+                    });
+
+                    s += '<br/>Total:  <b>' + Highcharts.numberFormat(Math.abs(sum),0)+'</b>';
+
+                    return s;
+                },
+                shared: true
+
             },
             plotOptions: {
                 series: {
@@ -110,15 +111,6 @@
                         step: 1
                     }
                 }
-//                ,{
-//                    opposite: true,
-//                    reversed: false,
-//                    categories: <?php echo json_encode($outcomes['categories']['age']); ?>,
-//                    linkedTo: 0,
-//                    labels: {
-//                        step: 1
-//                    }
-//                }
             ],
             yAxis: {
                 title: {
@@ -143,10 +135,19 @@
             },
             tooltip: {
                 formatter: function () {
-                    return '<b>' + this.series.name + ', age ' + this.point.category + '</b>: ' +
-                            Highcharts.numberFormat(Math.abs(this.point.y), 0) + '<br/>' +
-                            'Total: ' + Highcharts.numberFormat(Math.abs(this.point.stackTotal), 0);
-                }
+                    var s = '<b>' + this.x + '</b>',
+                            sum = 0;
+                    $.each(this.points, function (i, point) {
+                        s += '<br/> <span style="color: '+point.series.color+'">\u25CF</span> '+ point.series.name + ': ' +
+                               '<b>'+Highcharts.numberFormat(Math.abs(point.y),0)+'</b>  ('+ Highcharts.numberFormat(point.percentage,1) +'%)';
+                        sum += point.y;
+                    });
+
+                    s += '<br/>Total:  <b>' + Highcharts.numberFormat(Math.abs(sum),0)+'</b>';
+
+                    return s;
+                },
+                shared: true
             },
             plotOptions: {
                 series: {
@@ -180,16 +181,6 @@
                         step: 1
                     }
                 }
-//                ,
-//                {
-//                    opposite: true,
-//                    reversed: false,
-//                    categories: <?php echo json_encode($outcomes['categories']['age']); ?>,
-//                    linkedTo: 0,
-//                    labels: {
-//                        step: 1
-//                    }
-//                }
             ],
             yAxis: {
                 title: {
@@ -213,11 +204,19 @@
                 shadow: true
             },
             tooltip: {
-//                formatter: function () {
-//                    return '<b>' + this.series.name + ', age ' + this.point.category + '</b>: ' +
-//                            Highcharts.numberFormat(Math.abs(this.point.y), 0) + '<br/>' +
-//                            'Total: ' + Highcharts.numberFormat(Math.abs(this.point.stackTotal), 0);
-//                }
+                formatter: function () {
+                    var s = '<b>' + this.x + '</b>',
+                            sum = 0;
+                    $.each(this.points, function (i, point) {
+                        s += '<br/> <span style="color: '+point.series.color+'">\u25CF</span> '+ point.series.name + ': ' +
+                               '<b>'+Highcharts.numberFormat(Math.abs(point.y),0)+'</b>  ('+ Highcharts.numberFormat(point.percentage,1) +'%)';
+                        sum += point.y;
+                    });
+
+                    s += '<br/>Total:  <b>' + Highcharts.numberFormat(Math.abs(sum),0)+'</b>';
+
+                    return s;
+                },
                 shared: true
             },
             plotOptions: {
@@ -251,16 +250,6 @@
                         step: 1
                     }
                 }
-//                ,
-//                {
-//                    opposite: true,
-//                    reversed: false,
-//                    categories: <?php echo json_encode($outcomes['categories']['age']); ?>,
-//                    linkedTo: 0,
-//                    labels: {
-//                        step: 1
-//                    }
-//                }
             ],
             yAxis: {
                 title: {
@@ -284,11 +273,19 @@
                 shadow: true
             },
             tooltip: {
-//                formatter: function () {
-//                    return '<b>' + this.series.name + ', age ' + this.point.category + '</b>: '+
-//                            Highcharts.numberFormat(Math.abs(this.point.y), 0)+'<br/>' +
-//                            'Total: ' + Highcharts.numberFormat(Math.abs(this.point.stackTotal), 0);
-//                }
+                formatter: function () {
+                    var s = '<b>' + this.x + '</b>',
+                            sum = 0;
+                    $.each(this.points, function (i, point) {
+                        s += '<br/> <span style="color: '+point.series.color+'">\u25CF</span> '+ point.series.name + ': ' +
+                               '<b>'+Highcharts.numberFormat(Math.abs(point.y),0)+'</b>  ('+ Highcharts.numberFormat(point.percentage,1) +'%)';
+                        sum += point.y;
+                    });
+
+                    s += '<br/>Total:  <b>' + Highcharts.numberFormat(Math.abs(sum),0)+'</b>';
+
+                    return s;
+                },
                 shared: true
             },
             plotOptions: {

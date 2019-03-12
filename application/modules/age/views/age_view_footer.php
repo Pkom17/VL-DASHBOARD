@@ -197,9 +197,11 @@
         if (view == 0) {
             localStorage.setItem("view_cat_age", 1);
             $("#age_outcomes").load("<?php echo base_url('charts/summaries/p_age'); ?>");
+            $(".btn_switch_age_group").html("<?= lang('classification.first') ?>");
         } else {
             localStorage.setItem("view_cat_age", 0);
             $("#age_outcomes").load("<?php echo base_url('charts/ages/age_outcomes_sup'); ?>");
+            $(".btn_switch_age_group").html("<?= lang('classification.second') ?>");
         }
     }
 </script>

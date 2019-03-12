@@ -80,6 +80,7 @@
 
 <script type="text/javascript">
   $(function() {
+      $.datepicker.setDefaults( $.datepicker.regional[ "<?= lang('lang_prefix'); ?>" ] ); 
     $('.date-picker').datepicker( {
         changeMonth: true,
         changeYear: true,

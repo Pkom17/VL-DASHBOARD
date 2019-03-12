@@ -701,8 +701,8 @@ $lang['tested_patient'] = "Patients testés";
 $lang['title_test_result_trends'] = "Tendance des résultats des tests";
 $lang['title_partners_counties'] = "Régions par partenaire";
 $lang['label_click_to_switch_agecat'] = "Cliquez pour changer la classification d'âge";
-$lang['classification.first'] = "Classification 1";
-$lang['classification.second'] = "Classification 2";
+$lang['classification.first'] = "Voir par classe d'âge de la partie nationale";
+$lang['classification.second'] = "Voir par classe d'âge plus détaillée ";
 
 
 

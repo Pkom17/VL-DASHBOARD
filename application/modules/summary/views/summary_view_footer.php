@@ -25,7 +25,7 @@
         $("#gender").load("<?php echo base_url('charts/summaries/gender'); ?>");
         $("#county_patient").load("<?php echo base_url('charts/summaries/county_outcomes'); ?>");
         $("#county").load("<?php echo base_url('charts/summaries/county_outcomes'); ?>");
-        $('#CatAge').load('<?php echo base_url(); ?>charts/summaries/agebreakdown');
+        //$('#CatAge').load('<?php echo base_url(); ?>charts/summaries/agebreakdown');
 
         $(".display_date").load("<?php echo base_url('charts/summaries/display_date'); ?>");
         $(".display_range").load("<?php echo base_url('charts/summaries/display_range'); ?>");
@@ -294,9 +294,11 @@
         if (view == 0) {
             localStorage.setItem("view_cat_age", 1);
             $("#ageGroups").load("<?php echo base_url('charts/summaries/p_age'); ?>");
+            $(".btn_switch_age_group").html("<?= lang('classification.first') ?>");
         } else {
             localStorage.setItem("view_cat_age", 0);
             $("#ageGroups").load("<?php echo base_url('charts/summaries/age'); ?>");
+            $(".btn_switch_age_group").html("<?= lang('classification.second') ?>");
         }
     }
 </script>

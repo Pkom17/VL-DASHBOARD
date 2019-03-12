@@ -535,7 +535,7 @@ class Summaries_model extends MY_Model {
         // echo "<pre>";print_r($sql);die();
         $query = $this->db->query($sql);
         $result = $query->result_array();
-        // echo "<pre>";print_r($result);die();
+       //  echo "<pre>";print_r($result);die();
         $count = 0;
         $loop = 0;
         $name = '';
@@ -547,7 +547,7 @@ class Summaries_model extends MY_Model {
         $suppressed = 0;
         $suppression = 0;
 
-        // echo "<pre>";print_r($result);die();
+//         echo "<pre>";print_r($result);die();
         $data['ageGnd'][0]['name'] = lang('label.gt1000');
         $data['ageGnd'][1]['name'] = lang('label.lt1000');
         $data['ageGnd'][2]['name'] = lang('label.undetectable');

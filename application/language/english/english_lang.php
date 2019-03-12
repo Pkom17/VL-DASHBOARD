@@ -98,7 +98,7 @@ $lang['label.sub_counties'] = "Sub-counties";
 $lang['label.facilities'] = "Facilities";
 $lang['label.county_outcomes'] = "County Outcomes";
 //baseline_view.php
-$lang['label.not_suppressed'] = "Not Suppressed: XXXX";
+$lang['label.not_suppressed'] = "Not Suppressed";
 $lang['label.tests_by_sample'] = "Tests by Sample Type";
 $lang['label.tests_by_gender'] = "Tests by Gender";
 $lang['label.tests_by_age'] = "Tests by Age";
@@ -705,5 +705,5 @@ $lang['tested_patient'] = "Patients tested";
 $lang['title_test_result_trends'] = "Testing trends";
 $lang['title_partners_counties'] = "Counties by partner";
 $lang['label_click_to_switch_agecat'] = "Click to switch  age classification";
-$lang['classification.first'] = "Classification 1";
-$lang['classification.second'] = "Classification 2";
+$lang['classification.first'] = "MOH age group view";
+$lang['classification.second'] = "More detailed age group view";

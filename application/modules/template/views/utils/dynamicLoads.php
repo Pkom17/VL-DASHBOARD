@@ -43,6 +43,6 @@
 	echo "<".$jsTag." src='//cdn.datatables.net/responsive/2.1.1/js/dataTables.responsive.js'".$jsTagType."></".$jsTag.">\n";
 	echo "<".$jsTag." src='//cdn.datatables.net/buttons/1.4.2/js/dataTables.buttons.min.js'".$jsTagType."></".$jsTag.">\n";
 	echo "<".$jsTag." src='//cdn.datatables.net/buttons/1.4.2/js/buttons.html5.min.js'".$jsTagType."></".$jsTag.">\n";
-	echo "<".$jsTag." src='//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js'".$jsTagType."></".$jsTag.">\n";
+	//echo "<".$jsTag." src='//cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js'".$jsTagType."></".$jsTag.">\n";
 
 	

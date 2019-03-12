@@ -17,6 +17,7 @@ class Labs extends MY_Controller
 	public function index()
 	{
 		$this->data['labs'] = TRUE;
+                $this->clear_all_session_data();
 		$this->data['content_view'] = 'labs/labs_summary_view';
 		$this -> template($this->data);
 	}

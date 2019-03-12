@@ -81,7 +81,7 @@
             },
             yAxis: [
         {
-                    gridLineWidth: 1,
+                    gridLineWidth: 0,
                     min: 0,
                     title: {
                         text: '<?= lang('title_tested_patients') ?>'

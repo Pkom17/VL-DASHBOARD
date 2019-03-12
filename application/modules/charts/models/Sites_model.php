@@ -455,6 +455,7 @@ class Sites_model extends MY_Model {
         $data["ageGnd2"][1]["data"][0] = $count;
         $data["ageGnd2"][2]["data"][0] = $count;
         $data['categories'][0] = lang('label.no_data');
+        $data['ageGnd2'][2]['tooltip'] = array("valueSuffix" => ' %');
 
         $data['ageGnd'][0]['type'] = "column";
         $data['ageGnd'][1]['type'] = "column";
@@ -544,7 +545,7 @@ class Sites_model extends MY_Model {
             $data["ageGnd"][3]["data"][$loop] = (int) $all_invalids;
             $data["ageGnd2"][0]["data"][$loop] = (int) $nonsuppressed;
             $data["ageGnd2"][1]["data"][$loop] = (int) $suppressed;
-            $data["ageGnd2"][2]["data"][$loop] = (int) $suppression;
+            $data["ageGnd2"][2]["data"][$loop] = $suppression;
         }
         // die();
         $data['ageGnd'][0]['drilldown']['color'] = '#913D88';

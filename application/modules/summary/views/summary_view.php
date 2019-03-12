@@ -160,8 +160,8 @@
             </div>
             <div>
                <center>
-                   <a type="button" class="btn btn-default"  style="background-color: #2f80d1;color: white; margin-top: 1em;margin-bottom: 1em;" onclick="switch_age_cat()" > 
-                        <?= lang('label_click_to_switch_agecat'); ?></a>
+                   <a type="button" class="btn btn-default btn_switch_age_group"   style="background-color: #2f80d1;color: white; margin-top: 1em;margin-bottom: 1em;" onclick="switch_age_cat()" > 
+                   <?= lang('classification.second'); ?></a>
                 </center>
             </div>
         </div>

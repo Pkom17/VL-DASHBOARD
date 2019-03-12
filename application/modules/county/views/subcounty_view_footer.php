@@ -289,9 +289,11 @@
         if (view == 0) {
             localStorage.setItem("view_cat_age", 1);
             $("#age").load("<?php echo base_url('charts/summaries/p_age'); ?>");
+            $(".btn_switch_age_group").html("<?= lang('classification.first') ?> ");
         } else {
             localStorage.setItem("view_cat_age", 0);
             $("#age").load("<?php echo base_url('charts/subcounties/subcounty_age'); ?>");
+            $(".btn_switch_age_group").html("<?= lang('classification.second') ?> ");
         }
     }
 </script>

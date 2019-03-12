@@ -19,12 +19,12 @@
                 <div class="panel-heading" style="min-height: 4em;">
                     <div class="col-sm-7">
                         <div class="chart_title vl_subcounty_heading">
-                            <?= lang('label.age_outcomes') ?> 
+                            <?= lang('title_tested_patients_by_age') ?> 
                         </div>
                         <div class="display_date"></div>
                     </div> 
                     <div class="col-sm-5">
-                        <input type="submit" class="btn btn-primary switchButton" id="switchButton_vl_age" onclick="switch_source_vl_p_age1()" value="<?= lang('label.switch_routine_tests_trends'); ?>"> 
+                        <input type="submit" class="btn btn-primary switchButton" id="switchButton_vl_age" onclick="switch_source_vl_p_age1()" value="<?= lang('label.switch_all_tests'); ?>"> 
                     </div>
                 </div>
                 <div class="panel-body" id="age_outcomes">
